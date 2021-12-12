@@ -1,11 +1,10 @@
-public class OperatoryArytmetyczne {
+public class Operatory {
 
     public static void main(String[] args) {
 
-        int a = 10;
-        int b = 20;
-        int c;
+        int a = 10, b= 20, c;
         double d ;
+        boolean x;
 
         // Proste działania;
         c = a + b;
@@ -25,6 +24,13 @@ public class OperatoryArytmetyczne {
 
         // Zamiast rożnych rodzajów nawiasów są tylko zwykłe
         c = ((2 +2)*2)-2;
+
+        x = a >= b; //a jest większe bądź równe b
+        x = a == b; //a jest równe b
+        x = !false; // ! działa jako negacja tzn. odwrócenie.
+        x = 1 == 1 && 2 == 2; // && działa jako i
+        x = 1 == 2 || 1 == 3; // || działa jako lub
+
 
     }
 }
