@@ -1,7 +1,7 @@
 public class TypyDanych {
 
-    // Pojedyńczy znak. Musi być w '' zamiast ""
-    char aChar = 'a';
+    // Pojedyńczy znak. 
+    char aChar = 'a'; //Musi być w '' zamiast ""
 
     // Ciąg znaków.
     String aString = "test test"; // \n przeskakuje do kolejnej linijki.
