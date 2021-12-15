@@ -6,7 +6,7 @@ public class TypyDanych {
     // Ciąg znaków.
     String aString = "test test"; // \n przeskakuje do kolejnej linijki.
 
-    // Boolean. Przyjmuje true albo false. Domyślnie przyjmuje false.
+    // Boolean. Domyślnie przyjmuje false.
     boolean aBoolean = true;
     boolean bBoolean = false;
 

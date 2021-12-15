@@ -4,7 +4,7 @@ public class Nazewnictwo {
     // class ErrorChecker;
 
     //Metoda. Z małej
-    void errorChecker(){
+    void errorChecker() {
     }
 
     //Zmienna. Z malej
