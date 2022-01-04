@@ -1,4 +1,5 @@
 package Zadania.Klasy;
+
 /*
 Utwórz klasę Human reprezentującą człowieka, musi posiadać atrybuty takie jak wiek, waga, wzrost, imię i płeć.
 po swtorzeniu czlowieka, niech się przedstawi.
@@ -19,6 +20,10 @@ public class Human {
         this.name = name;
         this.isFemale = isFemale;
         introduce();
+    }
+
+    public Human (String imie){
+        this.name = imie;
     }
 
     public void introduce() {
