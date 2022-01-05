@@ -10,7 +10,7 @@ public class Kolekcje {
         Human h2 = new Human("andrzej");
         Human h3 = new Human("bob");
 
-        //--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
         //Lista niegeneryczna
         ArrayList list = new ArrayList(); // trzeba importować  przez java.util.Arraylist
         // powyzszy przykład jest typem niegenerycznym tj. mozna wrzucac do niego dowolne obiekty roznego typu
@@ -35,12 +35,14 @@ public class Kolekcje {
             System.out.println(((Human) a).getName()); // Trzeba wykonac rzutowanie na obiekt ponieważ a jest z klasy,
             //Obiekt a nie Human. trzeba też dać ((a)b).c) to w nawiasach bo najpierw wykonuje sie to po kropce
         }
+
+        list.isEmpty(); // sprawdza czy lista jest pusta
         // get
         //String name = ((Human)list.get(0)).getName(); // taka sama sytuacja co u góry
-//TODO rozkminić czemu sie nie kompilukje.
+        //TODO rozkminić czemu sie nie kompilukje.
 
 
-        //--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
         //Lista gneryczna
         ArrayList<Human> arrayList = new ArrayList<>();
         // powyzszy przykład jest typem generycznym tj. mozna wrzucac do niego tylko zadeklarowane obiekty
@@ -66,22 +68,23 @@ public class Kolekcje {
         }
         // get
         // String name2 = (arrayList.get(0)).getName(); // taka sama sytuacja co u góry
-//TODO rozkminić czemu sie nie kompilukje.
+        //TODO rozkminić czemu sie nie kompilukje.
 
 
-        //--------------------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------------------
         LinkedList<Human> linkedList = new LinkedList<>();
         // działa tak samo jak ArrayList'a jednak jest ona szybsza gdy mamy duze zbiory danych do obslużenia.
 
 
-        //--------------------------------------------------------------------------------------
-        String pierwszy = "Pierwszy człowiek";
-        String drugi = "Drugi człowiek";
+//--------------------------------------------------------------------------------------
 
         //HashMapa
         // zawiera dwa elementy powiązaneze sobą elementy. 1- Key, 2- Value.Nie mogą być typu prostego.
         HashMap<String, Human> hashMap = new HashMap<>();
 
+        String pierwszy = "Pierwszy człowiek";
+        String drugi = "Drugi człowiek";
         //dodawanie
         hashMap.put(pierwszy, h1);
         hashMap.put(drugi, h2);
@@ -101,7 +104,7 @@ public class Kolekcje {
 
 
 
-        //--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
         //HashSet - działa podobnie jak lista, z tym, że nie zapamiętuje kolejności (zawsze ma losowe)
         HashSet<Human> hashSet = new HashSet<>();
 
@@ -116,7 +119,7 @@ public class Kolekcje {
 
 
 
-        //--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
         //LinkedHashSet - działa jak lista, z tym, że nie przyjmuje takich samych obiektów
         LinkedHashSet<Human> linkedHashSet = new LinkedHashSet<>();
 
@@ -130,7 +133,40 @@ public class Kolekcje {
 
 
 
-        //--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------
+        // Kolejka - operacje zawsze sa wykonywane na pierwszym obiekcie w kolekcji.
+
+        Queue<Integer> queue = new ArrayDeque<>();
+
+        // gdy coś dodamy w kolejce ląduje na KOŃCU kolejki!!!
+        queue.add(1); // w przypadku próby dodania złego obiektu rzuca wyjatkiem
+        queue.add(2);
+        queue.offer(3); // w przypadku próby dodania obiektu rzuca wartoscia domyslna
+        queue.offer(5);
+
+        queue.remove(); // w przypadku próby usuniecia złego obiektu rzuca wyjatkiem. Przy operacji zwraca obiekt
+        queue.poll();  // w przypadku próby usuniecia obiektu rzuca wartoscia domyslna. Przy operacji zwraca obiekt
+
+        queue.element(); // gdy nie ma zadnego (lub jest zły) obiektu rzuca wyjatkiem. Przy operacji zwraca obiekt
+        queue.peek(); // gdy nie ma zadnego (lub jest zły) obiektu rzuca wartościa domyślną. Przy operacji zwraca obiekt
+        // reszta jak w liscie
+
+
+//--------------------------------------------------------------------------------------
+        // Stos- działa podobnie jak koleja z tym, że gdy cos dodajemy to ląduje na POCZĄTKU
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3); // w przypadku próby dodania obiektu rzuca wartoscia domyslna
+        stack.push(4);
+
+        stack.pop(); // w przypadku próby usuniecia obiektu rzuca wartoscia domyslna. Przy operacji zwraca obiekt
+        stack.empty(); // sprawdza czy kolekcja jest pusta
+        // reszta jak w kolejce/liscie
+
+
+//--------------------------------------------------------------------------------------
         // Klasa Collections - obsluga kolejkcji.
 
         Collections.sort(list); // sortuje od najmniejszej do najwiekszej lub od a do b
@@ -138,6 +174,6 @@ public class Kolekcje {
         Collections.max(list); // zwraca największa lub ostatnią alfaetycznie
         Collections.reverse(list); // odwraca kolejkcje. ostatni to pierwszy i vice versa
         Collections.shuffle(list); // przetasowuje w losowej lokejnosci kolekcje.
-        Collections.
+
     }
 }
