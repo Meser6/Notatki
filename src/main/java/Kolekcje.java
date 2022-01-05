@@ -1,6 +1,6 @@
 import Zadania.Klasy.Human;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Kolekcje {
 
@@ -36,38 +36,108 @@ public class Kolekcje {
             //Obiekt a nie Human. trzeba też dać ((a)b).c) to w nawiasach bo najpierw wykonuje sie to po kropce
         }
         // get
-        String name = ((Human) list.get(0)).getName(); // taka sama sytuacja co u góry
-
-
+        //String name = ((Human)list.get(0)).getName(); // taka sama sytuacja co u góry
+//TODO rozkminić czemu sie nie kompilukje.
 
 
         //--------------------------------------------------------------------------------------
         //Lista gneryczna
-        ArrayList<Human> list2 = new ArrayList();
+        ArrayList<Human> arrayList = new ArrayList<>();
         // powyzszy przykład jest typem generycznym tj. mozna wrzucac do niego tylko zadeklarowane obiekty
 
         //dodawanie
-        list2.add(h1);
-        list2.add(h2);
-        list2.add(h3);
-        //list2.add(23213); to sie nie skompiluje
+        arrayList.add(h1);
+        arrayList.add(h2);
+        arrayList.add(h3);
+        //arrayList.add(23213); to sie nie skompiluje
 
         //rozmiar - w przeciwnienstwie do tablic nie jest zadeklarowany i moze sie zmieniac
         int size2 = list.size();
         //contains - czy znajduje sie na liscie t/f
         boolean contains2 = list.contains("booooby");
         // usuwanie.
-        list2.remove(h3);
+        arrayList.remove(h3);
         //wyczyszczenie listy
-        list2.clear();
+        arrayList.clear();
         //iterowanie po obiekcie - jest zawsze posegregowana w kolejnosci dodawania
-        for (Human a : list2) {
+        for (Human a : arrayList) {
             System.out.println(a.getName()); // Nie trzeba rzutowac bo mamy pewnosc ze w liscie jest Human
             // a nie Object. Dlatego tez literujemy do Human.
         }
         // get
-        String name2 = (list2.get(0)).getName(); // taka sama sytuacja co u góry
+        // String name2 = (arrayList.get(0)).getName(); // taka sama sytuacja co u góry
+//TODO rozkminić czemu sie nie kompilukje.
 
 
+        //--------------------------------------------------------------------------------------
+        LinkedList<Human> linkedList = new LinkedList<>();
+        // działa tak samo jak ArrayList'a jednak jest ona szybsza gdy mamy duze zbiory danych do obslużenia.
+
+
+        //--------------------------------------------------------------------------------------
+        String pierwszy = "Pierwszy człowiek";
+        String drugi = "Drugi człowiek";
+
+        //HashMapa
+        // zawiera dwa elementy powiązaneze sobą elementy. 1- Key, 2- Value.Nie mogą być typu prostego.
+        HashMap<String, Human> hashMap = new HashMap<>();
+
+        //dodawanie
+        hashMap.put(pierwszy, h1);
+        hashMap.put(drugi, h2);
+        hashMap.put("Trzeci człowiek", h3);
+        //pobieranie wartości po key.
+        String name3 = hashMap.get(drugi).getName();
+
+        // Przy literowaniu w for trzeba sie odnieść czy ma literować po values czy po keys.
+        for (Human e : hashMap.values()) {
+            System.out.println(e);
+        }
+
+        for (String s : hashMap.keySet()) {
+            System.out.println(s);
+        }
+        //reszta jak w liście
+
+
+
+        //--------------------------------------------------------------------------------------
+        //HashSet - działa podobnie jak lista, z tym, że nie zapamiętuje kolejności (zawsze ma losowe)
+        HashSet<Human> hashSet = new HashSet<>();
+
+        hashSet.add(h1);
+        hashSet.add(h2);
+        hashSet.add(h3);
+
+        for (Human i : hashSet){
+            System.out.println(i.getName()); // za każdym razem będzie wyświetlała się inna kolejność
+        }
+        //reszta jak w liście
+
+
+
+        //--------------------------------------------------------------------------------------
+        //LinkedHashSet - działa jak lista, z tym, że nie przyjmuje takich samych obiektów
+        LinkedHashSet<Human> linkedHashSet = new LinkedHashSet<>();
+
+        linkedHashSet.add(h1);
+        linkedHashSet.add(h2);
+        linkedHashSet.add(h3);
+        linkedHashSet.add(h1);
+
+        linkedHashSet.size(); // będzie 3 ponieważ nie doda się drugi raz h1
+        //reszta jak w liście
+
+
+
+        //--------------------------------------------------------------------------------------
+        // Klasa Collections - obsluga kolejkcji.
+
+        Collections.sort(list); // sortuje od najmniejszej do najwiekszej lub od a do b
+        Collections.min(list); // zwraca najmnejsza lub pierwsza alfabetycznie
+        Collections.max(list); // zwraca największa lub ostatnią alfaetycznie
+        Collections.reverse(list); // odwraca kolejkcje. ostatni to pierwszy i vice versa
+        Collections.shuffle(list); // przetasowuje w losowej lokejnosci kolekcje.
+        Collections.
     }
 }
