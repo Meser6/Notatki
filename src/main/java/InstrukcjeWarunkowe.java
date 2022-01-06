@@ -15,6 +15,14 @@ public class InstrukcjeWarunkowe {
             System.out.println("a < 5"); // to wykona
         System.out.println("Trabant"); // to już nie
 
+
+        boolean tru = true;
+        if (tru){ // jesli prawda
+            System.out.println("true");
+        } else  if (!tru){ // jesli falsz
+            System.out.println("false");
+        }
+
         // Switch
         switch (a) {  // czyt przyjmij a
             case 3: // sprawdź czy jest równe 3
