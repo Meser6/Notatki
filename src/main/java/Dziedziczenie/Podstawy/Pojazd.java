@@ -1,6 +1,8 @@
 package Dziedziczenie.Podstawy;
 
 public class Pojazd {
+
+    //Ochrona klas/metod/zmiennych
     private void priv() { // private powoduje, że metoda ta jest widzocza tylko i wyłącznie w tej klasie
         System.out.println("Kenedys kiled by...");
     }
@@ -19,12 +21,23 @@ public class Pojazd {
         System.out.println("duda debil");
     }
 
-    Pojazd (){ // każda z klas które dziedzicza wywołuje domyslny konsytuktor klasy rodzica.
+    //Konstruktory 1/3
+    Pojazd() { // każda z klas które dziedzicza wywołuje domyslny konsytuktor klasy rodzica.
         // czyli ze ten konstruktor wywoła się automatycznie (na samym poczatku) w każdej podklasie
         // czyt. dalej w Samochód
         System.out.println("bedziesz wisiec");
     }
 
+
+    //Metody 12/
+
+    void odpal() {
+        System.out.println("brum brum");
+    }
+
+    void odpalNaGazie(boolean gaz) {
+        System.out.println("gaz wlaczony");
+    }
 
 
 }

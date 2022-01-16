@@ -20,5 +20,17 @@ public class Main {
         // tam sa ma taka budowe. nie mozna bez bo nie ma bezargumentowego.
 
         Ford ford = new Ford("dizel", 12, true); // z trzema bo tylko 3 argumentowe tam sa
+
+
+        pojazd.odpalNaGazie(true);// ta metoda zaciagnie sie z Pojazd
+        samochod.odpalNaGazie(true);// ta metoda zaciagnie sie z Samochód i będzie zmodyfiowana
+
+
+        Dacia dacia = new Dacia("gaz") {
+            @Override
+            void klakson(int glosnosc) {
+                System.out.println("ti ti ti ");
+            }// gdy chcemy stoorzyc obiekt z klasy abstrakcyjnej to w jego ciele musimy wywolac metody abstrakcyjne
+        };
     }
 }
