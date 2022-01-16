@@ -25,6 +25,8 @@ public class Main {
         pojazd.odpalNaGazie(true);// ta metoda zaciagnie sie z Pojazd
         samochod.odpalNaGazie(true);// ta metoda zaciagnie sie z Samochód i będzie zmodyfiowana
 
+        boolean czyFordToPojazd = ford instanceof Pojazd; // sprawdza czy obiekt ford jest jest powiazany w dziedziceniu z Pojazd
+        // nie mozna w ten sposob sprwdzic polaczen z klasami abstrakcyjnymi
 
         Dacia dacia = new Dacia("gaz") {
             @Override
