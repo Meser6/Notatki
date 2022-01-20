@@ -1,6 +1,6 @@
 package Dziedziczenie.Podstawy;
 
-public class Samochod extends Pojazd {
+public class Samochod extends Pojazd implements Interfejsy {
     String paliwo;
     int drzwi;
     boolean gwarancja;
@@ -35,5 +35,16 @@ public class Samochod extends Pojazd {
         super.odpalNaGazie(gaz);
         System.out.println("cos tam");
     } // Jeśli chemy przeciążyć metodę z rodzica to bez @Overide. super wysyla gaz do metody z rodzica, reszta jest stad
+
+    @Override
+    public void jedzDoPrzodu() {
+        System.out.println("jedzie");
+    }
+
+    @Override
+    public int wartosc(int rocznik, int przebieg, String kolor) {
+        return 0;
+    }
+
 
 }

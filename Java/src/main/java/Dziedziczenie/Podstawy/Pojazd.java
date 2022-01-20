@@ -40,4 +40,8 @@ public class Pojazd {
     }
 
 
+    static void xyz(){
+        String interfejsDzwiek =Interfejsy.dzwiek; // wywołanie zmienej z interfejsu. Można się tam dostać z kazdego miejsca, byleby w statycznej metodzie
+    }
+
 }
