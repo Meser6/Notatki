@@ -1,5 +1,9 @@
 package JPESEL;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Stack;
+
 public class JPESEL {
     /*
     https://pl.spoj.com/problems/JPESEL/
@@ -38,46 +42,73 @@ W pojedyńczej linii powinna zostać wyświetlona litera D, jeśli numer PESEL j
      */
 
     public static void main(String[] args) {
-        long psl = 95442110l;
-        boolean dupa = isCorect(psl);
-        System.out.println(dupa);
+        Scanner scanner = new Scanner(System.in);
+        int quantity = 0;
+        System.out.println("Jak dużo PESELi chcesz sprawdzić?");
+        try {
+            quantity = 1; //scanner.nextInt();
+        } catch (Exception e) {
+            System.out.println("Podano zła wartość");
+        }
+        ArrayList<Long> peselList = getPesels(quantity);
+
+        for (int i = 0; i < quantity; i++) {
+            long pesel = peselList.get(i);
+            String string = String.valueOf(pesel);
+            if (string.length() < 11) {
+                System.out.println("N");
+            } else if (isCorect(pesel)) {
+                System.out.println("D");
+            } else System.out.println("N");
+        }
+    }
+
+    static ArrayList<Long> getPesels(int quantity) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Long> peselsList = new ArrayList<>();
+        for (int i = 0; i < quantity; i++) {
+            System.out.print("Podaj PESEL:");
+            long pesel = 95042110237L;//scanner.nextLong();
+            peselsList.add(pesel);
+        }
+        return peselsList;
     }
 
 
     static boolean isCorect(long pesel) {
-        final int[] multiper = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 7};
+        final int[] multiper = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
         int sum = 0;
         int[] numbers = list(pesel);
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 10; i++) {
             sum += numbers[i] * multiper[i];
         }
-        return sum % 10 == 0;
+        int check = 10 - lastNumber(sum);
+        //TODO ostatnia liczba powinna  taka jak 10-ostatnia cyfra sumy z 10 liczb
+        return check == numbers[10];
+    }
+
+    static int lastNumber(int suma) {
+        Stack<Integer> list = new Stack<>();
+        String peselString = String.valueOf(suma);
+
+        for (int i = 0; i < peselString.length(); i++) {
+            char znak = peselString.charAt(i);
+            int cyfra = Character.getNumericValue(znak);
+            list.push(cyfra);
+        }
+        return list.lastElement();
     }
 
     static int[] list(long pesel) {
         int[] list = new int[11];
         String peselString = String.valueOf(pesel);
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 10; i++) {
             char znak = peselString.charAt(i);
             int cyfra = Character.getNumericValue(znak);
             list[i] = cyfra;
         }
         return list;
-    }
-
-
-    void przyklad() {
-        int liczba = 1234567890;
-        String napis = String.valueOf(liczba);
-        int suma = 0;
-        int ileCyfr = napis.length();
-        for (int i = 0; i < ileCyfr; i++) {
-            char znak = napis.charAt(i);
-            int cyfra = Character.getNumericValue(znak);
-            suma = suma + cyfra;
-        }
-        System.out.println("Suma wszystkich cyfr to: " + suma);
     }
 }
