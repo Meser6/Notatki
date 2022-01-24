@@ -7,8 +7,7 @@ public class ABSTRAKCJA_Main {
         Kon kon = new Kon(true, false);
 
 
-        // Możemy również zrobić obiekt bezposrenio z klasy abstrakcyjnej, jednak wówczas w jego ciele musimy wykorzystac metowy abstrakcyjne
-
+        // Możemy również zrobić obiekt bezposrenio z klasy abstrakcyjnej, na zasadzie klasy anonimowej
         Zwierze zwierze = new Zwierze() {
             @Override
             void stoj(boolean bat) {
