@@ -1,6 +1,6 @@
 package Dziedziczenie.Podstawy;
 
-public class Main {
+public class DZIEDZICZENIE_Main {
     /*
     Dziedziczenie - Wszystkie właściwości które znajdują się w klasie rodzica są też w klasie dziecka
 
@@ -21,18 +21,10 @@ public class Main {
 
         Ford ford = new Ford("dizel", 12, true); // z trzema bo tylko 3 argumentowe tam sa
 
-
         pojazd.odpalNaGazie(true);// ta metoda zaciagnie sie z Pojazd
         samochod.odpalNaGazie(true);// ta metoda zaciagnie sie z Samochód i będzie zmodyfiowana
 
         boolean czyFordToPojazd = ford instanceof Pojazd; // sprawdza czy obiekt ford jest jest powiazany w dziedziceniu z Pojazd
         // nie mozna w ten sposob sprwdzic polaczen z klasami abstrakcyjnymi
-
-        Dacia dacia = new Dacia("gaz") {
-            @Override
-            void klakson(int glosnosc) {
-                System.out.println("ti ti ti ");
-            }// gdy chcemy stoorzyc obiekt z klasy abstrakcyjnej to w jego ciele musimy wywolac metody abstrakcyjne
-        };
     }
 }

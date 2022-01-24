@@ -1,6 +1,6 @@
 package Wyjątki;
 
-public class Wyjątki {
+public class WYJĄTKI_Main {
 
 
     // jeżeli program napotka na błąd to rzuci wyjątkiem z klasy Exception i wyspie sie. chyba ze go zabezpieczymy
