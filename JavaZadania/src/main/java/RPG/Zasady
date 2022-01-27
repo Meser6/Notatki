@@ -1,0 +1,8 @@
+Grcz wybiera bohatera którym chce grać.
+Następnie dostaje 10 monet za ktore moze kupic ekwipunek - spodnie, zbroje, hełm i broń.
+Każda broń ma swoje statystyki - atak, szansa na critica (+50%), 5% zwiekszenia ataku przeciwko danemu przeciwnikowi, 5% defa na przeciwnika
+Gracz dostaje propozycję kupna ekwipunku, jezeli nie zaakceptuje to znowu sie losuje z tego samego typu - az do wykorszytania 10 monet.
+Jeśli gracz wykorzysta 10 monet przed kupnem wszystkiego to reszta eq przepada
+
+Po kupinie eq losuje sie przeciwnik
+bija sie doputy dopoki ktorys z nich nie padnie.
