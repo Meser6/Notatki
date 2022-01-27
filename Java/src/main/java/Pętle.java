@@ -31,6 +31,4 @@ public class Pętle {
             System.out.println(item);
         }
     }
-
-    //dupa
 }
