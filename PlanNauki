@@ -1,6 +1,5 @@
-1. Obejrzeć i zrobić notatki z wszystkich odcinków kursu Java + streamy
+1. Obejrzeć i zrobić notatki z wszystkich odcinków kursu Java
 2. Zrobić dostatecznie dużo zadań ze SPOJ (wpisać Jave na L)
-3. Zrobić certyfikat z L z Javy
 4. Nauczyć się testów jednostkowych JUnit (wpisać Testy Jednostkowe na L)
 5. Obejrzeć i zrobić notatki z kursu Selenium
 6. Zrobić dostatecznie dużo zadań z Selenium (wpisać Testy Funkcjonalne i Selenium na L)
@@ -16,7 +15,6 @@
 
 1. https://www.youtube.com/watch?v=Q_4XRJuJTBM&list=PL6aekdNhY7DCM1wGLQCE9eP3kPzu-P7E7
 2. https://pl.spoj.com/problems/BSPIES/
-3. ----
 4. https://www.udemy.com/course/testy-jednostkowe/learn/lecture/13828348#overview
 5. C:\Users\48513\Desktop\Kurs Testelka\Selenium
 6. https://demo.seleniumeasy.com/
@@ -24,3 +22,7 @@
 8.
 9. udmy?
 10. udwmy?
+
+
+Brakuje:
+Lambda + Stream
