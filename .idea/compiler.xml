@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="JavaZadania" />
-        <module name="TestyJednostkowe" />
         <module name="TestyJednostkoweZadania" />
+        <module name="TestyJednostkowe" />
+        <module name="TestyJednostkoweNotatki" />
       </profile>
     </annotationProcessing>
   </component>
