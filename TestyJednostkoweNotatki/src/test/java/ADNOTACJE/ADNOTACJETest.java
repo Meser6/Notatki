@@ -63,7 +63,8 @@ class ADNOTACJETest {
         assertThat(c, equalTo(3));
     }
 
-    @Test
+    @RepeatedTest(10)
+        // Wykona test X razy pod rząd. nie trzeba w tedy podawać @Test
     void numbersShouldBeActualizedAfterSet() {
         //when
         adnotacje.setNumbers(4, 9);

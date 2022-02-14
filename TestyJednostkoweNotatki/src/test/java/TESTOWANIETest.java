@@ -2,9 +2,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 public class TESTOWANIETest {
 
@@ -60,5 +61,39 @@ public class TESTOWANIETest {
         Assertions.assertTrue(testowanie.isActive());
     }
 
+    //-----------------------------------------------------------
+
+    @Test
+        // Jeżeli assumption jest true, sprawdź assercje
+    void accountShouldBeActiveAfterActivate() {
+        //given
+        TESTOWANIE testowanie = new TESTOWANIE();
+        //when
+        testowanie.activate();
+        //then
+        assumingThat(testowanie.isActive() != false, () -> assertTrue(testowanie.isActive()));
+    }
+
+    @Test
+        // spradź czy zawiera XXX
+    void nameShouldContainsCake() {
+        //given
+        TESTOWANIE testowanie = new TESTOWANIE();
+        //when
+        testowanie.setName("XXXcakePPP");
+        //then
+        assertThat(testowanie.getName(), containsString("cake"));
+    }
+
+    @Test
+        // sprawdź czy kończy się na XXX
+    void nameShouldEndsWithPPP() {
+        //given
+        TESTOWANIE testowanie = new TESTOWANIE();
+        //when
+        testowanie.setName("cakePPP");
+        //then
+        assertThat(testowanie.getName(), endsWith("PPP"));
+    }
 
 }
