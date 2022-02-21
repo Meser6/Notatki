@@ -13,6 +13,7 @@
     <bytecodeTargetLevel>
       <module name="TestyJednostkowe" target="17" />
       <module name="TestyJednostkoweZadania" target="17" />
+      <module name="Zadania" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
