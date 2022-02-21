@@ -73,6 +73,8 @@ class ADNOTACJETest {
         assertThat(adnotacje.getB(), equalTo(9));
     }
 
+    @Tag("tests category")
+    //Możemy oznaczać testy bądź całe klasy odpowiednimi tagami aby moc potem puscic tylko te z wybranej kategorii
     @Test
     void afterCleaningNumbersShouldHaveZeroValue() {
         //when
