@@ -1,9 +1,9 @@
-import Zadania.Klasy.Human;
+///import Zadania.Klasy.Human;
 
 import java.util.*;
 
 public class Kolekcje {
-
+/*
     public static void main(String[] args) {
 
         Human h1 = new Human("olek");
@@ -176,4 +176,8 @@ public class Kolekcje {
         Collections.shuffle(list); // przetasowuje w losowej lokejnosci kolekcje.
 
     }
+
+ */
 }
+
+
