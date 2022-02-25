@@ -1,9 +1,9 @@
-///import Zadania.Klasy.Human;
+package Kolekcje;///import Zadania.Klasy.Human;
 
 import java.util.*;
 
-public class Kolekcje {
-/*
+public class KOLEKCJE_Main {
+
     public static void main(String[] args) {
 
         Human h1 = new Human("olek");
@@ -67,9 +67,10 @@ public class Kolekcje {
             // a nie Object. Dlatego tez literujemy do Human.
         }
         // get
-        // String name2 = (arrayList.get(0)).getName(); // taka sama sytuacja co u góry
-        //TODO rozkminić czemu sie nie kompilukje.
+        arrayList.add(h1);
+        String name2 = (arrayList.get(0)).getName(); // taka sama sytuacja co u góry
 
+        List <Human> list2 = Arrays.asList(h1,h2,h3); // stworzenie nowej listy z odrazu zadeklarowanymi obiektami w niej
 
 
 //--------------------------------------------------------------------------------------
@@ -168,16 +169,16 @@ public class Kolekcje {
 
 //--------------------------------------------------------------------------------------
         // Klasa Collections - obsluga kolejkcji.
-
+        /*
         Collections.sort(list); // sortuje od najmniejszej do najwiekszej lub od a do b
         Collections.min(list); // zwraca najmnejsza lub pierwsza alfabetycznie
         Collections.max(list); // zwraca największa lub ostatnią alfaetycznie
         Collections.reverse(list); // odwraca kolejkcje. ostatni to pierwszy i vice versa
         Collections.shuffle(list); // przetasowuje w losowej lokejnosci kolekcje.
 
-    }
 
- */
+         */
+    }
 }
 
 

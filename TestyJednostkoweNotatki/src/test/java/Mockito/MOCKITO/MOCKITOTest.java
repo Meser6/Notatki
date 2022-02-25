@@ -9,6 +9,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class MOCKITOTest {
     //Mocki służą jako zaślepki klas/serwisów.
@@ -22,6 +23,7 @@ class MOCKITOTest {
         MOCKITO mockito = new MOCKITO(idList);
         given(idList.getAllIDs()).willReturn(IDsList); // tutaj tak na prawdę inicjalizujemy mocka
         //jeśli na danym obiekcie zostanie wywolana ta metoda to zrob to i to
+        //when(idList.getAllIDs()).thenReturn(prepareIDs()); - alternatywny zapis /\
         //when
         mockito.filterAllIntsSmallerThenTen();
         List<Integer> listToCheck = mockito.getIDSmallerThenTen();
