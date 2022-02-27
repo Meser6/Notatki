@@ -3,6 +3,7 @@ package Mockito.MOCKITO;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -25,10 +26,24 @@ class MOCKITOTest {
         //jeśli na danym obiekcie zostanie wywolana ta metoda to zrob to i to
         //when(idList.getAllIDs()).thenReturn(prepareIDs()); - alternatywny zapis /\
         //when
-        mockito.filterAllIntsSmallerThenTen();
-        List<Integer> listToCheck = mockito.getIDSmallerThenTen();
+        mockito.filterAllIntsSmallerThenValue(10);
+        List<Integer> listToCheck = mockito.getIDSmallerThenValue();
         //then
         assertThat(listToCheck, hasSize(2));
+    }
+
+    @Test
+    void listShouldBeEmptyIfIDLIstIsEmpty(){
+        //given
+        IDList idList = mock(IDList.class);
+        MOCKITO mockito = new MOCKITO(idList);
+        given(idList.getAllIDs()).willReturn(Collections.emptyList()); // Można przekazywac dowolne rzeczy, nie tylko przygotowane metody
+        //when
+        mockito.filterAllIntsSmallerThenValue(100);
+        List<Integer> listToCheck = mockito.getIDSmallerThenValue();
+        //then
+        assertThat(listToCheck, hasSize(0));
+
     }
 
     @Test
@@ -39,8 +54,8 @@ class MOCKITOTest {
         IDList idList = mock(IDList.class);
         MOCKITO mockito = new MOCKITO(idList);
         //when
-        mockito.filterAllIntsSmallerThenFive();
-        List<Integer> list = mockito.getIDSmallerThenFive();
+        mockito.filterAllIntsSmallerThenValue(5);
+        List<Integer> list = mockito.getIDSmallerThenValue();
         //then
         assertThat(list, hasSize(0));
     }

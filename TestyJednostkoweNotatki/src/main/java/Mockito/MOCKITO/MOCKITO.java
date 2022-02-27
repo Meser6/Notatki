@@ -6,38 +6,24 @@ import java.util.List;
 public class MOCKITO {
 
     private final IDList idList;
-    private List<Integer> IDSmallerThenFive;
-    private List<Integer> IDSmallerThenTen;
+    private List<Integer> IDSmallerThenValue;
 
     public MOCKITO(IDList idList) {
         this.idList = idList;
     }
 
-    void filterAllIntsSmallerThenFive() {
-        IDSmallerThenFive = new ArrayList<>();
+    void filterAllIntsSmallerThenValue(int value) {
+        IDSmallerThenValue = new ArrayList<>();
         for (int a : idList.getAllIDs()) {
-            if (a < 5) {
-                IDSmallerThenFive.add(a);
+            if (a < value) {
+                IDSmallerThenValue.add(a);
                 System.out.println(a);
             }
         }
     }
 
-
-    void filterAllIntsSmallerThenTen() {
-        IDSmallerThenTen = new ArrayList<>();
-        for (int a : idList.getAllIDs()) {
-            if (a < 10) {
-                this.IDSmallerThenTen.add(a);
-            }
-        }
+    public List<Integer> getIDSmallerThenValue() {
+        return IDSmallerThenValue;
     }
 
-    public List<Integer> getIDSmallerThenFive() {
-        return IDSmallerThenFive;
-    }
-
-    public List<Integer> getIDSmallerThenTen() {
-        return IDSmallerThenTen;
-    }
 }
