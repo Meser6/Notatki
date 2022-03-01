@@ -12,4 +12,12 @@ public class IDList {
     public List<Integer> getAllIDs() {
         return allIDs;
     }
+
+    public int nothing(IDList idList) {
+        return  5;
+    }
+
+    public boolean nothingButWithBoolean(boolean something) {
+        return true;
+    }
 }

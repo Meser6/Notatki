@@ -15,7 +15,7 @@ class VERIFYTest {
 
     @ParameterizedTest
     @ValueSource(ints = {70, 130})
-        // sprawdź czy dana metoda została wywołana
+        // sprawdź czy dana metoda sendMessage() została wywołana
     void messageShouldBeSendingIfValueIsCorrect(int value) {
         //given
         Ints ints = mock(Ints.class);
@@ -30,7 +30,7 @@ class VERIFYTest {
     }
 
     @Test
-        // sprawdź czy dana metoda nie została wywołana
+        // sprawdź czy dana metoda deleteSystem()nie została wywołana
     void systemShouldNotBeDeleted() {
         //given
         Ints ints = mock(Ints.class);
