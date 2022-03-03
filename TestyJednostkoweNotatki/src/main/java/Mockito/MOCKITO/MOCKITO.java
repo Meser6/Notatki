@@ -1,5 +1,7 @@
 package Mockito.MOCKITO;
 
+import Mockito.VERIFY.Ints;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +9,7 @@ public class MOCKITO {
 
     private final IDList idList;
     private List<Integer> IDSmallerThenValue;
+    private String message;
 
     public MOCKITO(IDList idList) {
         this.idList = idList;
@@ -26,6 +29,13 @@ public class MOCKITO {
         return IDSmallerThenValue;
     }
 
+    void shortWay(IDList idList) {
+        if (idList.defaultText != null) {
+            this.message = "default message";
+        }
+    }
 
-
+    public String getMessage() {
+        return message;
+    }
 }

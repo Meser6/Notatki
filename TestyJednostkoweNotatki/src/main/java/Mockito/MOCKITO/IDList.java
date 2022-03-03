@@ -20,4 +20,6 @@ public class IDList {
     public boolean nothingButWithBoolean(boolean something) {
         return true;
     }
+
+    String defaultText;
 }

@@ -1,4 +1,4 @@
-package JUnit.WYJATKI;
+package Java.WYJATKI;
 
 public class TooBigNumberException extends Exception{
 

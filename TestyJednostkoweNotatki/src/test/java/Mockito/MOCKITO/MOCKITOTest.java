@@ -59,6 +59,22 @@ class MOCKITOTest {
         //then
         assertThrows(IllegalArgumentException.class, () -> idList.getAllIDs());
     }
+/*
+    @Test
+    void shouldBeCorrectMessageIfStringIsNotNull(){
+    // jeśli nie wiemy jaka ma byc wartośc to możemy uzyć matcheta i wyslac dowolna any(), dowolnego typu anyInt()
+    //lub dowolnej klasy any(IDsList.class)
+        //given
+        IDList idList = mock(IDList.class);
+        MOCKITO mockito = new MOCKITO(idList);
+        //when
+        given(idList.defaultText).willReturn(anyString());
+        mockito.shortWay(idList);
+        //then
+        assertThat(mockito.getMessage(), equalTo("default message"));
+    }
+    TODO sorawdzić czemu nie działa
+ */
 
     @Test
         // Jeżeli źle zaimplementujemy mocka i nie przekażemy do niego żadnych wartości to przyjmie on defultowe (Nice mock)

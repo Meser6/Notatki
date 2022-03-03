@@ -20,8 +20,6 @@ public class TypyDanych {
     float aFloat = 0.5f; // trzeba dodać na końcu f
     double aDouble = 0.7; // można ale nie trzeba dodać na końcu d
 
-    // Rzytowanie
-
     // Rzutowanie niejawne wystepuje gdy jest pewnosć, ze nie bedzie strat danych np.
     int a = 7;
     double b = a;

@@ -54,4 +54,5 @@ public class VERIFY {
     public String getMessage() {
         return message;
     }
+
 }
