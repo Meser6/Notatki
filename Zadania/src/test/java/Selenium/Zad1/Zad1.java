@@ -28,7 +28,7 @@ public class Zad1 {
     }
 
     @Test
-    void AfterBackThereShouldBeWikiite() throws MalformedURLException {
+    void backWorksCorrect() throws MalformedURLException {
         //given
         URL wikipediaURL = new URL("https://pl.wikipedia.org/wiki/Wikipedia:Strona_g%C5%82%C3%B3wna");
         URL nasaURL = new URL("https://www.nasa.gov/");
@@ -40,4 +40,21 @@ public class Zad1 {
         assertThat(driver.getTitle(), equalTo("Wikipedia, wolna encyklopedia"));
 
     }
+
+    @Test
+    void forwardWorksCorret() throws MalformedURLException {
+        //given
+        URL wikipediaURL = new URL("https://pl.wikipedia.org/wiki/Wikipedia:Strona_g%C5%82%C3%B3wna");
+        URL nasaURL = new URL("https://www.nasa.gov/");
+        //when
+        driver.navigate().to(wikipediaURL);
+        driver.navigate().to(nasaURL);
+        driver.navigate().back();
+        driver.navigate().forward();
+        //then
+        assertThat(driver.getTitle(), equalTo("NASA"));
+
+        driver.close();
+    }
+
 }
