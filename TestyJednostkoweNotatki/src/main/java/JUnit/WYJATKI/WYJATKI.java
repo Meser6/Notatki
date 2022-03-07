@@ -1,4 +1,4 @@
-package Java.WYJATKI;
+package JUnit.WYJATKI;
 
 public class WYJATKI {
 

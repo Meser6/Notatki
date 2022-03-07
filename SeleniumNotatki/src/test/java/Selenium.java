@@ -8,7 +8,7 @@ import java.net.URL;
 public class Selenium {
 
     @Test
-    void przygtowanieDrivera() throws MalformedURLException {
+    void Selenium() throws MalformedURLException {
         //Podanie ścieżki do ChromeDriver
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 
@@ -36,6 +36,15 @@ public class Selenium {
 
         //Zamknięcie okna przeglądarki bez zamykania procesu
         driver.close();
+
+        //Pobranie aktualnego adresu strony
+        driver.getCurrentUrl();
+
+        //Pobranie aktualnego tytułu strony
+        driver.getTitle();
+
+        //Pobranie całego "kodu" strony
+        driver.getPageSource();
 
     }
 }

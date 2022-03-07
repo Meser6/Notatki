@@ -1,4 +1,4 @@
-package Java.WYJATKI;
+package JUnit.WYJATKI;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

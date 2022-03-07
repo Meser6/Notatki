@@ -1,4 +1,4 @@
-package Java.WYJATKI;
+package JUnit.WYJATKI;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +20,7 @@ class WYJATKITest {
         //sprawdzanie czy nie rzuci danym wyjątkiem
     void expectionShouldNotBeThrowIfAIsSmallerThen100() {
         //given
-        Java.WYJATKI wyjatki = new Java.WYJATKI();
+        JUnit.WYJATKI wyjatki = new JUnit.WYJATKI();
         //then
         assertDoesNotThrow(IllegalArgumentException.class, () -> wyjatki.setA(90));
     }
@@ -32,7 +32,7 @@ class WYJATKITest {
     @Test (expected = IllegalArgumentException.class)
     void expectionShouldBeThrowIfAIsHigherThen1002222() {
         //given
-        Java.WYJATKI wyjatki = new Java.WYJATKI();
+        JUnit.WYJATKI wyjatki = new JUnit.WYJATKI();
         //when
         wyjatki.setA(110);
     } */
