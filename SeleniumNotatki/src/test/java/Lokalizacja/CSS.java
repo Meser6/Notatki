@@ -10,6 +10,7 @@ public class CSS {
 
     // Selektory CSS wyszukują po stylach
     // $$("SELEKTOR-CSS") - wyszukiwanie w konsoli po CSSach. Zwróci listę wszystkich znalezionych elementów
+    // Bierze pod uwagę wielkość liter
 
     @Test
     void CSS() {
@@ -42,11 +43,25 @@ public class CSS {
         driver.findElement(By.cssSelector("button[clss='jakas-klasa klasa-2']")); //znajdzie wszystkie obiekty o tagu button które maja dokładnie takie dwie klasy w takiej kolejnosci - nie znajdzie obiektow ktore mają te i jeszce jakies
         driver.findElement(By.cssSelector("button.jakas-klasa.klasa-2")); //znajdzie wszystkie obiekty o tagu button które maja dokładnie takie dwie klasy BEZ WZGLEDY NA KOLEJNOSC - nie znajdzie obiektow ktore mają te i jeszce jakies
 
+        // -------- wyszukiwanie po fragmencie wartosci atrybutu  --------
+        //wyszukuje w ten sposob ze wartość, niezaleznie jaka wrzuca do stringa i potem szyka w tym stringu
+        //<button class="jakas-klasa klasa-2 kl kl2">tekst</button>
+        driver.findElement(By.cssSelector("[class*='as-kl'")); // znajdzie wszystkie obiekty które maja w danym atrubucie ten ciąg znaków
+        driver.findElement(By.cssSelector("[class^='jak'")); // znajdzie wszystkie obiekty których atrubut zaczyna się od tego ciągu znaków
+        driver.findElement(By.cssSelector("[class$='a-2'")); // znajdzie wszystkie obiekty których atrubut kończy się na tym ciągu znaków
+        driver.findElement(By.cssSelector("[class~='kl'")); // znajdzie wszystkie obiekty których atrubut ma w sobie ten ciąg znaków i jest on rozdzielony spacjami
+        driver.findElement(By.cssSelector("[class|='jakas'")); // znajdzie wszystkie obiekty których atrubut zaczyna się od tego ciagu znaków a po nim jest myślnik
+
+
         // tak na prawde przy pomocy nawiasów kwadratowych mozna szukac po dowolnym elemencie
         // wyszukiwanie z nawiasami kwadratowymi zawsze znajdzie obiekty ktore mają dokładnie taka wartość
         //<button class="jakas-klasa" href="ppoo" costam="xd">tekst</button>
         driver.findElement(By.cssSelector("[costam='xd']"));
         driver.findElement(By.cssSelector("[href='ppoo']"));
+
+        // znajdz elemenent który ma dany atrybut
+        //<button class="jakas-klasa" href="ppoo" costam="xd">tekst</button>
+        driver.findElement(By.cssSelector("button[costam]")); // znajdzie elementy które maja w sobie atrybut costam
 
         // można dowolnie łączyć selektory. nie będzie brana pod uwage kolejność ich podwania
         //<button class="jakas-klasa" id="jakies-id href="ppoo" costam="xd">tekst</button>
