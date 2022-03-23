@@ -1,4 +1,4 @@
-package Lokalizacja;
+package Lokalizacja.XPath;
 
 public class XPath {
 

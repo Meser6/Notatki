@@ -1,4 +1,4 @@
-package Lokalizacja;
+package Lokalizacja.CSS;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
