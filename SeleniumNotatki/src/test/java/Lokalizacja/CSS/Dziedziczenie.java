@@ -97,4 +97,17 @@ public class Dziedziczenie {
         driver.findElement(By.cssSelector("div#jeden p#dwa")); //znajdź p o id dwa które jest potomkiem diva o id jeden (dowolnie głęboko zagnieżdzonym) (4)
         driver.findElements(By.cssSelector("div#jeden p")); //znajdź wszystkie p które sa potomkami diva o id jeden (dowolnie głęboko zagnieżdzonymi) (4)(7)(9)
     }
+
+    @Test
+    void not(){
+        /*
+        1 <div id="jeden">
+        2     <button type="oppo" id="ids">text</button>
+        3     <button type="reno">text</button>
+        4 </div>
+         */
+        driver.findElement(By.cssSelector("button:not(#ids)")); // znajdz wszystkie buttony które NIE mają id ids (3)
+        driver.findElement(By.cssSelector("button:not([id])")); //znajdź wszystkie buttony które NIE mają żadnego id
+
+    }
 }
