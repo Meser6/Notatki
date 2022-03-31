@@ -98,9 +98,7 @@ public class Zad11 {
         String correctPassword = "Kubek666!";
         String expected = "qubcio4";
         //when
-        driver.findElement(By.cssSelector("input#username")).sendKeys(correctMail);
-        driver.findElement(By.cssSelector("input#password")).sendKeys(correctPassword);
-        driver.findElement(By.cssSelector("button[value=\"Zaloguj się\"]")).click();
+        tryLogin(correctMail, correctPassword);
         String actual = driver.findElement(By.cssSelector("div.woocommerce-MyAccount-content strong:first-child")).getText();
         //then
         assertThat(actual, containsString(expected));
@@ -113,10 +111,8 @@ public class Zad11 {
         String incorrectPassword = "gdhasjk";
         String expectedCommunicate = "Błąd: Dla adresu e-mail qubcio4@mail.pl podano nieprawidłowe hasło. Nie pamiętasz hasła?";
         //when
-        driver.findElement(By.cssSelector("input#username")).sendKeys(correctMail);
-        driver.findElement(By.cssSelector("input#password")).sendKeys(incorrectPassword);
-        driver.findElement(By.cssSelector("button[value=\"Zaloguj się\"]")).click();
-        String actualCommunicate = driver.findElement(By.cssSelector("ul.woocommerce-error>li")).getText();
+        tryLogin(correctMail, incorrectPassword);
+        String actualCommunicate = getCommunicate();
         //then
         assertThat(actualCommunicate, equalTo(expectedCommunicate));
     }
@@ -127,52 +123,33 @@ public class Zad11 {
         String correctMail = "qubcio4@mail.pl";
         String expectedCommunicate = "Błąd: Hasło jest puste.";
         //when
-        driver.findElement(By.cssSelector("input#username")).sendKeys(correctMail);
-        driver.findElement(By.cssSelector("button[value=\"Zaloguj się\"]")).click();
-        String actualCommunicate = driver.findElement(By.cssSelector("ul.woocommerce-error>li")).getText();
+        tryLogin(correctMail);
+        String actualCommunicate = getCommunicate();
         //then
         assertThat(actualCommunicate, equalTo(expectedCommunicate));
     }
 
     @Test
-    void itIsImpassibleToLogInWithAnyLoginAndAnyPassword() {
+    void itIsImpassibleToLogInWithIncorrectLoginAndAnyPassword() {
         //given
         String anyLogin = "qubcio99";
         String anyPassword = "gdhasjk";
         String expectedCommunicate = "Błąd: Brak qubcio99 wśród zarejestrowanych w witrynie użytkowników. Jeśli nie masz pewności co do nazwy użytkownika, użyj adresu e-mail.";
         //when
-        driver.findElement(By.cssSelector("input#username")).sendKeys(anyLogin);
-        driver.findElement(By.cssSelector("input#password")).sendKeys(anyPassword);
-        driver.findElement(By.cssSelector("button[value=\"Zaloguj się\"]")).click();
-        String actualCommunicate = driver.findElement(By.cssSelector("ul.woocommerce-error>li")).getText();
+        tryLogin(anyLogin, anyPassword);
+        String actualCommunicate = getCommunicate();
         //then
         assertThat(actualCommunicate, equalTo(expectedCommunicate));
     }
 
     @Test
-    void itIsImpassibleToLogInWithAnyLoginAndEmptyPassword() {
+    void itIsImpassibleToLogInWithCorrectLoginAndEmptyPassword() {
         //given
-        String anyLogin = "qubcio";
+        String anyLogin = "qubcio4";
         String expectedCommunicate = "Błąd: Hasło jest puste.";
         //when
-        driver.findElement(By.cssSelector("input#username")).sendKeys(anyLogin);
-        driver.findElement(By.cssSelector("button[value=\"Zaloguj się\"]")).click();
-        String actualCommunicate = driver.findElement(By.cssSelector("ul.woocommerce-error>li")).getText();
-        //then
-        assertThat(actualCommunicate, equalTo(expectedCommunicate));
-    }
-
-    @Test
-    void itIsImpassibleToLogInWithEmptyMailAndEmptyPassword() {
-        //given
-        String emptyMail = "";
-        String emptyPassword = "";
-        String expectedCommunicate = "Błąd: Nazwa użytkownika jest wymagana.";
-        //when
-        driver.findElement(By.cssSelector("input#username")).sendKeys(emptyMail);
-        driver.findElement(By.cssSelector("input#password")).sendKeys(emptyPassword);
-        driver.findElement(By.cssSelector("button[value=\"Zaloguj się\"]")).click();
-        String actualCommunicate = driver.findElement(By.cssSelector("ul.woocommerce-error>li")).getText();
+        tryLogin(anyLogin);
+        String actualCommunicate = getCommunicate();
         //then
         assertThat(actualCommunicate, equalTo(expectedCommunicate));
     }
@@ -184,11 +161,49 @@ public class Zad11 {
         String anyPassword = "gdhasjk";
         String expectedCommunicate = "Nieznany adres email. Proszę sprawdzić ponownie lub wypróbować swoją nazwę użytkownika.";
         //when
-        driver.findElement(By.cssSelector("input#username")).sendKeys(incorrectLogin);
-        driver.findElement(By.cssSelector("input#password")).sendKeys(anyPassword);
-        driver.findElement(By.cssSelector("button[value=\"Zaloguj się\"]")).click();
-        String actualCommunicate = driver.findElement(By.cssSelector("ul.woocommerce-error>li")).getText();
+        tryLogin(incorrectLogin, anyPassword);
+        String actualCommunicate = getCommunicate();
         //then
         assertThat(actualCommunicate, equalTo(expectedCommunicate));
+    }
+
+    @Test
+    void itIsImpassibleToLogInWithEmptyMailAndEmptyPassword() {
+        //given
+        String emptyMail = "";
+        String emptyPassword = "";
+        String expectedCommunicate = "Błąd: Nazwa użytkownika jest wymagana.";
+        //when
+        tryLogin(emptyMail, emptyPassword);
+        String actualCommunicate = getCommunicate();
+        //then
+        assertThat(actualCommunicate, equalTo(expectedCommunicate));
+    }
+
+    @Test
+    void itIsImpassibleToLogInWithEmptyLoginAndAnyPassword() {
+        String anyPassword = "gdhasjk";
+        String expectedCommunicate = "Błąd: Nazwa użytkownika jest wymagana.";
+        //when
+        driver.findElement(By.cssSelector("input#password")).sendKeys(anyPassword);
+        driver.findElement(By.cssSelector("button[value=\"Zaloguj się\"]")).click();
+        String actualCommunicate = getCommunicate();
+        //then
+        assertThat(actualCommunicate, equalTo(expectedCommunicate));
+    }
+
+    void tryLogin(String loginOrMail, String password) {
+        driver.findElement(By.cssSelector("input#username")).sendKeys(loginOrMail);
+        driver.findElement(By.cssSelector("input#password")).sendKeys(password);
+        driver.findElement(By.cssSelector("button[value=\"Zaloguj się\"]")).click();
+    }
+
+    void tryLogin(String loginOrMail) {
+        driver.findElement(By.cssSelector("input#username")).sendKeys(loginOrMail);
+        driver.findElement(By.cssSelector("button[value=\"Zaloguj się\"]")).click();
+    }
+
+    String getCommunicate() {
+        return driver.findElement(By.cssSelector("ul.woocommerce-error>li")).getText();
     }
 }
