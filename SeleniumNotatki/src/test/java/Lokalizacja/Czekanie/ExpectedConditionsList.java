@@ -140,7 +140,13 @@ public class ExpectedConditionsList {
     }
 
     @Test
-    void ramki() { //TODO
+    void ramki() {
+
+        //Czy ramka jest dostępna i można się na nią przełączyć?
+        WebDriver frameContext1 = wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator)); //podajac lokator
+        WebDriver frameContext2 = wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(2)); //podajac index ramki
+        WebDriver frameContext3 = wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(string)); //podajac nazwe albo id
+        WebDriver frameContext4 = wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(webElement)); //podajac nazwe albo id
 
     }
 
@@ -176,7 +182,22 @@ public class ExpectedConditionsList {
     }
 
     @Test
-    void laczenie() { //TODO
+    void laczenie() {
+
+        // Łączenie warunków: koniunkcja
+        Boolean boolean1 =
+                wait.until(ExpectedConditions.and(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator), ExpectedConditions.alertIsPresent()));
+
+        // Łączenie warunków: alternatywa
+        Boolean boolean2 =
+                wait.until(ExpectedConditions.or(ExpectedConditions.frameToBeAvailableAndSwitchToIt(locator), ExpectedConditions.alertIsPresent()));
+
+        //Odświeżanie elementów - Wrapper na expected condition, pomagający uniknąć StaleElementException
+        WebElement webElement1 = wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfElementLocated(locator)));
+
+        //Zaprzeczenie warunku: negacja
+        Boolean boolean3 = wait.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(locator)));
+
     }
 
 }
