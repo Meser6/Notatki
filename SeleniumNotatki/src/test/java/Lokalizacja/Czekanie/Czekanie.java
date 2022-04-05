@@ -55,4 +55,12 @@ public class Czekanie {
         driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(10));
     }
+
+    @Test
+    void czekajnieNaJS() {
+        //Ustawienie ile maksymalnie js maja sie wykonywać
+        //jak bedzie dłużej rzuci TimeOutException
+        driver.manage().timeouts().setScriptTimeout(Duration.ofMillis(500));
+        driver.manage().timeouts().scriptTimeout(Duration.ofMillis(500));
+    }
 }
