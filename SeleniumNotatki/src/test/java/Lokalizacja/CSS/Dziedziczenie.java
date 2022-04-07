@@ -50,7 +50,7 @@ public class Dziedziczenie {
         driver.findElement(By.cssSelector("div#jeden>p:first-child")); //znajdz element o tagu p który jest pierwszym dzieckiem diva o id jeden (brak)
         driver.findElement(By.cssSelector("div#jeden>p:last-child")); //znajdz element o tagu p który jest ostatnim dzieckiem diva o id jeden (7)
 
-        driver.findElement(By.cssSelector("div#jeden>p:fist-of-type")); //znajdz pierwsze p które jest dzieckiem diva o tagu jeden (5)
+        driver.findElement(By.cssSelector("div#jeden>p:first-of-type")); //znajdz pierwsze p które jest dzieckiem diva o tagu jeden (5)
         driver.findElement(By.cssSelector("div#jeden>p:last-of-type")); //znajdz ostatnie p które jest dzieckiem diva o tagu jeden (7)
         driver.findElement(By.cssSelector("div#jeden>p:only-of-type")); //znajdź p  który jest jedynym dzieciem tego typu w divie o id jeden (brak)
 
