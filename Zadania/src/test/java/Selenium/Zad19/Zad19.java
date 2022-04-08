@@ -80,7 +80,7 @@ public class Zad19 {
     }
 
     @Test
-    void tree() {
+    void three() {
         //given
         By textSpaceSelector = By.cssSelector("p>input[type='text']");
         By acceptedButtonSelector = By.cssSelector("p>button");
