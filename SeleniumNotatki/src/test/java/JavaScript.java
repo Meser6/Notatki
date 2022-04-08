@@ -31,6 +31,7 @@ public class JavaScript {
         // skroluj az dany element bedzie widoczny
         WebElement element1 = driver.findElement(By.cssSelector("xd"));
         js.executeScript("arguments[0].scrollIntoView()", element1);
+        js.executeScript("arguments[0].scrollIntoView(true)", element1); //element bedzie widoczny i to na samej górze strony
 
 
         //Zwracanie domeny
