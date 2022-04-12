@@ -1,4 +1,4 @@
-package Lokalizacja.Czekanie;
+package Czekanie;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;

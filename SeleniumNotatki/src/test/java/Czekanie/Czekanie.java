@@ -1,4 +1,4 @@
-package Lokalizacja.Czekanie;
+package Czekanie;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -62,5 +62,11 @@ public class Czekanie {
         //jak bedzie dłużej rzuci TimeOutException
         driver.manage().timeouts().setScriptTimeout(Duration.ofMillis(500));
         driver.manage().timeouts().scriptTimeout(Duration.ofMillis(500));
+    }
+
+    @Test
+    void czekanieNaCokolwiek() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(a -> driver.getTitle() == "some title");
     }
 }
