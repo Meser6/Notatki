@@ -9,8 +9,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -22,11 +24,14 @@ import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class SeleniumEasy {
 
     WebDriver driver;
     WebDriverWait wait;
+    Select select;
+    Actions actions;
 
     @RegisterExtension
     ScreenshotHelper status = new ScreenshotHelper();
@@ -94,6 +99,186 @@ public class SeleniumEasy {
         //then
         assertThat(receivedMessage, equalTo(expectedMessage));
     }
+
+    @Tag("input")
+    @Test
+    void singleCheckboxDemo() {
+        //given
+        String expectedMessage = "Success - Check box is checked";
+        String receivedMessage;
+
+        By checkboxInputSelector = By.cssSelector("input#isAgeSelected");
+        By receivedMessageSelector = By.cssSelector("div#txtAge");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 1);
+        driver.findElement(checkboxInputSelector).click();
+        receivedMessage = driver.findElement(receivedMessageSelector).getText();
+        //then
+        assertThat(receivedMessage, equalTo(expectedMessage));
+    }
+
+    @Tag("input")
+    @Test
+    void multipleCheckboxDemo() {
+        //given
+        String expectedMessage = "Uncheck All";
+        String receivedMessage;
+
+        By allCheckboxSelector = By.cssSelector("input.cb1-element");
+        By checkAllButtonSelector = By.cssSelector("#check1");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 1);
+        WebElement checkAllButtonElement = driver.findElement(checkAllButtonSelector);
+        checkAllButtonElement.click();
+        receivedMessage = checkAllButtonElement.getAttribute("value");
+        //
+        assertAll(
+                () -> assertThat(receivedMessage, equalTo(expectedMessage)),
+                () -> {
+                    int checkedCheckbox = 0;
+                    List<WebElement> checkboxList = driver.findElements(allCheckboxSelector);
+                    for (WebElement e : checkboxList) {
+                        if (e.isSelected()) {
+                            checkedCheckbox++;
+                        }
+                    }
+                    assertThat(4, equalTo(checkedCheckbox));
+                }
+        );
+    }
+
+    @Tag("input")
+    @Test
+    void multipleCheckboxDemo2() {
+        //given
+        String expectedMessage = "Check All";
+        String receivedMessage;
+
+        By allCheckboxSelector = By.cssSelector("input.cb1-element");
+        By checkAllButtonSelector = By.cssSelector("#check1");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 1);
+        WebElement checkAllButtonElement = driver.findElement(checkAllButtonSelector);
+        checkAllButtonElement.click();
+        driver.findElements(allCheckboxSelector).get(3).click();
+        receivedMessage = checkAllButtonElement.getAttribute("value");
+        //
+        assertAll(
+                () -> assertThat(receivedMessage, equalTo(expectedMessage)),
+                () -> {
+                    int checkedCheckbox = 0;
+                    List<WebElement> checkboxList = driver.findElements(allCheckboxSelector);
+                    for (WebElement e : checkboxList) {
+                        if (e.isSelected()) {
+                            checkedCheckbox++;
+                        }
+                    }
+                    assertThat(3, equalTo(checkedCheckbox));
+                }
+        );
+    }
+
+    @Tag("iput")
+    @ParameterizedTest
+    @CsvSource({"Male", "Female"})
+    void radioButtonDemo(String sex) {
+        //given
+        String expectedMessage = "Radio button '" + sex + "' is checked";
+        String receivedMessage;
+
+        By radioSelectorSelector = By.cssSelector("[name='optradio'][value='" + sex + "']");
+        By getCheckValueButtonSelector = By.cssSelector("button#buttoncheck");
+        By receivedMessageSelector = By.cssSelector("p.radiobutton");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 2);
+        driver.findElement(radioSelectorSelector).click();
+        driver.findElement(getCheckValueButtonSelector).click();
+        receivedMessage = driver.findElement(receivedMessageSelector).getText();
+        //when
+        assertThat(receivedMessage, equalTo(expectedMessage));
+    }
+
+    @Tag("input")
+    @ParameterizedTest
+    @CsvSource({"Male, 0 - 5", "Male, 5 - 15", "Male, 15 - 50", "Female, 0 - 5", "Female, 5 - 15", "Female, 15 - 50"})
+    void groupRadioButtonsDemo(String sex, String ageGroup) {
+        //given
+        String expectedMessage = "Sex : " + sex + "\nAge group: " + ageGroup;
+        String receivedMessage;
+
+        By sexRadioSelector = By.cssSelector("[name='gender'][value='" + sex + "']");
+        By ageGroupSelector = By.cssSelector("[name='ageGroup'][value='" + ageGroup + "']");
+        By getValuesButton = By.cssSelector("div.panel-body>button");
+        By receivedMessageSelector = By.cssSelector("p.groupradiobutton");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 2);
+        driver.findElement(sexRadioSelector).click();
+        driver.findElement(ageGroupSelector).click();
+        driver.findElement(getValuesButton).click();
+        receivedMessage = driver.findElement(receivedMessageSelector).getText();
+        //when
+        assertThat(receivedMessage, equalTo(expectedMessage));
+    }
+
+    @Tag("input")
+    @Test
+    void selectListDemo() {
+        //given
+        String selectedOption = "Wednesday";
+        String expectedMessage = "Day selected :- " + selectedOption;
+        String receivedMessage;
+
+        By listSelector = By.cssSelector("select.form-control");
+        By receivedMessageSelector = By.cssSelector("p.selected-value");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 3);
+        WebElement list = driver.findElement(listSelector);
+        select = new Select(list);
+        select.selectByVisibleText(selectedOption);
+        receivedMessage = driver.findElement(receivedMessageSelector).getText();
+        //when
+        assertThat(receivedMessage, equalTo(expectedMessage));
+    }
+
+    @Tag("input")
+    @Test
+    @Disabled
+        //TODO
+    void multiSelectListDemo() {
+        //given
+        String firstSelectedOption = "California";
+        String secondSelectedOption = "Ohio";
+        String firstSelectExpectedMessage = "First selected option is :" + firstSelectedOption;
+        String allSelectExpectedMessage = "Options selected are : " + firstSelectedOption + "," + secondSelectedOption;
+
+        By firstSelectedOptionSelector = By.cssSelector("option[value='" + firstSelectedOption + "']");
+        By secondSelectedOptionSelector = By.cssSelector("option[value='" + secondSelectedOption + "']");
+        By firstSelectedButtonSelector = By.cssSelector("button[value='Print First']");
+        By allSelectedButtonSelector = By.cssSelector("button[value='Print All']");
+        By receivedMessageSelector = By.cssSelector("p.getall-selected");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 3);
+        actions = new Actions(driver);
+        WebElement firstSelectedOptionElement = driver.findElement(firstSelectedOptionSelector);
+        WebElement secondSelectedOptionElement = driver.findElement(secondSelectedOptionSelector);
+        actions.click(firstSelectedOptionElement).keyDown(Keys.LEFT_CONTROL).click(secondSelectedOptionElement).build().perform();
+        //then
+        assertAll(
+                () -> {
+                    String firstSelectReceivedMessage;
+                    driver.findElement(firstSelectedButtonSelector).click();
+                    firstSelectReceivedMessage = driver.findElement(receivedMessageSelector).getText();
+                    assertThat(firstSelectReceivedMessage, equalTo(firstSelectExpectedMessage));
+                },
+                () -> {
+                    String allSelectReceivedMessage;
+                    driver.findElement(allSelectedButtonSelector).click();
+                    allSelectReceivedMessage = driver.findElement(receivedMessageSelector).getText();
+                    assertThat(allSelectReceivedMessage, equalTo(allSelectExpectedMessage));
+                }
+        );
+    }
+
 
     /**
      * @param difficulty chose BASIC, INTERMEDIATE and ADVANCED from ExercisesDifficulty
