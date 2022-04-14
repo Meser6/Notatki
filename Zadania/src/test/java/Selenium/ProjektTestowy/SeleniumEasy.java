@@ -243,7 +243,7 @@ public class SeleniumEasy {
     @Tag("input")
     @Test
     @Disabled
-        //TODO
+//TODO Zachowuje sie jakby tylko secondOprion byl zaznaczony. Przy debugu przechodzi, a wiec przydalby sie pewnie jakis wait.
     void multiSelectListDemo() {
         //given
         String firstSelectedOption = "California";
@@ -279,6 +279,64 @@ public class SeleniumEasy {
         );
     }
 
+    @Tag("alerts")
+    @Test
+    void javaScriptAlertBox() {
+        //given
+        String expectedMessage = "I am an alert box!";
+        String receivedMessage;
+
+        By clickMeButtonSelector = By.cssSelector("button[onclick=\"myAlertFunction()\"]");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 4);
+        driver.findElement(clickMeButtonSelector).click();
+        Alert alert = driver.switchTo().alert();
+        receivedMessage = alert.getText();
+        alert.accept();
+        //when
+        assertThat(receivedMessage, equalTo(expectedMessage));
+    }
+
+    @Tag("alerts")
+    @ParameterizedTest
+    @CsvSource({"OK", "Cancel"})
+    void javaScriptConfirmBox(String alert) {
+        //given
+        String expectedMessage = "You pressed " + alert + "!";
+        String receivedMessage;
+
+        By clickMeButtonSelector = By.cssSelector("button[onclick=\"myConfirmFunction()\"]");
+        By receivedMessageSelector = By.cssSelector("p#confirm-demo");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 4);
+        driver.findElement(clickMeButtonSelector).click();
+        if (alert.equals("OK")) driver.switchTo().alert().accept();
+        else driver.switchTo().alert().dismiss();
+        receivedMessage = driver.findElement(receivedMessageSelector).getText();
+        //then
+        assertThat(receivedMessage, equalTo(expectedMessage));
+    }
+
+    @Tag("alerts")
+    @Test
+    void javaScriptAlertBox2() {
+        //given
+        String messageToSend = "Test01#";
+        String expectedMessage = "You have entered '" + messageToSend + "' !";
+        String receivedMessage;
+
+        By clickForPromptButtonSelector = By.cssSelector("button[onclick=\"myPromptFunction()\"]");
+        By receivedMessageSelector = By.cssSelector("p#prompt-demo");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 4);
+        driver.findElement(clickForPromptButtonSelector).click();
+        Alert alert = driver.switchTo().alert();
+        alert.sendKeys(messageToSend);
+        alert.accept();
+        receivedMessage = driver.findElement(receivedMessageSelector).getText();
+        //then
+        assertThat(receivedMessage, equalTo(expectedMessage));
+    }
 
     /**
      * @param difficulty chose BASIC, INTERMEDIATE and ADVANCED from ExercisesDifficulty
