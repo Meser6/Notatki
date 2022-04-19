@@ -24,7 +24,13 @@ public class KartyPrzegladarki {
         //Zamkniecie aktualnej karty
         driver.close();
 
-        //przyklad uzycia w zad 17
+        //przyklad uzycia (przełączenie sie do nowo otwartego okna)
+
+        Set<String> cards = driver.getWindowHandles(); //pobiera wszystkie karty
+        String actualCard = driver.getWindowHandle(); //pobiera id aktualnej karty
+        cards.remove(actualCard); // usuwa aktualna karte wiec zostaje tylko nowa
+        String secondCard = cards.iterator().next(); // pobiera id kolejnej (nowej karty)
+        driver.switchTo().window(secondCard); // przełącza sie na nowa karte
 
     }
 }
