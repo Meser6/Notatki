@@ -6,7 +6,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -21,10 +23,11 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SeleniumEasy {
 
@@ -243,7 +246,7 @@ public class SeleniumEasy {
     @Tag("input")
     @Test
     @Disabled
-//TODO Zachowuje sie jakby tylko secondOprion byl zaznaczony. Przy debugu przechodzi, a wiec przydalby sie pewnie jakis wait.
+//TODO Zachowuje sie jakby tylko secondOption byl zaznaczony. Przy debugu przechodzi, a wiec przydalby sie pewnie jakis wait.
     void multiSelectListDemo() {
         //given
         String firstSelectedOption = "California";
@@ -337,6 +340,139 @@ public class SeleniumEasy {
         //then
         assertThat(receivedMessage, equalTo(expectedMessage));
     }
+
+    @Tag("alerts")
+    @ParameterizedTest
+    @CsvSource({"twitter, https://twitter.com/intent/follow?screen_name=seleniumeasy", " facebook, https://www.facebook.com/seleniumeasy"})
+    void singleWindowPopup(String button, String url) {
+        //given
+        String expectedUrl = url;
+        String receivedUrl;
+
+        By buttonsToSocialMediaSelector = By.cssSelector("div:not([class])>h5+a");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 5);
+        List<WebElement> buttonsList = driver.findElements(buttonsToSocialMediaSelector);
+
+        if (button.equals("twitter")) {
+            buttonsList.get(0).click();
+        } else buttonsList.get(1).click();
+
+        Set<String> cards = driver.getWindowHandles();
+        String actualCard = driver.getWindowHandle();
+        cards.remove(actualCard);
+        String newCard = cards.iterator().next();
+        driver.switchTo().window(newCard);
+
+        receivedUrl = driver.getCurrentUrl();
+        //then
+        assertThat(receivedUrl, equalTo(expectedUrl));
+    }
+
+    @Tag("alerts")
+    @ParameterizedTest
+    @ValueSource(ints = {3, 4})
+    void multipleWindowModal(int pageAmount) {
+        //given
+        int expectedPageAmount = pageAmount;
+        int receivedPageAmount;
+
+        By buttonsToSocialMediaSelector = By.cssSelector("div[class$='windows']>h5+a");
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 5);
+        List<WebElement> buttonsList = driver.findElements(buttonsToSocialMediaSelector);
+
+        if (pageAmount == 3) {
+            buttonsList.get(0).click();
+        } else buttonsList.get(1).click();
+
+        Set<String> cards = driver.getWindowHandles();
+        receivedPageAmount = cards.size();
+
+        //then
+        assertThat(receivedPageAmount, equalTo(expectedPageAmount));
+    }
+
+    @Tag("alerts")
+    @ParameterizedTest
+    @CsvFileSource(resources = "/AlertsParameters.csv")
+    void bootstrapAlertMessages(String alertCategory, String fontColor, String backgroundColor, String borderColor) {
+        //given
+        String expectedAlertMessage = "×\nI'm a normal " + alertCategory + " message. To close use the appropriate button.";
+        String actualAlertMessage;
+        String actualFontColor;
+        String actualBackgroundColor;
+        String actualBorderColor;
+
+        By alarmButtonSelector = By.cssSelector("button#normal-btn-" + alertCategory);
+        By alarmBoxSelector = By.cssSelector("div.alert-normal-" + alertCategory);
+        By alarmCloseButtonSelector = By.cssSelector("div[style=\"display: block;\"]>button.close");
+
+        WebElement alarmBoxElement;
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 6);
+        driver.findElement(alarmButtonSelector).click();
+        alarmBoxElement = driver.findElement(alarmBoxSelector);
+
+        actualAlertMessage = alarmBoxElement.getText();
+        actualFontColor = alarmBoxElement.getCssValue("color");
+        actualBackgroundColor = alarmBoxElement.getCssValue("background-color");
+        actualBorderColor = alarmBoxElement.getCssValue("border-color");
+        //then
+        assertAll(
+                () -> assertThat(actualAlertMessage, equalTo(expectedAlertMessage)),
+                () -> assertThat(actualFontColor, equalTo(fontColor)),
+                () -> assertThat(actualBackgroundColor, equalTo(backgroundColor)),
+                () -> assertThat(actualBorderColor, equalTo(borderColor)),
+                () -> {
+                    driver.findElement(alarmCloseButtonSelector).click();
+                    assertFalse(alarmBoxElement.isDisplayed());
+                }
+        );
+    }
+
+    @Tag("alerts")
+    @ParameterizedTest
+    @CsvFileSource(resources = "/AlertsParameters.csv")
+    void bootstrapAlertMessages2(String alertCategory, String fontColor, String backgroundColor, String borderColor, int displayedTime) {
+        //given
+        String expectedAlertMessage = "I'm an autocloseable " + alertCategory + " message. I will hide in " + displayedTime + " seconds.";
+        String actualAlertMessage;
+        String actualFontColor;
+        String actualBackgroundColor;
+        String actualBorderColor;
+
+        By alarmButtonSelector = By.cssSelector("button#autoclosable-btn-" + alertCategory);
+        By alarmBoxSelector = By.cssSelector("div.alert-autocloseable-" + alertCategory);
+
+        WebElement alarmButtonElement;
+        WebElement alarmBoxElement;
+        //when
+        choseExercisesCategoryAndIndex(ExercisesDifficulty.BASIC, 6);
+        alarmButtonElement = driver.findElement(alarmButtonSelector);
+        alarmButtonElement.click();
+        alarmBoxElement = driver.findElement(alarmBoxSelector);
+
+        actualAlertMessage = alarmBoxElement.getText();
+        actualFontColor = alarmBoxElement.getCssValue("color");
+        actualBackgroundColor = alarmBoxElement.getCssValue("background-color");
+        actualBorderColor = alarmBoxElement.getCssValue("border-color");
+        //then
+        assertAll(
+                () -> assertFalse(alarmButtonElement.isEnabled()),
+                () -> assertThat(actualAlertMessage, equalTo(expectedAlertMessage)),
+                () -> assertThat(actualFontColor, equalTo(fontColor)),
+                () -> assertThat(actualBackgroundColor, equalTo(backgroundColor)),
+                () -> assertThat(actualBorderColor, equalTo(borderColor)),
+                () -> {
+                    wait = new WebDriverWait(driver, Duration.ofSeconds(displayedTime + 1));
+                    boolean isInvisibility = wait.until(ExpectedConditions.invisibilityOf(alarmBoxElement));
+                    assertTrue(isInvisibility);
+                },
+                () -> assertTrue(alarmButtonElement.isEnabled())
+        );
+    }
+
 
     /**
      * @param difficulty chose BASIC, INTERMEDIATE and ADVANCED from ExercisesDifficulty
