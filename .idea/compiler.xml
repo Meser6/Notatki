@@ -9,12 +9,7 @@
         <module name="ElDupa" />
         <module name="SeleniumNotatki" />
         <module name="TestyJednostkoweNotatki" />
-        <module name="Zadania" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="TestyJednostkowe" target="17" />
-      <module name="TestyJednostkoweZadania" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
