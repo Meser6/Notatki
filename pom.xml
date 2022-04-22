@@ -12,6 +12,7 @@
         <module>TestyJednostkoweNotatki</module>
         <module>SeleniumNotatki</module>
         <module>Zadania</module>
+        <module>JavaNotatki</module>
     </modules>
 
     <build>

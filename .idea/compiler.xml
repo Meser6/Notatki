@@ -9,6 +9,7 @@
         <module name="SeleniumNotatki" />
         <module name="TestyJednostkoweNotatki" />
         <module name="Zadania" />
+        <module name="JavaNotatki" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
