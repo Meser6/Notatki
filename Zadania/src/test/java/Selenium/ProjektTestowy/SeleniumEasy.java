@@ -474,6 +474,7 @@ public class SeleniumEasy {
     }
 
 
+
     /**
      * @param difficulty chose BASIC, INTERMEDIATE and ADVANCED from ExercisesDifficulty
      */
