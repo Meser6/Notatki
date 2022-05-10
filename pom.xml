@@ -13,6 +13,7 @@
         <module>SeleniumNotatki</module>
         <module>Zadania</module>
         <module>JavaNotatki</module>
+        <module>API</module>
     </modules>
 
     <build>

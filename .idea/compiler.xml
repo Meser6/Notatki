@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SeleniumNotatki" />
+        <module name="API" />
         <module name="TestyJednostkoweNotatki" />
         <module name="Zadania" />
         <module name="JavaNotatki" />
