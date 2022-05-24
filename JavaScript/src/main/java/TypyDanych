@@ -1,0 +1,23 @@
+//W JS nie ma typowania zmiennych co oznacza ze do zmienniej x mozna wrzucic i pomienic ja na rozne typy
+
+// zmienna deklarujemy przez słówko kluczowe var
+//nie moze sie ona zaczynac od cyfr i miec znaków spęcjalnych (oprocz $ i _)
+
+var zmienna;
+
+//tekst
+zmienna = "Text";
+zmienna = 'Text';
+zmienna = "Tex\"t" // \" dezaktywuje cudzysłów
+zmienna = "Text\n" // \n działa jak enter
+
+// liczby
+zmienna = 1;
+zmienna = 1.5; //kropka zamiast przecinka
+
+//operatory logiczne
+zmienna = true;
+zmienna = false;
+
+//pusty
+zmienna = null;

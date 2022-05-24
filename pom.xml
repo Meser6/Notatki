@@ -14,6 +14,7 @@
         <module>Zadania</module>
         <module>JavaNotatki</module>
         <module>API</module>
+        <module>JavaScript</module>
     </modules>
 
     <build>
