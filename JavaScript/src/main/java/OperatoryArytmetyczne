@@ -6,7 +6,7 @@ var a = 10, b = 20, c;
 c = a + b;
 c = a - b;
 c = a * b;
-d =  a / b; //Warto obdłużyć dzielenie przez 0. Wystarczy rzutowac pierwsza w całym działaniu.
+d =  a / b; // w przypadku dzielenia przez zero zwróci Infinity
 
 c = a % b; // Reszta z dzielenia
 c = Math.pow(a, b); // Potęgowanie, a do potęgi b
@@ -21,11 +21,19 @@ c = ++a; // Dodaj 1 do a (pre)
 // Zamiast rożnych rodzajów nawiasów są tylko zwykłe
 c = ((2 + 2) * 2) - 2;
 
-c = a >= b; //a jest większe bądź równe b
-c = a == b; //a jest równe b
+//porównanie bez patrzenia na typy zmiennych
+c = a == b; //a jest równe b. np 5 === "5" zwróci true
+c = a >= b; //a jest większe bądź równe b np 5 !== "5" zwroic false
+
+//porownanie z uwzglednieniem typo zmiennych
+c = a === b // np 5 === "5" zwróci false
+c = a !== b // np 5 !== "5" zwroci true
+c = typeof(d) //zwroci typ zmiennej d
+
 c = !false; // ! działa jako negacja tzn. odwrócenie.
 c = 1 == 1 && 2 == 2; // && działa jako i
 c = 1 == 2 || 1 == 3; // || działa jako lub
+
 
 //różnica jest gdy chcemy działać na różnych typach danych
 c = "2" + 3 // zwroci stringa "23"
