@@ -21,3 +21,8 @@ zmienna = false;
 
 //pusty
 zmienna = null;
+
+//nie określony
+//jesli wywołujemy funkcje z dwoma argumentami ale wyslemy do niej tylko jeden to
+//ten drugi przyjmie wartosc undefined
+zmienna = undefined;
