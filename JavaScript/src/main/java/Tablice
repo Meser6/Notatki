@@ -1,0 +1,15 @@
+//tablice służą do przechowywania w nich danych
+//w JS mozna przechowywac rozne typy w jednej tablicy
+
+var tab =  new Array(); //nie trzeba deklarowac wielkosci tablicy jak w javie (wówczas powstanie tablica 0 elementowa)
+var tab2 = new Array(3); //ale mozemy tez od razu zadeklarowac jej wielkosć (a potem zmienic ofc)
+var tab3 = new Array("jeden", "dwa", "trzy"); // można stworzyć tablice od razu z zadeklarowanymi zmiennymi w niej
+var tab4 = [true, false] // inny ze sposobów tworzenia tablicy z zadeklarowanymi zmiennymi
+
+tab[0] = "poniedzialek"; // dodawanie do tablicy obslugujemy poprzez przypisanie do indeksu danej wartosci
+tab[2] = "środa"; //jeżeli dodamy wartosci nie pokolei to te które są nie wypełnione i same sie zapełnią pustą wartością
+
+tab.length; //wielkość tablicy (tu bedzie 3 bo [1] jest pusty)
+var tab5 = tab3.concat(tab4)// łączy tablice 3 i 4 i wpisuje ja w nową
+
+tab.forEach(x => console.log(x)); //literowanie po elementach

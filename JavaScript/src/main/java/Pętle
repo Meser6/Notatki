@@ -17,6 +17,10 @@ for (var j = 0; j < 10; j++) { // przyjmij j. sprawdz czy j<10. jeśl tak to wyk
     console.log(j);
 }
 
+// ForEach
+var tab = new Array(1,2,3);
+tab.forEach(x => console.log(x)); // bierze element, wpisuje go w x, potem robi to co po strzlce i bierze kolejny itd.
+
 //--------- Etykiety ----------------
 
 //Dane fragmenty kodu mozna etykietowac a potem je wskazywać
