@@ -3,7 +3,10 @@
 // zmienna deklarujemy przez słówko kluczowe var
 //nie moze sie ona zaczynac od cyfr i miec znaków spęcjalnych (oprocz $ i _)
 
-var zmienna;
+var zmienna; // stara szkola. juz nie powinno sie tego uzywac
+let zmienna2; // uzywamy gdy dana zmienna beziemy chcieli zmieniac w trakcie wykonywania kodu. moze byc zadeklarowana pusta
+const zmienna3 // uzywamy gdy dana zmienna nie bedziemy zmieniac (cos jak finale).
+//NIE może być zadeklarowana pusta. jak sie sprobuje nadpisac to rzuci wyjatek
 
 //tekst
 zmienna = "Text";
@@ -23,6 +26,5 @@ zmienna = false;
 zmienna = null;
 
 //nie określony
-//jesli wywołujemy funkcje z dwoma argumentami ale wyslemy do niej tylko jeden to
-//ten drugi przyjmie wartosc undefined
+//np. jesli wywołujemy funkcje z dwoma argumentami ale wyslemy do niej tylko jeden to ten drugi przyjmie wartosc undefined
 zmienna = undefined;

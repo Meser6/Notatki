@@ -1,9 +1,12 @@
 document; //pobiera cały DOM
 
+//pobierajac element pobieramy jego i jego dzieci.
 var id = document.getElementById("ID"); // pobiera element po ID (powinno byc unikalne)
 var classes = document.getElementsByClassName("CLASS"); // pobiera elementy o danej klasie i dopisuje je do listy
 var tags = document.getElementsByTagName("TAG"); // pobiera elementy o danym tagu i dopisuje je do listy
 var names = document.getElementsByName("NAME"); // pobiera elementy o danej nazwie i dopisuje je do listy
+var selector = document.querySelector("CSS_SELECTOR") // pobiera pierwszy element z danym seletorem css
+var selectors = document.querySelectorAll("CSS_SELECTOR") // pobiera wszystkie elementy z danym selektorem i opisuje do listy
 
 
 id.innerText = "<br>TEXT</br>"; // podmieni cały teskt elementu i NIE będzie szukał w nim znaczników HTML (wstawi "<br>TEXT</br>")

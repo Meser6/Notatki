@@ -1,6 +1,7 @@
 var strona = document.getElementById("1");
 // funckje w js tworzymy przez podanie słówka kluczowego function + nazwa + ()
 
+// 1 sposob
 //tworzenie funkcji bezargumentowej
 function funkcja (){
     alert("alert");
@@ -8,9 +9,15 @@ function funkcja (){
 
 funkcja();
 
+// 2 sposob (funkcja strzałkowa) - nie może zostać wywołana w kodzie przed miejcem inicjalizacji
+
+const funkcjaStrzałkowa = () => {
+    alert("=>");
+}
+funkcjaStrzałkowa();
+
 //tworzenie funkcji z argumentami
 function funkcja2(a, b){
-
     for(var i = 0; i<a; i++){
         strona.innerHTML += i + b + "<br>";
     };
