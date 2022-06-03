@@ -15,6 +15,7 @@
         <module>JavaNotatki</module>
         <module>API</module>
         <module>JavaScript</module>
+        <module>Cypress</module>
     </modules>
 
     <build>

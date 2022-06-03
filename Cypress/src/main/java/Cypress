@@ -1,0 +1,52 @@
+/// Podstawy
+
+// komendy terminal
+npm init // inicjalizacja nowego projektu w Visual Studio
+
+npm install cypress--save-dev//instalacja Cypress'a
+npm install --save-dev cypress@4.11.0 // instalacja konkretnej wersji
+yarn upgrade cypress@4.11.0 // update do konretnej wersji
+
+npx cypress open // odpalenie cypresa
+
+npm run XXX // odpalenie skryptu o nazwie XXX z pliku package.json
+
+// struktura plikow
+package.json // to dane o całym projekcie. mozemy w nim zadeklarowac skrypty ktore bedziemy wywoływac po nazwie
+cypress.json // to plik z konfiguracja startowa cypressa
+    np. "BaseUrl": "http://google.pl" // ustawia jako strone startowa
+    //https://docs.cypress.io/guides/references/configuration#Global
+fixtures // przechowuje stałe dane do których potem możemy się odwołać np. nazwa uzytkownika
+integration // znajdują sie w nim testy
+plugins // ustawiamy tu rozszerzenia do cypressa
+support // tworzymy tu globalne metody do których dostęp będzie miał każdy test
+
+// TESTY
+
+//struktura testu
+/// <reference types="cypress" /> // referencja do cypressa
+
+describe("E2E", () => { // nazwa całego modułu testów
+    it("first test", ()=>{ // inicjalizacja pojedynczego testu + jego nazwa
+        // ciało testu
+    })
+    it.olny("second test", () =>{ // jesli w pliku sa testy z only to wykona tylko takie ktore go maja w srodku
+        //test
+    })
+})
+
+//metody
+
+cy.visit("") // otwiera strone bazowa
+cy.visit("http://google.pl") // otwiera dana strone
+cy.visit("/konto") // otwiera strone bazowa + odaje do niej to co w argumencie ${baseUrl}/somewhere
+
+cy.get("CSS") // pobranie elenemtu/ów po selektorze CSS
+cy.get("a").parents(".class") // znajdz wszstkie elementy o tagu a a potem wsrod nich znajdz ich rodzicow ktorzy maja klase class
+cy.get("a").eq(1) // znajdz wszystkie elementy o tagu a (zał ze jest 10) i pobierz drugie (liczymy od 0)
+cy.get("a").first() // znajdz wszystkie elementy o tagu a (zał ze jest 10) i pobierz pierwszy
+cy.contains("Text") // pobierze elementy które zawieraja dany tekst
+cy.contains(".class", "text") // pobierze elementy które maja klase class i zawieraja tekst
+cy.contains("text", {timeout: 1000}) // bedzie szukal wszystkich elementow z tekstem przez okrex 1000msc
+
+
