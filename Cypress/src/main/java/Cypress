@@ -24,7 +24,7 @@ support // tworzymy tu globalne metody do których dostęp będzie miał każdy 
 // TESTY
 
 //struktura testu
-/// <reference types="cypress" /> // referencja do cypressa
+/// <reference types="cypress" /> // referencja do cypressa  !!!!
 
 describe("E2E", () => { // nazwa całego modułu testów
     it("first test", ()=>{ // inicjalizacja pojedynczego testu + jego nazwa
@@ -45,8 +45,17 @@ cy.get("CSS") // pobranie elenemtu/ów po selektorze CSS
 cy.get("a").parents(".class") // znajdz wszstkie elementy o tagu a a potem wsrod nich znajdz ich rodzicow ktorzy maja klase class
 cy.get("a").eq(1) // znajdz wszystkie elementy o tagu a (zał ze jest 10) i pobierz drugie (liczymy od 0)
 cy.get("a").first() // znajdz wszystkie elementy o tagu a (zał ze jest 10) i pobierz pierwszy
+cy.get("a").find("input") //  znajdz element a, a nastepnie wszystkie inputy ktore sie w nim znajduja
+
+
 cy.contains("Text") // pobierze elementy które zawieraja dany tekst
 cy.contains(".class", "text") // pobierze elementy które maja klase class i zawieraja tekst
 cy.contains("text", {timeout: 1000}) // bedzie szukal wszystkich elementow z tekstem przez okrex 1000msc
 
-
+cy.get("a").then(aPodstawa =>{ // pobierz element a i dopisz go to zmiennej aPodstawa
+    cy.wrap(pierwszy).find("href").then(link =>[ // wez element aPodstawa i znajdz w nim wszystkie hrefy. dopisz je do zmiennej link
+        cy.wrap(link).each(pojedynczyLink =>{ // wez element z listy link, dopisz go do pojedynczyLink i zrob to co w ciele. potem wez drugi itd.
+            cy.log(pojedynczyLink) // cialo
+        })
+    ])
+})
