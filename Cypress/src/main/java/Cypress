@@ -64,3 +64,15 @@ cy.get("a").then(aPodstawa =>{ // pobierz element a i dopisz go to zmiennej aPod
         })
     ])
 })
+
+cy.wait(5000) // poczka x ms
+
+// ---------- adnotacje ----------
+beforeEach(() => { // wykona sie przed kazdym testem
+    cy.visit('https://blog.consdata.tech/')
+})
+
+afterEach(() => { //wykona sie po każdym teście
+    cy.clearCookies();
+    cy.clearLocalStorage();
+})
