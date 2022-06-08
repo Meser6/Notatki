@@ -1,6 +1,5 @@
-/// Podstawy
+// ---------- komendy terminal ----------
 
-// komendy terminal
 npm init // inicjalizacja nowego projektu w Visual Studio
 
 npm install cypress--save-dev//instalacja Cypress'a
@@ -11,7 +10,9 @@ npx cypress open // odpalenie cypresa
 
 npm run XXX // odpalenie skryptu o nazwie XXX z pliku package.json
 
-// struktura plikow
+
+// ---------- struktura plikow ----------
+
 package.json // to dane o całym projekcie. mozemy w nim zadeklarowac skrypty ktore bedziemy wywoływac po nazwie
 cypress.json // to plik z konfiguracja startowa cypressa
     np. "BaseUrl": "http://google.pl" // ustawia jako strone startowa
@@ -21,9 +22,12 @@ integration // znajdują sie w nim testy
 plugins // ustawiamy tu rozszerzenia do cypressa
 support // tworzymy tu globalne metody do których dostęp będzie miał każdy test
 
-// TESTY
 
-//struktura testu
+//  ----------  ----------  ---------- TESTY ----------  ----------  ----------
+
+
+// ---------- struktura testu ----------
+
 /// <reference types="cypress" /> // referencja do cypressa  !!!!
 
 describe("E2E", () => { // nazwa całego modułu testów
@@ -35,7 +39,8 @@ describe("E2E", () => { // nazwa całego modułu testów
     })
 })
 
-//metody
+
+// ---------- metody ----------
 
 cy.visit("") // otwiera strone bazowa
 cy.visit("http://google.pl") // otwiera dana strone
