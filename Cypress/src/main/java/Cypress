@@ -3,19 +3,21 @@
 npm init // inicjalizacja nowego projektu w Visual Studio
 
 npm install cypress--save-dev//instalacja Cypress'a
-npm install --save-dev cypress@4.11.0 // instalacja konkretnej wersji
+npm install --save-dev cypress@9.5.1 // instalacja konkretnej wersji
 yarn upgrade cypress@4.11.0 // update do konretnej wersji
 
 npx cypress open // odpalenie cypresa
 
 npm run XXX // odpalenie skryptu o nazwie XXX z pliku package.json
 
+npm uninstall <package_name>// odinstalowanie
+
 
 // ---------- struktura plikow ----------
 
 package.json // to dane o całym projekcie. mozemy w nim zadeklarowac skrypty ktore bedziemy wywoływac po nazwie
 cypress.json // to plik z konfiguracja startowa cypressa
-    np. "BaseUrl": "http://google.pl" // ustawia jako strone startowa
+    np. "baseUrl": "http://google.pl" // ustawia jako strone startowa
     //https://docs.cypress.io/guides/references/configuration#Global
 fixtures // przechowuje stałe dane do których potem możemy się odwołać np. nazwa uzytkownika
 integration // znajdują sie w nim testy
