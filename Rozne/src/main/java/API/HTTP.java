@@ -1,7 +1,9 @@
+package API;
+
 public class HTTP {
 
     /**
-     * HTTP
+     * API.HTTP
      */
     /*
     Protokół http określa format w jaki moze komunikowac sie klinet z serwerem

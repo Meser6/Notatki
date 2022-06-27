@@ -1,0 +1,19 @@
+W Gicie są 3 przestrzenie robocze:
+    - Working tree - tu znajdują się pliki które nie są śledzone, sledzone ale ze zmianami nie
+              zaakceptowanymi do commita
+    - Index - tu są wszytskie pliki ktore sa gotowe do commitu
+              jeśli plik jest dodany (git add) ale wprowadzimy w nim zmiany to wersja ze zmianami bedzie
+              w working tree a bez w index
+    - Local repository - tu sa plki spakowane w commity
+
+
+--------------- KOMENDY ---------------
+git status - pokazuje aktualny status naszego repozytorium
+          <sciezka do folderu> - src/main/Java/GIT - pokaze status plików tylko z danego folderu
+git add <nazwa pliku> - dodaje plik/aktualna wersje do indexu
+        . - wszyystkie pliki
+        Mys* - wszystkie pliki zaczynajace sie na Mys
+        folder1/folder2/* - wszystkie pliki które znajdują się w folder1 > folder2
+        File1.txt File2.txt - doda te dwa pliki (TAB wypelnia nazwy plikow)
+git commit -m "nazwa commita" - plików które sa w indexie tworzy commit o podanej nazwie
+git show - pokazuje informacje o niepushnietych commitach
