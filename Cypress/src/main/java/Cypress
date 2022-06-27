@@ -24,6 +24,23 @@ integration // znajdują sie w nim testy
 plugins // ustawiamy tu rozszerzenia do cypressa
 support // tworzymy tu globalne metody do których dostęp będzie miał każdy test
 
+// ---------- fixtures ----------
+
+//aby korzystac z danych zgromadzonych w fixtures nalezy zbudowac odwolanie do nich i zapisac je do zmennej
+//jeżli chcemy to zrobic globalnie to trzeba uzyc function() (równiez w testach ktore beda z tych danych korzystaly) a nie funkcji strzałkowej
+beforeAll(function(){
+    cy.fixture("example").then(data =>{ // w parametrze fixture podajemy sciezke do pliku, ale zaczynajac juz w folderze fixture. nie trzeba rozszerzenia
+        this.dane = data})
+    })
+it("test1", function(){
+    this.dane.nazwaDanej;
+})
+//jeżeli bedziemy korzystali w jednym miejscu to mozemy zbudowac takie odwolanie
+it("test2", () =>{
+    cy.fixture("example").then(data2 =>{
+        data.nazwaDanej;
+    })
+})
 
 //  ----------  ----------  ---------- TESTY ----------  ----------  ----------
 
@@ -70,11 +87,16 @@ cy.get("a").then(aPodstawa =>{ // pobierz element a i dopisz go to zmiennej aPod
 cy.wait(5000) // poczka x ms
 
 // ---------- adnotacje ----------
-beforeEach(() => { // wykona sie przed kazdym testem
-    cy.visit('https://blog.consdata.tech/')
+beforeEach(() => { // wykona sie przed kazdym testem (w danym pakiecie)
 })
 
-afterEach(() => { //wykona sie po każdym teście
-    cy.clearCookies();
-    cy.clearLocalStorage();
+afterEach(() => { //wykona sie po każdym teście (w danym pakiecie)
 })
+
+before(() => { // wykona sie raz, przed odpaleniem pierwszego testu (w danym pakiecie)
+})
+
+after(() => { // wykona sie raz, po zakonczeniu sie wszystkich testow (w danym pakiecie)
+})
+
+

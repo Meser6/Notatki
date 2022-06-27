@@ -52,10 +52,20 @@ public class HTTP {
      */
     /*
     dzielą się na:
-        -informacyjne
-        -powodzenia
-        -przekierownia
-        -błędu klienta
-        -błędu serwera
+        -1XX - informacyjne
+            100 - konunuj prośbę o dalsze wyslanie zapytania
+            111 - polaczenie odrzucone przez serwer
+        -2XX - powodzenia
+            200 - ządanie sie powiodło. serwer zwrocil odpowiedz
+            201 - zadanie sie powiodło. serwer storzył/zaktualizował zasób
+        -3XX - przekierownia
+            301 - uzytkownik zostal trwale przeniesiony na inna strone
+            310 - zbyt wiele przekierowan
+        -4XX - błędu klienta
+            400 - błędne zapytanie
+            401 - nieautoryzowany dostęp
+            403 - dostep zabroniony
+        -5XX - błędu serwera
+            500 - nieoczekiwany blad. nie mozna zrealizowac zapytania/zadania
      */
 }
