@@ -24,3 +24,12 @@ cy.get("@requestGetPost").then(res =>{
     res.response.body.status.should("contains", 200)
     })
 })
+
+// Mockowanie requestów
+
+// kiedy wyłapie takiego responsa to zamiast odpwiedzi serwera wysle to co mu podalismy w 3 parametrze
+
+cy.intercept("GET", "http://yt.pl/getPosts", { fixture: 'users.json' }).as("requestGet1")
+// wezmie z fixture z pliku users
+cy.intercept("GET", "http://yt.pl/getPosts", ['jeden', 'dwa', 'trzy']).as("requestGet2")
+// wezmie to co jest podane
