@@ -6,14 +6,30 @@ W Gicie są 3 przestrzenie robocze:
               w working tree a bez w index
     - Local repository - tu sa plki spakowane w commity
 
+--global - ustawienia dla danego urzytkownika
+--system - ustawienia dla calej maszyny
+--local  - ustawienia dla danego projektu
 
 --------------- KOMENDY ---------------
+
 git status - pokazuje aktualny status naszego repozytorium
           <sciezka do folderu> - src/main/Java/GIT - pokaze status plików tylko z danego folderu
+
 git add <nazwa pliku> - dodaje plik/aktualna wersje do indexu
-        . - wszyystkie pliki
+        . - wszystkie pliki
         Mys* - wszystkie pliki zaczynajace sie na Mys
         folder1/folder2/* - wszystkie pliki które znajdują się w folder1 > folder2
         File1.txt File2.txt - doda te dwa pliki (TAB wypelnia nazwy plikow)
+        np.    git add folder1/Mys* - doda wsyztkie pliki zaczynajace sie na Mys z folder1
 git commit -m "nazwa commita" - plików które sa w indexie tworzy commit o podanej nazwie
 git show - pokazuje informacje o niepushnietych commitach
+
+git log - pokazuje liste pushnietych commitow (z OBECNEJ gałęzi)
+        --graph - pokazuje drzewo z rozgałęzieniami (z OBECNEJ gałęzi)
+        --graph --oneline - pokazuje drzewo z rozgalezieniami ale w skróconej wersji (z OBECNEJ gałęzi)
+        --all  - pokazuje coś z wszystkich gałęzi
+        np.     git log --graph --oneline --all - pokaze drzewko ze wszystkich commitów
+
+git config --global alias.<nazwa> "<komenda> (bez git)" - dopisze komende do nazwy przez co latwiej ja wyolaby
+        np.     git config --global alias.add "add *" - doda  globalnie komende add * do zmiennej add
+                git add - /\ wywoła powyższa komende

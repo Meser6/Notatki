@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Java" />
+        <module name="Rozne" />
         <module name="Cypress" />
-        <module name="TestyJednostkoweNotatki" />
         <module name="Zadania" />
         <module name="JavaScript" />
-        <module name="SeleniumNotatki" />
-        <module name="API" />
-        <module name="JavaNotatki" />
+        <module name="Selenium" />
+        <module name="TestyJednostkoweJava" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
