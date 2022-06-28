@@ -69,5 +69,3 @@ jesli chemy ignorowac pliki z idexu nalezy je najpierw z niego usunac
 git config --global alias.<nazwa> "<komenda> (bez git)" - dopisze komende do nazwy przez co latwiej ja wyolaby
         > np.     git config --global alias.iguana "add *" - doda  globalnie komende add * do zmiennej add
         >         git iguana - /\ wywoła powyższa komende
-
-Werka jest super
