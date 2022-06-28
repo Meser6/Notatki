@@ -9,11 +9,11 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>TestyJednostkoweNotatki</module>
-        <module>SeleniumNotatki</module>
+        <module>TestyJednostkoweJava</module>
+        <module>Selenium</module>
         <module>Zadania</module>
-        <module>JavaNotatki</module>
-        <module>API</module>
+        <module>Java</module>
+        <module>Rozne</module>
         <module>JavaScript</module>
         <module>Cypress</module>
     </modules>
