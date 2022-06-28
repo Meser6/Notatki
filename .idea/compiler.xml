@@ -6,17 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Java" />
+        <module name="Rozne" />
         <module name="Cypress" />
         <module name="Zadania" />
         <module name="JavaScript" />
+        <module name="Selenium" />
+        <module name="TestyJednostkoweJava" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Java" target="17" />
-      <module name="Rozne" target="17" />
-      <module name="Selenium" target="17" />
       <module name="TestyJednostkowe" target="17" />
-      <module name="TestyJednostkoweJava" target="17" />
       <module name="TestyJednostkoweZadania" target="17" />
     </bytecodeTargetLevel>
   </component>

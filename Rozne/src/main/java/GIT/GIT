@@ -9,27 +9,63 @@ W Gicie są 3 przestrzenie robocze:
 --global - ustawienia dla danego urzytkownika
 --system - ustawienia dla calej maszyny
 --local  - ustawienia dla danego projektu
-
---------------- KOMENDY ---------------
+---------------------------------------------------------------------
+------------------------------ KOMENDY ------------------------------
+---------------------------------------------------------------------
+--------------- INFORMACJE ---------------
 
 git status - pokazuje aktualny status naszego repozytorium
-          <sciezka do folderu> - src/main/Java/GIT - pokaze status plików tylko z danego folderu
+          <sciezka do folderu> - pokaze status plików tylko z danego folderu
+          > np.     git status src/main/Java/GIT - pokaze status plikow z folderu GIT
 
-git add <nazwa pliku> - dodaje plik/aktualna wersje do indexu
-        . - wszystkie pliki
-        Mys* - wszystkie pliki zaczynajace sie na Mys
-        folder1/folder2/* - wszystkie pliki które znajdują się w folder1 > folder2
-        File1.txt File2.txt - doda te dwa pliki (TAB wypelnia nazwy plikow)
-        np.    git add folder1/Mys* - doda wsyztkie pliki zaczynajace sie na Mys z folder1
-git commit -m "nazwa commita" - plików które sa w indexie tworzy commit o podanej nazwie
+git diff - pokazuje roznice w plikach pomiedzy working tree a indexem
+        --staged - roznica w plikach pomiedzy idexem a local repozitory
+        <commit_number> - pomiedzy working tree a danym commitem
+        HEAD - pomiedzy working tree a headem
+        <nazwa_pliku> - pokazuje roznice tylko w tym pliku/plikach
+        > np.     git diff HEAD File2.js - pokaze roznice w pliku File2 pomiedzy working tree a headem
+
 git show - pokazuje informacje o niepushnietych commitach
 
 git log - pokazuje liste pushnietych commitow (z OBECNEJ gałęzi)
         --graph - pokazuje drzewo z rozgałęzieniami (z OBECNEJ gałęzi)
         --graph --oneline - pokazuje drzewo z rozgalezieniami ale w skróconej wersji (z OBECNEJ gałęzi)
         --all  - pokazuje coś z wszystkich gałęzi
-        np.     git log --graph --oneline --all - pokaze drzewko ze wszystkich commitów
+        > np.     git log --graph --oneline --all - pokaze drzewko ze wszystkich commitów
+
+--------------- DODAWANIE/USUWANIE ---------------
+
+git add <nazwa pliku> - dodaje plik/aktualna wersje do indexu
+        . - wszystkie pliki
+        Mys* - wszystkie pliki zaczynajace sie na Mys
+        folder1/folder2/* - wszystkie pliki które znajdują się w folder1 > folder2
+        File1.txt File2.txt - doda te dwa pliki (TAB wypelnia nazwy plikow)
+        > np.    git add folder1/Mys* - doda wsyztkie pliki zaczynajace sie na Mys z folder1
+
+git add -p <ściezka do pliku> - pozwoli wybrac konkretne linijki ktore zostana dodane do indexu
+        //TODO rozkminic potem jak to sie robi. e to edycja ? to pomoc
+
+git commit -m "nazwa commita" - z plików które sa w indexie tworzy commit o podanej nazwie
+
+git reset <sciezka do pliku> - podmienia plil w idexie na ten z najnowszej rewizji (head)
+
+git checkout <commit_number> <sciezka do pliku>  - zastepuje plik w idexie i working tree plikiem z danego commita
+        > np.   git checkout c4ds folder1/Pli.txt - podmieni Pli.txt na wersje z commita c4ds...
+
+--------------- GIT IGNORE ---------------
+
+touch .gitignore  - jeśli nie mamy stworzonego pliku .gitignore to nalezy go stworzyc ta komenda
+do tego pliku nalezy wpisasc wszytkie pliki które chcemy zignorować
+WAŻNE! będzie ignorował tylko pliki które sa w Working tree.
+jesli chemy ignorowac pliki z idexu nalezy je najpierw z niego usunac
+
+    output.dll - pojedynczy plik
+    *.dll - wszsystkie pliki z rozszerzeniem .dll
+    /src/main/java/GIT - wszystkie pliki z folderu GIT
+
+
+--------------- KONFIGURACJA ---------------
 
 git config --global alias.<nazwa> "<komenda> (bez git)" - dopisze komende do nazwy przez co latwiej ja wyolaby
-        np.     git config --global alias.add "add *" - doda  globalnie komende add * do zmiennej add
-                git add - /\ wywoła powyższa komende
+        > np.     git config --global alias.iguana "add *" - doda  globalnie komende add * do zmiennej add
+        >         git iguana - /\ wywoła powyższa komende
