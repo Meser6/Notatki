@@ -115,7 +115,7 @@ Aby scalic jedna gałąź do drugiej musimy byc headem na tej gałęzi DO które
 jesli chemy aby na pewno przeniósł go przez commit (zeby bylo to ladnie widoczne na grafie) to uzuwamy
     git merge --no-ff <nazwa brancha> - wymusi scalanie przez commit
 
--Konflikty:
+- Konflikty:
 Git sprobuje sam sie domyslic ktore pliki gdzie wgrac. jesli nie bedzie mogl tego zrbic to powstanie konflikt
 a informacj o nim pojawi sie w terminalu. Wówczas dostaniemy info, ze jestesmy na <nazwa brancha? | MERGING
 jest to specyficzny stan sluzacy tylko i wylacznie do obslugi konfliktow
@@ -123,11 +123,11 @@ jest to specyficzny stan sluzacy tylko i wylacznie do obslugi konfliktow
     git merge --abort - anuluje merga gdy jest w trybie MERGING i wychodzi z niego
 
 W przypadku konfliktu w plikach postana markery
-<<<<<<< HEAD (nazwa branacha do ktorego chcemy domergowac)
-    zawartość pliku na tym brnchu
-=======
-    zawartosc plku na branchu ktory chcemy domergowac
->>>>>>> fix (nazwa brancha ktory chcemy domergowac)
+    <<<<<<< HEAD (nazwa branacha do ktorego chcemy domergowac)
+      zawartość pliku na tym brnchu
+    =======
+     zawartosc plku na branchu ktory chcemy domergowac
+    >>>>>>> fix (nazwa brancha ktory chcemy domergowac)
 
 Po rozwiązaniu konfliktu usuwamy markery, zapisujemy plik, dodajemy do indexu i piszemy komende
     git merge --continue - sprobuje domergowac jeszce raz. jak sie uda wyjdzie z trybu MERGING
@@ -142,10 +142,13 @@ orgin jest to jakby flaga/informacja ze tyczy sie to zdalnego repo np. orgin/mas
     git remote -v - pokazuje na jaki link bedziemy pushowac, i z jakiego linkui fetchowac nasze repo
     git branch -r - pokazuje liste branchy na zdalnym repo i na jakim branchu jest head
 
-    git push - pushuje wsyztskie zmiany na repo z remote -v
+    git push - wysyla wsyztskie zmiany na repo z remote -v
             <nazwa repo> <nazwa brancha> - pushuje tylko danego brancha na dane repo
             > np.   git push orgin xd - wysle brancha xd na repo
             >
+    git featch - pobiera info o zmianach z repo z remote -v
+            <nazwa repo> <nazwa brancha> - sprawdza tylko danego brancha na dane repo
+    git pull - pobiera zmiiany z repo z remote -
 
 
 --------------- GIT IGNORE ---------------
