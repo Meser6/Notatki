@@ -96,6 +96,7 @@ gdy np piszemy cos na swoim branchu "XD" ale jednak nie chcemy zeby te zmiany we
         z zakresu <najnowszy><najstarszy> i ZCOMMITUJE JE OD RAZU
                 -n <numer commita najnowszego> <numer commita najstrszego> - nie zcommituje ich od razu tylko wejdzie na
                     tryb REVERTING
+        git branch -lavv - pokaze wszystkie info o commitach. na niebiesko te ktore sa sledzone
 
 
 --------------- GALEZIE  ---------------
@@ -142,14 +143,25 @@ orgin jest to jakby flaga/informacja ze tyczy sie to zdalnego repo np. orgin/mas
     git remote -v - pokazuje na jaki link bedziemy pushowac, i z jakiego linkui fetchowac nasze repo
     git branch -r - pokazuje liste branchy na zdalnym repo i na jakim branchu jest head
 
-    git push - wysyla wsyztskie zmiany na repo z remote -v
+    git push - wysyla wsyztskie zmiany na sledzonych branchach
             <nazwa repo> <nazwa brancha> - pushuje tylko danego brancha na dane repo
-            > np.   git push orgin xd - wysle brancha xd na repo
-            >
-    git featch - pobiera info o zmianach z repo z remote -v
+            >np.   git push orgin xd - wysle brancha xd na repo
+            <nazwa repo> <nazwa galezi> - gdy pierwszy raz wypychamy naszego brancha na repo
+            >np.    git push orgin xd -  wysle branch xd na repo zdalne i nazwie go orgin/xd
+    git featch - pobiera info o zmianach na sledzonych branchach
             <nazwa repo> <nazwa brancha> - sprawdza tylko danego brancha na dane repo
-    git pull - pobiera zmiiany z repo z remote -v
+    git pull - pobiera zmiiany na sledzonych branchach
             <nazwa repo> <nazwa brancha> - pobiera tylko danego brancha na dane repo
+
+    git checkout -b <lokalna nazwa brancha> <nazwa zdalnego brancha> - swtorzy brancha <lokalna nazwa brancha>,
+        domerguje do nego <nazwe zdalnego branza> i wlaczy jego sledzenie
+            >np.    git checkout xd orgin/xd - dopisze zdalne xd do lokalnego xd i wlaczy sledznie
+    git checkout -t <nazwa zdalnego brancha> - storzy brancha lokalnego o nazwie nazwa-orgin i zacznie go sledzic
+            >np.    git checkout - t orgin/xd - utworzy brancha xd i zacznie go sledzic wzgledem orgin/xd
+    git branch -u <nazwa zdalnego brancha>  <lokalna nazwa brancha> -  dopisze do <lokalna nazwa brancha> sledznie
+        z <nazwa zdalnego brancha>
+            >np.    git branch -u orgin/xd xd - dopisze xd do sledznia wzledem zdalnego xd
+    git branch --unset-upstream <nazwa brancha> - usuwa branchowi lokalnemu sledzenie wzgledem repo
 
 
 --------------- GIT IGNORE ---------------
