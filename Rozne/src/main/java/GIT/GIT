@@ -148,7 +148,8 @@ orgin jest to jakby flaga/informacja ze tyczy sie to zdalnego repo np. orgin/mas
             >
     git featch - pobiera info o zmianach z repo z remote -v
             <nazwa repo> <nazwa brancha> - sprawdza tylko danego brancha na dane repo
-    git pull - pobiera zmiiany z repo z remote -
+    git pull - pobiera zmiiany z repo z remote -v
+            <nazwa repo> <nazwa brancha> - pobiera tylko danego brancha na dane repo
 
 
 --------------- GIT IGNORE ---------------
