@@ -37,7 +37,7 @@ git log - pokazuje liste pushnietych commitow (z OBECNEJ gałęzi)
         --all  - pokazuje coś z wszystkich gałęzi
         > np.     git log --graph --oneline --all - pokaze drzewko ze wszystkich commitów
 
---------------- DODAWANIE/USUWANIE ---------------
+--------------- DODAWANIE/USUWANIE PLIKU ---------------
 
 git add <nazwa pliku> - dodaje plik/aktualna wersje do indexu
         . - wszystkie pliki
@@ -56,7 +56,7 @@ git reset <sciezka do pliku> - podmienia plil w idexie na ten z najnowszej rewiz
 git checkout <commit_number> <sciezka do pliku>  - zastepuje plik w idexie i working tree plikiem z danego commita
         > np.   git checkout c4ds folder1/Pli.txt - podmieni Pli.txt na wersje z commita c4ds...
 
---------------- GALEZIE ---------------
+--------------- OBSLUGA GALEZI ---------------
 
 Wskaznik head to ten na ktorym obecnie jestesmy.
 Może on wskazywac na brancha, albo na konkretny commit (lepiej zeby na brancha)
@@ -75,12 +75,26 @@ git checkout <identyfikator commita/nazwa brancha>  - przeskoczy do danego branc
     master~3 - cofa sie o 3 commity wzgledem mastera
         >np.  git checkout -f master - przeniesie nas na mastera
 
-
 gdy np piszemy cos na swoim branchu "XD" ale jednak nie chcemy zeby te zmiany wesly i  chcemys ie cofnac do ostatniego commita to
 git checkout -f XD - przeniesie nas do commita, usunie zmiany w plikach ale NIE nieśledzone, nowe pliki
 git clean -nd - sprawdza co nie zostalo usuniete z niesledzonych plikow
 git clean -fd - usuwa to to jest niesledzone
 
+--------------- GALEZIE  ---------------
+
+- Tworzenie:
+git branch <nazwa_brancha> <identyfikator_comita> - tworzene nowej gałęzi. jesli nie podamy identyikatora to zrobi z heada
+    WAŻNE! jeśli chcemy zaczac pisac na nowym branchu to trzeba sie na niego przepiąć headem (git checkout <nazwa_brancha>)
+    Możemy to też zrobić w nastepujący sposob
+git checkout -b <nazwa_brancha> <identyfikator_comita> -tworzene nowej gałęzi i przełączenie sie na nia.
+        >np. git checkout -b XD master~3 - storzy brancha XD z 3 commitra przed masterem i przelaczy sie na niego
+
+- Scalanie:
+    Aby scalic jedna gałąź do drugiej musimy byc headem na tej gałęzi DO której chemy scalić inna (np. git checkout master)\
+git merge <nazwa brancha> - scali brancha <nazwa brancha> do tego  na ktorym obecnie jestesmy headem
+    jeżeli bedzie mógł to scali go nie przez commit a po prostu przez przeniesienie flagi.
+    jesli chemy aby na pewno przeniósł go przez commit (zeby bylo to ladnie widoczne na grafie) to uzuwamy
+git merge --no-ff <nazwa brancha> - wymusi scalanie przez commit
 
 
 --------------- GIT IGNORE ---------------
