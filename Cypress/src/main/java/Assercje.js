@@ -30,8 +30,8 @@ cy.get("li").then(li => {
 })
 
 //Weryfikacja wartość css danego elementu
-cy.get("#id").should("have.css", "background", "#fff")
+cy.get("#id").should("have.css", "background", "rgb(60, 118, 61)")  // podaje w RGB
 cy.get("#id").then(id => {
-    expect(id).to.have.css("background", "#fff")
+    expect(id).to.have.css("background", "rgb(60, 118, 61)")
 })
 

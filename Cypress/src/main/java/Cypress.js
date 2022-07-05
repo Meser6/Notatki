@@ -13,7 +13,7 @@ support // tworzymy tu globalne metody do których dostęp będzie miał każdy 
 
 //aby korzystac z danych zgromadzonych w fixtures nalezy zbudowac odwolanie do nich i zapisac je do zmennej
 //jeżli chcemy to zrobic globalnie to trzeba uzyc function() (równiez w testach ktore beda z tych danych korzystaly) a nie funkcji strzałkowej
-beforeAll(function(){
+beforeEach(function(){
     cy.fixture("example").then(data =>{ // w parametrze fixture podajemy sciezke do pliku, ale zaczynajac juz w folderze fixture. nie trzeba rozszerzenia
         this.dane = data})
     })
