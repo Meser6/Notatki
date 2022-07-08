@@ -83,3 +83,13 @@ Po rozwiązaniu konfliktu usuwamy markery, zapisujemy plik, dodajemy do indexu i
 
 W przypadku gdy np na 1 branchu zmienimy cos w pliku,a w a 2 rodzielimy ten plik na 2 inne to w trybie MERGING
 bedą widoczne wszystkie 3 pliki.
+
+--------------- Pull request ---------------
+Przed zrobieniem commita ktory ma isc do pull request dobrze jest sie rebasowac z masterem
+
+git checkout - przepiecie na mastera
+git pull - pobranie obecnego
+git checkout <nazwa brancha> - przepiecie na brancha
+git rebase master - wyrownianie z masterem
+git commim -m "text" - comit
+git pull - puszczenie zmian

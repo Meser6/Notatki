@@ -11,8 +11,13 @@
         <module name="Cypress" />
         <module name="Zadania" />
         <module name="JavaScript" />
+        <module name="TestyJednostkoweNotatki" />
+        <module name="ElDupa" />
+        <module name="SeleniumNotatki" />
+        <module name="API" />
         <module name="Selenium" />
         <module name="TestyJednostkoweJava" />
+        <module name="JavaNotatki" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

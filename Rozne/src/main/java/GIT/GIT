@@ -12,6 +12,8 @@ W Gicie są 3 przestrzenie robocze:
 ------------------------------ KOMENDY ------------------------------
 ---------------------------------------------------------------------
 
+git stash - dodaje pliki ktore sa w rosking tree jako paczka (ktora mozemy potem sobie pobrac)
+
 --------------- INFORMACJE ---------------
 
 git status - pokazuje aktualny status naszego repozytorium

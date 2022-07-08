@@ -63,6 +63,9 @@ cy.attachFile("sciezka do pliku")
 
 // ---------- metody ----------
 
+cy.url() // pobierze adres strony
+cy,.title() // pobierze tytul strony
+cy.realclick() // klika na zesranie
 cy.click() // klika lewym przyciskiem myszki na element
 cy.trigger("focus") //najechanie myszka na dany element
 // metoda trigger działa troche jak Actions w Javie. https://docs.cypress.io/api/commands/trigger#Coordinates
