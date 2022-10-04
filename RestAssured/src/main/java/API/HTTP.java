@@ -1,6 +1,11 @@
 package API;
 
+import io.restassured.RestAssured;
+
 public class HTTP {
+
+    public static void main(String[] args) {
+    }
 
     /**
      * API.HTTP
