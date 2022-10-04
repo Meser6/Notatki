@@ -1,5 +1,3 @@
-package API;
-
 import io.restassured.RestAssured;
 
 public class HTTP {
@@ -8,7 +6,7 @@ public class HTTP {
     }
 
     /**
-     * API.HTTP
+     * HTTP
      */
     /*
     Protokół http określa format w jaki moze komunikowac sie klinet z serwerem

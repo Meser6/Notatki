@@ -13,9 +13,9 @@
         <module>Selenium</module>
         <module>Zadania</module>
         <module>Java</module>
-        <module>Rozne</module>
         <module>JavaScript</module>
         <module>Cypress</module>
+        <module>RestAssured</module>
     </modules>
 
     <build>
