@@ -1,5 +1,4 @@
-package Helpers;
-
+import Helpers.Post;
 import io.restassured.http.ContentType;
 
 import java.io.File;
@@ -12,7 +11,7 @@ import static io.restassured.RestAssured.when;
 public class Metody {
 
     public static void main(String[] args) {
-        
+
         //testy sa podzielone zgodnie z bdd na 3 sekcje
         // given - poczatkowe ustawienia
         // when - wykonywane akcje
@@ -90,5 +89,12 @@ public class Metody {
         // ---------------- usuwanie - DELETE ----------------
 
         when().delete("http://localhost:3000/get/1");
+
+        // ---------------- pobieranie - GET ----------------
+
+        when().get("http://localhost:3000/get/1");
+
+
+
     }
 }

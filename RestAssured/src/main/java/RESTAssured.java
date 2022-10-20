@@ -11,46 +11,26 @@ import static io.restassured.RestAssured.when;
 public class RESTAssured {
     public static void main(String[] args) {
 
-        //testy sa podzielone zgodnie z bdd na 3 sekcje
-        // given - poczatkowe ustawienia
-        // when - wykonywane akcje
-        // then - oczekiwane rezultaty
+        // parametryzowanie endpointow
 
-        // -------- dodawanie - POST
+        given().pathParam("id", 3).
+                when().post("http://localgost:3000/get/{id}"); // znajdzie odpowiedznik tego co wrzucilismy ale w {}
+                                                                    // i wrzuci parametr
 
-        // dodawanie - body ze stringa
-        String jakiesBody = "\"title\": \"pierwszy\" \n" +
-                            "\"author\": \"kuba\"";
+        given().
+                when().post("http://localgost:3000/get/{id}", 3); // wrzuci parametr do pierwszego naptkanego {}.
+                                                                    // jesli bedzie ic wiecej to bedzie wrzucal pokolei
 
-        given().contentType(ContentType.JSON).body(jakiesBody)// w contentType okreslamy jakiego typu body przekazujemy
-                .when().post("http://localhost:3000/get") // metoda post wysylamy body z sekcji given
-                        .then().statusCode(202); //sprawdzi czy dostalismy 202
+        // modyfikacja query
 
-        // dodawanie - body z pliku
-        File jakisJson = new File("src/resources/jakisJson.json");
+        given().queryParam("author", "daria"). // w query wysle zadane parametry
+                when().get("http://localhost:3000/get/1");
 
-        given().contentType(ContentType.JSON).body(jakisJson)
-                .when().post("http://localhost:3000/get")
-                .then().statusCode(202);
+        Map<String, Object> params = new HashMap<>();
+        params.put("author", "daria");
 
-        // dodawanie - z Map
-        //aby zadzialalo dodawanie body z mapy potrzebna jest dodatkowa zaleznosc https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-        Map<String, Object> mapaZbody = new HashMap<>();
-        mapaZbody.put("title", "pierwszy");
-        mapaZbody.put("author", "kuba");
-
-        given().contentType(ContentType.JSON).body(mapaZbody)
-                .when().post("http://localhost:3000/get")
-                .then().statusCode(202);
-
-        // dodawanie - z klasy
-        Post jakasKlasa = new Post();
-        jakasKlasa.setTitle("pierwszy");
-        jakasKlasa.setAuthor("Kuba");
-
-        given().contentType(ContentType.JSON).body(jakasKlasa) // nie wysyla obiektu Post ale 'tlumaczy' go i wysyla Jsona
-                .when().post("http://localhost:3000/get")
-                .then().statusCode(202);
+        given().queryParams(params). // w query wysle wszystkie parametry jakie sa w danej mapie
+                when().get("http://localhost:3000/get/1");
 
         // -------- logowanie odpowiedzi
 
