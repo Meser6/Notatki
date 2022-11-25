@@ -1,5 +1,6 @@
 import Helpers.Post;
 import io.restassured.http.ContentType;
+import org.hamcrest.Matchers;
 
 import java.io.File;
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public class RESTAssured {
         given().queryParams(params). // w query wysle wszystkie parametry jakie sa w danej mapie
                 when().get("http://localhost:3000/get/1");
 
-        // -------- logowanie odpowiedzi
+        // logowanie odpowiedzi
 
         when().get("http://localhost:3000/get").then().log().body();
         when().get("http://localhost:3000/get").then().log().headers();
@@ -42,7 +43,18 @@ public class RESTAssured {
         when().get("http://localhost:3000/get").then().log().status(); // wyloguje status
         when().get("http://localhost:3000/get").then().log().ifValidationFails().statusCode(404); // wyloguje jak status code nie jest rowny 404
 
+        // lacznie watkow
 
+        given()
+                .when().get("http://localhost:3000/get/1")
+                .then().body("author", Matchers.equalTo("zdzis"))
+                .and().body("id", Matchers.equalTo(1)); //laczyc ciagi mozna za pomoca and()
+
+        //zwracanie body jako elementu klasy
+
+        Post body = given()
+                .when().get("http://localhost:3000/get/1")
+                .then().extract().body().as(Post.class); // zwroci body jako instancje klasy Post na ktorej otem mozemy rbic assercje
     }
 
 
