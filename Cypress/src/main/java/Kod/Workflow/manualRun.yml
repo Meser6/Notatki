@@ -1,0 +1,12 @@
+name: reczne odpalenie
+
+on:
+  workflow_dispatch: # z tym parametrem mozna odpalic workflow z palca
+    inputs:
+      project:
+        description: 'kto odpala?'
+        required: true
+      checkingDownload:
+        description: 'sprawdzamy cos?'
+        required: false
+        type: boolean #stworzy checkbox i zwrocu booleana

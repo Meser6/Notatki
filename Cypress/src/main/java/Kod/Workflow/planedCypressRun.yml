@@ -1,0 +1,71 @@
+name: automatyczne odpalenie
+
+on:
+  schedule:
+    - cron: '30 4 * * 1,3,5' # odpala workflow o danej godzinie
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  test-e2e-development:
+    name: Run E2E tests on development environment
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: False
+      matrix:
+        application: ['aplikacja 1', 'aplikacja 2']
+        browser: ['chrome']
+    container:
+      image: cypress/browsers:node16.XDXDXD
+      options: --user 1001
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set current week day as env variable
+        run: echo "NOW=$(date +'%u')" >> $GITHUB_ENV
+
+      - name: Set current date as env variable
+        run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV #ustawi date jako env
+
+      - name: Cypress run ${{ matrix.application }} tests on ${{ matrix.browser }}
+        uses: cypress-io/github-action@v4.2.0
+        with:
+          install: false
+          working-directory: packages/testy
+          config-file: cypress.config.ts
+          config: baseUrl=${{ matrix.application == 'aplikacja 1' && secrets.URL1 || secrets.URL2 }} #podmieni wartosci w konfigu
+          record: false
+          browser: ${{ matrix.browser }}
+          spec:
+            cypress/tests/${{ matrix.application }}/**/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CYPRESS_login: ${{ secrets.LOGIN }} # wrzuci te dane do cypressa i bedzie mozna go wykorzystac w kodzie
+          CYPRESS_password: ${{ secrets.PASSWORD }}
+
+      - name: Use cypress artifact # wrzuci artefaktu na gh
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: e2e-artifacts-${{ matrix.application }}-${{ matrix.browser }}
+          path: /home/runner/work/{{ matrix.application }}/**/*
+
+      - name: Prepare files to sending #spakuje pliki do zip
+        if: ${{ failure() }}
+        uses: vimtor/action-zip@v1
+        with:
+          files: packages/testy/cypress/reports/${{ matrix.application }}
+          dest: test-report.zip
+
+      - name: Upload report to Slack #wysle plik jako wiadomosc na slaku
+        if: ${{ failure() }}
+        uses: adrey/slack-file-upload-action@master
+        with:
+          token: ${{ secrets.SLACK_TOKEN }} #token mozna dostac przy tworzeniu bota na slaku
+          channel: ${{ secrets.SLACK_CHANNELS }}
+          initial_comment: Planned run > ${{ matrix.application }} tests on ${{ matrix.browser }} - ${{env.DATE}}
+          path: test-report.zip
