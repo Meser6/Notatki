@@ -1,0 +1,10 @@
+/* pliki CSS odpowiadaja za wyglad danych elementow */
+
+h1 { /* skladaja sie z selektora czyli tego elementu ktory styluzujemy (te same co uzywa sie w testach) */
+    color: yellow; /* i parametrow skladajacych sie z klucz: wartosc; */
+    font-size: 36px;
+}
+
+h2 {
+    color: blue !important; /* zapis !important wymusi nam uzycie tego parametru (nawet jak bedziemy chcieli go przykryc innym elementem w html */
+}

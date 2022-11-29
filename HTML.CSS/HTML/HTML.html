@@ -10,12 +10,17 @@
     <meta name="keywords" content="slowa, kluczowe" /> <!-- slowa kluczowe dla wyszukiwarki -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> <!-- linia ta nakazuje intenet exlopder wlaczenie strony w najwyzszym standarcie IE -->
     <!-- skrypty JS -->
-    <!-- arkusze styli CSS -->
+    <link rel="stylesheet" href="sciezka do pliku od folderu w ktorym znajduje sie plik html" type="text/css" /> <!-- arkusze styli CSS -->
+    <style> /* inny sposob wykorzystania css */
+        h1 {
+        color: blue;
+        }
+    </style> <!-- taki zapis podmieni nam te cssy ktore przywolamy w pliku bo jest wyzej w hierarchii -->
     <!-- czcionki -->
 </head>
 <body> <!-- w sekcji body trzymamy to co jest widoczne dla uzytkownika -->
     <div><!-- tekst -->
-        <h1>nagłówek</h1> <!-- powiekszony tekst defoltowa czcionka jest ich 6 od h1 do h6-->
+        <h1 style="color:red;">nagłówek</h1> <!-- powiekszony tekst defoltowa czcionka jest ich 6 od h1 do h6--> <!-- taki zapis CSSA jest najwaznieszy i zaslni te ze <style> z <link> -->
         1 linija <br/> 2 linijka <!-- jesli chcemy zrobic enter i przejsc do kolejnej lini to robimy to za pomoca znaczika br -->
     </div>
     <div><!-- obrazy -->
