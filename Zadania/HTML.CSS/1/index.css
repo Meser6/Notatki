@@ -1,0 +1,32 @@
+#header {
+    background-color: red;
+    color: yellow;
+    text-align: center;
+    padding: 15px;
+}
+#menu {
+    float: left;
+    background-color: red;
+    width: 120px;
+    height: 800px;
+    min-height: 620px;
+    padding: 10px;
+}
+#content {
+    float: left;
+    padding: 20px;
+    width: 1009px;
+}
+#adds{
+    float: left;
+    width: 200px;
+    min-height: 620px;
+    padding: 10px;
+    background-color: red;
+}
+#footer {
+    clear: both;
+    background-color: red;
+    padding: 10px;
+    text-align: center;
+}
