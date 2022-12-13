@@ -1,6 +1,6 @@
 <!-- Strukura strony internetowej -->
 
-<!DOCTYPE HTML> <!-- deklara w jakim standarcie html chcemy pisac. taki zapis oznacza najnowszy (5) -->
+<!DOCTYPE HTML> <!-- deklaracja w jakim standarcie html chcemy pisac. taki zapis oznacza najnowszy (5) -->
 <html lang="pl"> <!-- kazda strona zaczyna sie od znaczkika html i wszystko co w niej jest zawiera sie w nim -->
 <!-- w powyzszy sposob mozemy zadeklarowac w jakim jezyku nasza strona bedzie zrobiona -->
 <head> <!-- w sekcji head trzymamy to co jest niewidoczne dla uzytkownika -->
@@ -21,18 +21,38 @@
 <body> <!-- w sekcji body trzymamy to co jest widoczne dla uzytkownika -->
     <div><!-- tekst -->
         <h1 style="color:red;">nagłówek</h1> <!-- powiekszony tekst defoltowa czcionka jest ich 6 od h1 do h6--> <!-- taki zapis CSSA jest najwaznieszy i zaslni te ze <style> z <link> -->
-        1 linija <br/> 2 linijka <!-- jesli chcemy zrobic enter i przejsc do kolejnej lini to robimy to za pomoca znaczika br -->
+        <div></div>
+            1 linija <br/> 2 linijka <!-- jesli chcemy zrobic enter i przejsc do kolejnej lini to robimy to za pomoca znaczika br -->
+            <span> jakis tekst </span> <!-- teskty dobrze jest opakowywac w spany, kazda linijka w odzdzielny i nadac im odpowiednia wasciwosc (np za pomoca klas) -->
+            <p> paragraf </p> <!-- lepszy sposob na grupowanie tekstow w linijkin niz dodawanie <br> --> 
+        </div>
+        <div>
+            <b> pogrubienie </b> <strong> pogrubienie </strong>
+            <i> pochylenie </i> <em> pochylenie </em>
+            <u> podkreslenie</u>
+        </div>
+        <hr> <!-- tworzy linie przez cala strone -->
     </div>
     <div><!-- obrazy -->
         <img src="sciezka do pliku od folderu w ktorym znajduje sie plik html" />
     </div>
     <div> <!-- hiperlacza -->
         <a href="link do strony">tekst</a> <!-- link do strony. -->
-        <a href="link do strony" target="_blank">tekst</a> <!-- link do strony. ale otworzy w innej karcie-->
+        <a href="link do strony" target="_blank">tekst</a> <!-- link do strony. ale otworzy w innej karcie -->
     </div>
     pola edycyjne
     przyciski
-    listy
+    <div><!-- listy -->
+        <ul> <!-- lista nienumerowana -->
+            <li> 1 element listy</li>
+            <li> 2 element listy</li>
+        </ul>
+        <!-- lista numerowana -->
+        <ol>
+            <li> 1 element listy</li>
+            <li> 2 element listy</li>
+        </ol>
+    </div>
     checkbxy
 </body>
 </html>

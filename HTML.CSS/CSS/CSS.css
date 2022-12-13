@@ -1,10 +1,18 @@
 /* pliki CSS odpowiadaja za wyglad danych elementow */
 
-h1 { /* skladaja sie z selektora czyli tego elementu ktory styluzujemy (te same co uzywa sie w testach) */
+.klasa { /* skladaja sie z selektora czyli tego elementu ktory styluzujemy (te same co uzywa sie w testach) */
     color: yellow; /* i parametrow skladajacych sie z klucz: wartosc; */
     font-size: 36px;
 }
-
-h2 {
-    color: blue !important; /* zapis !important wymusi nam uzycie tego parametru (nawet jak bedziemy chcieli go przykryc innym elementem w html */
+* { /* * znaczy zastosuj do wszusykiego */
+    color: aliceblue
 }
+
+/* hierarchia waznosci stylow */
+1. styl w pliku css z parametrem !important h2 {color: blue !important;}
+2. style zapisane w znaczniku <h1 style="color:red"></h1>
+3. style zapisane w headerze strony <style> h1 {color: red}; </style>
+4. style zapisane w pliku css przy uzyciu id #id {color: red};
+5. style zapisane w pliku css przy uzyciu klasy .klasa {color: red};
+6. style zapisane w pliku css przy uzyciu znacznika h1 {color: red};
+7. style zapisane w pliku css przy uzyciu gwiazdki * {color: red};

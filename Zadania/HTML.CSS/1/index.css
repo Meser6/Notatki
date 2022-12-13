@@ -3,6 +3,7 @@
     color: yellow;
     text-align: center;
     padding: 15px;
+    width: 1000px;
 }
 #menu {
     float: left;
@@ -15,9 +16,9 @@
 #content {
     float: left;
     padding: 20px;
-    width: 1009px;
+    width: 630px;
 }
-#adds{
+#adds {
     float: left;
     width: 200px;
     min-height: 620px;
@@ -29,4 +30,5 @@
     background-color: red;
     padding: 10px;
     text-align: center;
+    width: 1010px;
 }

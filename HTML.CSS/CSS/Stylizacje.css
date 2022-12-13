@@ -1,4 +1,50 @@
+/* Kolory */
+kolory {
+    color: aliceblue; /* kolor w zdefiniowanych kolorach */
+    color: #ffff; /* kolor w formacie 16tkowym */
+    background-color: aqua; /* kolor tla */
+    
+    
+    
+}
+/* Obramoawnie */
+obramowanie {
+    border-width: 5px; /* wielkosc obramowania */
+    border-style: dashed; /* styl obramowania */
+    border-color: aliceblue; /* kolor obramowania */
+    border: 5px solid red; /*łaczy 3 powyzsze - wielkosc, styl, kolor */
+    border-radius: 15; /* promien zaaograglenia */
+    
+}
+
+/* Marginesy */
+marginesy {
+    margin: 26px; /* margines ale na zewnatrz boxa */
+    padding: 20px /* margines ale do wewnatrz boxa */
+}
+
+
+/* Tekst */
+teskt {
+    font-family: cursive; /*  czcionka */
+    font-size: 12; /* rozmiar czcionki */
+    font-weight: 100; /* wysokosc czcionki */
+    text-decoration: inherit; /* styl tekstu taki jak np podkreslenie albo pogrubienie */
+    display: inline; /* wyswietla tekst w jednej lini z reszta */
+}
+
+/* Listy */
+listy nienumerowane {
+    list-style-type: armenian; /* znacznik przy elemencie listy */
+}
+
 /* Hiperlacze */
-a:link {} /* nieodwiedzone hiperlacze */
-a:visited {}/* odwiedzone kiedys hiperlacze */
-a:hover {} /* kursor na hiperlaczu */
+
+    a:link {} /* nieodwiedzone hiperlacze */
+    a:visited {}/* odwiedzone kiedys hiperlacze */
+    a:hover {} /* kursor na hiperlaczu */
+
+
+http://webmaster.helion.pl/index.php/kurs-css/6/151-alfabetyczna-lista-stylow
+https://www.kurshtml.edu.pl/css/czcionki.html
+https://www.w3schools.com/css/default.asp
