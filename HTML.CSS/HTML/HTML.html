@@ -4,10 +4,11 @@
 <html lang="pl"> <!-- kazda strona zaczyna sie od znaczkika html i wszystko co w niej jest zawiera sie w nim -->
 <!-- w powyzszy sposob mozemy zadeklarowac w jakim jezyku nasza strona bedzie zrobiona -->
 <head> <!-- w sekcji head trzymamy to co jest niewidoczne dla uzytkownika -->
-    <meta charset="utf-8"/> <!-- standard kodowania kodowania znakow -->
     <title> Tytuł strony</title> <!-- tytul w wyszukiwarce -->
+    <meta charset="utf-8"/> <!-- standard kodowania kodowania znakow -->
     <meta name="description" content="opis strony. powiinien miec max 160 znakow" /> <!-- opis w wyszukiwarce -->
     <meta name="keywords" content="slowa, kluczowe" /> <!-- slowa kluczowe dla wyszukiwarki -->
+    <meta name="author" content="autor strony" /> <!-- autor strony -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> <!-- linia ta nakazuje intenet exlopder wlaczenie strony w najwyzszym standarcie IE -->
     <!-- skrypty JS -->
     <link rel="stylesheet" href="sciezka do pliku od folderu w ktorym znajduje sie plik html" type="text/css" /> <!-- arkusze styli CSS -->
@@ -35,9 +36,16 @@
     </div>
     <div><!-- obrazy -->
         <img src="sciezka do pliku od folderu w ktorym znajduje sie plik html" />
+        <img src="http://strona.pl/zdjecie.jpg" />
+        <img src="sciezka" alt="tekst" /> <!-- alt wyswietli tekst w przypadku gdy nie uda sie zaladowac zdjecia -->
+        <figure> <!-- tworzy ramke w ktorej bedzie zdjecie -->
+            <img src="http://strona.pl/zdjecie.jpg" /> <!-- zdjecie -->
+            <figcaption>Opis</figcaption> <!-- opis zdjecia -->
+        </figure>
     </div>
     <div> <!-- hiperlacza -->
-        <a href="link do strony">tekst</a> <!-- link do strony. -->
+        <a href="drugaStrona.html">tekst</a> <!-- link do wewnetrznej strony.  w hrefie piszemy sciezke do pliku zacznajac od obecnego   -->
+        <a href="http://google.pl">tekst2 </a> <!-- link do zewnetrznej strony. -->
         <a href="link do strony" target="_blank">tekst</a> <!-- link do strony. ale otworzy w innej karcie -->
     </div>
     pola edycyjne

@@ -8,6 +8,11 @@
     color: aliceblue
 }
 
+waznosc { /* w przypadku dwoch takich samym parametrow liczy sie kolejnosc. bedzie taki jak ostatni parametr */
+    color: aliceblue; /* to oleje */
+    color: aqua; /* to zastosuje */
+    
+}
 /* hierarchia waznosci stylow */
 1. styl w pliku css z parametrem !important h2 {color: blue !important;}
 2. style zapisane w znaczniku <h1 style="color:red"></h1>

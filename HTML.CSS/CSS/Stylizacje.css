@@ -23,7 +23,6 @@ marginesy {
     padding: 20px /* margines ale do wewnatrz boxa */
 }
 
-
 /* Tekst */
 teskt {
     font-family: cursive; /*  czcionka */
@@ -31,6 +30,23 @@ teskt {
     font-weight: 100; /* wysokosc czcionki */
     text-decoration: inherit; /* styl tekstu taki jak np podkreslenie albo pogrubienie */
     display: inline; /* wyswietla tekst w jednej lini z reszta */
+    text-align: center /* umiejscowienie wzgledem konteneru*/  
+}
+
+/* Obrazy */
+obraz {
+    width: 50%; /* szerokosc. w tym przypadku ma on zajac 50% nadrzednego kontenera */
+    width: 1000px; /*szerokosc ale w pixelach */
+    height: 50px; /* wysokosc */
+    border-radius: 25; /* zaaokraglenie obrazu */
+}
+
+/* Tło */
+tlo {
+    background-image: url(folder/zdjecie.jpg); /* zdjecie dodawane z poziomu css. zduplikuje zeby wypelnilo cala strone */
+    background-repeat: no-repeat; /* zarzadzanie duplikacja */
+    background-size: cover; /* rozciaganie zdjecia */
+    background-attachment: fixed /* umiejscowienie tla przy scrollowaniu */
 }
 
 /* Listy */
@@ -39,12 +55,15 @@ listy nienumerowane {
 }
 
 /* Hiperlacze */
-
+a {
+    text-decoration: none; /* usunie podkreslenie z linkow */
+    transition: color 0.5s; /* dodaje animacje przy przejsciach */
+}
     a:link {} /* nieodwiedzone hiperlacze */
     a:visited {}/* odwiedzone kiedys hiperlacze */
     a:hover {} /* kursor na hiperlaczu */
 
-
+/* LINKI */
 http://webmaster.helion.pl/index.php/kurs-css/6/151-alfabetyczna-lista-stylow
 https://www.kurshtml.edu.pl/css/czcionki.html
 https://www.w3schools.com/css/default.asp
