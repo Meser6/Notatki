@@ -41,6 +41,8 @@ public class Dziedziczenie {
 
         //w nawiasach liczymy od 1, a nie od 0
         driver.findElement(By.cssSelector("div#jeden>button:nth-child(2)")); //znajdź buttona który jest drugim od początku dzieckiem diva o tagu jeden (3)
+        driver.findElement(By.cssSelector("div#jeden>button:nth-child(even)")); //znajdź buttona który jest parzystym dzieckiem diva o tagu jeden (3)
+        driver.findElement(By.cssSelector("div#jeden>button:nth-child(odd)")); //znajdź buttona który jest nieparzystym dzieckiem diva o tagu jeden (3)
         driver.findElement(By.cssSelector("div#jeden>button:nth-last-child(2)")); //znajdź buttona który jest drugim od końca dzieckiem diva o tagu jeden (3)
         driver.findElement(By.cssSelector("div#jeden>button:last-child()")); //znajdź buttona który jest ostatnimu dzieckiem diva o tagu jeden (brak)
 

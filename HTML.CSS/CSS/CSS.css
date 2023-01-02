@@ -7,6 +7,9 @@
 * { /* * znaczy zastosuj do wszusykiego */
     color: aliceblue
 }
+.klasa1, .klasa2 { /* atrybuty mozemy nadac dla klilu elementow na raz. oddzielamy je przecinkiem */
+    
+}
 
 waznosc { /* w przypadku dwoch takich samym parametrow liczy sie kolejnosc. bedzie taki jak ostatni parametr */
     color: aliceblue; /* to oleje */

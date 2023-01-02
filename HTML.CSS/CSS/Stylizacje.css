@@ -2,6 +2,8 @@
 kolory {
     color: aliceblue; /* kolor w zdefiniowanych kolorach */
     color: #ffff; /* kolor w formacie 16tkowym */
+    color: rgb(135, 206, 325); /* kolor w formacie rgb */
+    color rgba(135, 206, 325, 0.5); /* kolor w formacie rgba */
     background-color: aqua; /* kolor tla */
     
     
@@ -15,7 +17,7 @@ obramowanie {
     border: 5px solid red; /*łaczy 3 powyzsze - wielkosc, styl, kolor */
     border-radius: 15; /* promien zaaograglenia */
     
-}
+} 
 
 /* Marginesy */
 marginesy {
@@ -30,7 +32,10 @@ teskt {
     font-weight: 100; /* wysokosc czcionki */
     text-decoration: inherit; /* styl tekstu taki jak np podkreslenie albo pogrubienie */
     display: inline; /* wyswietla tekst w jednej lini z reszta */
-    text-align: center /* umiejscowienie wzgledem konteneru*/  
+    text-align: center; /* umiejscowienie wzgledem konteneru*/  
+    vertical-align: top; /* umiejcownie w pinie */
+    float: left; /* oplywanie elementu */
+    
 }
 
 /* Obrazy */
