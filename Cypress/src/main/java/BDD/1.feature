@@ -17,3 +17,9 @@ Feature: Highlight assets
   Scenario: Filters 2                      # pojedyczy test
      When I check random filter 'napis'    # '<string>' tak przekazujemy stringa
      Then There should be 3 icons          # <int> a tak inta
+
+
+
+
+
+// Tidy Gherkin - program do ustawiania tabow
