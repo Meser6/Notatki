@@ -1,4 +1,4 @@
-//wywylanie requestow i uzyskiwanie odpowiedzi
+//przyklad testu requestu
 
 describe("Testing API - GET method for endpoint /posts/{id}", () => {
 
@@ -25,6 +25,13 @@ describe("Testing API - GET method for endpoint /posts/{id}", () => {
 
 //https://www.cypressanywhere.io/testowanie-api-metoda-get
 
+//Body mozna tez uzyskac w ten sposob:
+cy.request('GET', 'strona').its("body").then(nazwa =>{
+    nazwa.wartosc === 5
+})
+
+//---------------------------------------------
+
 // wysylanie requestu z parametrami
 
   cy.request('GET', 'https://strona.pl/logout?', {
@@ -34,7 +41,42 @@ describe("Testing API - GET method for endpoint /posts/{id}", () => {
     cy.log('Successful logout')
   })
 
-//Testy api polegaja na wywolaniu, przechwyceniu i assercji pojedynczych requestow
+//--------------------------------------------
+
+// wysyłanie requestow
+
+cy.request('GET', 'https://localhost:3000') // najprostrzy sposob
+
+
+const dane = {
+    "article":{
+        "tytul": 'tytul'
+        "tekst": 'to jest tekst'
+    }
+}
+cy.request('POST', 'https://localhost:3000', dane) // wysle w BODY to co zapisalysmy do zmiennej
+cy.request('POST', 'https://localhost:3000', { // wysle w BODY to co podaismy w {}
+    "article":{
+        "tytul": 'tytul'
+        "tekst": 'to jest tekst'
+    }
+})
+
+cy.request({
+      url: `${Cypress.config().baseUrl}/api/endpoint`, // ustalamy url
+      method: 'POST',
+      headers: { // ustalamy headersy
+        'Content-Type': 'application/json',
+      },
+      body: { // body
+
+      }
+})
+//---------------------------------------------
+
+//przechwitywanie requestow wywoalnych za pomoca UI
+
+//Testy api moga tez polegac na wywolaniu, przechwyceniu i assercji pojedynczych requestow
 
 it("test api", ()=>{
     // jeżeli zostanie wywolana metoda GET z takim URLem to wez ja i zapisz do zmiennej requestGetPost
@@ -60,6 +102,8 @@ cy.get("@requestGetPost").then(res =>{ // pobiez odpowiedz i zrob cos z nia
     })
 })
 
+//---------------------------------------------
+
 // Mockowanie requestów
 // wyobraz sobie ze masz request ktory zwraca 1, 2 i 3 do tabeli. masz sprawdzic tabele ale danych z bazy jeszcze nie ma
 // mozesz wyslac taki request (o ile backend jest gotowy) a jego odpowiedz zmienic tak zeby dostac dane ktore mu podales
@@ -72,6 +116,7 @@ cy.intercept("GET", "http://yt.pl/getPosts", { fixture: 'users.json' }).as("requ
 cy.intercept("GET", "http://yt.pl/getPosts", ['jeden', 'dwa', 'trzy']).as("requestGet2")
 // wezmie to co jest podane
 
+//---------------------------------------------
 
 //GraphQl
 // rozni sie od RESTa tym, ze jest tylko jeden endpont a to co nam zwroci zalezy od tego co w nim wyslemy
