@@ -11,6 +11,8 @@ beforeEach(() => {
 
 Given('I am on carbon cost page', () => { // implementacja stepu
   Login.authorize('123')
+
+
   cy.openSite('main')
 })
 

@@ -9,3 +9,8 @@ Cypress.on('test:after:run', (test, runnable) => { // Odpowiada za wrzucanie scr
     addContext({ test }, screenshot)
   }
 })
+
+Cypress.on('fail', (error) => { // podmienia wiadomosc w raporcie i wrzuca do niego info na jakim stepie sie wysypalo
+  error.message = `TEST FAILED AT STEP: \n${window.testState.currentScenario.steps[window.testState.currentStep].text} \n\nERROR MESSAGE: \n${error.message}`;
+  throw error;
+});

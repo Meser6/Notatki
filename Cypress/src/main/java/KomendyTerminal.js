@@ -25,7 +25,7 @@ npx cypress run --spec 'cypess/integrations/test.js' --headed
 //package.json to tu mozna zapisywac nasze komendy i nadawac im nazwe (scripts)
 "script1": "npx cypress run --spec 'cypess/integrations/test.js' --headed"
 
-"script2": "npx run script1 --browser chrome" // dopisywanie do jednego skryptu dodatkowych rozszerzen
+"script2": "npm run script1 --browser chrome" // dopisywanie do jednego skryptu dodatkowych rozszerzen
 
 // mozna tworzyc skrypty z roznymi parametrami tej samej flagi (poprzez znak &)
-"script2": "npx run script1 --browser chrome & npx run script1 --browser chrome"
+"script2": "npm run script1 --browser chrome & npm run script1 --browser chrome"
