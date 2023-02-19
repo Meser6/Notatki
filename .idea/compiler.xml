@@ -8,21 +8,29 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Java" />
         <module name="Rozne" />
-        <module name="Cypress" />
         <module name="Zadania" />
         <module name="TestyJednostkoweNotatki" />
-        <module name="JavaScript" />
-        <module name="ElDupa" />
         <module name="SeleniumNotatki" />
-        <module name="API" />
-        <module name="Selenium" />
         <module name="TestyJednostkoweJava" />
         <module name="JavaNotatki" />
+        <module name="Cypress" />
+        <module name="RestAssured" />
+        <module name="JavaScript" />
+        <module name="ElDupa" />
+        <module name="API" />
+        <module name="Selenium" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="API" target="17" />
+      <module name="Cypress" target="17" />
+      <module name="ElDupa" target="17" />
+      <module name="JavaNotatki" target="17" />
+      <module name="JavaScript" target="17" />
       <module name="Lokalizacja" target="17" />
+      <module name="SeleniumNotatki" target="17" />
       <module name="TestyJednostkowe" target="17" />
+      <module name="TestyJednostkoweNotatki" target="17" />
       <module name="TestyJednostkoweZadania" target="17" />
     </bytecodeTargetLevel>
   </component>
