@@ -1,3 +1,0 @@
-# Notatki
-
-Notatki z nauki 
