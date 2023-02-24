@@ -16,19 +16,33 @@ const zmiennaConst = 'cos' // uzywamy gdy dana zmienna nie bedziemy zmieniac
 
 // ----------- prymitywne zmienne
 
+const a = "jeden"
+const b = "dwa"
+const c = 3
+const d = 4
+
 //tekst
 let zmienna1 = "Text";
 zmienna1 = 'Text';
 zmienna1 = "Tex\"t" // \" dezaktywuje cudzysłów
-zmienna1 = "Text\n" // \n działa jak enter
+zmienna1 = "Text\n\ " // \n\ działa jak enter 
+
+//polaczenie tekstu
+const zlySposob = a + " cos " + c // raczej nie stosowac
+const dobrySposob = `${a} cos ${c + d}` // lepsszy sposob. wewnatrz {} mozna robic operacje
+const kolejnaLinia = `pierwsza linia
+druga linia` // majac tekst w ` beda brane rowniez pod uwage entery
 
 // liczby
 // liczby sa zawsze zmiennoprzecinkowe nawet jesli nie ma nic po przecinku. 
 let zmienna2 = 1;
 zmienna2 = 1.5; //kropka zamiast przecinka
+zmienna2 = NaN // not a number. w  typeof da nam number
 
 //operatory logiczne
 let zmienna3 = true;
+// false jest przyjmowane dla wartosci:
+0, '', undefined, null, NaN
 zmienna = false;
 
 //niezadeklaowany - undefind
@@ -51,3 +65,17 @@ let zmienna7 = 9007199254740991n
 console.log(typeof zmienna3) // zwroci stringa z nazwa typu zmiennej
 console.log(typeof "tekst")
 console.log(typeof null) // zwroci object a nie null
+
+//konwersja typow danych 
+
+// jawna 
+Number('1999') // zwroci inta 1999
+Number('XDD') // jak nie bedzie mogl zwrocic inta to zwroci NaN (patrz wyzej)
+String(12) // zwroci stringa '12'
+Boolean(null) // zwroci booleana 
+
+//niejawna 
+'text' + 12 // zwroci stringa 'text12'
+'12' + 12 // zwroci strnga '1212' poniewaz  zadziala jak konkatynacja tekstu
+12 * '12' // zwroci inta 144 poniewaz sie domysli ze to ma byc int. zadziała dla kazdeej operacji oprocz +
+12 > 3  // zwroci booleana 
