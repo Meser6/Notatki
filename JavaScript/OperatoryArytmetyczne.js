@@ -28,14 +28,13 @@ c = ++a; // Dodaj 1 do a (pre)
 // Zamiast rożnych rodzajów nawiasów są tylko zwykłe
 c = ((2 + 2) * 2) - 2;
 
-//porównanie bez patrzenia na typy zmiennych
+//porównanie bez patrzenia na typy zmiennych (niezalecane)
 c = a == b; //a jest równe b. np 5 === "5" zwróci true
 c = a >= b; //a jest większe bądź równe b np 5 !== "5" zwroic false
 
-//porownanie z uwzglednieniem typo zmiennych
+//porownanie z uwzglednieniem typo zmiennych (zalecane)
 c = a === b // np 5 === "5" zwróci false
-c = a !== b // np 5 !== "5" zwroci true
-c = typeof(d) //zwroci typ zmiennej d
+c = a !== b // np 5 !== "5" zwro  ci true
 
 c = !false; // '!' działa jako negacja tzn. odwrócenie.
 c = 1 == 1 && 2 == 2; // && działa jako i

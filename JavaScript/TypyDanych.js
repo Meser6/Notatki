@@ -1,3 +1,8 @@
+// use script to funkcja eliminujaca wiele bledow jsa. dodaje sie ja na poczatku kazdego pliku
+// sprawia ona min. ze nie mozna stworzyc zmiennej bez deklaracji let/const/var (przypadkowa literowka)
+// nie pozwala tez stowrzyc funkcji z nazwa zarezerwowana dla przyszlych funkcjonalnosci
+'use strict';
+
 //W JS nie ma typowania zmiennych co oznacza ze do zmienniej x mozna wrzucic i pomienic ja na rozne typy.
 //Zmiennie przymuja jednak typu w zaleznosci od zawartosci.
 //Typy dziela sie na to co jest obiektem, i to co nie jest (prymitywne). tych drugich jest 7
@@ -79,3 +84,10 @@ Boolean(null) // zwroci booleana
 '12' + 12 // zwroci strnga '1212' poniewaz  zadziala jak konkatynacja tekstu
 12 * '12' // zwroci inta 144 poniewaz sie domysli ze to ma byc int. zadziała dla kazdeej operacji oprocz +
 12 > 3  // zwroci booleana 
+
+
+//steytment - rodzaj kodu ktory nie zwraca zadnych wartosci
+console.log("x")
+//expresion - rodzaj kodu ktory tworzy jakies wartosci
+1+3
+false && true

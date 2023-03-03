@@ -1,6 +1,6 @@
 // Instrukcja IF
 
-var a;
+const a = 5;
 if (a > 5) { // czyt. Jeżeli (a >5) to
     console.log("a > 5");
 } else if (a == 5) { // czyt. To może chociaż (a ==5). jeśli tak to
@@ -18,8 +18,11 @@ console.log("Trabant"); // to tez ale juz bez znaczenia czy przyjmie true czy fa
 //sprawdz czy a < 5, jesli jest to zeob to, jesli nie to zrob tamto
 a < 5 ? console.log("a <5") : console.log("a > 5");
 
+//postac ta moze tez zwrocic wartosc 
+const czyAJestMniejsze = a < 5 ? 'a mniejsze' : 'a wieksze' // zwroci stringa w tym przypadku
 
-var tru = true;
+
+const tru = true;
 if (tru){ // jesli prawda
     console.log("true");
 } else  if (!tru){ // jesli falsz
