@@ -1,4 +1,4 @@
-var strona = document.getElementById("1");
+let strona = document.getElementById("1");
 // funckje w js tworzymy przez podanie słówka kluczowego function + nazwa + ()
 
 // 1 sposob
