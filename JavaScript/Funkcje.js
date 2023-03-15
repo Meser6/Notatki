@@ -1,20 +1,26 @@
 let strona = document.getElementById("1");
-// funckje w js tworzymy przez podanie słówka kluczowego function + nazwa + ()
 
-// 1 sposob
-//tworzenie funkcji bezargumentowej
+// 1 sposob za pomoca deklaracji
 function funkcja (){
     alert("alert");
 };
 
 funkcja();
 
-// 2 sposob (funkcja strzałkowa) - nie może zostać wywołana w kodzie przed miejcem inicjalizacji
+// 2 sposob - funkcja strzałkowa
 
 const funkcjaStrzałkowa = () => {
     alert("=>");
 }
 funkcjaStrzałkowa();
+
+const funkcjaStrzalkowaReturn = value => value - 5 // gdy  jest tylko jedna linijka kodu 
+//nie trzeba pisac return i robic {} bo jest to wbudowane domyslne
+
+// funkcje mozemy zapisywac do zmiennjej lub nie
+function nazwa1() { console.log('1') } // deklaracja funckcji
+const nazwa2 = function() {console.log('2') } // ekspresja funkcji. funcja powinna cos zwracac.
+// /\ moze byc wywolywana przed inicjalizacja funkcji w kodzie 
 
 //tworzenie funkcji z argumentami
 function funkcja2(a, b){
@@ -22,6 +28,9 @@ function funkcja2(a, b){
         strona.innerHTML += i + b + "<br>";
     };
 };
+
+const funkcja2prim = a => console.log(a)
+const funkcja2prim2 = (a, b) => console.log(a, b)
 
 funkcja2(4, "funkcja 2")
 
