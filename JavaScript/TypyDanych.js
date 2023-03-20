@@ -11,7 +11,7 @@
 //nie moze sie ona zaczynac od cyfr i miec znaków spęcjalnych (oprocz $ i _)
 //musza byc WYZEJ niz funkcje w ktorych sa wywowylawane bo js czyta od gory do dolu
 
-var zmiennaVar; // stara szkola. juz nie powinno sie tego uzywac
+var  zmiennaVar; // stara szkola. juz nie powinno sie tego uzywac
 zmennaBezTypu; // w taki sposob tez stowrzymy zmienna i bedzie dzialac jednak bedzi globalna i nie robi sie tak
 
 let zmiennaLet; // uzywamy gdy dana zmienna beziemy chcieli zmieniac w trakcie wykonywania kodu. moze byc zadeklarowana pusta
