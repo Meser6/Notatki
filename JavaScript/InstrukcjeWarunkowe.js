@@ -29,6 +29,12 @@ if (tru){ // jesli prawda
     console.log("false");
 }
 
+let pusta = undefined;
+let niepusta = 'xd'
+if (pusta) { console.log('pusta')} //  undefind, null, NaN, '', 0 zwroci false a wiec instrukcja sie nie wykona
+if (niepusta) { console.log('niepusta')} // kazda inna wartosc zworoci true i sie wykona
+
+
  // Switch
 switch (a) {  // czyt przyjmij a
     case 3: // sprawdź czy jest równe 3
