@@ -1,12 +1,12 @@
 document; //pobiera cały DOM
 
 //pobierajac element pobieramy jego i jego dzieci.
-var id = document.getElementById("ID"); // pobiera element po ID (powinno byc unikalne)
-var classes = document.getElementsByClassName("CLASS"); // pobiera elementy o danej klasie i dopisuje je do listy
-var tags = document.getElementsByTagName("TAG"); // pobiera elementy o danym tagu i dopisuje je do listy
-var names = document.getElementsByName("NAME"); // pobiera elementy o danej nazwie i dopisuje je do listy
-var selector = document.querySelector("CSS_SELECTOR") // pobiera pierwszy element z danym seletorem css
-var selectors = document.querySelectorAll("CSS_SELECTOR") // pobiera wszystkie elementy z danym selektorem i opisuje do listy
+const id = document.getElementById("ID"); // pobiera element po ID (powinno byc unikalne)
+const classes = document.getElementsByClassName("CLASS"); // pobiera elementy o danej klasie i dopisuje je do listy
+const tags = document.getElementsByTagName("TAG"); // pobiera elementy o danym tagu i dopisuje je do listy
+const names = document.getElementsByName("NAME"); // pobiera elementy o danej nazwie i dopisuje je do listy
+const selector = document.querySelector("CSS_SELECTOR") // pobiera pierwszy element z danym seletorem css
+const selectors = document.querySelectorAll("CSS_SELECTOR") // pobiera wszystkie elementy z danym selektorem i opisuje do listy
 
 
 id.innerText = "<br>TEXT</br>"; // podmieni cały teskt elementu i NIE będzie szukał w nim znaczników HTML (wstawi "<br>TEXT</br>")
@@ -20,16 +20,16 @@ id.parentNode; // pobierze rodzica elementu
 5   </ul>
 */
 
-var lista = document.getElementById("list");
+const lista = document.getElementById("list");
 
 lista.firstElementChild // wyszuka pierwsze dziecko elementu (2)
 lista.lastElementChild // wyszuka ostatnie dziecko elementu (3)
 
-var li2 = document.getElementById("dwa");
+const li2 = document.getElementById("dwa");
 //dodanie nowego elementu
 
-var newLi = document.createElement("li"); //tworzy w dokumencie nowy element o podanym tagu (ale nigdzie nie dodaje)
-var newLiText = document.createTextNode("cztery"); // tworzy w dokumencie tekst (ale nigdzie nie dodaje)
+const newLi = document.createElement("li"); //tworzy w dokumencie nowy element o podanym tagu (ale nigdzie nie dodaje)
+const newLiText = document.createTextNode("cztery"); // tworzy w dokumencie tekst (ale nigdzie nie dodaje)
 newLi.appendChild(newLiText); // dodaje cos jako dziecko czegoś (na koncu)
 
 lista.appendChild(newLi); // dodaje li jako dziecko do elementu (4-5)

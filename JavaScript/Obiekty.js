@@ -3,7 +3,7 @@ const objekt = {
     klucz: "wartosc",
     klucz2: 15-6, //wartoscia moze byc dowolna rzecz zwracajaca dane
     klucz3: [1, 2, 3],
-    klucz4: () => 9-9 
+    klucz4: value => value  -9 
     //kolejnosc nie ma znaczenia bo i tak zostanie ulozona w kolejnosci alfabetycznej
 }
 
@@ -18,6 +18,13 @@ const adam= {
 function Czlowiek(imie, wiek){ //konstruktor nazywamy z duzej litery
     this.imie = imie; // tutaj przypisujemy wysylany argument do zmiennej w konstruktorze
     this.wiek = wiek; // słówko this nie jako tworzy nowa zmienna do ktorej nastepnie przypisujemy argument
+}
+
+// this wskasuje na obiekt w ktorym je wywolamy
+const thisObjekt = {
+    numner: 15,
+    number2: this.numner - 1, // zadziala tak samo jakbysmy napisali thisObjekt.numer 
+    objekt: this // w ten sposob zwroci caly objekt 
 }
 
 const beata = new Czlowiek("Beata", 12);
@@ -64,4 +71,4 @@ function Pies (imie, rasa){
 
 const azor = new Pies("azor", "mieszaniec")
 azor.zaszczekaj("how how");
-
+azor['zaszczekaj']('how how')
