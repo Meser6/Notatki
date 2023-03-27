@@ -1,11 +1,11 @@
 // deklarowanie zmiennych robimy poprzez dodanie : po nazwie i napisanie nazwy typu
 let przykladZmiennnej: number = 15
-przykladZmiennnej = "15" // dzieku temu do danej zmiennej nie bedziemy mogli wrzucic innych typow
+//przykladZmiennnej = "15" // dzieku temu do danej zmiennej nie bedziemy mogli wrzucic innych typow
 //Funkcje
 function przykladFunkcji(val1 : number, val2: string){ // mozemy okreslac typy jakie maja byc wyslane do funckcji
     return `${val2} to ${val1 -5}`
 }
-przykladFunkcji(2) // TS nie pozwoli nam wyslac mniej argumentow do fukcji niz tyle ile jest zaledklarowane
+//przykladFunkcji(2) // TS nie pozwoli nam wyslac mniej argumentow do fukcji niz tyle ile jest zaledklarowane
 
 
 
