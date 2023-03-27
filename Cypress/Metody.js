@@ -64,7 +64,7 @@ cy.attachFile("sciezka do pliku")
 // ---------- metody ----------
 
 cy.url() // pobierze adres strony
-cy,.title() // pobierze tytul strony
+cy.title() // pobierze tytul strony
 cy.realclick() // klika na zesranie
 cy.click() // klika lewym przyciskiem myszki na element
 cy.trigger("focus") //najechanie myszka na dany element

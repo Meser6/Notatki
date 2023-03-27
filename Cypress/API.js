@@ -50,14 +50,14 @@ cy.request('GET', 'https://localhost:3000') // najprostrzy sposob
 
 const dane = {
     "article":{
-        "tytul": 'tytul'
+        "tytul": 'tytul',
         "tekst": 'to jest tekst'
     }
 }
 cy.request('POST', 'https://localhost:3000', dane) // wysle w BODY to co zapisalysmy do zmiennej
 cy.request('POST', 'https://localhost:3000', { // wysle w BODY to co podaismy w {}
     "article":{
-        "tytul": 'tytul'
+        "tytul": 'tytul',
         "tekst": 'to jest tekst'
     }
 })
@@ -90,6 +90,7 @@ it("test api", ()=>{
     cy.get("@requestGetPost").then(response =>{ // branie requesta i zapisanie go do zmiennej response
         response.body.status // potem mozemy wyciagac z niego rzeczy w taki sposob
         // zazynamy do gory drzewka i po kropkach dochodzimy do kolejnych poziomow
+  })
 })
 
 // PRZYKŁAD
@@ -132,4 +133,5 @@ Cypress.Commands.add('requestGraphQl', query => {
         query: query
       },
       failOnStatusCode: false
+  })
 })

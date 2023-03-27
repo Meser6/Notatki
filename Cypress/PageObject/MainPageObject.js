@@ -6,11 +6,15 @@ class MainPageModel {
         return cy.get("#button");
     }
 
+    loginButton2(numer){ //szablony elementow robimy bez geta
+        return cy.get(`#button${numer}`)
+    }
+
     clickOnLoginButton(){ // metody tworzymy analogicznie jak w Javie
         this.loginButton.click(); // słówko this odnosi sie do zmiennej nie wystepujacej w tej klasie
     }
 
-    checkLoginButtonIsVisible(){ // assercje równiez robimy w page objectach
+    checkLoginButtonIsVisible(){ // assercje równiez robimy w page objectach (niekoniecznie? )
         this.loginButton.should("be.visible");
     }
 
