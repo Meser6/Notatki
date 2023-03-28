@@ -1,8 +1,23 @@
 2 DONE
-3
+3 DONE
+TS 
 7
 9
 10
 11
 13
 16
+
+https://kursjs.pl/ 
+
+wstep
+podstawy
+obiekty
+dom
+obiekty2
+rozne
+moduly
+asynchronicznosc
+ajax
+wyrazenie reguralne
+przechowywanie danych
