@@ -100,17 +100,62 @@ if(typeof zwroci10() === 'number'){ // w ten sposob mozemy sprawdzic co funkcja 
 }
 
 //never -----------------
-
+// to mechanizm zabezpieczjacy, glownie dla ifow. gdy chcemy miec pelne pokrycie i nigdy nie wywolac bloku else
+type mozliweLiczby = 1 | 2 
+const liczby: mozliweLiczby[] = [1,2]
+const dupa = (liczby:mozliweLiczby) =>{
+    if(liczby === 1){
+        console.log('zrob cos')
+    } else if (liczby === 2){
+        console.log('zrob cos')
+    } else { // nigdy nie chcemy zeby ten blok sie wykonal. i tak jest bo poprzednie bloki pokrywaja wszystkie
+        // kombinacje tablicy. ale jakby w mozliwychLiczbach i tablicy byla liczba 3 to juz blok else by sie wykonal
+        // a TS zorientowalby sie ze do const bedzie cos dopisane i rzucilby bledem 
+        const never: never = liczby
+        console.log('nie rob nic')
+    }
+}
 
 //Enum -----------------
+// enum jest to typ wyliczalny
+enum markiSaamochodow {
+    BMW = "BMW",
+    AUDI = 'Audi',
+    DACIA = 15
+}
 
+const enumy = (marka:markiSaamochodow) => {console.log(marka)}
+enumy(markiSaamochodow.AUDI) // wydrukuje wartosc dopisana do tego enuma
 
 //Tuples -----------------
-
+// jest to sposob organizacji danych ktory wymusza odpowiednie typy 
+//w odpowiednich miejscach w tabeli
+const tuples1: [string, number]= ['bob', true]
 
 //Klasy -----------------
+class Klasa{ // Klasy w TS sa takie jak w JS ale maja wiecej funkcji
+    pierwszaLiczba: number; // mozemy tworzyc properties bez dopisania od razu wartosci
+    private drugaLiczba: number = 15 // prywatny properties bedzie widoczny tylko w obrebie tej klasy
+    // i nie bedzie mozna go pobrac nigdzie indziej. bedzie ona widoczna jak np. wylogujemy instancje klasy
+    // ale nie bedzie sie jej dalo pobrac ani podmienic poza klasa
+    trzeciaLiczba?: number// mozna robic opcjonalne propertisy
 
+    constructor(v1: number, v2: number){
+        this.pierwszaLiczba = v1
+        this.drugaLiczba = v2
+    }
 
+    doSomething(pierwszaLiczba: number){
+        console.log(pierwszaLiczba)
+    }
+
+    private doSomethingInClass(){ // prywatne moga byc tez funkcje  
+        console.log('private')
+    }
+}
+
+const instancjaKlasy = new Klasa(1, 3)
+instancjaKlasy.doSomething(15)
 // zawezanie typow -----------------
 //mozemy oreslic jakie dokladnie wartosci moze posiadac dana zmienna/parametr
 let siedemLubOsiem: 7 | 8;

@@ -13,7 +13,8 @@ class KlasaPierwsza{
     }
 
     add(){ // jeśli odnieść sie do jakiejś wartości lub funkcji w klasie to uzywamy this
-        return this.int1+this.int2
+        return this.int1+this.int2 // this to odlowanie do obecnej klasy/obiektu.
+        // czyli tutaj this.int1 to to samo co KlasaPierwsza.int1
     }
     showResult(){
         console.log("Wynik = " + this.add())
@@ -23,13 +24,18 @@ class KlasaPierwsza{
 const klasa1 = new KlasaPierwsza() // tworzenie instancji klasy
 klasa1.showResult();
 
-// Konstruktor
+// Konstruktor 
 // podobnie jak w Javie klasy posiadaja konstruktor domyslny ktory mozna nadpisac (ale bez przeciazenia)
 // konstruktor wywołuje sie przy okazji inicjalizacji klasy
 class KlasaDruga{
-    constructor(int1, int2){
-    this.int1 = int1;
-    this.int2 = int2;
+    pierwszaLiczba = '1' // klasy maja properisy podobnie ja obiekty
+    drugaLiczba = 2
+
+    constructor(int1, int2){ // konststruktor tak na prawde odpowiada za nadpisanie istniejacych propertisow
+    this.pierwszaLiczba = int1;
+    this.drugaLiczba = int2;
+    console.log('to jest konstruktor') //  w konstruktorze mozemy dawac tez funkcje ktore sie automatycznie 
+    //wykonaja same przy tworzeniu instancji klasy
     }
     add(){
         return this.int1+this.int2
