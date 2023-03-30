@@ -34,6 +34,28 @@ const funkcja2prim2 = (a, b) => console.log(a, b)
 
 funkcja2(4, "funkcja 2")
 
+//tworzenie funkcji z dowolna iloscia argumentow 
+
+function funkcja2i5(...args){ // zapis ten nie wystepuje w TS!
+    let b; // do takiej funkcji mozemy wrzucic dowolna licznbe argumentow 
+    //i argumenty te wyladuja w tablicy
+    for(const i of args){
+        b =+ i
+    }
+    return b
+}
+
+funkcja2i5(1,2,3)
+funkcja2i5(1,23,4,5,6,7)
+
+//funkcja z domyslnymi parametrami (dziala w ts)
+function funkcja2i6(v1 ='w' ,v2 = 12){
+    console.log(v1,v2)
+}
+funkcja2i6() //jezeli nie nadpiszemy parametru to zostanie domyslny
+funkcja2i6(11) //jezeli nadpiszemy to bedxie nowy
+funkcja2i6(undefined, 11) // undefind bedzie traktowane jako nienadpisane i wywola sie domyslna wartoscb
+
 //nie da sie przeciążyć funkcji poprzez ilość argumentów.
 //gdy będziemy mieli dwie tak samo nazwane to wywoła sie ta która jest niżej w kodzie bez wzgledu na wyslane argumenty
 

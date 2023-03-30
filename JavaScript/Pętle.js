@@ -21,6 +21,11 @@ for (let j = 0; j < 10; j++) { // przyjmij j. sprawdz czy j<10. jeśl tak to wyk
 const tab = new Array(1,2,3);
 tab.forEach(x => console.log(x)); // bierze element, wpisuje go w x, potem robi to co po strzlce i bierze kolejny itd.
 
+//innym zapisem literowania po elementach jest for of 
+for(const x of tab){
+    //dopisze kazdy element tablicy tab do x i cos z nim zrobi
+}
+
 //--------- Etykiety ----------------
 
 //Dane fragmenty kodu mozna etykietowac a potem je wskazywać

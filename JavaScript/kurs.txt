@@ -1,6 +1,6 @@
 2 DONE
 3 DONE
-TS 
+TS DONE
 7
 9
 10
@@ -10,7 +10,7 @@ TS
 
 https://kursjs.pl/ 
 
-wstep
+wstep DONE
 podstawy
 obiekty
 dom

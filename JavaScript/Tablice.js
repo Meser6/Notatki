@@ -42,3 +42,14 @@ const string = tab.join(" ") // łączy wpisy z tabeli (w kolejsoci)  w stringa 
 
 tab.map(x => console.log(x.length));//literowanie po elementach. to co po => mozna wrzucić w {} i zrobic wiecej niz linijke
 tab.forEach(x => console.log(x)); //literowanie po elementach.  to co po => mozna wrzucić w {} i zrobic wiecej niz linijke
+
+//typeof teblicy to "object" aby sprawdzic czy tablica rzeczywiscie jest tablica uzywamy
+Array.isArray([1,2,3])
+
+//tablice moga byc tez wielowymiarowe aczkolwiek zadko sie je stosuje
+const tab = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]]
+
+tab[2][0] // pobierze 7
