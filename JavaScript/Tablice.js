@@ -42,7 +42,11 @@ const string = tab.join(" ") // łączy wpisy z tabeli (w kolejsoci)  w stringa 
 
 tab.map(x => console.log(x.length));//literowanie po elementach. to co po => mozna wrzucić w {} i zrobic wiecej niz linijke
 tab.forEach(x => console.log(x)); //literowanie po elementach.  to co po => mozna wrzucić w {} i zrobic wiecej niz linijke
-
+tab.forEach((x, index, arr) =>{
+    x // zwroci element z tablicy
+    index // jego index
+    arr //zwroci cala tablice
+})
 //typeof teblicy to "object" aby sprawdzic czy tablica rzeczywiscie jest tablica uzywamy
 Array.isArray([1,2,3])
 
@@ -53,3 +57,8 @@ const tab = [
     [7,8,9]]
 
 tab[2][0] // pobierze 7
+
+tab.every(el => el > 5) // zwroci true jesli wszystkie elementy spelnia warunek
+tab.some(el => el < 5) // zwroci true jesli chociaz jeden element spelni warunek
+tab.filter(el => el === "bob") // zwroci nowa tablice tylko tych elementow ktore spelni ten warunek
+tab.find(el => el === 'bob') // zwroci pierwszy pasujacy element 

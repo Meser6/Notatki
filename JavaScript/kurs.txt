@@ -11,7 +11,7 @@ TS DONE
 https://kursjs.pl/ 
 
 wstep DONE
-podstawy
+podstawy DONE
 obiekty
 dom
 obiekty2
@@ -20,4 +20,7 @@ moduly
 asynchronicznosc
 ajax
 wyrazenie reguralne
+formularze
 przechowywanie danych
+data i czas
+jquery
