@@ -126,6 +126,8 @@ enum markiSaamochodow {
 
 const enumy = (marka:markiSaamochodow) => {console.log(marka)}
 enumy(markiSaamochodow.AUDI) // wydrukuje wartosc dopisana do tego enuma
+const nazwa = 'AUDI'
+enumy(markiSaamochodow[nazwa]) // zadziala tak samo ale bedziemy mogli wrzucic stringa.
 
 //Tuples -----------------
 // jest to sposob organizacji danych ktory wymusza odpowiednie typy 
