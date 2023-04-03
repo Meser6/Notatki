@@ -1,18 +1,26 @@
 2 DONE
 3 DONE
 TS DONE
+4 DONE
+5
+6
 7
+8
 9
 10
 11
+12
 13
+14
+15
 16
+17
 
 https://kursjs.pl/ 
 
 wstep DONE
 podstawy DONE
-obiekty
+obiekty DONE
 dom
 obiekty2
 rozne
@@ -24,3 +32,23 @@ formularze
 przechowywanie danych
 data i czas
 jquery
+
+https://www.jscwiczenia.pl/ 
+
+wprowadzenie
+wstrzykiwanie
+petle
+ify
+zdarzenia 1
+inne
+zdarzenia 2
+css
+tablice 1
+tablice 2
+funkcje
+math
+funkcje 2
+obiekty 1
+obiekty 2
+json
+zdarzenia 3
