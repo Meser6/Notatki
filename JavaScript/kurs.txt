@@ -34,7 +34,6 @@ data i czas
 jquery
 
 https://www.jscwiczenia.pl/ 
-
 wprowadzenie
 wstrzykiwanie
 petle
