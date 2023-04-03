@@ -34,8 +34,8 @@ data i czas
 jquery
 
 https://www.jscwiczenia.pl/ 
-wprowadzenie
-wstrzykiwanie
+wprowadzenie DONE
+wstrzykiwanie DONE
 petle
 ify
 zdarzenia 1

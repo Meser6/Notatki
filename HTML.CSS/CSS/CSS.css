@@ -1,26 +1,55 @@
 /* pliki CSS odpowiadaja za wyglad danych elementow */
 
-.klasa { /* skladaja sie z selektora czyli tego elementu ktory styluzujemy (te same co uzywa sie w testach) */
-    color: yellow; /* i parametrow skladajacych sie z klucz: wartosc; */
-    font-size: 36px;
+.klasa {
+  /* skladaja sie z selektora czyli tego elementu ktory styluzujemy (te same co uzywa sie w testach) */
+  color: yellow; /* i parametrow skladajacych sie z klucz: wartosc; */
+  font-size: 36px;
 }
-* { /* * znaczy zastosuj do wszusykiego */
-    color: aliceblue
+* {
+  /* * znaczy zastosuj do wszusykiego */
+  color: aliceblue;
 }
-.klasa1, .klasa2 { /* atrybuty mozemy nadac dla klilu elementow na raz. oddzielamy je przecinkiem */
-    
+.klasa1,
+.klasa2 {
+  /* atrybuty mozemy nadac dla klilu elementow na raz. oddzielamy je przecinkiem */
 }
 
-waznosc { /* w przypadku dwoch takich samym parametrow liczy sie kolejnosc. bedzie taki jak ostatni parametr */
-    color: aliceblue; /* to oleje */
-    color: aqua; /* to zastosuje */
-    
+waznosc {
+  /* w przypadku dwoch takich samym parametrow liczy sie kolejnosc. bedzie taki jak ostatni parametr */
+  color: aliceblue; /* to oleje */
+  color: aqua; /* to zastosuje */
 }
 /* hierarchia waznosci stylow */
-1. styl w pliku css z parametrem !important h2 {color: blue !important;}
-2. style zapisane w znaczniku <h1 style="color:red"></h1>
-3. style zapisane w headerze strony <style> h1 {color: red}; </style>
-4. style zapisane w pliku css przy uzyciu id #id {color: red};
-5. style zapisane w pliku css przy uzyciu klasy .klasa {color: red};
-6. style zapisane w pliku css przy uzyciu znacznika h1 {color: red};
-7. style zapisane w pliku css przy uzyciu gwiazdki * {color: red};
+1. styl w pliku css z parametrem !important h2 {
+  color: blue !important;
+}
+2.
+  style
+  zapisane
+  w
+  znaczniku
+  <h1
+  style="color:red"
+  > </h1
+  > 3.
+  style
+  zapisane
+  w
+  headerze
+  strony
+  <style
+  > h1 {
+  color: red;
+}
+</style > 4. style zapisane w pliku css przy uzyciu id #id {
+  color: red;
+}
+5. style zapisane w pliku css przy uzyciu klasy .klasa {
+  color: red;
+}
+6. style zapisane w pliku css przy uzyciu znacznika h1 {
+  color: red;
+}
+7. style zapisane w pliku css przy uzyciu gwiazdki * {
+  color: red;
+}
