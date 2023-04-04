@@ -36,8 +36,8 @@ jquery
 https://www.jscwiczenia.pl/ 
 wprowadzenie DONE
 wstrzykiwanie DONE
-petle
-ify
+petle DONE
+ify DONE
 zdarzenia 1
 inne
 zdarzenia 2
