@@ -42,7 +42,7 @@ zdarzenia 1
 inne
 zdarzenia 2
 css
-tablice 1
+tablice 1 DONE
 tablice 2
 funkcje
 math
