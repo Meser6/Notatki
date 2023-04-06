@@ -2,7 +2,7 @@
 3 DONE
 TS DONE
 4 DONE
-5
+5 DONE
 6
 7
 8
@@ -43,11 +43,11 @@ inne
 zdarzenia 2
 css
 tablice 1 DONE
-tablice 2
-funkcje
-math
-funkcje 2
-obiekty 1
-obiekty 2
+tablice 2 DONE
+funkcje //
+math //
+funkcje 2 //
+obiekty 1 //
+obiekty 2 //
 json
 zdarzenia 3
