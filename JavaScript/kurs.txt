@@ -44,10 +44,10 @@ zdarzenia 2
 css
 tablice 1 DONE
 tablice 2 DONE
-funkcje //
-math //
-funkcje 2 //
-obiekty 1 //
+tekst DONE
+math DONE
+funkcje DONE
+obiekty 1 DONE
 obiekty 2 //
 json
 zdarzenia 3
