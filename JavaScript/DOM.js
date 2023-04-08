@@ -55,9 +55,13 @@ element.innerHTML = "<br>TEXT</br>"; // podmieni cały teskt elementu i BĘDZIE 
 element.textContent; // dostep do tekstu elementu
 document.querySelector("input").value; // dostep do wartosci wpisanej w inpucie. zwroci stringa. jak bedzie puste to zwroci 0
 
+//css
+element.style.backgroudColor = "blue"; // w ten sposob mozemy zmienic css elementu.
+//nie bedzie on zmieniony w pliku css a bedzie doposany element w htmlu
+//style które maja nazwe np. background-color piszemy w camel case
+
 //EVENTY
 //event listner sluzy do nasluchiwania jakichs akcji na danym elemencie i wykonywania instrukcji jesli one wystapia
-
 element.addEventListener("click", () => console.log("cos zrobi"));
 // przyjmuje          typ eventu,  funkcje ktora wykona sie gdy ten event nastapi
 
