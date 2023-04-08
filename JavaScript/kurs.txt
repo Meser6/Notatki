@@ -3,7 +3,7 @@
 TS DONE
 4 DONE
 5 DONE
-6
+6 DONE
 7
 8
 9
@@ -48,6 +48,6 @@ tekst DONE
 math DONE
 funkcje DONE
 obiekty 1 DONE
-obiekty 2 //
+obiekty 2 
 json
 zdarzenia 3
