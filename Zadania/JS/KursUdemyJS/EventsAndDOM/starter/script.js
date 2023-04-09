@@ -1,14 +1,4 @@
 "use strict";
-/* Coding Challenge #1
-Implement a game rest functionality, so that the player can make a new guess!
-Your tasks:
-1. Select the element with the 'again' class and attach a click event handler
-2. In the handler function, restore initial values of the 'score' and
-'secretNumber' variables
-3. Restore the initial conditions of the messageElement, number, score and guess input
-fields
-4. Also restore the original background color (#222) and number width (15rem)
-GOOD LUCK � */
 
 const messageElement = document.querySelector(".message");
 const numberElement = document.querySelector(".number");
@@ -19,13 +9,12 @@ const checkButton = document.querySelector(".check");
 const againButton = document.querySelector(".again");
 const guessNumberSection = document.querySelector("#guessNumber");
 
-const numberToGuess = getRandomNumber();
+let numberToGuess;
 let pointsAtCurrentGame = 20;
-
 let highscore = 0;
 
 function getRandomNumber() {
-  return Math.trunc(Math.random() * 20) + 1;
+  numberToGuess = Math.trunc(Math.random() * 20) + 1;
 }
 
 function getUserNumber() {
@@ -60,15 +49,20 @@ function correctNumberLogic() {
   highscoreLogic();
 }
 
-//TODO remove it
-//numberElement.textContent = numberToGuess;
-
 function again() {
-  if (messageElement.textContent === "You guess!") {
+  if (
+    messageElement.textContent === "You guess!" ||
+    messageElement.textContent === "You lose"
+  ) {
     guessNumberSection.appendChild(checkButton);
     document.body.style.backgroundColor = "#222";
   }
-  numberToGuess = getRandomNumber();
+  getRandomNumber();
+  pointsAtCurrentGame = 20;
+  scoreNumber.textContent = pointsAtCurrentGame;
+  changeMessage("Start guessing agian...");
+  inputNumberElement.value = "";
+  inputNumberElement.focus();
 }
 
 function theGame() {
@@ -88,7 +82,17 @@ function theGame() {
   else if (getUserNumber() < numberToGuess) {
     incorrectNumberLogic("Too low number");
   }
+  inputNumberElement.value = "";
 }
 
+getRandomNumber();
+inputNumberElement.focus();
 checkButton.addEventListener("click", theGame);
 againButton.addEventListener("click", again);
+inputNumberElement.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    theGame();
+  } else if (event.keyCode === 82) {
+    again();
+  }
+});
