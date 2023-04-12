@@ -60,6 +60,13 @@ element.style.backgroudColor = "blue"; // w ten sposob mozemy zmienic css elemen
 //nie bedzie on zmieniony w pliku css a bedzie doposany element w htmlu
 //style które maja nazwe np. background-color piszemy w camel case
 
+//klasy
+// klasy dodajemy lub odejmujemy glownie po to zeby manipulowac stylami danego elementu dopisaujac mu
+//klase ktora ma dodatkowe style.
+element.classList.add("nazwa_klasy");
+element.classList.remove("nazwa_klasy");
+element.classList.contains("nazwa_klasy"); // zwroci booleana
+
 //EVENTY
 //event listner sluzy do nasluchiwania jakichs akcji na danym elemencie i wykonywania instrukcji jesli one wystapia
 element.addEventListener("click", () => console.log("cos zrobi"));
