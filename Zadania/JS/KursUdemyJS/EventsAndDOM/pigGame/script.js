@@ -16,27 +16,34 @@ const score = {
 
 let isPlayerOneRound = true;
 let pointsAtCurrentRound = 0;
+const WINNING_SCORE = 100;
 
-function playerNumberRound() {
+function getCurrentPlayerNumber() {
   return isPlayerOneRound ? 1 : 2;
+}
+function getOpponentPlayerNumber() {
+  return isPlayerOneRound ? 2 : 1;
 }
 
 function setScore(playerNumberRound) {
-  score[`player${playerNumberRound}`] += pointsAtCurrentRound;
-  playerScore(playerNumberRound).textContent =
-    score[`player${playerNumberRound}`];
+  let playerName = `player${playerNumberRound}`;
+  score[playerName] += pointsAtCurrentRound;
+  playerScore(playerNumberRound).textContent = score[playerName];
+}
+
+function switchRound() {
+  isPlayerOneRound = !isPlayerOneRound;
+  playerSection(getCurrentPlayerNumber()).classList.add("player--active");
+  playerSection(getOpponentPlayerNumber()).classList.remove("player--active");
 }
 
 function roolDice() {
   let random = Math.trunc(Math.random() * 6 + 1);
   diceImg.src = `./src/dice-${random}.png`;
   if (random == 1) {
-    currentScore(playerNumberRound()).textContent = 0;
+    currentScore(getCurrentPlayerNumber()).textContent = 0;
     pointsAtCurrentRound = 0;
-    isPlayerOneRound = !isPlayerOneRound;
-    let notPlayerNumberRound = isPlayerOneRound ? 2 : 1;
-    playerSection(playerNumberRound()).classList.add("player--active");
-    playerSection(notPlayerNumberRound).classList.remove("player--active");
+    switchRound();
   } else {
     pointsAtCurrentRound += random;
   }
@@ -44,15 +51,12 @@ function roolDice() {
 
 function roundLogic() {
   roolDice();
-  currentScore(playerNumberRound()).textContent = pointsAtCurrentRound;
+  currentScore(getCurrentPlayerNumber()).textContent = pointsAtCurrentRound;
 }
 
 function holdLogic() {
-  setScore(playerNumberRound());
-  isPlayerOneRound = !isPlayerOneRound;
-  let notPlayerNumberRound = isPlayerOneRound ? 2 : 1;
-  playerSection(playerNumberRound()).classList.add("player--active");
-  playerSection(notPlayerNumberRound).classList.remove("player--active");
+  setScore(getCurrentPlayerNumber());
+  switchRound();
   checkWin();
   resetCurrentScore();
 }
@@ -64,23 +68,27 @@ function resetCurrentScore() {
 }
 
 function resetScore() {
-  playerScore(1).textContent = 0;
-  playerScore(2).textContent = 0;
+  for (let i = 1; i < 3; i++) {
+    playerScore(i).textContent = 0;
+    score[`player${i}`] = 0;
+    playerSection(i).classList.remove("player--winner");
+  }
   playerSection(1).classList.add("player--active");
   playerSection(2).classList.remove("player--active");
-  (score.player1 = 0), (score.player2 = 0);
 }
 
 function checkWin() {
-  if (score[`player1`] >= 10) {
-    roolDiceButton.remove();
-    holdButton.remove();
-    playerSection(1).classList.add("player--winner");
-  } else if (score[`player2`] >= 10) {
-    roolDiceButton.remove();
-    holdButton.remove();
-    playerSection(2).classList.add("player--winner");
+  if (score[`player1`] >= WINNING_SCORE) {
+    winLogic(1);
+  } else if (score[`player2`] >= WINNING_SCORE) {
+    winLogic(2);
   }
+}
+
+function winLogic(winnerNumber) {
+  roolDiceButton.remove();
+  holdButton.remove();
+  playerSection(winnerNumber).classList.add("player--winner");
 }
 
 function newGameLogic() {
@@ -89,8 +97,6 @@ function newGameLogic() {
   resetScore();
   document.body.appendChild(roolDiceButton);
   document.body.appendChild(holdButton);
-  playerSection(1).classList.remove("player--winner");
-  playerSection(2).classList.remove("player--winner");
 }
 
 roolDiceButton.addEventListener("click", roundLogic);
