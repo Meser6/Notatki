@@ -1,27 +1,27 @@
-2 DONE
-3 DONE
-TS DONE
-4 DONE
-5 DONE
-6 DONE
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
+2 fundamentals 1        DONE
+3 fundamentals 2        DONE
+TS podstawy             DONE
+5 setup                 DONE
+6 html css              DONE
+7 dom                   DONE
+8 behind the scens
+9 data structures
+10 functions
+11 arrays
+12 nubers
+13 advanced dom
+14 opp
+15 mapty app
+16 asynchronous
+17 modern jscwiczenia
+18 forkify app
 
 https://kursjs.pl/ 
 
-wstep DONE
-podstawy DONE
-obiekty DONE
-dom
+wstep                   DONE
+podstawy                DONE
+obiekty                 DONE
+dom                     DONE
 obiekty2
 rozne
 moduly
@@ -34,20 +34,20 @@ data i czas
 jquery
 
 https://www.jscwiczenia.pl/ 
-wprowadzenie DONE
-wstrzykiwanie DONE
-petle DONE
-ify DONE
-zdarzenia 1
-inne
-zdarzenia 2
-css
-tablice 1 DONE
-tablice 2 DONE
-tekst DONE
-math DONE
-funkcje DONE
-obiekty 1 DONE
+wprowadzenie        DONE
+wstrzykiwanie       DONE
+petle               DONE
+ify                 DONE
+zdarzenia 1         TODO
+inne                TODO
+zdarzenia 2         TODO
+css                 TODO
+tablice 1           DONE
+tablice 2           DONE
+tekst               DONE
+math                DONE
+funkcje             DONE
+obiekty 1           DONE
 obiekty 2 
 json
-zdarzenia 3
+zdarzenia 3         TODO
