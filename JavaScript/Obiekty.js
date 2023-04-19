@@ -8,6 +8,9 @@ const objekt = {
     // mozemy tez przetrzymywac w niej funckcje
     console.log(`xd ${text}`);
   },
+  jakasFunkcja2: function (text) {
+    console.log(text);
+  },
   //kolejnosc nie ma znaczenia bo i tak zostanie ulozona w kolejnosci alfabetycznej
 };
 
@@ -113,3 +116,27 @@ console.log(tabSorted); //[1.1, 2, 3, 4, 10, 11]
 console.log(tab); //[1.1, 2, 3, 4, 10, 11]
 
 // https://kursjs.pl/kurs/obiekty/obiekty-duplikowanie
+
+//Destrukturyzacja
+const objectDoDestrukturyzacji = { a: 1, b: "BOB", c: { d: 14, e: 15 } };
+
+const { a, b } = objectDoDestrukturyzacji; // aby zdestrukturyzowac objekt robiimy {} i podajemy dokladne nazwy kluczy ktore on ma
+// w tedy powstana nowe zmienne (a i b) z dopisanymi do nich wartosiami. nie musi byc po kolei
+const { a: pierwsza } = objectDoDestrukturyzacji; // jesli chcemy jakies elementy pominac to po prostu ich nie piszemy. a jesli chcemy
+//zeby zmienna miala inna nazwe niz klucz to piszemy po : nowa nazwe
+const { b: druga = "dylan" } = objectDoDestrukturyzacji; // podobnie jak w tablicah mozemy przypisac wartosc domyslna
+
+let aa = 10; // zalozmy ze chcemy dopisac zdestrukturyzana zmienna do istniejacej. robimy to za pomoca takiego triku
+({ a: aa } = objectDoDestrukturyzacji);
+
+const {
+  c: { d },
+} = objectDoDestrukturyzacji; // aby wyciagnac zmienna ktora jest wewnatrz obiektu ktory jest w obiekcie to robimy tak
+
+function fukcjaDestukturyzacja({ a, b, c }) {
+  // jesli mamy funkcje ktora jako parametr przyjmie objekt to mozemy go od razu
+  console.log(c); //zdestrukturyzowac i wykorzystac te zmienne. WAZNE: musimy znac dokladne klucze
+  return a + b;
+}
+
+fukcjaDestukturyzacja(objectDoDestrukturyzacji);

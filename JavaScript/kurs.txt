@@ -4,8 +4,8 @@ TS podstawy             DONE
 5 setup                 DONE
 6 html css              DONE
 7 dom                   DONE
-8 behind the scens     
-9 data structures  
+8 behind the scens      SKIP
+9 data structures       
 10 functions
 11 arrays
 12 nubers
@@ -13,7 +13,7 @@ TS podstawy             DONE
 14 opp
 15 mapty app
 16 asynchronous
-17 modern jscwiczenia
+17 modern js
 18 forkify app
 
 https://kursjs.pl/ 
