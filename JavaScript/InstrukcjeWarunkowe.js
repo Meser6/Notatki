@@ -1,63 +1,74 @@
 // Instrukcja IF
-
-const a = 5;
-if (a > 5) { // czyt. Jeżeli (a >5) to
+{
+  const a = 5;
+  if (a > 5) {
+    // czyt. Jeżeli (a >5) to
     console.log("a > 5");
-} else if (a == 5) { // czyt. To może chociaż (a ==5). jeśli tak to
+  } else if (a == 5) {
+    // czyt. To może chociaż (a ==5). jeśli tak to
     console.log("a = 5");
-} else { // czyt. w innym przypadku
+  } else {
+    // czyt. w innym przypadku
     console.log("a < 5");
-}
+  }
 
-if (a < 5) // bez klamer. jeżeli prawda wówczas wykona tylko jedna najbliższą instrukcje.
+  if (a < 5)
+    // bez klamer. jeżeli prawda wówczas wykona tylko jedna najbliższą instrukcje.
     console.log("a < 5"); // to wykona
-console.log("Trabant"); // to tez ale juz bez znaczenia czy przyjmie true czy false
+  console.log("Trabant"); // to tez ale juz bez znaczenia czy przyjmie true czy false
 
+  //uproszczona, jednolinijkowa instrukcja.
+  //sprawdz czy a < 5, jesli jest to zeob to, jesli nie to zrob tamto
+  a < 5 ? console.log("a <5") : console.log("a > 5");
 
-//uproszczona, jednolinijkowa instrukcja.
-//sprawdz czy a < 5, jesli jest to zeob to, jesli nie to zrob tamto
-a < 5 ? console.log("a <5") : console.log("a > 5");
+  //postac ta moze tez zwrocic wartosc
+  const czyAJestMniejsze = a < 5 ? "a mniejsze" : "a wieksze"; // zwroci stringa w tym przypadku
 
-//postac ta moze tez zwrocic wartosc 
-const czyAJestMniejsze = a < 5 ? 'a mniejsze' : 'a wieksze' // zwroci stringa w tym przypadku
-
-
-const tru = true;
-if (tru){ // jesli prawda
+  const tru = true;
+  if (tru) {
+    // jesli prawda
     console.log("true");
-} else  if (!tru){ // jesli falsz
+  } else if (!tru) {
+    // jesli falsz
     console.log("false");
+  }
+
+  let pusta = undefined;
+  let niepusta = "xd";
+  if (pusta) {
+    console.log("pusta");
+  } //  undefind, null, NaN, '', 0, document zwroci false a wiec instrukcja sie nie wykona
+  if (niepusta) {
+    console.log("niepusta");
+  } // kazda inna wartosc zworoci true i sie wykona
 }
-
-let pusta = undefined;
-let niepusta = 'xd'
-if (pusta) { console.log('pusta')} //  undefind, null, NaN, '', 0 zwroci false a wiec instrukcja sie nie wykona
-if (niepusta) { console.log('niepusta')} // kazda inna wartosc zworoci true i sie wykona
-
-
- // Switch
-switch (a) {  // czyt przyjmij a
+// Switch
+{
+  switch (
+    a // czyt przyjmij a
+  ) {
     case 3: // sprawdź czy jest równe 3
-        console.log("3");
-        break; // wyjdź ze switcha
+      console.log("3");
+      break; // wyjdź ze switcha
     case 5: //sprawdz czy jest równe 5
-        console.log("5");
-        break; // wyjdź ze switcha
-default: // w każdym innym przypadku
-        console.log("default");
-        break; // przy ostatnim można nie dawać
-        }
+      console.log("5");
+      break; // wyjdź ze switcha
+    default: // w każdym innym przypadku
+      console.log("default");
+      break; // przy ostatnim można nie dawać
+  }
 
-// W tym przypadku jeżeli a = 3 to zostanie wywołana intrukcja z 3 i 4 (dopoki nie natrafina brake)
-//Jeżeli a = 4 to zostanie wywolłane tylko 4 z pominięciem 3. Analogicznie do 5.
+  // W tym przypadku jeżeli a = 3 to zostanie wywołana intrukcja z 3 i 4 (dopoki nie natrafina brake)
+  //Jeżeli a = 4 to zostanie wywolłane tylko 4 z pominięciem 3. Analogicznie do 5.
 
-switch (a) {
+  switch (a) {
     case 3:
-        console.log("3");
+      console.log("3");
     case 4:
-        console.log("4");
-        break;
+      console.log("4");
+      break;
     case 5:
-        console.log("5");
-        break;
+      console.log("5");
+      break;
+  }
 }
