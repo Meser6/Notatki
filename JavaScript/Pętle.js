@@ -22,7 +22,7 @@
       console.log(j);
     }
   }
-  // ForEach
+  // ForEach / For of
   {
     const tab = new Array(1, 2, 3);
     tab.forEach((x) => console.log(x)); // bierze element, wpisuje go w x, potem robi to co po strzlce i bierze kolejny itd.

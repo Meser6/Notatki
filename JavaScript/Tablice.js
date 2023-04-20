@@ -52,6 +52,12 @@
   //typeof teblicy to "object" aby sprawdzic czy tablica rzeczywiscie jest tablica uzywamy
   Array.isArray([1, 2, 3]);
 
+  for (const item of tab.entries()) {
+    console.log(item); // dla kazdego elementu sttoworzy nowa tabele w kroej bedzie idex w podstawowej tabeli i wartosc
+  }
+  for (const [i, e] of tab.entries()) {
+  } //zrobi to samo ale nie zwroci tablicy (destrukturyzacja) a dopisze index(i) i wartosc (e)
+
   //tablice moga byc tez wielowymiarowe aczkolwiek zadko sie je stosuje
   const tab = [
     [1, 2, 3],
