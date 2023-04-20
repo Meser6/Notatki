@@ -103,4 +103,7 @@
 
   funkcja(...arr, 12); // w przypadku gdy do takije funkcji chcielibysmy przekazac tablice to
   //napierw musimy ja rozbic, a potem polaczyc
+
+  function funkcja2(v, ...args) {}
+  funkcja(1); // w tym przypadku aargs po prostu zwroci pusta tablice
 }
