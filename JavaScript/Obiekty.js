@@ -9,10 +9,7 @@
       // mozemy tez przetrzymywac w niej funckcje
       console.log(`xd ${text}`);
     },
-    jakasFunkcja2: function (text) {
-      //alternatywny zapis
-      console.log(text);
-    },
+    [`klucz${2 + 2}`]: 12, // klucze mozemy tez zapisywac w [] przez co mozemy wrzucicac do nich dane z innych rzeczy
     //kolejnosc nie ma znaczenia bo i tak zostanie ulozona w kolejnosci alfabetycznej
   };
 
@@ -66,9 +63,23 @@
   beata[nazwa()]; // dowonna ekspresje mozemu tu wrzucic
   beata.nieistnieje; // jak odwolamy sie do nieistniejacej wartosci to dostaniemy undefined
 
+  beata.nieistnieje.nieistnieje2; // rzuci wyjatkiem ponnieważ nieistnije bedzie undefined a ta nie ma wlasciwosci nieistnieje2
+  //jesli mamy dane co do ktorych nie mamy pewnosci czy istnieja to mozemy uzyc znaku ?
+  beata.nieistnieje?.nieistnieje; // w tym przypadku jesli niestnijeje bedzie undefind (nie edzie istniejc w tym obiekcie) lub bedzie nullem
+  //to caly lancuch przyjmnie wartosc undefind i nie rzuci wyjatkiem
+
+  Object.keys(beata); // zwroci tablice z nazwami kluczy danego obiektu
+  Object.values(beata); // zwroci tablice z wartosciami danego obiektu,bez kluczy
+  Object.entries(beata); // zwroci (kilka) tablice zawierajaca key na 0 index i value na 1
   //DODAWANIE
   beata.nowyKlucz = "to jest nowa wartosc"; // mozemy dodawac do obiektu nowe pary, ale nie mozemy dodac nic bez wartosci
   beata.imie = "beti"; // mozemy tez podmieniac wartosci
+
+  const c = 12; // dopisywanie wlasciwosci ze zmiennej
+  const objekt2 = {
+    b: 2,
+    c, // swtorzy klucz ktory sie bedzie sie nazywal tak samo jak zmienna, a jako jego wlasciwosc wezmie zawartsc zmiennej
+  };
 
   //USUWANIE
   //jesli chcemy usunac jakis klucz i waetosc z obiektu to robimy to przez delete.

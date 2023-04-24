@@ -33,7 +33,7 @@
     const zlySposob = a + " cos " + c; // raczej nie stosowac
     const dobrySposob = `${a} cos ${c + d}`; // lepsszy sposob. wewnatrz {} mozna robic operacje
     const kolejnaLinia = `pierwsza linia
-druga linia`; // majac tekst w ` beda brane rowniez pod uwage entery
+    druga linia`; // majac tekst w ` beda brane rowniez pod uwage entery
   }
   // liczby
   {
