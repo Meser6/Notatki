@@ -24,16 +24,33 @@
 {
   //tekst
   {
-    let zmienna1 = "Text";
-    zmienna1 = "Text";
-    zmienna1 = 'Tex"t'; // \" dezaktywuje cudzysłów
-    zmienna1 = "Text\n "; // \n\ działa jak enter
+    let zmienna = "Text";
+    zmienna = "Text";
+    zmienna = 'Tex"t'; // \" dezaktywuje cudzysłów
+    zmienna = "Text\n "; // \n\ działa jak enter
 
     //polaczenie tekstu
     const zlySposob = a + " cos " + c; // raczej nie stosowac
     const dobrySposob = `${a} cos ${c + d}`; // lepsszy sposob. wewnatrz {} mozna robic operacje
     const kolejnaLinia = `pierwsza linia
     druga linia`; // majac tekst w ` beda brane rowniez pod uwage entery
+
+    //metody na stringach
+    //js moze niejawnie przekonwertowac string na tablice skladajaca sie z pojedynczych znakow
+    //dzieki czemu mozemy wywolywac metody na stringach
+    const text = "string";
+    text.split(); // mozemy je wywolywac na zmiennych
+    "string".toUpperCase(); // ale i bezposrednio na stringach
+    text[0]; // mozemy tez wyciagac z nich znaki po indexach jak w tablicy
+
+    text.length; // dlugosc
+    text.indexOf("ri"); // index w ktorym zaczyna sie pierwszy raz pojawiac taki ciag. jak nie znajdzie to zwroci -1
+    text.lastIndexOf("ri"); //ostatnie wystapienie
+    // w obu przypadkach zwroci index poczatku czyli r w ciagu ri. bierze tez pod uwage wielkosc liter
+
+    text.slice(1); // utnie na danym idexcie i zwroci nowego stringa (lacznie z tym idexem) - 'tring'
+    text.slice(1, 3); //utnie i zwroci od pierwszego wlacznie do ostaniego wylacznie - 'tr'
+    text.slice(-2, -1); //zacznie liczyc od konca - 'n'
   }
   // liczby
   {

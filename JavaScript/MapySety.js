@@ -2,15 +2,18 @@
 {
   //mapy to zbiory danych charakteryzujace sie para klucz - wartosc
   //od obiektow rozni je to ze kluczem moze byc absolutnie wszystko
-  const map = new Map(); // tworzenie
+  const map = new Map([
+    // aby storzyc mape z zawartoscia przekazyjemy do niej tablice tablic ktore maja
+    //klucz i wartosc. w ten sposob powstanie mapa ktora jako klucz wezmie index 0, a wartosc index 1
+    ["klucz", "wartosc"],
+    [document.querySelector("h1"), "naglowek"], //kluczem moze byc wszystko
+    [[1, 2], 12], //pamietac o referencji. w ten sposob nie bedziemy mogli tego pobrac bo przekazujac
+    //tablice [1, 2] jej referencja bedzie inna. trzebaby da tablice do zmiennej i dac zmienna jako klucz
+    [true, { a: 1 }],
+  ]);
 
   //wlasciwosci
-  map
-    .set("klucz", "wartosc") // dowanie. zwroci aktualizowana mape przez co mozna chainowac kolejne rzeczy
-    .set(document.querySelector("h1"), "naglowek") //kluczem moze byc wszystko
-    .set([1, 2], 12) //pamietac o referencji. w ten sposob nie bedziemy mogli tego pobrac bo przekazujac
-    //tablice [1, 2] jej referencja bedzie inna. trzebaby da tablice do zmiennej i dac zmienna jako klucz
-    .set(true, { a: 1 });
+  map.set("klucz", "wartosc"); // dodwanie. zwroci aktualizowana mape przez co mozna chainowac kolejne rzeczy
   //klucze nie moga byc takie same. jak bedziemy chceli dodac do mapy pare ktora ma klucz ktory juz jest w
   //tablicy to sie on nie doda
 
@@ -18,6 +21,12 @@
   map.delete("klucz"); //usuwanie
   map.clear(); // czyszczenie
   map.has("klucz"); // sprawdzi czy taki klucz istenieje
+
+  const obj = { a: 1 };
+  // objekt -> mapa
+  const objToMap = new Map(Object.entries(obj));
+  //mapa -> tablica
+  const mapToArr = [...objToMap];
 }
 //SETY
 {
