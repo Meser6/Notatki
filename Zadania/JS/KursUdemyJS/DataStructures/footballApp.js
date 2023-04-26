@@ -195,11 +195,13 @@ console.log("-------------------------------");
 // The input will come from a textarea inserted into the DOM (see code below to
 // insert the elements), and conversion will happen when the button is pressed.
 // Test data (pasted to textarea, including spaces):
-// underscore_case
-// first_name
-// Some_Variable
-//  calculate_AGE
-// delayed_departure
+/* 
+underscore_case
+first_name
+Some_Variable
+ calculate_AGE
+delayed_departure
+ */
 // Should produce this output (5 separate console.log outputs):
 // underscoreCase ✅
 // firstName ✅✅
@@ -214,5 +216,33 @@ console.log("-------------------------------");
 // § This challenge is difficult on purpose, so start watching the solution in case
 // you're stuck. Then pause and continue!
 // Afterwards, test with your own test data!
-// document.body.append(document.createElement("textarea"));
-// document.body.append(document.createElement("button"));
+const textarea = document.createElement("textarea");
+const div = document.createElement("div");
+
+div.style.width = 10000;
+div.style.height = 1000;
+textarea.style.width = "600px";
+textarea.style.height = "300px";
+div.appendChild(textarea);
+const button = document.createElement("button");
+button.innerText = "click me";
+document.body.append(div);
+document.body.append(button);
+
+button.addEventListener("click", function () {
+  const words = textarea.value.split("\n");
+  let icons = "";
+
+  for (const x of words) {
+    const [firstWord, [firstChar, ...restOfSecondWord]] = x
+      .toLowerCase()
+      .trim()
+      .split("_");
+
+    const newWords = `${firstWord}${firstChar.toUpperCase()}${restOfSecondWord.join(
+      ""
+    )} ${(icons += "✅")}`;
+
+    console.log(newWords);
+  }
+});

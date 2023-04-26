@@ -51,6 +51,26 @@
     text.slice(1); // utnie na danym idexcie i zwroci nowego stringa (lacznie z tym idexem) - 'tring'
     text.slice(1, 3); //utnie i zwroci od pierwszego wlacznie do ostaniego wylacznie - 'tr'
     text.slice(-2, -1); //zacznie liczyc od konca - 'n'
+    text.split("p"); // potnie text w miejsach gdzie wystepuje dany ciag i zwroci tablice pocietego tesktow
+    // bez tego znaku.
+
+    text.toLowerCase(); // zamieni duze litery na male i zwroci nowego stringd
+    text.toUpperCase(); // male na duze
+
+    text.trim(); // usunie spacje ktore znajduja sie na poczatku tekstu i na koncu
+
+    text.replace("stary ciag", "nowy ciag"); // zamieni pierwsze wystapienie starego ciagu na nowy.
+    text.replaceAll("stary ciag", "nowy ciag"); // zamieni wszystkiie wystepowania starego na nowy
+
+    text.includes("aa"); // sprawdzy czy tekst zawiera ciag i zwroci booleana
+    text.startsWith("aa"); // sprawdzi czy zaczyna sie na ciagu
+    text.endsWith("aa"); // sprawdzi czy konczy sie na ciagu
+
+    text.padStart(20, "x"); // wezmie text, sprawdzi jego dlugosc i jesli jest za mala to doda na poczatku znak
+    //tak zeby mial podana dlugosc. jezeli dlugosc bedzie wieksza to nic nie zrobi
+    text.padEnd(20, "xx"); // to samo ale doda na koncu
+
+    text.repeat(5); // powtorzy dany tekst okreslona ilosc razy
   }
   // liczby
   {
