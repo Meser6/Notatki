@@ -51,7 +51,7 @@
   {
     const boolean1: boolean = true;
     const boolean2: boolean = 2 >= 2;
-    const boolean3: boolean = string1 === "hej";
+    const boolean3: boolean = boolean2 === "hej";
   }
   //array -----------------
   {

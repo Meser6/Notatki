@@ -42,7 +42,7 @@
     this.wiek = wiek; // słówko this nie jako tworzy nowa zmienna do ktorej nastepnie przypisujemy argument
   }
 
-  const beata = new Czlowiek("Beata", 12);
+  const bob = new Czlowiek("bob", 12);
   const krystian = new Czlowiek("Krystian"); // gdy nie wypełnimy wszytkich argumentów to obiekt i tak powstanie
   //a puste argumenty przyjmia pustą wartość
 }
@@ -58,22 +58,22 @@
 //Zarzadzanie właściwościami
 {
   //POBIERANIE - aby dostac sie do parametrow danego obiektu nalezy go wywolac i dodac kropke
-  beata.imie;
-  beata["imie"]; //alternatywny sposob
-  beata[nazwa()]; // dowonna ekspresje mozemu tu wrzucic
-  beata.nieistnieje; // jak odwolamy sie do nieistniejacej wartosci to dostaniemy undefined
+  bob.imie;
+  bob["imie"]; //alternatywny sposob
+  bob[nazwa()]; // dowonna ekspresje mozemu tu wrzucic
+  bob.nieistnieje; // jak odwolamy sie do nieistniejacej wartosci to dostaniemy undefined
 
-  beata.nieistnieje.nieistnieje2; // rzuci wyjatkiem ponnieważ nieistnije bedzie undefined a ta nie ma wlasciwosci nieistnieje2
+  bob.nieistnieje.nieistnieje2; // rzuci wyjatkiem ponnieważ nieistnije bedzie undefined a ta nie ma wlasciwosci nieistnieje2
   //jesli mamy dane co do ktorych nie mamy pewnosci czy istnieja to mozemy uzyc znaku ?
-  beata.nieistnieje?.nieistnieje; // w tym przypadku jesli niestnijeje bedzie undefind (nie edzie istniejc w tym obiekcie) lub bedzie nullem
+  bob.nieistnieje?.nieistnieje; // w tym przypadku jesli niestnijeje bedzie undefind (nie edzie istniejc w tym obiekcie) lub bedzie nullem
   //to caly lancuch przyjmnie wartosc undefind i nie rzuci wyjatkiem
 
-  Object.keys(beata); // zwroci tablice z nazwami kluczy danego obiektu
-  Object.values(beata); // zwroci tablice z wartosciami danego obiektu,bez kluczy
-  Object.entries(beata); // zwroci (kilka) tablice zawierajaca key na 0 index i value na 1
+  Object.keys(bob); // zwroci tablice z nazwami kluczy danego obiektu
+  Object.values(bob); // zwroci tablice z wartosciami danego obiektu,bez kluczy
+  Object.entries(bob); // zwroci (kilka) tablice zawierajaca key na 0 index i value na 1
   //DODAWANIE
-  beata.nowyKlucz = "to jest nowa wartosc"; // mozemy dodawac do obiektu nowe pary, ale nie mozemy dodac nic bez wartosci
-  beata.imie = "beti"; // mozemy tez podmieniac wartosci
+  bob.nowyKlucz = "to jest nowa wartosc"; // mozemy dodawac do obiektu nowe pary, ale nie mozemy dodac nic bez wartosci
+  bob.imie = "beti"; // mozemy tez podmieniac wartosci
 
   const c = 12; // dopisywanie wlasciwosci ze zmiennej
   const objekt2 = {
@@ -83,7 +83,7 @@
 
   //USUWANIE
   //jesli chcemy usunac jakis klucz i waetosc z obiektu to robimy to przez delete.
-  delete beata.imie;
+  delete bob.imie;
 
   //funkcje
   {
@@ -123,6 +123,7 @@
 {
   //mamy tablicę która chcemy posortować
   const tab = [4, 10, 2, 11, 1.1, 3]; // tabela to tak na prawde obiekt
+  const obj = { a: 1 };
 
   const sortNumbers = function (arr) {
     return arr.sort((a, b) => a - b); // funkcja ta pobierze nam tabele, posortue i przyisze do zmiennej
@@ -132,6 +133,11 @@
   const tabSorted = sortNumbers(tab);
   console.log(tabSorted); //[1.1, 2, 3, 4, 10, 11]
   console.log(tab); //[1.1, 2, 3, 4, 10, 11]
+
+  const objNowy = { ...obj }; // abyu skopiowac obiekt mozemy uzyc rest operatora
+  const objNOwy2 = Object.assign({}, obj); // albo uzyc metody assign ktora przyjmuje :cel, obiekt kopowany
+  //kopioanie takie jest plaskie czyli jesli obiekt w swoim wnetrzu bedzie wskazywal na inny obiekt
+  //to wskazanie to bedzie takie same w nowym, kopiowanym obiekcie
 
   // https://kursjs.pl/kurs/obiekty/obiekty-duplikowanie
 }

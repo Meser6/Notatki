@@ -13,7 +13,7 @@
 
   const funkcjaStrzałkowa = () => {
     alert("=>");
-    // NIE mozna w niej uzyc this.
+    // nie zmienia sie this.
   };
   funkcjaStrzałkowa(); // NIE mozna ja wywolac przed inicjalizacja
 
