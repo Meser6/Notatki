@@ -36,11 +36,17 @@
 
   funkcja2(4, "funkcja 2"); // do argumentow mozemy przekazywac dowolne typy
 
+  const primitive = "xd";
+  const obj = { a: 12 };
+  funkcja2(primitive, obj); // przekazujac do funkcji prymitywny obiekt przekazujemy jego kopie
+  //ale przekazujac obiekt przekazujemy referencje do jego instancji przez co robiac cos na nim w funkcji
+  //bedziemy robic to tak na prawde w pierwotnym obiekcie.
+
   //tworzenie funkcji z dowolna iloscia argumentow
   const funcja66 = function (...args) {}; // argumenty te wrzuci do tablicy (nie dziala w ts)
 
   //funkcja z domyslnymi parametrami
-  function funkcja2i6(v1 = "w", v2 = 12) {}
+  function funkcja2i6(v1 = "w", v2 = 12 * 14) {}
   funkcja2i6(); //jezeli nie nadpiszemy parametru to zostanie domyslny
   funkcja2i6(11); //jezeli nadpiszemy to bedxie nowy
   funkcja2i6(undefined, 11); // undefind bedzie traktowane jako nienadpisane i wywola sie domyslna wartoscb
@@ -85,4 +91,53 @@
       return a * funkcja8(a - 1);
     }
   }
+}
+// funkcje wyzszego i nizszego rzedu
+{
+  function add5(a) {
+    return a + 5;
+  }
+  function add50(a) {
+    return a + 50;
+  }
+
+  // funkcje ktore przyjmuja inne funkcje nazywamy funkcjami wyzszego rzedu
+  function printSum(a, fn) {
+    console.log(`a${fn.name} = ${fn(a)}`); // jesli chcemy przekazac cos do wywolywanej funkcji albo skorzystac z jej wlasciwosci
+    //to musimy to zrobic odwolujac sie do nazwy zmiennej ktora ma ja przyjac a nie nazwy funkcji
+  }
+
+  //a funkcje ktore przekazujemy do funkcji wyzszego rzedu - funkcjmi zwrotnymi  - callbackami
+  printSum(10, add5); // aby wywolac taki callback nalezy podac go jak zwykla wartosc, bez () bo sie wywola
+  printSum(10, add50);
+
+  // dzieki takiemy zastosowaniun mozemy zwiekszyc poziom abstrakcji czyli korzystac z funkcji
+  // ktorych to zasady dzialania nie za bardzo nas interesuja
+
+  //funkcje ktore zwracaja nam inne funkcje rowniez nzwywamy funkcjami wyzszego rzedu
+  function zewnetrzna(a) {
+    console.log(`a: ${a}`);
+    return function wewnetrzna(b) {
+      // funkcje moga nam zwracac inne funkcje
+      console.log(`b: ${b}`);
+    };
+  }
+  const doTegoZostaniePrzypisanaFunkcjaWewnetrzna = zewnetrzna(6 /* a */); //wywoluemy funkcje zewnetrzna ktora zwroci wewnetrzna ktora
+  //zostanie dopisana do tej zmiennej
+  doTegoZostaniePrzypisanaFunkcjaWewnetrzna(66 /* b */); // wywolanie funkcji zwracanej
+
+  zewnetrzna(6)(66); // to samo co powyzej ale bez dopisywania do funkcji
+}
+// ustawianie parametrow na sztywno
+{
+  //poprzez funkcje bind mozemy storzyc nowa funkcje ktora przyjmie stara i na stale dopisze do paamterow wartosci
+
+  function fukcjaBind(a, b) {
+    console.log(a, b);
+  }
+
+  const fukcjaBindBezA = funkcjaBind(null, 23); // pierwszym parametrem jest null bo w nim ustawiamy this. (tego tu nie chcemy a wiec skipujemy)
+  // drugi parametr funkcji ustawiamy na sztywno na 23 i taka funkcje dopisujemy do zmiennej
+  fukcjaBindBezA(33);
+  //podobne rzeczy mozemy zrobic poprzez funkcje ktora zwraca funkcje
 }

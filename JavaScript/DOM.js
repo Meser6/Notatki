@@ -136,6 +136,9 @@
   //aby to wylaczyc trzeba podac trzeci parametr
   element.addEventListener("click", funkcja, true); // teraz w takiej sytuacji odpali sie tylko span
 
+  element.addEventListener("click", function () {
+    this; // wskaze na element na ktorym wywplujemy event listener
+  });
   //typy eventow:
   const typyEventow = {
     click: "kliknięcie lewym klawiszem myszki",

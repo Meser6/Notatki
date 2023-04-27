@@ -79,6 +79,8 @@
     zmienna2 = 1.5; //kropka zamiast przecinka
     zmienna2 = NaN; // not a number. w  typeof da nam number
     let zmienna7 = 9007199254740991n; //duzy int number, ale moze byc wiekszy niz zwykly
+
+    isNaN(zmienna2); // sprwdzi czy zmienna jest nan
   }
   //operatory logiczne
   {

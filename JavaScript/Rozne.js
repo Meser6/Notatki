@@ -69,4 +69,45 @@
       });
     },
   };
+  // zarzadzenie this poprzez metody
+  {
+    // funkcja ta sluzy do zarzadzania this. wskazuje mu na jakie miejsce powinien wskazywac
+    const objekt1 = {
+      name: "objekt1",
+      arr: [],
+    };
+
+    const obekt2 = {
+      name: "objekt2",
+      arr: [],
+    };
+
+    const printName = function (info, info2) {
+      this.arr.push(`name: ${this.name} + ${info} + ${info2}`);
+      console.log(this);
+    };
+
+    printName("info"); // pod this wrzuci undefind (w strict mode)
+    //jesli chcielibysmy wywolac funkcje printName dla w/w obiektow to musimy wskazac na co ma pokazywac this
+    //wazne: elementy wskazane przez this musza miec takie same nazwy jak walsciwosci w funkcji
+
+    //call
+    {
+      printName.call(objekt1, "info", 2); // jako pierwszy parametr wskazujemy na obiekt ktory ma byc wskazany przez this a reszte to parametry funkcji
+      printName.call(obekt2, "newInfo", 22); // wywola metode od razu
+    }
+    //apply
+    {
+      printName.apply(objekt1, ["info", 22]); // zadziala tak samo ale parametry trzeba przekazac w tablicy. nie zalecane. lepiej call + ...
+    }
+    //bind
+    {
+      const objekt1Funkcja = printName.bind(objekt1); //ustawi this, ale nie wywola sie od razu tylko zwroci funkcje z tak ustawionym this
+      objekt1Funkcja("info", 23); // potem ta funkcje mozemy wywolywac
+
+      const objekt2FunkcjaZOkreslonymInfo = printName.bind(obekt2, "info2"); //w bind mozemy tez ustawiac od razu parametry
+      //przez co funkcja ktora zostanie zwrocona bedzie juz miala czesc wypelniona a my musimy dopisac reszte
+      objekt2FunkcjaZOkreslonymInfo(22);
+    }
+  }
 }

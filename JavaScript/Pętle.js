@@ -4,16 +4,16 @@
   {
     let i = 1;
     while (i < 10) {
-      // sprawdź czy YY. Jeśli prawda to zrób XX i znowu sprawdź.
+      // sprawdź czy YY. jesli warunek jest prawdziwy to zrobi znowu. jesli nieprawdziwy to zakonczy petle
       i++;
     }
   }
   // Do while
   {
     do {
-      // Zrób XX
+      // najpierw zrobi instrukcje, bez spradznia
       i++;
-    } while (i > 10); // a dopiero potem sprawdź YY. Jeśli prawda to zrob znowu i znowu sprawdź.
+    } while (i > 10); // a dopiero potem sprawdzi. jesli warunek jest prawdziwy to zrobi znowu. jesli nieprawdziwy to zakonczy petle
   }
   // For
   {
