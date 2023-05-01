@@ -22,6 +22,7 @@
   map.clear(); // czyszczenie
   map.has("klucz"); // sprawdzi czy taki klucz istenieje
 
+  map.forEach((value, key, map) => {}); // forEach dla mapy przekaze: wartosc, klucz, cala mape
   const obj = { a: 1 };
   // objekt -> mapa
   const objToMap = new Map(Object.entries(obj));
@@ -45,6 +46,9 @@
   set.clear(); // czyszczenie setu
 
   set.add("6"); // set patrzy na scisla korelacje a wiec moze wystepowac 6 i '6"
+
+  set.forEach((value, _, set) => {}); // forEach przekaze: wartosc, klucz ktory jest tak na prawde ta wartoscia
+  //(przez co zapisujemy go _ - tak sie oznacza zmienna ktora nie ma znaczenia i nie bedzie wykorzystywana) i caly set
 
   const set11 = [...new Set(arr)]; // konwertowanie Setu na tablice
 }

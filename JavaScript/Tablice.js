@@ -11,6 +11,8 @@
 
   //pobieranie wartosci
   tabela[0]; // podajemy index elementu
+  tabela.at(0); //to samo co w []
+  tabela.at(-1); // z ta roznica ze mozna przekazywac ujemne indexy. bedzie liczyc od konca
 
   //dodawanie wartosci
   tab.push("poniedzialek"); // dodawainie do tablicy (na koncu). zwroci tez dlugosc tablicy
@@ -42,21 +44,29 @@
 
   const string = tab.join(" "); // łączy wpisy z tabeli (w kolejsoci)  w stringa a miedzy nie wstawia to co w argumencie
 
-  tab.map((x) => console.log(x.length)); //literowanie po elementach. to co po => mozna wrzucić w {} i zrobic wiecej niz linijke
-  tab.forEach((x) => console.log(x)); //literowanie po elementach.  to co po => mozna wrzucić w {} i zrobic wiecej niz linijke
+  tab.slice(2); // utnie tablice przed X elementem (ten element tez bedzie w nowej) i zwroci nowa/ nie zmieni nic w wywolywanej
+  tab.slice(2, 5); // utnie i storzy nowa tablice. element poczatkowy doda, koncowy NIE
+  tab.slice(-2); // to samo ale zacznie liczyc od konca
+  tab.slice(); // w ten sposob mozemy tez stworzyc kopie tablicy (to samo przez spreeed operator)
+
+  tab.concat(["a", "b"]); // dolaczy tablice z paremtreu do tej n\wywolywanej
+
+  tab.map((x) => console.log(x.length)); //literowanie po elementach. obecny element wrzuci w parametr funkcji
+  tab.forEach((x) => console.log(x)); //literowanie po elementach. element wrzuci do parametrow funkcji
   tab.forEach((x, index, arr) => {
     x; // zwroci element z tablicy
     index; // jego index
     arr; //zwroci cala tablice
-  });
-  //typeof teblicy to "object" aby sprawdzic czy tablica rzeczywiscie jest tablica uzywamy
-  Array.isArray([1, 2, 3]);
+  }); // funkcji forEach nie mozna przerwac breakiem.
 
   for (const item of tab.entries()) {
     console.log(item); // dla kazdego elementu sttoworzy nowa tabele w kroej bedzie idex w podstawowej tabeli i wartosc
   }
   for (const [i, e] of tab.entries()) {
   } //zrobi to samo ale nie zwroci tablicy (destrukturyzacja) a dopisze index(i) i wartosc (e)
+
+  //typeof teblicy to "object" aby sprawdzic czy tablica rzeczywiscie jest tablica uzywamy
+  Array.isArray([1, 2, 3]);
 
   //tablice moga byc tez wielowymiarowe aczkolwiek zadko sie je stosuje
   const tab = [

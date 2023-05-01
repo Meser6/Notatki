@@ -80,7 +80,7 @@
     alert("alert"); // to już się nie wykona
   }
 }
-//rekurencja
+// kombinacje
 {
   //rekurencja to wywoływanie funcji we ciele tej funkcji
   function funkcja8(a) {
@@ -140,4 +140,16 @@
   // drugi parametr funkcji ustawiamy na sztywno na 23 i taka funkcje dopisujemy do zmiennej
   fukcjaBindBezA(33);
   //podobne rzeczy mozemy zrobic poprzez funkcje ktora zwraca funkcje
+}
+// Funcje wykonywane tylko raz
+{
+  //jesli chcemy zeby dana funcja byla wykonywana tylkk raz i to od razu po napisaniu uzywamy
+  //takiego tricku
+  (function () {
+    console.log("tylko raz");
+  })();
+  (() => {
+    console.log("tylko raz");
+  })();
+  // obecnie sie tego juz nie uzywa alw wczesniej bylo uzywane ze wzgledu na ochrone zmiennych
 }
