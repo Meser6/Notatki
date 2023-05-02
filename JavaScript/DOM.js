@@ -55,6 +55,20 @@
   element.before(newLi); //wstawia tekst lub nowy element przed danym elementem
   element.after(newLi); //wstawia tekst lub nowy element za danym elementem
 
+  const html = `<div data-staticr="skip" class="Menu_navMenuLink__Qde0X">
+  Sport
+  </div>`;
+
+  element.insertAdjacentHTML("positin", html); // wrzuci kawalem htmlu do drzewa dom. pierwszy parametr okresla gdzie go wrzuci
+  /* p to nasz element 
+    <!-- beforebegin -->
+    <p>
+      <!-- afterbegin -->
+      foo
+      <!-- beforeend -->
+    </p>
+    <!-- afterend --> */
+
   //zamiana istniejacego elementu
   lista.replaceChild(newLi, li2); // zamienia element z drugim (nowy, stary) (3)
   lista.replaceWith(newLi);
@@ -117,6 +131,11 @@
   }
   element.addEventListener("moseout", funkcja); // jesli chcemy wywolac jakas funkcje to robimy to bez ()
   //bo inaczej wywola sie instant
+  element.addEventListener("click", function () {
+    // aby przekazac jako callback funckje z argumentami i nie wywolywac ja intant
+    funkcjaZArtumentami(2, 3); // trzeba opakowac ja a funkcje anonimowa
+  });
+
   element.removeEventListener("click", nazwaFunkcji); // usuniecie eventu. nie usunie funkcji anonimowej
 
   element.addEventListener("mousedown", (e) => {
