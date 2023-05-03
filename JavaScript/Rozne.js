@@ -4,14 +4,6 @@
   // sprawia ona min. ze nie mozna stworzyc zmiennej bez deklaracji let/const/var (przypadkowa literowka)
   // nie pozwala tez stowrzyc funkcji z nazwa zarezerwowana dla przyszlych funkcjonalnosci
   ("use strict");
-
-  //W JS nie ma typowania zmiennych co oznacza ze do zmienniej x mozna wrzucic i pomienic ja na rozne typy.
-  //Zmiennie przymuja jednak typu w zaleznosci od zawartosci.
-  //Typy dziela sie na to co jest obiektem, i to co nie jest (prymitywne). tych drugich jest 7
-
-  // zmienna deklarujemy przez słówko kluczowe var, a od  ES6 // let i const
-  //nie moze sie ona zaczynac od cyfr i miec znaków spęcjalnych (oprocz $ i _)
-  //musza byc WYZEJ niz funkcje w ktorych sa wywowylawane bo js czyta od gory do dolu
 }
 //zasieg kodu
 {

@@ -30,8 +30,8 @@ let a = 10,
   (2 + 2) * 2 - 2;
 
   //porównanie bez patrzenia na typy zmiennych (niezalecane)
-  a == b; //a jest równe b. np 5 === "5" zwróci true
-  a >= b; //a jest większe bądź równe b np 5 !== "5" zwroic false
+  a == b; //a jest równe b. np 5 == "5" zwróci true
+  a >= b; //a jest większe bądź równe b np 5 != "5" zwroic false
 
   //porownanie z uwzglednieniem typo zmiennych (zalecane)
   a === b; // np 5 === "5" zwróci false

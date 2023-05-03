@@ -33,7 +33,7 @@
   tab.indexOf("poniedziałek"); // zwróci indeks który odpowiada argumentowi. jesli nie znajdzie zwroci -1
   tab.includes("nieponiedzialek"); // zwroci booleana w zaleznosci czy znajdzie element czy nie/ sprawdzi scisla korelacje ===
 
-  tab.length; //wielkość tablicy (tu bedzie 4 bo [2] jest pusty)
+  tab.length; //wielkość tablicy. wezmie tez pod uwage puste miejsca.
 
   tab.reverse(); // odwraca wpisy w tabeli (4 bedzie 0 a 0 -4 itp.)
 
@@ -48,8 +48,6 @@
   tab.slice(2, 5); // utnie i storzy nowa tablice. element poczatkowy doda, koncowy NIE
   tab.slice(-2); // to samo ale zacznie liczyc od konca
   tab.slice(); // w ten sposob mozemy tez stworzyc kopie tablicy (to samo przez spreeed operator)
-
-  tab.concat(["a", "b"]); // dolaczy tablice z paremtreu do tej n\wywolywanej
 
   tab.map((x) => console.log(x.length)); //literowanie po elementach. obecny element wrzuci w parametr funkcji
   tab.forEach((x) => console.log(x)); //literowanie po elementach. element wrzuci do parametrow funkcji

@@ -21,8 +21,11 @@
   //nie trzeba pisac return i robic {} bo jest to wbudowane domyslne
 
   // funkcje mozemy zapisywac do zmiennjej lub nie
-  function nazwa1() {} // funkcja anonimowa
+  function nazwa1() {}
   const nazwa2 = function () {};
+
+  x.forEach(function () {}); // funkcja moze byc tez anonimowa. nie ma w tedy nazwy i nie da sie jej nigdzie
+  //indziej wywolac. czesto jako jakis calback
 }
 //Argumenty funkcji
 {
@@ -106,6 +109,8 @@
     console.log(`a${fn.name} = ${fn(a)}`); // jesli chcemy przekazac cos do wywolywanej funkcji albo skorzystac z jej wlasciwosci
     //to musimy to zrobic odwolujac sie do nazwy zmiennej ktora ma ja przyjac a nie nazwy funkcji
   }
+  //Callback function w JavaScript to funkcja, która jest przekazywana jako argument do innej funkcji
+  //i jest wywoływana przez tę funkcję po zakończeniu określonej operacji lub zdarzenia.
 
   //a funkcje ktore przekazujemy do funkcji wyzszego rzedu - funkcjmi zwrotnymi  - callbackami
   printSum(10, add5); // aby wywolac taki callback nalezy podac go jak zwykla wartosc, bez () bo sie wywola

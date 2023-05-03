@@ -14,7 +14,7 @@
   };
 
   objekt.jakasFunkcja("xd"); // do wlasciwosci obiektow odnosimy sie przez kropke
-  objekt["klucz"]; // lub poprzez wrzucenie stringa do []
+  objekt["klucz"]; // lub poprzez wrzucenie nazwy do []
 }
 //Tworzenie
 {
@@ -128,7 +128,6 @@
   const sortNumbers = function (arr) {
     return arr.sort((a, b) => a - b); // funkcja ta pobierze nam tabele, posortue i przyisze do zmiennej
   }; // z tym ze tak na prawde funkcja ta nie stworzy nam nowej tabeli a dopiszse tylko referenche starej
-  //aby zduplikowac funkcje/tablice nalezy uzyc spred operatora
 
   const tabSorted = sortNumbers(tab);
   console.log(tabSorted); //[1.1, 2, 3, 4, 10, 11]

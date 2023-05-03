@@ -1,8 +1,3 @@
-// use script to funkcja eliminujaca wiele bledow jsa. dodaje sie ja na poczatku kazdego pliku
-// sprawia ona min. ze nie mozna stworzyc zmiennej bez deklaracji let/const/var (przypadkowa literowka)
-// nie pozwala tez stowrzyc funkcji z nazwa zarezerwowana dla przyszlych funkcjonalnosci
-"use strict";
-
 //W JS nie ma typowania zmiennych co oznacza ze do zmienniej x mozna wrzucic i pomienic ja na rozne typy.
 //Zmiennie przymuja jednak typu w zaleznosci od zawartosci.
 //Typy dziela sie na to co jest obiektem, i to co nie jest (prymitywne). tych drugich jest 7
@@ -11,15 +6,13 @@
 //nie moze sie ona zaczynac od cyfr i miec znaków spęcjalnych (oprocz $ i _)
 //musza byc WYZEJ niz funkcje w ktorych sa wywowylawane bo js czyta od gory do dolu
 {
-  var zmiennaVar; // stara szkola. juz nie powinno sie tego uzywac
+  var zmiennaVar; // stara szkola. juz nie powinno sie tego uzywac. bedzie zmienna globalna.
   zmennaBezTypu; // w taki sposob tez stowrzymy zmienna i bedzie dzialac jednak bedzi globalna i nie robi sie tak
 
   let zmiennaLet; // uzywamy gdy dana zmienna beziemy chcieli zmieniac w trakcie wykonywania kodu. moze byc zadeklarowana pusta
-  const zmiennaConst = "cos"; // uzywamy gdy dana zmienna nie bedziemy zmieniac
+  const zmiennaConst = "cos"; // uzywamy gdy dana zmienna nie bedziemy zmieniac.NIE może być zadeklarowana pusta. jak sie sprobuje nadpisac to rzuci wyjatek
+  //const powinno sie uzywac tak czesto jak to mozliwe. dopieto jak musimy cos zmienic to let.
 }
-//NIE może być zadeklarowana pusta. jak sie sprobuje nadpisac to rzuci wyjatek
-//const powinno sie uzywac tak czesto jak to mozliwe. dopieto jak musimy cos zmienic to let.
-
 // ----------- prymitywne zmienne
 {
   //tekst

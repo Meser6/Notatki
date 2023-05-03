@@ -52,7 +52,7 @@
   //zalozmy ze chcemy zrobic tablic zawierajaca dane z arr i kilka nowych
   const zlySposob = [arr2[0], arr2[1], arr2[2], 5, 6];
   const dobrySposob = [...arr2, 5, 6]; // mozemy tu uzyc spread operatora i kotry pobierze nam dane
-  //z tej talicy i dopiszse do nowej. output: [1,2,3,4,5,6]
+  //z tej talicy i dopiszse do nowej. output: [1,2,3,5,6]
 
   const copyArr = [...arr2]; // dzieku temu mozemy stworzyc kopie tablicy w bardzo latwy sposob
   //bedzie to kopia, a nie odwolanie do referencji pierwotnej

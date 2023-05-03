@@ -25,7 +25,7 @@
   // ForEach / For of
   {
     const tab = new Array(1, 2, 3);
-    tab.forEach((x) => console.log(x)); // bierze element, wpisuje go w x, potem robi to co po strzlce i bierze kolejny itd.
+    tab.forEach((x, i, t) => console.log(x)); // iteruje po kazdym elemencie tablicy. zwraca x-element, i-idex elementu t-cala tablice
 
     //innym zapisem literowania po elementach jest for of
     for (const x of tab) {
