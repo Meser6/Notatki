@@ -45,7 +45,7 @@
 
 // zarzadzenie this poprzez metody
 {
-  // funkcja ta sluzy do zarzadzania this. wskazuje mu na jakie miejsce powinien wskazywac
+  // funkcje takie jak bind lub call ta sluza do zarzadzania this. wskazuja mu na jakie miejsce powinien wskazywac
   const objekt1 = {
     name: "objekt1",
     arr: [],

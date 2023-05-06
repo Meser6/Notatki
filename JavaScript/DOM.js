@@ -117,6 +117,9 @@
   element.removeAttribute("name"); //usuwa atrybut o danej nazwie
   element.toggleAttribute("name"); //dodaje/usuwa dany atrybut
 
+  //inne
+  element.blind(); //  usunie skupienie z elementu, np kursor z textarea
+
   element.dataSet.nowyAtrybut = "nowy"; // doda do elementu nowy atrynbut ktory bedzie mial nazwe data-nowy-atrybut
   element.src; // pobierze dany element
   element.tagName; // pobierze wartosc tag eleementu
@@ -157,6 +160,10 @@
 
   element.addEventListener("click", function () {
     this; // wskaze na element na ktorym wywplujemy event listener
+  });
+
+  element.addEventListener("click", (e) => {
+    e.preventDefault(); // czesto eventy odwiezaja strone po zakonczeniu.aby temu zapobiez uzywamy tej metody
   });
   //typy eventow:
   const typyEventow = {

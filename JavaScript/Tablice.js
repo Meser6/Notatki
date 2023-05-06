@@ -31,13 +31,16 @@
 //Metody i właściwości tabel
 {
   tab.indexOf("poniedziałek"); // zwróci indeks który odpowiada argumentowi. jesli nie znajdzie zwroci -1
-  tab.includes("nieponiedzialek"); // zwroci booleana w zaleznosci czy znajdzie element czy nie/ sprawdzi scisla korelacje ===
+  tab.includes("nieponiedzialek"); // zwroci booleana w zaleznosci czy znajdzie chpciaz jeden element czy nie/ sprawdzi scisla korelacje ===
 
   tab.length; //wielkość tablicy. wezmie tez pod uwage puste miejsca.
 
   tab.reverse(); // odwraca wpisy w tabeli (4 bedzie 0 a 0 -4 itp.)
 
-  tab.sort(); // posortuje elementy od A do Z lub od najmniejszej do najwiekszej (jesli sa inty w niej)
+  tab.sort(); // posortuje elementy od A do Z, nie zadziala dla liczb
+  // zrobi to na ORYGINALNEJ tablicy a nie zwroci nowej
+  tab.sort((obecna, nastepna) => obecna - nastepna); // to zadziala na posortowanie na najmneijsze do najwiekszej
+  // odwrotnie trzeba zamienic wartosci
   tab.sort().reverse(); // odwrocone sortownie (Z -> A, 10 -> 1 itp)
 
   const tab5 = tab3.concat(tab4); // łączy tablice 3 i 4 i wpisuje ja w nową
@@ -49,20 +52,48 @@
   tab.slice(-2); // to samo ale zacznie liczyc od konca
   tab.slice(); // w ten sposob mozemy tez stworzyc kopie tablicy (to samo przez spreeed operator)
 
-  tab.map((x) => console.log(x.length)); //literowanie po elementach. obecny element wrzuci w parametr funkcji
-  tab.forEach((x) => console.log(x)); //literowanie po elementach. element wrzuci do parametrow funkcji
-  tab.forEach((x, index, arr) => {
-    x; // zwroci element z tablicy
-    index; // jego index
-    arr; //zwroci cala tablice
-  }); // funkcji forEach nie mozna przerwac breakiem.
+  const notFlat = [[1, 2], [3, [4, 5]], 6];
 
-  for (const item of tab.entries()) {
-    console.log(item); // dla kazdego elementu sttoworzy nowa tabele w kroej bedzie idex w podstawowej tabeli i wartosc
+  notFlat.flat(); // zwroci nowa tablice z splaszczona struktura tj tablica w tablicy zostanie zamieniaona w wartosci
+  notFlat.flat(2); // przyjmuje parametr okteskalacy glebokosc tj. tablica tablicy w tablicy bedzie zamieniona
+
+  const check = (el) => el > 5;
+
+  tab.map((x, i, a) => {
+    return x * 2;
+  }); //bedzie itelowac po elementach oryginalnej talicy a zwracane elemnty dopisze do nowej i ja zwroci
+  tab.flatMap((x) => check); // polaczenie flat i map zwroci splaszczona tablice elementow ktore pasuja do warunku (tylko 1 poziom)
+  tab.every(check); // zwroci true jesli wszystkie elementy spelnia warunek
+  tab.some(check); // zwroci true jesli chociaz jeden element spelni warunek
+  tab.filter((el) => {
+    return el > 6;
+  }); // zwroci nowa tablice tylko tych elementow ktore spelni ten warunek
+  tab.find(check); // zwroci pierwszy pasujacy element
+  tab.findIndex(check); // zwroci index pierwszego pasujacego elementu
+  tab.reduce(
+    // doda wszystkie wartosci z tablicy do siebie i zworici jako jeden wynik
+    (acc, el, i, arr) => {
+      // jako pierwszy parametr przyjmuje akumulator czyli zmienna do ktorej bedziemy
+      //dopisywac wartosci i ktora bedzie zwracana po zakonczeniu iterowania
+      return acc + el;
+    },
+    0 // przyjmue finkcje I (!!!) wartosc poczatkowa akumulatora
+  );
+
+  //iterowanie po elementach
+  {
+    tab.forEach((x, index, arr) => {
+      x; // zwroci element z tablicy
+      index; // jego index
+      arr; //zwroci cala tablice
+    }); // funkcji forEach nie mozna przerwac breakiem.
+
+    for (const item of tab.entries()) {
+      console.log(item); // dla kazdego elementu sttoworzy nowa tabele w kroej bedzie idex w podstawowej tabeli i wartosc
+    }
+    for (const [i, e] of tab.entries()) {
+    } //zrobi to samo ale nie zwroci tablicy (destrukturyzacja) a dopisze index(i) i wartosc (e)
   }
-  for (const [i, e] of tab.entries()) {
-  } //zrobi to samo ale nie zwroci tablicy (destrukturyzacja) a dopisze index(i) i wartosc (e)
-
   //typeof teblicy to "object" aby sprawdzic czy tablica rzeczywiscie jest tablica uzywamy
   Array.isArray([1, 2, 3]);
 
@@ -74,9 +105,4 @@
   ];
 
   tab[2][0]; // pobierze 7
-
-  tab.every((el) => el > 5); // zwroci true jesli wszystkie elementy spelnia warunek
-  tab.some((el) => el < 5); // zwroci true jesli chociaz jeden element spelni warunek
-  tab.filter((el) => el === "bob"); // zwroci nowa tablice tylko tych elementow ktore spelni ten warunek
-  tab.find((el) => el === "bob"); // zwroci pierwszy pasujacy element
 }
