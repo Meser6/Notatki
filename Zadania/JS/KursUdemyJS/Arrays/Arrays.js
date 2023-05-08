@@ -134,3 +134,89 @@ const dogs = [
   { weight: 13, curFood: 275, owners: ["Sarah", "John"] },
   { weight: 32, curFood: 340, owners: ["Michael"] },
 ];
+
+//1
+function foodCalculator(dogs) {
+  return Math.trunc(dogs.weight ** 0.75 * 28);
+}
+dogs.forEach((el) => console.log(foodCalculator(el)));
+
+//2
+function checkDogEat(tooMuch, dog) {
+  return tooMuch
+    ? dog.curFood > foodCalculator(dog)
+    : dog.curFood < foodCalculator(dog);
+}
+
+function checkFood(ownerName, dogsArr) {
+  const dogInfo = dogsArr.find((el) => el.owners.includes(ownerName));
+  console.log(
+    `${ownerName}'s dog eat ${
+      checkDogEat(true, dogInfo) ? "to much" : "too little"
+    } `
+  );
+}
+checkFood("Sarah", dogs);
+
+// 3
+function printDogOwners(tooMuch, dogs) {
+  return dogs.reduce((acc, e) => {
+    if (checkDogEat(tooMuch, e)) {
+      acc.push(e.owners.join(" "));
+    }
+    return acc;
+  }, []);
+}
+
+const ownersEatTooMuch = printDogOwners(true, dogs);
+console.log(ownersEatTooMuch);
+const ownersEatTooLittle = printDogOwners(false, dogs);
+console.log(ownersEatTooLittle);
+
+// 4. Log a string to the console for each array created in 3., like this: "Matilda and
+// Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat
+// too little!"
+
+function printInformation(tooMuch, arr) {
+  console.log(
+    `${arr.reduce((acc, el) => {
+      return acc + `${el.split(" ").join(" and ")} and `;
+    }, "")}'s dogs eat too ${tooMuch ? "much" : "litle"}`
+    //  `${arr.split().join(" and ")}'s dogs eat too ${tooMuch ? "much" : "litle"}`
+  );
+}
+
+printInformation(true, ownersEatTooMuch);
+printInformation(false, ownersEatTooLittle);
+// 5. Log to the console whether there is any dog eating exactly the amount of food
+// that is recommended (just true or false)
+
+function perfectDiet(arr) {
+  arr.forEach((e) => {
+    console.log(e.curFood === foodCalculator(e));
+  });
+}
+
+perfectDiet(dogs);
+// 6. Log to the console whether there is any dog eating an okay amount of food
+// (just true or false)
+
+function okeyDiet(arr) {
+  arr.forEach((e) => {
+    const perfectAmount = foodCalculator(e);
+    console.log(
+      e.curFood * 0.9 <= perfectAmount * 0.9 && e.curFood <= perfectAmount * 1.1
+    );
+  });
+}
+
+okeyDiet(dogs);
+
+// 7. Create an array containing the dogs that are eating an okay amount of food (try
+// to reuse the condition used in 6.)
+//TODO
+
+// 8. Create a shallow copy of the 'dogs' array and sort it by recommended food
+// portion in an ascending order (keep in mind that the portions are inside the
+// array's objects �)
+//TODO

@@ -15,7 +15,8 @@
   const names = document.getElementsByName("NAME"); // pobiera elementy o danej nazwie i dopisuje je do listy
   //tylko dwa ponizsze sa zalecane
   const selector = document.querySelector("CSS_SELECTOR"); // pobiera pierwszy element z danym seletorem css
-  const selectors = document.querySelectorAll("CSS_SELECTOR"); // pobiera wszystkie elementy z danym selektorem i opisuje do listy
+  const selectors = document.querySelectorAll("CSS_SELECTOR"); // pobiera wszystkie elementy z danym selektorem i opisuje do node list
+  // nie jest to prawdziwa tablica! aby ja przekonwertowac do takiej uzyj Array.from() lub spreed operatora
 
   id.parentNode; // pobierze rodzica elementu
 

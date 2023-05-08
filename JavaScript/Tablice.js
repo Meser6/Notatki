@@ -8,6 +8,7 @@
   const tab = new Array(); //nie trzeba deklarowac wielkosci tablicy jak w javie (wówczas powstanie tablica 0 elementowa)
   const tab2 = new Array(3); //ale mozemy tez od razu zadeklarowac jej wielkosć (a potem zmienic ofc)
   const tab3 = new Array("jeden", "dwa", "trzy"); // można stworzyć tablice od razu z zadeklarowanymi zmiennymi w niej
+  const tab4 = Array.from({ length: 6 }, (e, i) => `Index: ${i}`); //stworzy tablice z dana dlugoscia i wypelni tym co zwroci metoda
 
   //pobieranie wartosci
   tabela[0]; // podajemy index elementu
@@ -47,6 +48,9 @@
 
   const string = tab.join(" "); // łączy wpisy z tabeli (w kolejsoci)  w stringa a miedzy nie wstawia to co w argumencie
 
+  tab.fill(1); //wypelni tablice danym elementem
+  tab.fill(1, 3, 5); // element ktorym wypelni, idex od ktorego zacznie (wlacznie) i na kotrym skonczy (wylacznie)
+
   tab.slice(2); // utnie tablice przed X elementem (ten element tez bedzie w nowej) i zwroci nowa/ nie zmieni nic w wywolywanej
   tab.slice(2, 5); // utnie i storzy nowa tablice. element poczatkowy doda, koncowy NIE
   tab.slice(-2); // to samo ale zacznie liczyc od konca
@@ -80,6 +84,14 @@
     0 // przyjmue finkcje I (!!!) wartosc poczatkowa akumulatora
   );
 
+  tab.reduce(
+    (sum, el) => {
+      ++sum[el > 0 ? "jeden" : "dwa"];
+      return sum;
+    },
+    { jeden: 0, dwa: 0 }
+  ); // przyklad przeksztalcenia do obiektu
+
   //iterowanie po elementach
   {
     tab.forEach((x, index, arr) => {
@@ -105,4 +117,56 @@
   ];
 
   tab[2][0]; // pobierze 7
+}
+// kiedy co uzywac (chce...)
+{
+  // dzialac na oryginalnej tablicy
+  {
+    arr.push();
+    arr.unshift();
+
+    arr.pop();
+    arr.shift();
+    arr.splice();
+
+    arr.reverse();
+    arr.sort();
+    arr.fill();
+  }
+  // dostac nowa tablice
+  {
+    arr.map();
+    arr.filter();
+    arr.slice();
+    arr.concat();
+    arr.flat();
+    arr.flatMap();
+  }
+  // dostac index elementu
+  {
+    arr.indexOf();
+    arr.findIndex();
+  }
+  // dostac element tablicy
+  {
+    arr.find();
+  }
+  // dowiedziec sie czy tablica zawiera cos
+  {
+    arr.includes();
+    arr.some();
+    arr.every();
+  }
+  // dostac stringa z tablicy
+  {
+    arr.join();
+  }
+  // przekonmwertowac tablice do jakiejs wartosci
+  {
+    arr.reduce();
+  }
+  // literowac po tablicy
+  {
+    arr.forEach();
+  }
 }
