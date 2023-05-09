@@ -37,14 +37,24 @@
 
   //z konstruktorem
   function Czlowiek(imie, wiek) {
-    //konstruktor nazywamy z duzej litery
+    //konstruktor nazywamy z duzej litery. nie mozna uzywac strzalkowej bo potrzebujemy this
     this.imie = imie; // tutaj przypisujemy wysylany argument do zmiennej w konstruktorze
-    this.wiek = wiek; // słówko this nie jako tworzy nowa zmienna do ktorej nastepnie przypisujemy argument
+    this.wiek = wiek; // słówko this nie jako tworzy nowy parametr do ktorej nastepnie przypisujemy argument
   }
 
   const bob = new Czlowiek("bob", 12);
   const krystian = new Czlowiek("Krystian"); // gdy nie wypełnimy wszytkich argumentów to obiekt i tak powstanie
   //a puste argumenty przyjmia pustą wartość
+
+  bob instanceof Czlowiek; // sprawdzi czy objekt jest instancja danej klasy/konstruktora
+  //new
+  {
+    //schemat dzialania new:
+    //1. tworzy nowy, pusty obiekt
+    //2. wywoluje funkcje, ustawia this na ten obiekt
+    //3. laczy obiekt z prootypem
+    //4. zwraca ten obiekt
+  }
 }
 //this
 {
