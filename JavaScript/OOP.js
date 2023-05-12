@@ -1,10 +1,56 @@
 // OOP - object oriented programing
 // sposob na organizacje kodu polegajacy na tworzenoiu obiektow i komunikowaniu ich ze soba
 
-//w normalnym jezyku (xd) instancja klasy dziedziczy rzeczy i metody po klasie na podstawie ktorej zostala zbudowana
-//W Javascript każdy obiekt ma prototyp, który jest obiektem sam w sobie. Obiekt prototypu może zawierać właściwości i metody, 
-//które są dziedziczone przez instancje tego obiektu. Można manipulować prototypem, aby zmienić właściwości i metody 
-//dziedziczone przez wszystkie instancje danego obiektu.
+//dziedziczenie w js
+{
+  // klasy i konstuktor
+  {
+    //w normalnym jezyku (xd) instancja klasy dziedziczy rzeczy i metody po klasie na podstawie ktorej zostala zbudowana
+    //W Javascript każdy obiekt ma prototyp, który jest obiektem sam w sobie. Obiekt prototypu może zawierać właściwości i metody, 
+    //które są dziedziczone przez instancje tego obiektu. Można manipulować prototypem, aby zmienić właściwości i metody 
+    //dziedziczone przez wszystkie instancje danego obiektu.
+
+    //tworzysz konstruktor z metodami i wlasciwosciami
+    function Konstruktor(){}
+    //konstruktor ten tworzy prototyp z tymi wlasciwosciami
+    Konstruktor.prototype 
+    //wartosci te mozna zmienic poprzez dopisanie ich do prototypu
+    Konstruktor.prototype.nowaFunkcja = function(){ }
+    Konstruktor.prototype.nowaWlasciwosc = 2
+    //tworzysz instancje tego konstrultora
+    const instancja = new Konstruktor()
+    //new dopisuje prototyp do tej instancji wraz z jego funkcjami i wlasciwosciami
+    instancja.nowaWlasciwosc // instancja ma dostep do wlasciwosci prtototypu
+    instancja.__proto__ //tak on sie nazywa 
+
+    //Podsumowujac: Konstruktor wysyla do prototypu a prototyp wysyla do wszystkich instancj
+
+    Konstruktor.prototype.isPrototypeOf(instancja) // sprawdzi czy instancja ma taki sam prototyp co Konstruktor
+    instancja.hasOwnProperty(nowaWlasciwosc) // sprawdzi czy to wlasciwosc instancji czy dostana od prototypu/ zwroci booleana
+
+    //lancuch prototypow
+    {
+      // prototyp danego konstruktora to tak na prawde obiekt. dziedcziczy on zatem z prototypu Obiektu. 
+      //i tak do najstarszego (praprototyp). Prototyp ktory jest najstarszy w hierarchii przyjmie null
+      /* schemat:
+      Objekt      ->  Obiekt.prototyp 
+                            /\
+      Konstruktor -> Konstruktor.prototyp (jest to obiekt)
+                            /\
+                         instancja   
+      */
+     Object.prototype.wszechWlasnosc = 'wszechwlasnosc' // dopisujac cos do praprototypu obiektu dopiszemy to do kazdego obiektu w js
+
+     const arr = []
+     arr.wszechWlasnosc
+    }
+  }
+  //Object.create()
+  {
+    //w object.create dziala to inaczej (bo czemu by nie?)
+  }
+}
+
 
 //obiekt taki mozna stworzyc na 3 sposoby:
 {
@@ -15,9 +61,12 @@
       this.imie = imie; // tutaj przypisujemy wysylany argument do zmiennej w konstruktorze
       this.wiek = wiek; // słówko this tworzy nowy parametr do ktorej nastepnie przypisujemy argument
 
-      this.funkcja = function(){} // NIE DOPISYWAC funkcji do kontstuktora poniewaz zle to wplywa na wydajnosc kodu
-      //zamiast tego uzyc prototypowania
+      this.zlaFunkcja = function(){} // NIE DOPISYWAC funkcji do kontstuktora poniewaz zle to wplywa na wydajnosc kodu
+      //bo tworzac 100 instancji tworzymy 100 funkcji. lepiej dopisac funkcje do prototypu to stworzy sie raz\
     }
+
+    Czlowiek.prototype.dobraFunkcja = function(){} // tak lepiej tworzyc funkcje
+    //js bedzie najpierw szulal tej funcji bezposrednio w obiekcie a jak nie znajdzie to zajrzy do prototypu
   
     const bob = new Czlowiek("bob", 12); // tworzenie instancji 
     const krystian = new Czlowiek("Krystian"); // gdy nie wypełnimy wszytkich argumentów to obiekt i tak powstanie

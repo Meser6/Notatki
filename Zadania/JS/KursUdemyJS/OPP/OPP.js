@@ -13,6 +13,32 @@
 // § Data car 1: 'BMW' going at 120 km/h
 // § Data car 2: 'Mercedes' going at 95 km/h
 
+function Car(make, speed) {
+  this.make = make;
+  this.speed = `${speed} km/h`;
+}
+
+Car.prototype.accelerate = function () {
+  this.speed = `${Number(this.speed.replace(" km/h", "")) + 10} km/h`;
+  console.log(this.speed);
+};
+
+Car.prototype.break = function () {
+  this.speed = `${Number(this.speed.replace(" km/h", "")) - 5} km/h`;
+  console.log(this.speed);
+};
+
+const bmw = new Car("BMW", 120);
+const mercedes = new Car("Mercedes", 95);
+
+console.log(bmw, mercedes);
+bmw.accelerate();
+console.log(bmw, mercedes);
+mercedes.break();
+console.log(bmw, mercedes);
+// § Data car 1: 'BMW' going at 120 km/h
+// § Data car 2: 'Mercedes' going at 95 km/h
+
 console.log("------------------------------------");
 // Coding Challenge #2
 // Your tasks:
