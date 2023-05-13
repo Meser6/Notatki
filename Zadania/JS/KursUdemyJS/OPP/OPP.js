@@ -35,6 +35,11 @@ console.log(bmw, mercedes);
 bmw.accelerate();
 console.log(bmw, mercedes);
 mercedes.break();
+mercedes.break();
+mercedes.break();
+mercedes.break();
+mercedes.break();
+mercedes.break();
 console.log(bmw, mercedes);
 // § Data car 1: 'BMW' going at 120 km/h
 // § Data car 2: 'Mercedes' going at 95 km/h
