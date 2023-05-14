@@ -35,11 +35,6 @@ console.log(bmw, mercedes);
 bmw.accelerate();
 console.log(bmw, mercedes);
 mercedes.break();
-mercedes.break();
-mercedes.break();
-mercedes.break();
-mercedes.break();
-mercedes.break();
 console.log(bmw, mercedes);
 // § Data car 1: 'BMW' going at 120 km/h
 // § Data car 2: 'Mercedes' going at 95 km/h
@@ -56,7 +51,37 @@ console.log("------------------------------------");
 // methods, and with the getter and setter.
 // Test data:
 // § Data car 1: 'Ford' going at 120 km/h
+class CarCL {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = `${speed} km/h`;
+  }
 
+  accelerate() {
+    this.speed = `${Number(this.speed.replace(" km/h", "")) + 10} km/h`;
+    console.log(this.speed);
+  }
+
+  break() {
+    this.speed = `${Number(this.speed.replace(" km/h", "")) - 5} km/h`;
+    console.log(this.speed);
+  }
+
+  get speedUs() {
+    return `${Number(this.speed.replace(" km/h", "")) * 1.6} mi/h`;
+  }
+
+  set speedUs(speed) {
+    this.speed = `${Number(this.speed.replace(" km/h", "")) * 1.6} mi/h`;
+  }
+}
+
+const ford = new CarCL("Ford", 120);
+console.log(ford.speedUs);
+ford.break();
+ford.accelerate();
+ford.speedUs = 100;
+console.log(ford.speed);
 console.log("------------------------------------");
 // Coding Challenge #3
 // Your tasks:

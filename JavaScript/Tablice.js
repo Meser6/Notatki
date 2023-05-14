@@ -1,14 +1,14 @@
 //tablice służą do przechowywania w nich danych
 //w JS mozna przechowywac rozne typy w jednej tablicy
 
-//zadzadzanie
+//zarzadzanie
 {
   //tworzenie - mozemy uzyc const i zmieniac elementy tablicy. nie mozemy jednak podmienic w tedy calej tablicy
   const tabela = [true, false, 15, "tekst"]; // inny ze sposobów tworzenia tablicy z zadeklarowanymi zmiennymi
   const tab = new Array(); //nie trzeba deklarowac wielkosci tablicy jak w javie (wówczas powstanie tablica 0 elementowa)
   const tab2 = new Array(3); //ale mozemy tez od razu zadeklarowac jej wielkosć (a potem zmienic ofc)
   const tab3 = new Array("jeden", "dwa", "trzy"); // można stworzyć tablice od razu z zadeklarowanymi zmiennymi w niej
-  const tab4 = Array.from({ length: 6 }, (e, i) => `Index: ${i}`); //stworzy tablice z dana dlugoscia i wypelni tym co zwroci metoda
+  const tab4 = Array.from({ length: 6 }, (_, i) => `Index: ${i}`); //stworzy tablice z dana dlugoscia i wypelni tym co zwroci metoda
 
   //pobieranie wartosci
   tabela[0]; // podajemy index elementu
@@ -49,7 +49,7 @@
   const string = tab.join(" "); // łączy wpisy z tabeli (w kolejsoci)  w stringa a miedzy nie wstawia to co w argumencie
 
   tab.fill(1); //wypelni tablice danym elementem
-  tab.fill(1, 3, 5); // element ktorym wypelni, idex od ktorego zacznie (wlacznie) i na kotrym skonczy (wylacznie)
+  tab.fill("element", 3, 5); // element ktorym wypelni, idex od ktorego zacznie (wlacznie) i na kotrym skonczy (wylacznie)
 
   tab.slice(2); // utnie tablice przed X elementem (ten element tez bedzie w nowej) i zwroci nowa/ nie zmieni nic w wywolywanej
   tab.slice(2, 5); // utnie i storzy nowa tablice. element poczatkowy doda, koncowy NIE
@@ -81,7 +81,7 @@
       //dopisywac wartosci i ktora bedzie zwracana po zakonczeniu iterowania
       return acc + el;
     },
-    0 // przyjmue finkcje I (!!!) wartosc poczatkowa akumulatora
+    0 // przyjmue funkcje I (!!!) wartosc poczatkowa akumulatora
   );
 
   tab.reduce(
@@ -109,7 +109,7 @@
   //typeof teblicy to "object" aby sprawdzic czy tablica rzeczywiscie jest tablica uzywamy
   Array.isArray([1, 2, 3]);
 
-  //tablice moga byc tez wielowymiarowe aczkolwiek zadko sie je stosuje
+  //tablice moga byc tez wielowymiarowe aczkolwiek rzadko sie je stosuje
   const tab = [
     [1, 2, 3],
     [4, 5, 6],

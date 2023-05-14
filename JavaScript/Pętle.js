@@ -43,6 +43,7 @@
 }
 //Etykiety
 {
+  //w sumie to tego sie juz nie uzywa
   //Dane fragmenty kodu mozna etykietowac a potem je wskazywać robi się to poprzez nadamie imienia i dodanie :
   etykieta: {
     console.log("etykieta");

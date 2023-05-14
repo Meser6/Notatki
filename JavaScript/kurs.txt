@@ -18,10 +18,10 @@ TS podstawy             DONE
 
 https://kursjs.pl/ 
 
-wstep                   DONE
-podstawy                DONE
-obiekty                 DONE
-dom                     DONE
+wstep                       TODO
+podstawy                    TODO
+obiekty                     TODO
+dom                         TODO
 obiekty2                    TODO
 rozne                       TODO
 moduly                      TODO

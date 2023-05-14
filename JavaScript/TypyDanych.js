@@ -2,7 +2,7 @@
 //Zmiennie przymuja jednak typu w zaleznosci od zawartosci.
 //Typy dziela sie na to co jest obiektem, i to co nie jest (prymitywne). tych drugich jest 7
 
-// zmienna deklarujemy przez słówko kluczowe var, a od  ES6 - let i const
+//zmienna deklarujemy przez słówko kluczowe var, a od  ES6 - let i const
 //nie moze sie ona zaczynac od cyfr i miec znaków spęcjalnych (oprocz $ i _)
 //musza byc WYZEJ niz funkcje w ktorych sa wywowylawane bo js czyta od gory do dolu
 {
@@ -72,6 +72,7 @@
     zmienna2 = 1.5; //kropka zamiast przecinka
     zmienna2 = NaN; // not a number. w  typeof da nam number
     let zmienna7 = 9007199254740991n; //duzy int number, ale moze byc wiekszy niz zwykly
+    let nieskonczonosc = Infinity;
 
     isNaN(zmienna2); // sprwdzi czy zmienna jest nan
   }

@@ -36,25 +36,8 @@
   };
 
   //z konstruktorem
-  function Czlowiek(imie, wiek) {
-    //konstruktor nazywamy z duzej litery. nie mozna uzywac strzalkowej bo potrzebujemy this
-    this.imie = imie; // tutaj przypisujemy wysylany argument do zmiennej w konstruktorze
-    this.wiek = wiek; // słówko this nie jako tworzy nowy parametr do ktorej nastepnie przypisujemy argument
-  }
 
-  const bob = new Czlowiek("bob", 12);
-  const krystian = new Czlowiek("Krystian"); // gdy nie wypełnimy wszytkich argumentów to obiekt i tak powstanie
-  //a puste argumenty przyjmia pustą wartość
-
-  bob instanceof Czlowiek; // sprawdzi czy objekt jest instancja danej klasy/konstruktora
-  //new
-  {
-    //schemat dzialania new:
-    //1. tworzy nowy, pusty obiekt
-    //2. wywoluje funkcje, ustawia this na ten obiekt
-    //3. laczy obiekt z prootypem
-    //4. zwraca ten obiekt
-  }
+  //opisane w OPP
 }
 //this
 {
@@ -98,7 +81,7 @@
   //funkcje
   {
     //tworzenie metod w obiektach - implementujemu je w ciele obiektu/konstruktrze
-    //w przypadku 1 sposobu (ez konstruktora)
+    //w przypadku 1 sposobu (bez konstruktora)
     const kuba = {
       imie: "Kuba",
       wiek: 15,
@@ -114,19 +97,8 @@
     kuba.przedstawSie();
 
     //w przypadku 2 sposobu (z konstruktorem)
-    function Pies(imie, rasa) {
-      (this.przedstawSie = function () {
-        return `mam na imie ${imie} i jestem ${rasa}`;
-      }),
-        (this.zaszczekaj = function (szczek) {
-          // oczywiscie mozna tworzyc metody z argumentami i nic nie zwracajace
-          console.log(`${imie} szczeka ${szczek}`);
-        });
-    }
 
-    const azor = new Pies("azor", "mieszaniec");
-    azor.zaszczekaj("how how");
-    azor["zaszczekaj"]("how how");
+    // wiecej info w OPP
   }
 }
 // duplikowanie obiektu

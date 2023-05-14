@@ -7,10 +7,9 @@
     alert("alert");
   }
 
-  funkcja(); // mozna tez po
+  funkcja(); // mozna tez wywolac po
 
   // 2 sposob - funkcja strzałkowa
-
   const funkcjaStrzałkowa = () => {
     alert("=>");
     // nie zmienia sie this.
@@ -97,6 +96,8 @@
 }
 // funkcje wyzszego i nizszego rzedu
 {
+  //Callback function w JavaScript to funkcja, która jest przekazywana jako argument do innej funkcji
+  //i jest wywoływana przez tę funkcję po zakończeniu określonej operacji lub zdarzenia.
   function add5(a) {
     return a + 5;
   }
@@ -109,9 +110,6 @@
     console.log(`a${fn.name} = ${fn(a)}`); // jesli chcemy przekazac cos do wywolywanej funkcji albo skorzystac z jej wlasciwosci
     //to musimy to zrobic odwolujac sie do nazwy zmiennej ktora ma ja przyjac a nie nazwy funkcji
   }
-  //Callback function w JavaScript to funkcja, która jest przekazywana jako argument do innej funkcji
-  //i jest wywoływana przez tę funkcję po zakończeniu określonej operacji lub zdarzenia.
-
   //a funkcje ktore przekazujemy do funkcji wyzszego rzedu - funkcjmi zwrotnymi  - callbackami
   printSum(10, add5); // aby wywolac taki callback nalezy podac go jak zwykla wartosc, bez () bo sie wywola
   printSum(10, add50);
@@ -141,8 +139,8 @@
     console.log(a, b);
   }
 
-  const fukcjaBindBezA = funkcjaBind(null, 23); // pierwszym parametrem jest null bo w nim ustawiamy this. (tego tu nie chcemy a wiec skipujemy)
-  // drugi parametr funkcji ustawiamy na sztywno na 23 i taka funkcje dopisujemy do zmiennej
+  const fukcjaBindBezA = fukcjaBind.bind(null, "zawsze bedzie 23"); // pierwszym parametrem jest null bo w nim ustawiamy this. (tego tu nie chcemy a wiec skipujemy)
+  // drugi parametr funkcji ustawiamy na sztywno na napis i taka funkcje dopisujemy do zmiennej
   fukcjaBindBezA(33);
   //podobne rzeczy mozemy zrobic poprzez funkcje ktora zwraca funkcje
 }
@@ -153,6 +151,7 @@
   (function () {
     console.log("tylko raz");
   })();
+  //lub
   (() => {
     console.log("tylko raz");
   })();

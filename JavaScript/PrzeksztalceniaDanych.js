@@ -43,7 +43,7 @@
   }
 }
 // SPREAD OPERATOR ---------------------------------------------------------------------
-// spread operator sluzy do wyciagania danych z iiteralnych zbiorow
+// spread operator sluzy do wyciagania danych z iteralnych zbiorow
 // rozbije on zbiór na poszczegolne elementy i NIE dopisze do zmiennych
 // wystepuje po PRAWEJ stronie =
 {
@@ -51,7 +51,7 @@
 
   //zalozmy ze chcemy zrobic tablic zawierajaca dane z arr i kilka nowych
   const zlySposob = [arr2[0], arr2[1], arr2[2], 5, 6];
-  const dobrySposob = [...arr2, 5, 6]; // mozemy tu uzyc spread operatora i kotry pobierze nam dane
+  const dobrySposob = [...arr2, 5, 6]; // mozemy tu uzyc spread operatora i ktory pobierze nam dane
   //z tej talicy i dopiszse do nowej. output: [1,2,3,5,6]
 
   const copyArr = [...arr2]; // dzieku temu mozemy stworzyc kopie tablicy w bardzo latwy sposob
@@ -63,7 +63,7 @@
 
   //string
   const text = "text";
-  const letters = [...text]; // robije on stringa na poszczegolne znaki
+  const letters = [...text]; // rozbije on stringa na poszczegolne znaki
 
   //object
   //w obiektach mozna go zastosowac ale bedzie dzialal inaczej

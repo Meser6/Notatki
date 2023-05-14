@@ -60,7 +60,7 @@
   Sport
   </div>`;
 
-  element.insertAdjacentHTML("positin", html); // wrzuci kawalem htmlu do drzewa dom. pierwszy parametr okresla gdzie go wrzuci
+  element.insertAdjacentHTML("position", html); // wrzuci kawalek htmlu do drzewa dom. pierwszy parametr okresla gdzie go wrzuci
   /* p to nasz element 
     <!-- beforebegin -->
     <p>
@@ -137,7 +137,7 @@
   //bo inaczej wywola sie instant
   element.addEventListener("click", function () {
     // aby przekazac jako callback funckje z argumentami i nie wywolywac ja intant
-    funkcjaZArtumentami(2, 3); // trzeba opakowac ja a funkcje anonimowa
+    funkcjaZArtumentami(2, 3); // trzeba opakowac ja w funkcje anonimowa
   });
 
   element.removeEventListener("click", nazwaFunkcji); // usuniecie eventu. nie usunie funkcji anonimowej

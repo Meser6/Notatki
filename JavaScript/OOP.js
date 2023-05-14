@@ -1,5 +1,6 @@
 // OOP - object oriented programing
 // sposob na organizacje kodu polegajacy na tworzenoiu obiektow i komunikowaniu ich ze soba
+// w sposobie tym wszystoko powinno byc pogrupowane w obiekty
 
 //dziedziczenie w js
 {
@@ -33,6 +34,8 @@
       // prototyp danego konstruktora to tak na prawde obiekt. dziedcziczy on zatem z prototypu Obiektu.
       //i tak do najstarszego (praprototyp). Prototyp ktory jest najstarszy w hierarchii przyjmie null
       /* schemat:
+                           null
+                            /\
       Objekt      ->  Obiekt.prototyp 
                             /\
       Konstruktor -> Konstruktor.prototyp (jest to obiekt)
@@ -40,26 +43,38 @@
                          instancja   
       */
       Object.prototype.wszechWlasnosc = "wszechwlasnosc"; // dopisujac cos do praprototypu obiektu dopiszemy to do kazdego obiektu w js
-
+      // ale nie jest to zalecane a wrecz zabronione :)
       const arr = [];
       arr.wszechWlasnosc;
     }
   }
   //Object.create()
   {
-    //w object.create dziala to inaczej (bo czemu by nie?)
+    //w object.create dziala to inaczej. tutaj mozemy wykorzystac obiekt i wskazac go jako prototyp
+    //pomija sie w ten sposob konstruktor
+    /* schemat:
+                           null
+                            /\
+      Objekt      ->  Obiekt.prototyp 
+                            /\
+                    wskazany prototyp
+                            /\
+                         instancja   
+      */
   }
 }
 
 //new
 {
+  //slowko kluczowe sluzace do inicjalicazji obiektow z konstruktora
+  new Array();
   //schemat dzialania new:
   //1. tworzy nowy, pusty obiekt
   //2. wywoluje funkcje konmstruktora, ustawia this na ten obiekt
-  //3. laczy obiekt z prootypem
+  //3. laczy obiekt z prototypem
   //4. zwraca ten obiekt
 }
-//obiekt taki mozna stworzyc na 3 sposoby:
+//obiekt mozna stworzyc na 3 sposoby:
 {
   //konstruktor function
   {
@@ -74,23 +89,29 @@
 
     Czlowiek.prototype.dobraFunkcja = function () {}; // tak lepiej tworzyc funkcje
     //js bedzie najpierw szulal tej funcji bezposrednio w obiekcie a jak nie znajdzie to zajrzy do prototypu
+    //jak nie znajdzie go w pierwszym prototypie to poszuka w w tym wyzej w hierarchii itd
 
-    const bob = new Czlowiek("bob", 12); // tworzenie instancji
+    const bob = new Czlowiek("bob", 12); // tworzenie instancji za pomoca new
     const krystian = new Czlowiek("Krystian"); // gdy nie wypełnimy wszytkich argumentów to obiekt i tak powstanie
     //a puste argumenty przyjmia undefind
 
     bob instanceof Czlowiek; // sprawdzi czy objekt jest instancja danej klasy/konstruktora
 
     //funkcje statyczne
+    {
+      //funkcje statyczne to takei ktore mozna wywolac z poziomu konstruktora ale nie leca one do prototypu
+      //przez co nie mozna ich wywolac na instancjach
+      Czlowiek.funkcjaStatyczna = function () {
+        // w funckcjach konstruktora tworzymy je poprzez dopisanie bezposrednio do konstruktora
+        console.log("static");
+      };
 
-    //funkcje statyczne to takei ktore mozna wywolac z poziomu konstruktora ale nie leca one do prototypu
-    //przez co nie mozna ich wywolac na instancjach
-    Czlowiek.funkcjaStatyczna = function () {
-      console.log("static");
-    };
-
-    Czlowiek.funkcjaStatyczna();
-    bob.funkcjaStatyczna(); // to nie zadziala
+      Czlowiek.funkcjaStatyczna();
+      bob.funkcjaStatyczna(); // to nie zadziala bo jest wywolywane na instamncji
+    }
+    //Dziedziczenie
+    {
+    }
   }
   //klasy
   {
@@ -100,6 +121,7 @@
     //cialo klasy zawsze jest wywolywane w strict mode
     class KlasaPierwsza {
       //tworzymy poprzez słowko kuczowe class. Nazywamy je z dużej litery.
+
       // --------------------- Konstruktor klasy ---------------------
 
       // klasy posiadaja konstruktor domyslny ktory mozna nadpisac
@@ -120,16 +142,17 @@
 
       //--------------------- gettery i settery ---------------------
 
-      //Getter to specjalna metoda, która zwraca wartość właściwości obiektu. Jest używany, gdy chcemy
+      //Getter to specjalna metoda, która zwraca wartość WLASCIWOSC obiektu. Jest używany, gdy chcemy
       //pobrać wartość właściwości, ale również chcemy wykonać jakąś dodatkową logikę w trakcie pobierania
       get imie() {
         return `imie to ${this.imie}`;
       }
       //Settery służą do ustawiania wartości właściwości obiektu. Pozwalają na kontrolę operacji przypisania wartości,
       //np. sprawdzanie poprawności danych lub wykonywanie dodatkowych akcji w trakcie ustawiania wartości.
+      //jezeli nazwa setera bedzie miala takie sama nazwe jak to co w konstruktorze to wartosc wyslana tam
+      //wywola tego seta (jakby odpalic X._kolor = 50 np.)
       set _kolor(el) {
-        //
-        if (typeof el === "string") this._kolor = el;
+        if (typeof el === "string") this.kolor = el;
       }
       // przyklad uzycia na dole
 
@@ -140,8 +163,7 @@
       }
       add() {
         // jeśli odnieść sie do jakiejś wartości lub funkcji w klasie to uzywamy this
-        return this.int1; // this to odwolanie do obecnej klasy/obiektu.
-        // czyli tutaj this.int1 to to samo co KlasaPierwsza.int1
+        return this.int1; // this bedzie przeniesiony na dana instancje
       }
       showResult() {
         console.log("Wynik = " + this.add());
@@ -164,40 +186,60 @@
     KlasaPierwsza.funkcjaStatyczna(); // to zadziala
     klasa1.funkcjaStatyczna(); // to nie zadizala bo to funkcaj statyczna i nie moznja jej wywolac na instancji
   }
-  // Dziedziczenie
-  {
-    // dziedziczenie klas polega na tym ze klasa rodzic daje swoje metody klasie dziecku itd.
-    class KlasaTrzecia {
-      constructor(a, b) {}
-      add2() {
-        return 2 + 5;
-      }
-    }
+  // // Dziedziczenie
+  // {
+  //   // dziedziczenie klas polega na tym ze klasa rodzic daje swoje metody klasie dziecku itd.
+  //   class KlasaTrzecia {
+  //     constructor(a, b) {}
+  //     add2() {
+  //       return 2 + 5;
+  //     }
+  //   }
 
-    class KlasaTrzeciaRozszerzenie extends KlasaTrzecia {
-      // klasa rodzic musi byc nad klasa dzieckiem w kodzie
-      constructor(a, b) {
-        super(a, b); // aby odwolac sie do elementow rodzica uzywamy super. jesli chcemy przekazac parametry
-        //to robimy to od razu w ()
-      }
-      addRozszerzone() {
-        console.log(super.add()); // jesli bez parametrow to nie musimy
-      }
-      add() {
-        // jesli chcielibysmy nadpisac metote to robimy to bez super. po prostu podajemy ta sama nazwe
-        return 3 + 3;
-      }
-      showResult() {
-        console.log(this.add());
-      }
-    }
+  //   class KlasaTrzeciaRozszerzenie extends KlasaTrzecia {
+  //     // klasa rodzic musi byc nad klasa dzieckiem w kodzie
+  //     constructor(a, b) {
+  //       super(a, b); // aby odwolac sie do elementow rodzica uzywamy super. jesli chcemy przekazac parametry
+  //       //to robimy to od razu w ()
+  //     }
+  //     addRozszerzone() {
+  //       console.log(super.add()); // jesli bez parametrow to nie musimy
+  //     }
+  //     add() {
+  //       // jesli chcielibysmy nadpisac metote to robimy to bez super. po prostu podajemy ta sama nazwe
+  //       return 3 + 3;
+  //     }
+  //     showResult() {
+  //       console.log(this.add());
+  //     }
+  //   }
 
-    const klasa3 = new KlasaTrzeciaRozszerzenie();
-    klasa3.showResult(); // funckcja klasy dziecka
-    klasa3.add(); // funkcja klasy rodzica ale wywolana na dziecku
-  }
+  //   const klasa3 = new KlasaTrzeciaRozszerzenie();
+  //   klasa3.showResult(); // funckcja klasy dziecka
+  //   klasa3.add(); // funkcja klasy rodzica ale wywolana na dziecku
+  // }
   //Object.create()
   {
+    //jest to funkcja dzieki ktorej mozemy recznie ustawic prototyp naszego obiektu
+    const toJestPrototyp = {
+      // najpierw potrzebujemy stoworzyc objekt ktoty potem zostanie prototypem naszego
+      funkcja() {
+        console.log("funkcja");
+      },
+      wlascowoscPrototypu: "wlasciwosc",
+
+      init(int, imie) {
+        // w ten sposonb mozemy stworzyc cos ala konstruktor aby ustawic wlasciwosci obiektu. this przeskoczy na nowy
+        this.int = int;
+        this.imie = imie;
+      },
+    };
+
+    const inicjalizacja = Object.create(toJestPrototyp); // w parametrze ustawiamy obiekt ktory bedzie prototypem
+    //funcka zwroci nowy obiekt z ustawionym prototypem i thisem na zwrocony obiekt
+    inicjalizacja.init(12, "bob"); // uzycie naszego ala konstruktora
+    inicjalizacja.wlascowoscPrototypu;
+    inicjalizacja.funkcja();
   }
 }
 //uzycie geta i seta
@@ -220,7 +262,7 @@
 
     get imie() {
       // tworzymy geta ktory stworzy (nadpisze) zmienna imie i dopisze do niej _imie
-      return this._imie; // gdybysmy to zrobili od razu setem to by poszedl blad bo i konstruktor
+      return `imie to: ${this._imie}`; // gdybysmy to zrobili od razu setem to by poszedl blad bo i konstruktor
       //i set probowalby dopisac ta wartosc to tej zmiennej
     }
   }

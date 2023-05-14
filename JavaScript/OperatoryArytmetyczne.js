@@ -62,7 +62,7 @@ let a = 10,
     //jesli wartosc istnieje to wykona sie druga czesc
 
     let zmienna = 5;
-    zmienna &&= 10; // sprawdzi czy zmienna jest thurly. jesli  nie jest to ja zostawi. jesli jest to dopisze
+    zmienna &&= 10; // sprawdzi czy zmienna jest falsy. jesli jest to ja zostawi. jesli nie jest to dopisze
     //do niej druga wartosc
   }
   //nulish
