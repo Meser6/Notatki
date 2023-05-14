@@ -99,6 +99,35 @@ console.log("------------------------------------");
 // Test data:
 // § Data car 1: 'Tesla' going at 120 km/h, with a charge of 23%
 
+function EV(make, speed, charge) {
+  Car.call(this, make, speed);
+  this.charge = `${charge} %`;
+}
+
+EV.prototype = Object.create(Car.prototype);
+EV.prototype.constructor = EV;
+
+EV.prototype.chargeBattery = function (chargeTo) {
+  this.charge = `${chargeTo} %`;
+};
+
+EV.prototype.accelerate = function () {
+  this.speed = `${Number(this.speed.replace(" km/h", "")) + 20} km/h`;
+  this.charge = `${Number(this.charge.replace(" %", "")) - 1} %`;
+  console.log(
+    `${this.make} going at ${this.speed}, with a charge of ${this.charge}`
+  );
+};
+const tesla = new EV("Tesla", 120, 23);
+
+console.log(tesla);
+tesla.chargeBattery(90);
+console.log(tesla);
+tesla.accelerate();
+console.log(tesla);
+tesla.break();
+console.log(tesla);
+
 console.log("------------------------------------");
 // Coding Challenge #4
 // Your tasks:

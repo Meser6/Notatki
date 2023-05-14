@@ -111,6 +111,47 @@
     }
     //Dziedziczenie
     {
+      //dziedziczenie pomiedzy klasami polega na przekazywaniu przez prototyp rodzica funkcji i wlasciwosci
+      //do prototypu dziecka
+      function Rodzic(imieRodzica) {
+        this.imieRodzica = imieRodzica;
+      }
+
+      Rodzic.prototype.funkcjaRodzica = function () {};
+
+      function Dziecko(imieRodzica, imieDziecka) {
+        //dziedziczenie konstruktora rodzica
+        //Rodzic(imieRodzica) niemozemy tak zrobic bo to zwykle wywolanie funcji i this wskazuje na undefind
+        Rodzic.call(this, imieRodzica); // robimy to za pomoca .call ustawaijac this na nowy obiekt
+        this.imieDziecka = imieDziecka;
+      }
+
+      //ustawianie prototypu
+
+      //mamy prototyp dziecka i rodzica
+      //najpierw kopiujemy i dopisujemy prototyp rodzica do dziecka
+      Dziecko.prototype = Object.create(Rodzic.prototype);
+      //przy okazji prototypu kopiuje sie tez konstruktor do niego dopisany, musmy wiec go zmienic znowu na dziecko
+      Dziecko.prototype.constructor = Dziecko;
+      //POTEM dopisujemy rzeczy dziecka do takiego prototypu
+      Dziecko.prototype.funkcjaDziecka = function () {};
+
+      // funkcje rodzica mozna nadpisywac poprzez dodanie do dziecka tak samo nazwanej funkcji
+
+      const rodzic = new Rodzic("rodzic");
+
+      rodzic.imieRodzica;
+      rodzic.funkcjaRodzica();
+      rodzic.imieDziecka; // to nie zadziala bo ma to klasa podrzedna
+      rodzic.funkcjaDziecka(); // to tez nie zadziala bo ma to prototyp klasy podrzednej
+
+      const dziecko = new Dziecko("rodzic", "dziecko");
+
+      //wszystko to zadziala bo dziecko ma dostep i do swoich i do rodzica funkcji/wlasciwosci
+      dziecko.imieRodzica;
+      dziecko.funkcjaRodzica();
+      dziecko.imieDziecka;
+      dziecko.funkcjaDziecka();
     }
   }
   //klasy
@@ -174,6 +215,7 @@
         //przed wprowadzeniem prywatnych rzeczy oznaczalo sie je _ na poczatku nazwy
       }
 
+      //funkcja statyczna
       static funkcjaStatyczna() {
         // w klasach funkcje statyczne tworzymy przez slowko static.
         console.log("static");
@@ -185,39 +227,32 @@
     klasa1.prywatnaFunkcja(); // to nie zadziala bo ta funkcja jest prywatna
     KlasaPierwsza.funkcjaStatyczna(); // to zadziala
     klasa1.funkcjaStatyczna(); // to nie zadizala bo to funkcaj statyczna i nie moznja jej wywolac na instancji
+
+    // Dziedziczenie
+    {
+      // w klasach dziedziczenie dziala tak samo jak w konstruktorze funcji z tym, ze jeste schowane za wartwa abstrakcji
+      class Rodzic {
+        constructor(imieRodzica) {
+          this.imieRodzica = imieRodzica;
+        }
+        funkcjaRodzica() {}
+      }
+
+      class Dziecko extends Rodzic {
+        // dziedziczymy za pomoca slowka extends
+        constructor(imieRodzica, imieDziecka) {
+          super(imieRodzica); //a konstruktor rodzica wywolujemy za pomoca Super()
+          // super zawsze musi byc wywolywane przed innymi rzeczami bo ustawia this
+          //jesli dziecko nie mialoby nowych wlasciwosci to nie musimy pisac konstruktora z samym super bo zrobi to domyslnie
+          this.imieDziecka = imieDziecka;
+        }
+
+        funkcjaRodzicaRozszerzona() {
+          super.funkcjaRodzica(); // jesli chcelibysmy w funkcji w dziecku rozszerzyc funkcje rodzica to robimy ot za pomoca super
+        }
+      }
+    }
   }
-  // // Dziedziczenie
-  // {
-  //   // dziedziczenie klas polega na tym ze klasa rodzic daje swoje metody klasie dziecku itd.
-  //   class KlasaTrzecia {
-  //     constructor(a, b) {}
-  //     add2() {
-  //       return 2 + 5;
-  //     }
-  //   }
-
-  //   class KlasaTrzeciaRozszerzenie extends KlasaTrzecia {
-  //     // klasa rodzic musi byc nad klasa dzieckiem w kodzie
-  //     constructor(a, b) {
-  //       super(a, b); // aby odwolac sie do elementow rodzica uzywamy super. jesli chcemy przekazac parametry
-  //       //to robimy to od razu w ()
-  //     }
-  //     addRozszerzone() {
-  //       console.log(super.add()); // jesli bez parametrow to nie musimy
-  //     }
-  //     add() {
-  //       // jesli chcielibysmy nadpisac metote to robimy to bez super. po prostu podajemy ta sama nazwe
-  //       return 3 + 3;
-  //     }
-  //     showResult() {
-  //       console.log(this.add());
-  //     }
-  //   }
-
-  //   const klasa3 = new KlasaTrzeciaRozszerzenie();
-  //   klasa3.showResult(); // funckcja klasy dziecka
-  //   klasa3.add(); // funkcja klasy rodzica ale wywolana na dziecku
-  // }
   //Object.create()
   {
     //jest to funkcja dzieki ktorej mozemy recznie ustawic prototyp naszego obiektu
@@ -240,6 +275,10 @@
     inicjalizacja.init(12, "bob"); // uzycie naszego ala konstruktora
     inicjalizacja.wlascowoscPrototypu;
     inicjalizacja.funkcja();
+
+    //Dziedziczenie
+    {
+    }
   }
 }
 //uzycie geta i seta
