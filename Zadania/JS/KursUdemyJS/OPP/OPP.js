@@ -65,6 +65,7 @@ class CarCL {
   break() {
     this.speed = `${Number(this.speed.replace(" km/h", "")) - 5} km/h`;
     console.log(this.speed);
+    return this;
   }
 
   get speedUs() {
@@ -139,3 +140,53 @@ console.log("------------------------------------");
 // class. Then experiment with chaining!
 // Test data:
 // § Data car 1: 'Rivian' going at 120 km/h, with a charge of 23%
+
+// class CarCL {
+//   constructor(make, speed) {
+//     this.make = make;
+//     this.speed = `${speed} km/h`;
+//   }
+
+//   accelerate() {
+//     this.speed = `${Number(this.speed.replace(" km/h", "")) + 10} km/h`;
+//     console.log(this.speed);
+//   }
+
+//   break() {
+//     this.speed = `${Number(this.speed.replace(" km/h", "")) - 5} km/h`;
+//     console.log(this.speed);
+//   }
+
+//   get speedUs() {
+//     return `${Number(this.speed.replace(" km/h", "")) * 1.6} mi/h`;
+//   }
+
+//   set speedUs(speed) {
+//     this.speed = `${Number(this.speed.replace(" km/h", "")) * 1.6} mi/h`;
+//   }
+// }
+class EVCL extends CarCL {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed, charge);
+    this.#charge = `${charge} %`;
+  }
+  chargeBattery(chargeTo) {
+    this.#charge = `${chargeTo} %`;
+    return this;
+  }
+  accelerate() {
+    this.speed = `${Number(this.speed.replace(" km/h", "")) + 20} km/h`;
+    this.#charge = `${Number(this.#charge.replace(" %", "")) - 1} %`;
+    console.log(
+      `${this.make} going at ${this.speed}, with a charge of ${this.#charge}`
+    );
+    return this;
+  }
+}
+
+const rivian = new EVCL("Rivian", 120, 23);
+
+rivian.chargeBattery(50).accelerate().accelerate().break();
+
+console.log(rivian);

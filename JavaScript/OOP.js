@@ -63,7 +63,6 @@
       */
   }
 }
-
 //new
 {
   //slowko kluczowe sluzace do inicjalicazji obiektow z konstruktora
@@ -111,7 +110,7 @@
     }
     //Dziedziczenie
     {
-      //dziedziczenie pomiedzy klasami polega na przekazywaniu przez prototyp rodzica funkcji i wlasciwosci
+      //dziedziczenie pomiedzy klasami/obiektami polega na przekazywaniu przez prototyp rodzica funkcji i wlasciwosci
       //do prototypu dziecka
       function Rodzic(imieRodzica) {
         this.imieRodzica = imieRodzica;
@@ -167,19 +166,30 @@
 
       // klasy posiadaja konstruktor domyslny ktory mozna nadpisac
       // konstruktor wywołuje sie przy okazji inicjalizacji klasy
-      constructor(int1, imie, kolor) {
+      constructor(int1, imie, kolor, prywatny) {
         this.pierwszaLiczba = int1; //jezeli kalsa nie ma takich wlascowosci to stworzy nowy
-        this.imie = imie; //a jesli ma to nadpiszenadpisze
+        this.imie = imie; //a jesli ma to nadpisze
         this._kolor = kolor; // jesli wartosc ta nie jest wartoscia ostateczna i bedzie zaraz modyfinkowana
         //np przez setter lub getter to poszemy przed nia _
+        this.#prywatny = prywatny; // tak ustawiamy prywatna wlasciwosc. trzeba zrobic pusta wlasciwosc w obiekcie (ponizej)
+
         console.log("to jest konstruktor"); //  w konstruktorze mozemy dawac tez funkcje ktore sie automatycznie
         //wykonaja same przy tworzeniu instancji klasy. ostroznie bo zle to wplywa na perfo.
       }
 
-      // Wszystkie parametry i funkcje wpisane w klasie POZA konstruktorem sa tak na prawde dopisywane do prototypu a nie obiektu
+      // Wszystkie funkcje wpisane w klasie POZA konstruktorem sa tak na prawde dopisywane do prototypu a nie obiektu
+      //wlasciwosci zas leca do konstruktora
 
       //let xd = "xd" nie mozemy w klasach tworzyc zmiennych
       nazwa = "klasa pierwsza"; // ale mozemy tworzyc wlasciwosci
+
+      //prywatne wlasciwosci
+      _nazwa = "prywatna"; // wedlug starej konwencji prywatne wlasciwosci oznacza sie przez _ na poczatku
+      #nazwa = "prywatna"; // w nowych odslonach js prywatne wlasciwosci oznaczamy poprzez #. nie bedzie ona dostepna poza klasa
+      get prywatna() {
+        return this.#nazwa; // aby sie do niej dostac w klasie podajemy z #. moze nie dzialac na starych przegladarkach
+      }
+      #prywatny;
 
       //--------------------- gettery i settery ---------------------
 
@@ -213,6 +223,7 @@
         // domyslnie wsyztskit metody w klasach sa publiczne, ale jakbysmy chcieli zrobic prywana
         //czyli taka ktora mozna uzywac tylko w klasie to dodajemy # przed nazwa
         //przed wprowadzeniem prywatnych rzeczy oznaczalo sie je _ na poczatku nazwy
+        //moze jeszcze nie dzialac na przegladarkach
       }
 
       //funkcja statyczna
@@ -241,7 +252,7 @@
       class Dziecko extends Rodzic {
         // dziedziczymy za pomoca slowka extends
         constructor(imieRodzica, imieDziecka) {
-          super(imieRodzica); //a konstruktor rodzica wywolujemy za pomoca Super()
+          super(imieRodzica); //a konstruktor rodzica wywolujemy za pomoca super(). jest to tak jakby this wkazujace na rodzica
           // super zawsze musi byc wywolywane przed innymi rzeczami bo ustawia this
           //jesli dziecko nie mialoby nowych wlasciwosci to nie musimy pisac konstruktora z samym super bo zrobi to domyslnie
           this.imieDziecka = imieDziecka;
@@ -251,6 +262,23 @@
           super.funkcjaRodzica(); // jesli chcelibysmy w funkcji w dziecku rozszerzyc funkcje rodzica to robimy ot za pomoca super
         }
       }
+    }
+    //chainowanie
+    {
+      //aby moc chainowac fajnie funkcje w danej klasie trzeba dodac do niej zwrot tej klasy.
+      class chainowanie {
+        zrobA() {
+          console.log("a");
+          return this;
+        }
+        zrobB() {
+          console.log("b");
+          return this;
+        }
+      }
+      const chain = new chainowanie();
+
+      chain.zrobA().zrobB(); // dzieki temu mozemy robic takie bardzo ladne lancuchy
     }
   }
   //Object.create()
@@ -278,6 +306,31 @@
 
     //Dziedziczenie
     {
+      //Tworzymy prototyp rodzica
+      const prototypRodzica = {
+        rodzic: "rodzic",
+
+        init(nameRodzic) {
+          this.name = nameRodzic;
+        },
+      };
+      //I ewentualnie robimy jego instancje ze wskazanym prototypem
+      const rodzic = Object.create(prototypRodzica);
+      //potem robimy protoyp dziecka ze wskazaniem na prototyp rodzica
+      const prototyopDziecka = Object.create(prototypRodzica);
+      //i dodajemy do niego funkcje/wlasciwosci dziecka
+      prototyopDziecka.dziecko = "dziecko";
+      // i wykorzystujemy konstruktor rodzica
+      prototyopDziecka.init = function (nameRodzic, nameDziecko) {
+        prototypRodzica.init.call(this, nameRodzic);
+        this.nameDziecko = nameDziecko;
+      };
+
+      //nastepnie tworzymy instancje z prototypem dziecka ktory jest zawiera w sobie tez rodzica
+      const dziecko = Object.create(prototyopDziecka);
+
+      console.log(dziecko.rodzic);
+      console.log(dziecko.dziecko);
     }
   }
 }
