@@ -8,6 +8,7 @@
 {
   var zmiennaVar; // stara szkola. juz nie powinno sie tego uzywac. bedzie zmienna globalna.
   zmennaBezTypu; // w taki sposob tez stowrzymy zmienna i bedzie dzialac jednak bedzi globalna i nie robi sie tak
+  //zmienna globalna bedzie miala taki zasieg dla wszystkich sktyptow ktore podepiniemy pod dom i ktore sie zadja przed jej inicjalizacja
 
   let zmiennaLet; // uzywamy gdy dana zmienna beziemy chcieli zmieniac w trakcie wykonywania kodu. moze byc zadeklarowana pusta
   const zmiennaConst = "cos"; // uzywamy gdy dana zmienna nie bedziemy zmieniac.NIE może być zadeklarowana pusta. jak sie sprobuje nadpisac to rzuci wyjatek
@@ -75,6 +76,7 @@
     let nieskonczonosc = Infinity;
 
     isNaN(zmienna2); // sprwdzi czy zmienna jest nan
+    isFinite(zmienna2); // sprawdzi czy jest numerem
   }
   //operatory logiczne
   {
@@ -111,6 +113,19 @@ console.log(typeof null); // zwroci object a nie null
   "12" + 12; // zwroci strnga '1212' poniewaz  zadziala jak konkatynacja tekstu
   12 * "12"; // zwroci inta 144 poniewaz sie domysli ze to ma byc int. zadziała dla kazdeej operacji oprocz +
   12 > 3; // zwroci booleana
+
+  {
+    12 + ""; // konwertowanie na stringa
+  }
+  {
+    +"12"; // konwertowanie na inta
+  }
+
+  //JSON
+  {
+    JSON.parse("{f : b"); // json na obiekt
+    JSON.stringify({ f: b }); // obiekt na json
+  }
 }
 //steytment - rodzaj kodu ktory nie zwraca zadnych wartosci
 console.log("x");

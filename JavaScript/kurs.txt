@@ -11,7 +11,7 @@ TS podstawy             DONE
 12 numbers                      SKIP
 13 advanced dom                 SKIP (maybe later)
 14 opp                  DONE
-15 mapty app           1     TODO (only watch)
+15 mapty app            DONE
 16 asynchronous        2     TODO
 17 modern js           3     TODO
 18 forkify app         4     TODO (only watch)

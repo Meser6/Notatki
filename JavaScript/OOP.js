@@ -175,6 +175,7 @@
 
         console.log("to jest konstruktor"); //  w konstruktorze mozemy dawac tez funkcje ktore sie automatycznie
         //wykonaja same przy tworzeniu instancji klasy. ostroznie bo zle to wplywa na perfo.
+        imie(); // lepszym pomyslem jest wolanie metod z klasy stowrzonych poza konstruktorem
       }
 
       // Wszystkie funkcje wpisane w klasie POZA konstruktorem sa tak na prawde dopisywane do prototypu a nie obiektu
@@ -189,7 +190,7 @@
       get prywatna() {
         return this.#nazwa; // aby sie do niej dostac w klasie podajemy z #. moze nie dzialac na starych przegladarkach
       }
-      #prywatny;
+      #prywatny; // pusta wlasciwosc do ustawienia np. przez konstruktor (powyzej)
 
       //--------------------- gettery i settery ---------------------
 

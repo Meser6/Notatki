@@ -124,6 +124,34 @@
   element.dataSet.nowyAtrybut = "nowy"; // doda do elementu nowy atrynbut ktory bedzie mial nazwe data-nowy-atrybut
   element.src; // pobierze dany element
   element.tagName; // pobierze wartosc tag eleementu
+
+  //pobieranie geolokalizacji - wyswietli prosbe o udostepnienie. przymuje 2 funckje, zgoda i brak pzwolenia
+  navigator.geolocation.getCurrentPosition(
+    function (pos) {
+      console.log("zgoda", pos); // wywola w przypadku zgody na przekazanie. wysle w parametrze obiekt z danymi
+    },
+    function () {
+      console.log("brak zgody"); // wywola w przypadku braku zgody na przekazanie
+    }
+  );
+}
+//Storage
+{
+  //sa to api udostepine przez przegladarek i dluzace do rzetrzymywania niewielkch ilosci danych.
+  //Przyjmuja zawsze wartosc klucz i wartosc ktora MUSI byc stringiem
+  //local
+  {
+    //beda one trzymane do czasu zamnknieca przegladarki
+
+    localStorage.setItem("klucz", "wartość"); // Zapisanie danych do LocalStorage
+    localStorage.getItem("klucz"); // Odczytanie danych z LocalStorage
+    localStorage.removeItem("klucz"); // Usunięcie danych z LocalStorage
+    localStorage.clear(); // Wyczyszczenie wszystkich danych w LocalStorage
+  }
+  //sesion
+  {
+    //dziala tak samo jak local z tym, ze dane beda zachowane do czasu zakonczenia sesji czyli np zamkniecia karty
+  }
 }
 //EVENTY
 {
@@ -166,6 +194,18 @@
   element.addEventListener("click", (e) => {
     e.preventDefault(); // czesto eventy odwiezaja strone po zakonczeniu.aby temu zapobiez uzywamy tej metody
   });
+
+  //this
+  class klasa {
+    thisFunkcja() {
+      console.log("this powinno wskazac na funkcje", this); // w funkcji this wskazuje na klase
+    }
+
+    eventy() {
+      element.addEventListener("click", thisFunkcja); // ale event listenerze bedzie wskazwac na element
+      element.addEventListener("click", thisFunkcja.bind(this)); //w ten spso mozemy ustawic this na odpowiednie miejsce
+    }
+  }
   //typy eventow:
   const typyEventow = {
     click: "kliknięcie lewym klawiszem myszki",
