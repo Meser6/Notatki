@@ -1,0 +1,12 @@
+Schemat przeplywu danych klient-server:
+
+1. Wysylamy request na adress http://wp.pl/test/1
+2. Przegladarka wysyla najpierw adres do DNS (cos ala ksiazki adresowej internetu) aby uzyskac prawdziwy adres
+3. DNS zwraca prawdziwy adres http://104.24.321.524:421
+4. Zostaje utorzone poleczenie TCP/IP pomiedzy klientem (przegladara) a serverem
+5. Przegladarka wysyla request w formacie HTTP z odpowiednia metoda, headerami i body
+6. Server odbiera takie pytanie i generuje odpowiedz z kodem, headerami i ewentualnie body
+7. Dzieli taka odpowedz na malutkie paczki i wysyla je do kilenta
+8. Klient odbiera te paczki i  TCP laczy je w odpowiedz
+
+9. Jeśli w body jest np. element DOM w ktorym sa zaleznosci do jakichs CSSow lub JSow to klient znowu wysyla pytania o nie
