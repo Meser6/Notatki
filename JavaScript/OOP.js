@@ -120,7 +120,7 @@
 
       function Dziecko(imieRodzica, imieDziecka) {
         //dziedziczenie konstruktora rodzica
-        //Rodzic(imieRodzica) niemozemy tak zrobic bo to zwykle wywolanie funcji i this wskazuje na undefind
+        //Rodzic(imieRodzica) nie mozemy tak zrobic bo to zwykle wywolanie funcji i this wskazuje na undefind
         Rodzic.call(this, imieRodzica); // robimy to za pomoca .call ustawaijac this na nowy obiekt
         this.imieDziecka = imieDziecka;
       }

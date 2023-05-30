@@ -9,7 +9,7 @@
   document.anchors; //kolekcja z linkami będącymi kotwicami
 
   //pobierajac element pobieramy jego i jego dzieci.
-  const id = document.getElementByelement("element"); // pobiera element po element (powinno byc unikalne)
+  const id = document.getElementById("id"); // pobiera element po element (powinno byc unikalne)
   const classes = document.getElementsByClassName("CLASS"); // pobiera elementy o danej klasie i dopisuje je do listy
   const tags = document.getElementsByTagName("TAG"); // pobiera elementy o danym tagu i dopisuje je do listy
   const names = document.getElementsByName("NAME"); // pobiera elementy o danej nazwie i dopisuje je do listy
