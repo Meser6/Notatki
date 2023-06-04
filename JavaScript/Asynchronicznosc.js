@@ -157,3 +157,20 @@ const trzy = asynchroniczna();
       .then(console.log(`2: ${resp}`));
   }
 }
+//bledy / wyjatki
+{
+  //tworzenie nowego bledu
+  new Error("error message");
+
+  //rzucenie bledem
+  throw new Error("error message");
+
+  // oblugiwanie bledu w kodzie
+  // jezeli w kodzie ktory znajduje sie wewnatrz try zostanie rzucony jakis wyjatek to zostane on wylapany w catch i obsluzony
+  try {
+    //kod ktory moze wygenerowac blad
+    throw new Error("error message");
+  } catch (error) {
+    console.log(error);
+  }
+}
