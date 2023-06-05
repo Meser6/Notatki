@@ -55,4 +55,18 @@
       }
     });
   }
+  // tworzenie zapytan najnowszym sposobem, z async/aweit
+  {
+    async function funkcjaAsynchroniczna() {
+      try {
+        const resp = await fetch(url);
+        if (resp.status === 500) {
+          throw new Error("Error message");
+        }
+        const response = await resp.json();
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }
 }
