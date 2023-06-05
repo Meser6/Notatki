@@ -31,20 +31,6 @@ function wait(seconds) {
   });
 }
 
-function imgElement(imgPath) {
-  const element = document.createElement("img");
-  element.src = imgPath;
-
-  element.addEventListener("load", () => {
-    document.body.appendChild(element);
-    resolve(element);
-  });
-
-  element.addEventListener("error", () => {
-    reject(new Error("image not found"));
-  });
-}
-
 function createImage(imgPath) {
   return new Promise(function (resolve, reject) {
     const element = document.createElement("img");

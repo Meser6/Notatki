@@ -19,3 +19,59 @@ Test data Part 2: ['img/img-1.jpg', 'img/img-2.jpg', 'img/img3.jpg']. To test, t
 GOOD LUCK � */
 
 // TODO
+
+function wait(seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+}
+
+function createImage(imgPath) {
+  return new Promise(function (resolve, reject) {
+    const element = document.createElement("img");
+    element.src = imgPath;
+
+    element.addEventListener("load", () => {
+      document.body.appendChild(element);
+      resolve(element);
+    });
+    element.addEventListener("error", () => {
+      reject(new Error("image not found"));
+    });
+  });
+}
+
+async function loadNPause() {
+  try {
+    const firstElement = await createImage("Asynchronous/images/first.jpg");
+    await wait(2);
+    firstElement.style.display = "none";
+    const secondElement = await createImage("Asynchronous/images/second.jpg");
+    await wait(2);
+    secondElement.style.display = "none";
+  } catch (err) {
+    alert(err);
+  }
+}
+
+//2
+
+async function loadAll(imgArr) {
+  try {
+    console.log(Promise.all(imgArr));
+  } catch (err) {
+    alert(err);
+  }
+}
+
+(async function () {
+  try {
+    await loadAll([
+      "Asynchronous/images/first.jpg",
+      "Asynchronous/images/second.jpg",
+    ]);
+  } catch (err) {
+    alert(err);
+  }
+})();
+//loadAll(["Asynchronous/images/first.jpg", "Asynchronous/images/second.jpg"]);
