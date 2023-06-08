@@ -13,7 +13,7 @@ TS podstawy             DONE
 14 opp                  DONE
 15 mapty app            DONE
 16 asynchronous         DONE (zostala jedna lekcja + zadanie)
-17 modern js           3     TODO
+17 modern js            DONE (bez kilku malo istotnych lekcji)
 18 forkify app         4     TODO (only watch)
 19 git and ci                   SKIP
 

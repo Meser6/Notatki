@@ -49,6 +49,7 @@
 }
 //moduły
 {
+  //jesli w jakims pliku izujemy importu/exportu to staje sie on modulem.
   //moduly sluza do komunikowania sie plikow js miedzy soba i wymiany danych
   //dzieki nim mmozemy przekazac jakas zmienna/funckje etc. do inego pliku i korzystac z niej jakby tam byla zadeklarowana
   //jesli uzywamy modulu w danym pliku to odpala sie on w strict mode
@@ -103,5 +104,11 @@
     //default export
     //mozna go uzyc tylko raz na dany moduł. wyekrportuje on dany fragment kodu bez zadnej nazwy
     export default function () {}
+
+    //w modulach mozemy uzywac await poza funkcjami asynchronicznymi. poczeka na odpowiedz obietnicy i zwroci jej wartosc
+    //dziala to w sposob synchroniczny wiec reszta kodu wywola sie dopiero po wypelnieniu obietnicy
+    //WAZNE: jesli cokolwiek bedziemy importowac z modulu ktory ma await to wowczas ten importer najpierw poczeka na wypelnienie
+    //oietnicy z exportera, potem stworzy mostki a dopiero po tym zacznie wykonywac wlasny kod. zle to wplywa na perfo. stotowac ostroznie
+    const data = await fetch(url);
   }
 }
