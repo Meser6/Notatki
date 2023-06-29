@@ -2,7 +2,7 @@
 {
   //Jeżeli nasz kod uruchamiany jest z najwyższego poziomu (czyli nie umieściliśmy go w żadnej funkcji),
   //domyślnym kontekstem jest obiekt globalny, którym dla przeglądarek jest obiekt window
-  //(dla środowiska Node.js jest to obiekt module.exports
+  //dla środowiska Node.js jest to obiekt module.exports, a dla stric mode - undefind
   this; // window
 
   function funkcja() {
@@ -41,6 +41,26 @@
       });
     },
   };
+  // podsumowanie
+  {
+    this; // undefind/window
+    const x = this; // undefind/window
+    function fn() {
+      this;
+    } // undefind/window
+    const obj = {
+      objFn() {
+        this;
+      },
+    }; //obj
+    const xd = obj.objFn; // this podaza za wlascicielem wiec tu wskaze na xd a wiec na undefind/window
+    const fnSt = () => {
+      this;
+    }; //zakres wyzej (this rodzica). tutaj undefind/window
+    element.addEventListener("click", () => {
+      this;
+    }); // element
+  }
 }
 
 // zarzadzenie this poprzez metody

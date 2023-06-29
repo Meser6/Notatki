@@ -1,12 +1,14 @@
 //W JS nie ma typowania zmiennych co oznacza ze do zmienniej x mozna wrzucic i pomienic ja na rozne typy.
-//Zmiennie przymuja jednak typu w zaleznosci od zawartosci.
+//Zmiennie przymuja jednak typy w zaleznosci od zawartosci.
 //Typy dziela sie na to co jest obiektem, i to co nie jest (prymitywne). tych drugich jest 7
 
 //zmienna deklarujemy przez słówko kluczowe var, a od  ES6 - let i const
 //nie moze sie ona zaczynac od cyfr i miec znaków spęcjalnych (oprocz $ i _)
 //musza byc WYZEJ niz funkcje w ktorych sa wywowylawane bo js czyta od gory do dolu
+//jesli beda nizej niz wywolywanie to przyjmia undefind
 {
   var zmiennaVar; // stara szkola. juz nie powinno sie tego uzywac. bedzie zmienna globalna.
+  //stworzy taka wlasciwosc w obiekcie globalnym. window.zmiennaVar
   zmennaBezTypu; // w taki sposob tez stowrzymy zmienna i bedzie dzialac jednak bedzi globalna i nie robi sie tak
   //zmienna globalna bedzie miala taki zasieg dla wszystkich sktyptow ktore podepiniemy pod dom i ktore sie zadja przed jej inicjalizacja
 
@@ -48,7 +50,7 @@
     text.split("p"); // potnie text w miejsach gdzie wystepuje dany ciag i zwroci tablice pocietego tesktow
     // bez tego znaku.
 
-    text.toLowerCase(); // zamieni duze litery na male i zwroci nowego stringd
+    text.toLowerCase(); // zamieni duze litery na male i zwroci nowego stringa
     text.toUpperCase(); // male na duze
 
     text.trim(); // usunie spacje ktore znajduja sie na poczatku tekstu i na koncu

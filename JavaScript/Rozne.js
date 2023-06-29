@@ -7,7 +7,26 @@
 }
 //zasieg kodu
 {
-  //zmienne/funkcje maja zasieg w obrebie swojego kodu ograniczonego {} i kodu swoich rodzicow
+  //zasieg kodu mozemu pydzielic na 3 kategorie:
+  //globalny - zmienne zadeklarowane poza jakimilokwiek {}
+  //funkcyjny - zmienne zadeklarowane w funkcji
+  //zakresowy - zmiene zadeklarowane w jakikmoklwiek {}
+
+  const x = 2; // globalny
+
+  function xd() {
+    const b = 2; // funkcyjny
+    x; // ma dotep do x
+    d // ma dotep do d
+    if (true) {
+      const c = 2; //zakresowy
+      x; // ma dostep do x
+      b; // ma dostep do b
+      var d = 2 // var nie patrzy na zakresowy zakres wiec bedzie dosgepny w funkcji
+    }
+  }
+
+  //zmienne/funkcje maja zasieg w obrebie swojego kodu ograniczonego {} I !! kodu swoich rodzicow
   {
     let jeden; // nie ma dostepu do nioczego
     {
@@ -17,6 +36,20 @@
       }
     }
   }
+}
+// wywolywanie przed deklaracja
+{
+fn() // funkcje mozna wywolac przed deklaracja o ile nie sa wpisane w zmienna
+function fn()
+
+v // var mozna wywolywac przed ale przyjmie undefind
+var v =12
+
+con // const/let nie mozna wywwolywac przed bo nie ma jescze wartosci
+const con = 12 
+
+fnZm // funkcje dopisane do zmiennych zachowaja sie jak prymitywne wartosc, czyt. jak wyzej
+const fnZm = function(){}
 }
 //console
 {

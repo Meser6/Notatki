@@ -1,21 +1,23 @@
+kurs Johnas.io DONE
+
 2 fundamentals 1        DONE
 3 fundamentals 2        DONE
 TS podstawy             DONE
 5 setup                 DONE
 6 html css              DONE
 7 dom                   DONE
-8 behind the scens      5    TODO 
+8 behind the scens      DONE
 9 data structures       DONE
 10 functions            DONE
 11 arrays               DONE
-12 numbers                      SKIP
-13 advanced dom                 SKIP (maybe later)
+12 numbers              SKIP
+13 advanced dom         SKIP 
 14 opp                  DONE
 15 mapty app            DONE
 16 asynchronous         DONE (zostala jedna lekcja + zadanie)
-17 modern js            DONE (bez kilku malo istotnych lekcji)
-18 forkify app         4     TODO (only watch)
-19 git and ci                   SKIP
+17 modern js            DONE 
+18 forkify app          TODO 
+19 git and ci           SKIP
 
 https://kursjs.pl/ 
 

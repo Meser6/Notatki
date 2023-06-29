@@ -12,7 +12,7 @@
   // 2 sposob - funkcja strzałkowa
   const funkcjaStrzałkowa = () => {
     alert("=>");
-    // nie zmienia sie this.
+    // this bedzie wskazywalo na rodzica funkcji
   };
   funkcjaStrzałkowa(); // NIE mozna ja wywolac przed inicjalizacja
 
