@@ -11,13 +11,15 @@ let a = 10,
   a ** b; // a do potegi b
 
   a % b; // Reszta z dzielenia
-  Math.pow(a, b); // Potęgowanie, a do potęgi b
-  Math.sqrt(a); // Pierwiastek kwadratowy z a
-  Math.round(a); // Zaokragla do liczby calkowitej zgodznie z matekatyka
-  Math.ceil(a); // Zaokragla liczbe zawsze go dóry (5.3 -> 6)
-  Math.floor(a); // Zaokrągla liczne zawsze do dolu (5.7 -> 5)
-  Math.abs(a); // Wartość bezwględna z a
-  Math.trunc(a); // usuwa liczby po przecinku
+  Math.abs(liczba); //zwraca wartość bezwzględną (absolutną) liczby
+  Math.ceil(liczba); //zwraca najmniejszą liczbę całkowitą, większą lub równą podanej liczbie
+  Math.floor(liczba); //zwraca największą liczbę całkowitą mniejszą lub równą podanej liczbie
+  Math.max(liczba1, liczba2, liczba3); //zwraca największą z przekazanych wartości
+  Math.min(liczba1, liczba2, liczba3); //zwraca najmniejszą z przekazanych wartości
+  Math.pow(liczba1, liczba2); //zwraca wartość liczby1 podniesionej do potęgi liczby2
+  Math.random(); //zwraca wartość pseudolosową z przedziału 0 - 1
+  Math.round(liczba); //zwraca zaokrąglenie danej liczby do najbliższej liczby całkowitej
+  Math.sqrt(liczba); //zwraca pierwiastek kwadratowy liczby
 
   Math.PI; // Liczba Pi
   Math.random(); //Losuje liczbe zmiennoprzecinkową od 0 do 1
@@ -51,6 +53,10 @@ let a = 10,
     let zmienna = 0;
     zmienna ||= 10; // sprawdzi czy zmienna jest trhuly. jesli tak to ja zostawi. jesli nie to dopisze do niej
     //druga wartosc
+  }
+  //xor ^
+  {
+    (1 === 1) ^ (2 === 2); // jeden z, ale nie dwa równocześnie (Fałsz, bo obydwa są prawdziwe)
   }
   //and
   {

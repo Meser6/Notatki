@@ -18,7 +18,10 @@
         }
     </style> <!-- taki zapis podmieni nam te cssy ktore przywolamy w pliku bo jest wyzej w hierarchii -->
     <!-- czcionki -->
-    <script defer src="nazwa.js"></script> <!-- doda skrypt do wykonania sie w htmlu -->
+    <script src="nazwa.js"></script>  <!-- doda skrypt do wykonania sie w htmlu -->
+    <script defer src="nazwa.js"></script>     <!-- zacznie wczytywac plik w tle i wykona sie dopiero po zaladowaniu calego htmla -->
+      <script src="..." async></script> <!-- zacznie wczytywac plik w tle i odpali jak tylo sie wczyta -->
+<script src="..." async defer></script>
     <!-- defer sprawi, ze skrypt wykona sie dopiero po zaladowaniu calego htmla -->
 </head>
 <body> <!-- w sekcji body trzymamy to co jest widoczne dla uzytkownika -->

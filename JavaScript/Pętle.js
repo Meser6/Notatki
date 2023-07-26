@@ -2,6 +2,9 @@
 {
   // While
   {
+    //   while (wyrażenie_sprawdzające_zakończenie_pętli) {
+    //     ...fragment kodu który będzie powtarzany...
+    // }
     let i = 1;
     while (i < 10) {
       // sprawdź czy YY. jesli warunek jest prawdziwy to zrobi znowu. jesli nieprawdziwy to zakonczy petle
@@ -17,10 +20,14 @@
   }
   // For
   {
+    //   for (zainicjowanie_zmiennych;  warunek_kończący_wykonywanie_pętli;  zmiana_zmiennych) {
+    //     kod który zostanie wykonany pewną ilość razy
+    // }
     for (let j = 0; j < 10; j++) {
       // przyjmij j. sprawdz czy j<10. jeśl tak to wykonaj XX a potem zrob j++
       console.log(j);
     }
+    //Jeżeli nie potrzeba, to możemy pominąć dowolną z trzech składowych pętli.
   }
   // ForEach / For of
   {
@@ -38,6 +45,24 @@
         // hasOwnProperty sluzy do upewnoenia sie ze obiekt ma ten klucz
         console.log(key);
       }
+    }
+  }
+  //break
+  {
+    //Uzywamy gdy wykonamy jakąś czynność chcielibyśmy zakończyć dalsze wykonywanie takiej pętli.
+    while (i <= 100) {
+      str += i;
+      if (str.length > 20) break;
+      i++;
+    }
+  }
+  //continue
+  {
+    //Nie przerywa ona działania pętli, a powoduje przerwanie danej iteracji
+    while (i < 100) {
+      i++;
+      if (i % 2 === 0) continue; //gdy i jest parzyste przerywamy daną iterację i przechodzimy do następnej
+      sum += i;
     }
   }
 }

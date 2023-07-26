@@ -6,16 +6,38 @@
 //nie moze sie ona zaczynac od cyfr i miec znaków spęcjalnych (oprocz $ i _)
 //musza byc WYZEJ niz funkcje w ktorych sa wywowylawane bo js czyta od gory do dolu
 //jesli beda nizej niz wywolywanie to przyjmia undefind
+
+/*
+Zmienne to rodzaje pudełek, w których możemy trzymać różne rzeczy.
+Zmienne możemy tworzyć za pomocą słów kluczowych var/let/const, przy czym zalecane są te dwa ostatnie
+Let/const różnią się od varów głównie zasięgiem oraz tym, że w jednym zasięgu (bloku) nie możemy ponownie tworzyć zmiennych o tej samej nazwie.
+Hoisting to zjawisko wynoszenia na początek skryptu zmiennych i deklaracji funkcji
+W naszych skryptach starajmy się używać jak najwięcej const - dzięki temu będziesz wyglądał jak pro. Jedynym wyjątkiem są liczniki 
+oraz zmienne które wiemy, że zaraz zmienimy (np. toggleCatNightPartyMode)
+*/
 {
   var zmiennaVar; // stara szkola. juz nie powinno sie tego uzywac. bedzie zmienna globalna.
   //stworzy taka wlasciwosc w obiekcie globalnym. window.zmiennaVar
   zmennaBezTypu; // w taki sposob tez stowrzymy zmienna i bedzie dzialac jednak bedzi globalna i nie robi sie tak
   //zmienna globalna bedzie miala taki zasieg dla wszystkich sktyptow ktore podepiniemy pod dom i ktore sie zadja przed jej inicjalizacja
+  //W przypadku var odwołanie się do zmiennej przed jej stworzeniem nie rzuci nam błędem, natomiast pokaże undefined:
 
+  //W przypadku let/const zmienne mają zasięg blokowy, co w skrócie oznacza "od klamry do klamry":
   let zmiennaLet; // uzywamy gdy dana zmienna beziemy chcieli zmieniac w trakcie wykonywania kodu. moze byc zadeklarowana pusta
   const zmiennaConst = "cos"; // uzywamy gdy dana zmienna nie bedziemy zmieniac.NIE może być zadeklarowana pusta. jak sie sprobuje nadpisac to rzuci wyjatek
   //const powinno sie uzywac tak czesto jak to mozliwe. dopieto jak musimy cos zmienic to let.
+  // W przypadku let/const nie jesteśmy w stanie używać zmiennych przed ich zadeklarowaniem:
 }
+
+// Żeby typy proste mogły być używane tak samo jak obiekty, Javascript musi nam ułatwić zadanie.
+// Dla każdego typu prostego w Javascript istnieje specjalny konstruktor, za pomocą którego możemy tworzyć
+// obiekt o danym typie (np. String(), Number(), Boolean()).
+
+// Gdy tworzymy naszą zmienną jest ona prymitywna. Gdy wywołujemy dla niej jakąś metodę lub pobieramy jakąś właściwość,
+// Javascript za pomocą wspomnianych konstruktorów zamienia w tle naszą zmienną na odpowiedni obiekt, wykonuje dla niego
+// daną rzecz zwracając wynik, a następnie naszą zmienną przywraca do początkowego prymitywnego stanu.
+// Zasada ta nie dotyczy się tylko undefined i null, które nie potrzebują mieć właściwości i metod.
+
 // ----------- prymitywne zmienne
 {
   //tekst
@@ -72,13 +94,18 @@
   {
     // liczby sa zawsze zmiennoprzecinkowe nawet jesli nie ma nic po przecinku.
     let zmienna2 = 1;
-    zmienna2 = 1.5; //kropka zamiast przecinka
+    zmienna2 = 1.546565; //kropka zamiast przecinka
     zmienna2 = NaN; // not a number. w  typeof da nam number
     let zmienna7 = 9007199254740991n; //duzy int number, ale moze byc wiekszy niz zwykly
     let nieskonczonosc = Infinity;
+    let milion = 1e6; // 1000000 pomnozy liczbe razy 1(ilosc zer podana po e)
+    let malo = 1e-6; // 0.000001 pomnozy liczbe razy e zer na lewo od liczby
 
     isNaN(zmienna2); // sprwdzi czy zmienna jest nan
     isFinite(zmienna2); // sprawdzi czy jest numerem
+
+    zmienna2.toFixed(2); // 1.55 - zaokragli do 2 miejsc po przecinku
+    zmienna2.toPrecision(2); // to samo tylko musibyc z przedzialu 1-100
   }
   //operatory logiczne
   {
@@ -109,6 +136,14 @@ console.log(typeof null); // zwroci object a nie null
   Number("XDD"); // jak nie bedzie mogl zwrocic inta to zwroci NaN (patrz wyzej)
   String(12); // zwroci stringa '12'
   Boolean(null); // zwroci booleana
+
+  //wartosc, system
+  parseInt("24px", 10); //24 // konwertuje tekst na liczne calkowita
+  parseInt("26.5", 10); //26
+  parseInt("100kot", 10); //100
+  parseFloat("156.5px"); // 156.5 // konwertuje na zmiennoprzecinkowa
+  const nr = 150;
+  nr.toString(10); //konwersja na string. w parametrze podajemy system  (domyslnie dziesietny)
 
   //niejawna
   "text" + 12; // zwroci stringa 'text12'

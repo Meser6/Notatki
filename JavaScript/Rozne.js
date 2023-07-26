@@ -53,7 +53,11 @@ const fnZm = function(){}
 }
 //console
 {
+  let zm = 5
+
   console.log(); // wyświetla wiadomość w konsoli,
+  console.log({zm}); // wyswietli zmienna wraz z nazwa {zm: 5}
+  console.dir() // do wyswietalania elementow strony
   console.warn(); // wyświetla ostrzeżenie w konsoli,
   console.error(); // wyświetla błąd w konsoli,
   console.table(); // wyświetla dane w formie tabeli,
