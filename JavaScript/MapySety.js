@@ -28,6 +28,16 @@
   const objToMap = new Map(Object.entries(obj));
   //mapa -> tablica
   const mapToArr = [...objToMap];
+  {
+    /*
+    WeakMap()
+    WeakMap to odmiana Mapy, którą od Map rozróżniają trzy rzeczy:
+
+    Nie można po niej iterować (w przyszłości będzie można, bo już zapowiedziano odpowiednie zmiany)
+    Kluczami mogą być tylko obiekty
+    Jej elementy są automatycznie usuwane gdy do danego obiektu (klucza) nie będzie referencji
+    */
+  }
 }
 //SETY
 {
@@ -51,4 +61,11 @@
   //(przez co zapisujemy go _ - tak sie oznacza zmienna ktora nie ma znaczenia i nie bedzie wykorzystywana) i caly set
 
   const set11 = [...new Set(arr)]; // konwertowanie Setu na tablice
+  {
+    /*
+    WeakSet()
+    Podobnie jak dla Map istnieją WeakMap, tak dla Setów istnieją WeakSet. Są to kolekcje składające się z unikalnych obiektów. 
+    Podobnie do WeakMap obiekty takie będą automatycznie usuwane z WeakSet, jeżeli do danego obiektu zostaną usunięte wszystkie referencje.
+    */
+  }
 }

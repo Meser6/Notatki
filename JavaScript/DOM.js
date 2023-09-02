@@ -138,7 +138,7 @@
 //Storage
 {
   //sa to api udostepine przez przegladarek i dluzace do rzetrzymywania niewielkch ilosci danych.
-  //Przyjmuja zawsze wartosc klucz i wartosc ktora MUSI byc stringiem
+  //Przyjmuja zawsze wartosc klucz i wartosc ktora MUSI byc stringiem (lub Jsonem)
   //local
   {
     //beda one trzymane do czasu zamnknieca przegladarki
@@ -151,6 +151,20 @@
   //sesion
   {
     //dziala tak samo jak local z tym, ze dane beda zachowane do czasu zakonczenia sesji czyli np zamkniecia karty
+  }
+  //cookie
+  {
+    //Ciasteczka to małe kawałki tekstu przechowywane przez przeglądarkę, a które najczęściej służą zarówno do
+    //zapisywania krótkich informacji , ale równocześnie też do przesyłania takich danych między serwerem \
+    //a przeglądarką, dzięki czemu obie strony mają do nich dostęp.
+
+    //Ciasteczka możesz tworzyć zarówno na czas sesji (wtedy zostaną usunięte po zamknięciu przeglądarki),
+    //lub na czas który sam określisz.
+
+    //W wiekszosci dziala to tak ze serwer wysyla request z naglowkiem Set-Cookie i informacja np. theme=dark
+    //a przegladarka odczytuje to i tworzy plik ktory przechowuje taka informacje.
+
+    document.cookie; //mini interfejs do zarzadania ciasteczkami
   }
 }
 //EVENTY

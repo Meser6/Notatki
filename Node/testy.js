@@ -7,6 +7,8 @@
 const supertest = require("supertest"); // import zmiennej do wyslania zapytania
 const request = supertest("https://catfact.ninja/");
 
+import { faker } from "@faker-js/faker";
+
 // aby podmieniac url za pomoca terminala mozna uzyc cross-env
 // i wpisac w envy url - cross-env URL=dev.pl
 // request(process.env.URL)
@@ -35,7 +37,9 @@ describe("nazwa bloku", () => {
   });
 
   it.skip("skip", () => {}); // zeskipuje test
-  it.only("only", () => {}); // jesli jest chocby jeden plik z only to odpali tylko te ktore je maja
+  it.only("only", () => {
+    console.log(faker);
+  }); // jesli jest chocby jeden plik z only to odpali tylko te ktore je maja
 
   describe("sposoby wyslania requestu", () => {
     it("pierwszy sposob", (done) => {

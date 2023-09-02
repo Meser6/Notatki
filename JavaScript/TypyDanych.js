@@ -123,6 +123,12 @@ oraz zmienne które wiemy, że zaraz zmienimy (np. toggleCatNightPartyMode)
     //pusty
     let zmienna5 = null;
   }
+  //symbol
+  {
+    //jest to wartosc unikalna, nie wiadomo jaka, mozemy ja wywolac tylko przez jej referencje
+    const a = Symbol();
+    //moze sluzyc np do dodawania nowych, prywatnych wartosci do obiektu
+  }
 }
 //aby poznac typ danej zminnej uzywamy operatora typeof
 console.log(typeof zmienna3); // zwroci stringa z nazwa typu zmiennej

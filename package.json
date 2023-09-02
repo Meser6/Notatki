@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@faker-js/faker": "^8.0.2",
     "chai": "^4.3.7",
     "live-server": "^1.2.2",
     "mocha": "^10.2.0",

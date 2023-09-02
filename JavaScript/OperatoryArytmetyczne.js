@@ -84,15 +84,5 @@ let a = 10,
     //do niej druga wartosc
   }
 }
-//Data
-{
-  const date = new Date(); // pobranie aktualnej daty
-  const date2 = new Date(1); // pobranie daty 01.01.1970 + 1msc
-  const date3 = new Date(1995, 4, 21, 19, 30, 1); // pobranie daty rok, miesiac (liczony od 0!), dzien, godzina minuta, sekunda
-
-  const dzien = date.getDate(); //pobiera dzien
-  const miesiadate = date.getMonth(); // pobiera miesiac (liczy od 0 do 11!)
-  const rok = date.getFullYear(); // pobiera rok
-}
 // tabela z kolejnoscia wykonywania operatorów
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence

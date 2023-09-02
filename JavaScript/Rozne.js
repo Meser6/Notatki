@@ -84,68 +84,54 @@ const fnZm = function(){}
     console.log(error);
   }
 }
-//moduły
+//timeouty 
 {
-  //jesli w jakims pliku izujemy importu/exportu to staje sie on modulem.
-  //moduly sluza do komunikowania sie plikow js miedzy soba i wymiany danych
-  //dzieki nim mmozemy przekazac jakas zmienna/funckje etc. do inego pliku i korzystac z niej jakby tam byla zadeklarowana
-  //jesli uzywamy modulu w danym pliku to odpala sie on w strict mode
-  //wszystkie dane w modulach sa prytawne i nie dostepe poza nimi, chyba ze je wyeksportujemi i zaimportujemy
-
-  //jesli chcemy uzyc pliku z modułami w html trzeba go pobrac z odpowiednia flaga
-  // <script type='module' src:...>
-
-  //plikPierwszy.js - import
+  //setTimeout
   {
-    //mozna go uzywac tylko na najzyszym poziomie modulu tj. nie mozna uzyc w zadnej funkcji etc. bedzie wykonywany jako pierwzy z calego kodu
-    //nawet jak bedzie na samym dole pliku
-    //tworzy on referencje do eksportu a nie rzeczywista zmienna w miejsciu importu
-    //importowane rzeczy trzeba podawac w {}
-    import { zmienna1 } from "./plikDrugi.js"; // ./ oznacza obecny wezel
-    import { zmiennaZFolderuWyzej } from "../../folderWyzej.js"; // ../ przejdzie do folderu wyzej
-    console.log(zmienna1);
+    //odpali funkcje po jakims czasie 
+   const time = setTimeout(() => {
+      console.log("z zaskoczenia!");
+  }, 3000);
 
-    //mozemy tez importowac wiele rzeczy na raz
-    import { zmienna2, zmienna3 } from "./plikDrugi.js";
-    console.log(zmienna2);
-    console.log(zmienna3);
+  clearTimeout(time); // przerwanie odliczania
 
-    //jesli chcielibysmy zmienna nazwac inaczej niz jest w oryginalnym pliku uzywamy as
-    import { zmienna1 as nowaNazwaZmiennej1 } from "./plikDrugi.js";
-    console.log(nowaNazwaZmiennej1);
+  //Jeżeli przekazana do setTimeout funkcja wymaga przekazania atrybutów, możemy je podać jako kolejne wartości dla setTimeout:
+    function print(txt, nr) {
+        console.log(txt, nr);
+    }
 
-    //import defaultowych wartosci
-    import defaultowaFunkcja from "./plikDrugi.js"; // imporujac defaultowa wartosc nadajemy jej nazwe w momemncie importu
-    defaultowaFunkcja();
+    //wraz z przekazaną referencja do funkcji
+    setTimeout(print, 2000, "Ala ma kota", 102);
 
-    //importowanie calego pliku
-    import * as DaneZPliku from "./plikDrugi.js"; // zaimportuje obiekt z wszystkmi rzeczmy z pliku. obiekt taki nazywamy z duzej litery
-    DaneZPliku.jakasFunkcja();
-
-    //mozna tez zaimportowac  wykonanie calego plik. Trzeba wowczas pamietac, ze funkcje ktore sie tam wywolaja wywolaja sie tez w pliku importera
-    import "./plikDrugi.js";
+    //wraz z funkcją anonimową
+    setTimeout((txt, nr) => {
+        console.log(txt, nr);
+    }, 2000, "Ala ma kota", 102);
   }
-  //plikDrugi.js - export
+  //setInterval
   {
-    //export dziala analogicznie do importu.
-    export const zmienna1 = "zmienna1";
-
-    //wiele eksportow na raz
-    const zmienna2 = "zmienna2";
-    const zmienna3 = "zmienna3";
-    export { zmienna2, zmienna3 };
-
-    // zmiana nazwy
-    export { zmienna2 as nowaNazwaZmiennej2 };
-
-    //default export
-    //mozna go uzyc tylko raz na dany moduł. wyekrportuje on dany fragment kodu bez zadnej nazwy
-    export default function () {}
-
-    //w modulach mozemy uzywac await poza funkcjami asynchronicznymi. poczeka na odpowiedz obietnicy i zwroci jej wartosc
-    //dziala to w sposob synchroniczny wiec reszta kodu wywola sie dopiero po wypelnieniu obietnicy
-    //WAZNE: jesli cokolwiek bedziemy importowac z modulu ktory ma await to wowczas ten importer najpierw poczeka na wypelnienie
-    //oietnicy z exportera, potem stworzy mostki a dopiero po tym zacznie wykonywac wlasny kod. zle to wplywa na perfo. stotowac ostroznie
-    const data = await fetch(url);
+    //odpali funkcje co x czasu, az do zamniecia strony/programu
+    const interval = setInterval(() => {
+      console.log("Wypiszę się co 1 sekundę");
+    }, 1000);
+  
+    clearInterval(interval); //przerwanie
   }
+}
+//Data
+{
+  const date = new Date(); // pobranie aktualnej daty
+  const date2 = new Date(1); // pobranie daty 01.01.1970 + 1msc
+  const date3 = new Date(1995, 4, 21, 19, 30, 1); // pobranie daty rok, miesiac (liczony od 0!), dzien, godzina minuta, sekunda
+
+  date.getDate()	// zwraca dzień miesiąca (wartość z przedziału 1 - 31)
+  date.getDay()	// zwraca dzień tygodnia (0 dla niedzieli, 1 dla poniedziałku, 2 dla wtorku itd)
+  date.getYear()	// zwraca liczbę reprezentującą rok (dla lat 1900 - 1999 jest to 2-cyfrowa liczba np. 99, a dla późniejszych jest to liczba 4-cyfrowa np. 2002)
+  date.getFullYear()	// zwraca pełną liczbę reprezentującą rok (np. 1999 lub 2000)
+  date.getHours()	// zwraca aktualną godzinę (wartość z przedziału 0 - 23)
+  date.getMilliseconds()	// zwraca milisekundy (wartość z przedziału 0 - 999)
+  date.getMinutes()	// zwraca minuty (wartość z przedziału 0 - 59)
+  date.getMonth()	// zwraca aktualny miesiąc (0 - styczeń, 1 - luty itp.)
+  date.getSeconds()	// zwraca aktualną liczbę sekund (wartość z przedziału 0 - 59)
+  date.getTime()	// zwraca aktualny czas jako liczbę reprezentującą liczbę milisekund która upłynęła od godziny 00:00 1 stycznia 1970 roku
 }
