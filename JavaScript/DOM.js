@@ -1,5 +1,5 @@
 {
-  document; //pobiera cały DOM
+  document.documentElement; //pobiera cały DOM
   document.body; //element body
 
   document.all; //kolekcja ze wszystkimi elementami na stronie
@@ -18,6 +18,7 @@
   const selectors = document.querySelectorAll("CSS_SELECTOR"); // pobiera wszystkie elementy z danym selektorem i opisuje do node list
   // nie jest to prawdziwa tablica! aby ja przekonwertowac do takiej uzyj Array.from() lub spreed operatora
 
+  //funkcje te zadzialaja tez na elementach a nie calym dokumencie przez co mozemy tez szykac dzieci elementu
   id.parentNode; // pobierze rodzica elementu
 
   /*
@@ -99,13 +100,14 @@
   element.style["backgroud-color"]; // alternatywa
   getComputedStyle(element); //zwroci wszystkie style ktore widzi przegladarka (a nie tylko te co sa w inline)
   //nie da sie ich nadpisac
+  element.style.setProperty("wlasna_wlasciwosc", "red"); // dla wlasnych wlasciwosci ustawiamy za pomoca funkcji setProperty
 
   //klasy
   // klasy dodajemy lub odejmujemy glownie po to zeby manipulowac stylami danego elementu dopisaujac mu
   //klase ktora ma dodatkowe style.
-  element.classList.add("nazwa_klasy");
+  element.classList.add("nazwa_klasy", "klasa2", "klasa3"); //mozna manipulowac kilkoma na raz
   element.className; // zwroci klasy ktore element posiada
-  element.className += "klasa1 klasa2"; // sposob na dodanie kilku klas
+  element.className += "klasa1 klasa2"; // raczej nie uzywac tego sposobu
   element.classList.remove("nazwa_klasy");
   element.classList.contains("nazwa_klasy"); // zwroci booleana
   element.classList.toggle("nazwa_klasy", true); //przełączanie (jak nie ma to dodaje, jak jest to usuwa)klasy.
@@ -113,6 +115,7 @@
 
   //atrybuty np. href w a
   element.getAttribute("name"); //pobiera wartość danego atrybutu lub zwraca null jeżeli takiego nie ma
+  //(dziala rowniez na niestandarwocyh atrubutach)
   element.setAttribute("name", "value"); //ustawia nową wartość atrybutu
   element.hasAttribute("name"); //zwraca true/false w zależności czy element ma atrybut o danej nazwie
   element.removeAttribute("name"); //usuwa atrybut o danej nazwie
@@ -122,8 +125,20 @@
   element.blind(); //  usunie skupienie z elementu, np kursor z textarea
 
   element.dataSet.nowyAtrybut = "nowy"; // doda do elementu nowy atrynbut ktory bedzie mial nazwe data-nowy-atrybut
+  //w dataSet beda tez przechowywane wszystkie atrybuty (np. data-test-id) elementu
   element.src; // pobierze dany element
   element.tagName; // pobierze wartosc tag eleementu
+
+  //wspolrzedne
+  element.getBoundingClientRect(); // pobierze wspolrzedne elementu. x - odleglosc od lewej, y od gory
+  window.pageXOffset; // pozycja zeskrolowanego okna (od lewej)
+  window.pageYOffset; // pozycia zeskrolowanego okna (od gory)
+  document.documentElement.clientHeight; // wysokosc okna
+  document.documentElement.clientWidth; // szerokosc okna
+
+  element.scrollIntoView({
+    behavior: "smooth",
+  }); // zeskrolowanie do elementu. w wlasiwosciach mozna wyslac obiekt z dodatkowymi ustawieniami
 
   //pobieranie geolokalizacji - wyswietli prosbe o udostepnienie. przymuje 2 funckje, zgoda i brak pzwolenia
   navigator.geolocation.getCurrentPosition(
@@ -172,17 +187,43 @@
   //event listner sluzy do nasluchiwania jakichs akcji na danym elemencie i wykonywania instrukcji jesli one wystapia
   element.addEventListener("click", () => console.log("cos zrobi"));
   // przyjmuje          typ eventu,  funkcje ktora wykona sie gdy ten event nastapi
+
+  //Kazde zdarzenie (klikniecie, najechanie na element etc) na stronie wywoluje pojawienie sie eventu z odpowiednimi oznaczeniami
+  //Oznaczenie takie tworzy sie na samej gorze drzewa DOM (document) i w fazie capturing przechodzi od rodzica na dziecko do elementu
+  //na ktorym rzeczywiscie zostalo wykonanie
+  //Nastepnie w fazie bubbling wraca ona od dziecka do rodzica, dziadka etc az do drzewa dom.
+  //Event listener bedzie nasluchiwal wszystkich takich eventow i wylapie je (domyslnie tylko w fazie bubbling)
+
+  //<div id='1'>
+  //  <button id='2'>
+  //    <a id='3'> text </a>
+  //  </button>
+  //<div>
+
+  //zalozny ze mamy taki dom, i podpiete pod kazdy z elementow nasluchiwanie na clicka
+  // jesli klikniemy na 3 to wowczas wylolaja sie funkcje z nasluchiwan w kolejnosci 3 > 2 > 1
+  // jesli kliniemy na 2 to wywola sie tylko 2 > 1
+
+  // jesli chcemy przerwac ten lancuch, tj np wywolac tylko funkcje z 3 wowczas nalezy zastosowac
+  element.addEventListener("click", (e) => {
+    e.stopPropagation(); // nie jest to jednak zalecane
+  });
+
+  //jesli jednak z jakiegos powodu chcielibysmy, zeby brane pod uwage bylo pojawienie sie eventu w fazie capturing to nalezy dodac flage true
+  element.addEventListener("click", () => {}, true);
+  //wowczas (zakladajac ze element to 1) odpala sie eventy w kolejnosci 1 > 3 > 2
+
   function funkcja() {
     console.log("cos robi");
   }
   element.addEventListener("moseout", funkcja); // jesli chcemy wywolac jakas funkcje to robimy to bez ()
   //bo inaczej wywola sie instant
   element.addEventListener("click", function () {
-    // aby przekazac jako callback funckje z argumentami i nie wywolywac ja intant
+    // aby przekazac jako callback funckje z argumentami i nie wywolywac ja instant
     funkcjaZArtumentami(2, 3); // trzeba opakowac ja w funkcje anonimowa
   });
 
-  element.removeEventListener("click", nazwaFunkcji); // usuniecie eventu. nie usunie funkcji anonimowej
+  element.removeEventListener("click", nazwaFunkcji); // usuniecie eventu. nie mozna usunac go gdy powstal z funkcja anonimowa
 
   element.addEventListener("mousedown", (e) => {
     // w ten sposonb mozemy dostac sie do informacji o evencie
@@ -194,12 +235,6 @@
     }
   });
   e.target; //pokaze element na ktorym rzeczywiscie zostal wykonany dany event
-
-  //mamy diva z naluchiwaniem kliku ktory ma dziecko spana z nasluchiwaniem tego samego
-  //gdy klikniemy na spana wykona sie jego funkcja + funkcje wszystkich jego rodzicow ktorzy maja takie samo
-  //nasluchiwanie.
-  //aby to wylaczyc trzeba podac trzeci parametr
-  element.addEventListener("click", funkcja, true); // teraz w takiej sytuacji odpali sie tylko span
 
   element.addEventListener("click", function () {
     this; // wskaze na element na ktorym wywplujemy event listener
