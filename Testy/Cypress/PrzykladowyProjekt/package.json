@@ -1,0 +1,20 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "",
+    "@bahmutov/cypress-esbuild-preprocessor": "",
+    "cypress": ""
+  },
+  "scripts": {
+    "test:e2e:dev": "npx cypress open -e2e -browser chrome -config baseUrl=https://dev.pl",
+    "test:e2e:loc": "npx cypress open -e2e -browser chrome -config baseUrl=https://loc.pl",
+    "": "",
+    "ponizej nonfiguracja do polaczonych raportow z mochawsome": "1. #usuwa stare raporty, 3. #laczy pliki json z kazdego feature, 4. #genetuje raport, 6.#odpala testy i generuje wszystko ",
+    "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
+    "pretest": "npm run clean:reports",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "posttest": "npm run combine-reports && npm run generate-report",
+    "cy:run": "(npm run pretest && npx cypress run --spec \"cypress/e2e/**/*\") || npm run posttest"
+  }
+}

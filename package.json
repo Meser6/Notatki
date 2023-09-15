@@ -4,6 +4,12 @@
     "chai": "^4.3.7",
     "live-server": "^1.2.2",
     "mocha": "^10.2.0",
+    "playwright": "^1.38.0",
     "supertest": "^6.3.3"
-  }
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.38.0",
+    "@types/node": "^20.6.0"
+  },
+  "scripts": {}
 }

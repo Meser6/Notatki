@@ -1,0 +1,13 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "supertest": "",
+    "chai": "",
+    "cross-env": "",
+    "mocha": "",
+    "mochawsome": ""
+  },
+  "scripts": {
+    "test": "cross-env BASE_URL=https://google.pl mocha --config mocha.config.js"
+  }
+}

@@ -1,5 +1,0 @@
-Schemat poziomu testu
-
-*.feature > *.spec.js > [POM].js
-
-w katalogu w ktorym jest plik *.feature musi byc folder z taka sama nazwa a w nim plik z ta nazwa .spec.js
