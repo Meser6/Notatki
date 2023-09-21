@@ -175,9 +175,13 @@
       // ale nie bedzie sie jej dalo pobrac ani podmienic poza klasa
       trzeciaLiczba?: number; // mozna robic opcjonalne propertisy
 
-      constructor(v1: number, v2: number) {
+      readonly czwartaliczba: number; // read only spowoduje ze wartosc bedzie mozna doisac tylko raz i nie bedzie
+      //dalo sie jej juz zmienic
+
+      constructor(v1: number, v2: number, v4: number) {
         this.pierwszaLiczba = v1;
         this.drugaLiczba = v2;
+        this.czwartaliczba = v4;
       }
 
       doSomething(pierwszaLiczba: number) {
