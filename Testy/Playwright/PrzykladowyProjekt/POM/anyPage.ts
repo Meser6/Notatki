@@ -1,12 +1,14 @@
 import { BasePage } from "./basePage";
 import { Locator, Page } from "playwright/test";
 export class pageAtPOM extends BasePage {
-  get element() {
-    return this.page.locator("css");
-  }
+  kontener = {
+    get element() {
+      return this.page.locator("css");
+    },
+  };
 
   async doSomething() {
-    await this.element.click();
+    await this.kontener.element.click();
   }
 }
 

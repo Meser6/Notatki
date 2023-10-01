@@ -20,6 +20,11 @@
   //uproszczona, jednolinijkowa instrukcja.
   //sprawdz czy a < 5, jesli jest to zeob to, jesli nie to zrob tamto
   a < 5 ? console.log("a <5") : console.log("a > 5");
+  a < 5
+    ? console.log("a <5")
+    : a < 3
+    ? console.log("a <3")
+    : console.log("nic nie pasuje");
 
   //postac ta moze tez zwrocic wartosc
   const czyAJestMniejsze = a < 5 ? "a mniejsze" : "a wieksze"; // zwroci stringa w tym przypadku

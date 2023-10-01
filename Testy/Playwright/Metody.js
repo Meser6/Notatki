@@ -2,8 +2,6 @@ import test from "@playwright/test";
 // ---------- otwieranie strony ----------
 test("", async ({ page }) => {
   page.goto(""); // otwiera strone bazowa
-  //   cy.visit("http://google.pl"); // otwiera dana strone
-  //   cy.visit("/konto"); // otwiera strone bazowa + odaje do niej to co w argumencie ${baseUrl}/somewhere
 
   // ---------- pobieranie elementu ----------
   page.locator("CSS"); // pobierze elenemt/y po selektorze CSS
@@ -84,4 +82,12 @@ test("", async ({ page }) => {
 
   const frame = page.frameLocator("lokator ifreame"); // przelaczy sie na iframe
   await frame.locator("css"); // akcje w tym iframe
+
+  //envy
+  process.env["TOKEN"] = "nowy token"; // zapisze enva z wartoscia
+  process.env.TOKEN; // poierze enva
+
+  //screeny
+  page.screenshot({ path: "path/image.png" }); // zrobi screena i zapisze do pliku
+  //to samo mozna zrobic ale dla elementu a nie dla calej strony
 });

@@ -1,7 +1,7 @@
 // ----------- wysylanie requestu -----------
 
 // request mozna za pomoca metody request
-//nie zwroci on Promise jako tako, a jesli chcemy cos zrobic z response to musimy to zrobic przez then
+// nie zwroci on Promise jako tako, a jesli chcemy cos zrobic z response to musimy to zrobic przez then
 // jesli strona jest taka sama jak w base url to nie trzeba jej dodawac bo zostanie dopisana automatyczne
 cy.request("GET", "/api/endpoint").then((resp) => {
   console.log(resp);

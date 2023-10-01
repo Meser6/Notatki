@@ -8,6 +8,8 @@
   "scripts": {
     "test:e2e:dev": "npx cypress open -e2e -browser chrome -config baseUrl=https://dev.pl",
     "test:e2e:loc": "npx cypress open -e2e -browser chrome -config baseUrl=https://loc.pl",
+    "&& odpali sekwencynie jeden po drugim ": "npm run test:e2e:loc && test:e2e:dev",
+    "& odpali jednoczesnie oba": "npm run test:e2e:loc & test:e2e:dev",
     "": "",
     "ponizej nonfiguracja do polaczonych raportow z mochawsome": "1. #usuwa stare raporty, 3. #laczy pliki json z kazdego feature, 4. #genetuje raport, 6.#odpala testy i generuje wszystko ",
     "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
