@@ -1,4 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
+import type { TestOptions } from "./test-options"; // ladowanie envow/fixturex z test-options
 
 //Aby odczytac zmienne srodowiskowe z pliku nalezy zainstalowac paczke https://github.com/motdotla/dotenv i dodac
 require("dotenv").config();
@@ -6,7 +7,8 @@ require("dotenv").config();
 /**
  * Zobacz https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({
+export default defineConfig<TestOptions>({
+  //<TestOptions> gdy korzystamy z test-options
   //globalne ustawienie mozemy nadpisac w projektach jak i w samych testach
   timeout: 40000, // max trwania 1 testu
   globalTimeout: 60000, // max trwania wszystkich testow
@@ -82,3 +84,5 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
   },
 });
+
+//mozna tez stworzyc wlasne pliki konfiguracyjne i ustawic je jako obowiazujace z apomoca --congif=nowy.plik.ts

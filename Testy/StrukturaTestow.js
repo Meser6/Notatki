@@ -1,5 +1,7 @@
 // ---------- struktura testu ----------
 
+//w PW zamiast it jest test
+
 describe("E2E", () => {
   // nazwa całego modułu testów
   it("first test", () => {

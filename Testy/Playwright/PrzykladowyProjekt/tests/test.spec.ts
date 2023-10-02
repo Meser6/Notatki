@@ -1,4 +1,5 @@
-import { test, expect } from "@playwright/test";
+import { test } from "../../test-options";
+import { expect } from "@playwright/test";
 
 test.describe.configure({ mode: "parallel" }); // mozemy nadpisac flage fullyParallel z konfigu tylko dla danego pliku
 //teraz wszystkie testy w obszarze tego pliku beda sie wykonywac rownolegle
