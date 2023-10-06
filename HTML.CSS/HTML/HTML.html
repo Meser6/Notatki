@@ -2,92 +2,95 @@
 
 <!DOCTYPE HTML> <!-- deklaracja w jakim standarcie html chcemy pisac. taki zapis oznacza najnowszy (5) -->
 <html lang="pl"> <!-- kazda strona zaczyna sie od znaczkika html i wszystko co w niej jest zawiera sie w nim -->
-<!-- w powyzszy sposob mozemy zadeklarowac w jakim jezyku nasza strona bedzie zrobiona -->
-<head> <!-- w sekcji head trzymamy to co jest niewidoczne dla uzytkownika -->
-    <title> Tytuł strony</title> <!-- tytul w wyszukiwarce -->
-    <meta charset="utf-8"/> <!-- standard kodowania kodowania znakow -->
-    <meta name="description" content="opis strony. powiinien miec max 160 znakow" /> <!-- opis w wyszukiwarce -->
-    <meta name="keywords" content="slowa, kluczowe" /> <!-- slowa kluczowe dla wyszukiwarki -->
-    <meta name="author" content="autor strony" /> <!-- autor strony -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> <!-- linia ta nakazuje intenet exlopder wlaczenie strony w najwyzszym standarcie IE -->
-    <!-- skrypty JS -->
-    <link rel="stylesheet" href="sciezka do pliku od folderu w ktorym znajduje sie plik html" type="text/css" /> <!-- arkusze styli CSS -->
-    <style> /* inny sposob wykorzystania css */
-        h1 {
-        color: blue;
-        }
-    </style> <!-- taki zapis podmieni nam te cssy ktore przywolamy w pliku bo jest wyzej w hierarchii -->
-    <!-- czcionki -->
-    <script src="nazwa.js"></script>  <!-- doda skrypt do wykonania sie w htmlu -->
-    <script defer src="nazwa.js"></script>     <!-- zacznie wczytywac plik w tle i wykona sie dopiero po zaladowaniu calego htmla -->
-      <script src="..." async></script> <!-- zacznie wczytywac plik w tle i odpali jak tylo sie wczyta -->
-<script src="..." async defer></script>
-    <!-- defer sprawi, ze skrypt wykona sie dopiero po zaladowaniu calego htmla -->
-</head>
-<body> <!-- w sekcji body trzymamy to co jest widoczne dla uzytkownika -->
-    <div><!-- tekst -->
-        <h1 style="color:red;">nagłówek</h1> <!-- powiekszony tekst defoltowa czcionka jest ich 6 od h1 do h6--> <!-- taki zapis CSSA jest najwaznieszy i zaslni te ze <style> z <link> -->
-        <div></div>
-            1 linija <br/> 2 linijka <!-- jesli chcemy zrobic enter i przejsc do kolejnej lini to robimy to za pomoca znaczika br -->
-            <span> jakis tekst </span> <!-- teskty dobrze jest opakowywac w spany, kazda linijka w odzdzielny i nadac im odpowiednia wasciwosc (np za pomoca klas) -->
-            <p> paragraf </p> <!-- lepszy sposob na grupowanie tekstow w linijkin niz dodawanie <br> --> 
+    <!-- w powyzszy sposob mozemy zadeklarowac w jakim jezyku nasza strona bedzie zrobiona -->
+    <head> <!-- w sekcji head trzymamy to co jest niewidoczne dla uzytkownika -->
+        <title> Tytuł strony</title> <!-- tytul w wyszukiwarce -->
+        <meta charset="utf-8"/> <!-- standard kodowania kodowania znakow -->
+        <meta name="description" content="opis strony. powiinien miec max 160 znakow" /> <!-- opis w wyszukiwarce -->
+        <meta name="keywords" content="slowa, kluczowe" /> <!-- slowa kluczowe dla wyszukiwarki -->
+        <meta name="author" content="autor strony" /> <!-- autor strony -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> <!-- linia ta nakazuje intenet exlopder wlaczenie strony w najwyzszym standarcie IE -->
+        <!-- skrypty JS -->
+        <link rel="stylesheet" href="sciezka do pliku od folderu w ktorym znajduje sie plik css" type="text/css" /> <!-- arkusze styli CSS -->
+        <style> /* inny sposob wykorzystania css */
+            h1 {
+            color: blue;
+            }
+        </style> <!-- taki zapis podmieni nam te cssy ktore przywolamy w pliku bo jest wyzej w hierarchii -->
+        <!-- czcionki -->
+        <script src="nazwa.js"></script>  <!-- doda skrypt do wykonania sie w htmlu -->
+        <script defer src="nazwa.js"></script>     <!-- zacznie wczytywac plik w tle i wykona sie dopiero po zaladowaniu calego htmla -->
+        <script src="..." async></script> <!-- zacznie wczytywac plik w tle i odpali jak tylo sie wczyta -->
+    <script src="..." async defer></script>
+        <!-- defer sprawi, ze skrypt wykona sie dopiero po zaladowaniu calego htmla -->
+    </head>
+    <body> <!-- w sekcji body trzymamy to co jest widoczne dla uzytkownika -->
+        <div><!-- tekst -->
+            <h1 style="color:red;">nagłówek</h1> <!-- powiekszony tekst defoltowa czcionka jest ich 6 od h1 do h6. h1 powinno sie uzywac wiecej niz 1 na strone--> 
+            <!-- taki zapis CSSA jest najwaznieszy i zaslni te ze <style> z <link> -->
+            <div></div>
+                1 linija <br/> 2 linijka <!-- jesli chcemy zrobic enter i przejsc do kolejnej lini to robimy to za pomoca znaczika br -->
+                <span> jakis tekst </span> <!-- teskty dobrze jest opakowywac w spany, kazda linijka w odzdzielny i nadac im odpowiednia wasciwosc (np za pomoca klas) -->
+                <p> paragraf </p> <!-- lepszy sposob na grupowanie tekstow w linijkin niz dodawanie <br> --> 
+            </div>
+            <div>
+                <b> pogrubienie </b> <strong> pogrubienie </strong> <!-- b jest przestarzale -->
+                <i> pochylenie </i> <em> pochylenie </em> <!-- i jest przestarzale -->
+                <u> podkreslenie</u>
+                <q> cytat </q>
+            </div>
+            <hr> <!-- tworzy linie przez cala strone -->
         </div>
-        <div>
-            <b> pogrubienie </b> <strong> pogrubienie </strong>
-            <i> pochylenie </i> <em> pochylenie </em>
-            <u> podkreslenie</u>
-            <q> cytat </q>
+        <div><!-- obrazy -->
+            <img src="sciezka do pliku od folderu w ktorym znajduje sie plik html" />
+            <img src="http://strona.pl/zdjecie.jpg" />
+            <img src="sciezka" alt="tekst" /> <!-- alt to opis co zawiera obraz. wyswietli tekst w przypadku gdy nie uda sie zaladowac zdjecia -->
+            <img src="sciezka" width="200" /> <!-- okresli szerokosc. jesli nie podamy wysokosci to policzy z propocji -->
+            <figure> <!-- tworzy ramke w ktorej bedzie zdjecie -->
+                <img src="http://strona.pl/zdjecie.jpg" /> <!-- zdjecie -->
+                <figcaption>Opis</figcaption> <!-- opis zdjecia -->
+            </figure>
         </div>
-        <hr> <!-- tworzy linie przez cala strone -->
-    </div>
-    <div><!-- obrazy -->
-        <img src="sciezka do pliku od folderu w ktorym znajduje sie plik html" />
-        <img src="http://strona.pl/zdjecie.jpg" />
-        <img src="sciezka" alt="tekst" /> <!-- alt wyswietli tekst w przypadku gdy nie uda sie zaladowac zdjecia -->
-        <figure> <!-- tworzy ramke w ktorej bedzie zdjecie -->
-            <img src="http://strona.pl/zdjecie.jpg" /> <!-- zdjecie -->
-            <figcaption>Opis</figcaption> <!-- opis zdjecia -->
-        </figure>
-    </div>
-    <div> <!-- hiperlacza -->
-        <a href="drugaStrona.html">tekst</a> <!-- link do wewnetrznej strony.  w hrefie piszemy sciezke do pliku zacznajac od obecnego   -->
-        <a href="http://google.pl">tekst2 </a> <!-- link do zewnetrznej strony. -->
-        <a href="link do strony" target="_blank">tekst</a> <!-- link do strony. ale otworzy w innej karcie -->
-    </div>
-    pola edycyjne
-    przyciski
-    <div><!-- listy -->
-        <ul> <!-- lista nienumerowana -->
-            <li> 1 element listy</li>
-            <li> 2 element listy</li>
-        </ul>
-        <!-- lista numerowana -->
-        <ol>
-            <li> 1 element listy</li>
-            <li> 2 element listy</li>
-        </ol>
-    </div><!-- tabele -->
-        <table>
-            <caption> Nagłowek </caption> <!-- wyswietli jako nazwa naclej tabli an gorze -->
-            <thead> Gora tabeli  </thead>
-                <tr> Wiersz <!-- poziomy wiersz tabeli. w nim umiesczamy kolumny -->
-                    <th> </th> <!-- kolumna nagłowka tabeli -->
-                    <td> </td> <!-- zwykla kolumna tabeli -->
-                </tr>
-            <tbody> </tbody>
-                <tr>
-                    <td colspan="2"> </td> <!-- laczy ta komorkw w ktorej jest z X koorkami w poziomie -->
-                    <td rowspan="2"> </td> <!-- laczy ta komorkw w ktorej jest z X koorkami w pionie -->
-                    <td align="center">  </td> <!-- ustawi zawartosc w danym miejscu -->
-                </tr>
-            <tfoot> </tfoot>
-        </table>
-    <div> <!-- rozne -->
-        <input type="text" placeholder="wpisz tu cos" /> <!-- stworzy moiejsce do wpisania czegos -->
-        <button> OK </button> <!-- przycisk z tym tekstem -->
-    </div>
-    checkbxy
-</body>
+        <div> <!-- hiperlacza -->
+            <a href="drugaStrona.html">tekst</a> <!-- link do wewnetrznej strony.  w hrefie piszemy sciezke do pliku zacznajac od obecnego   -->
+            <a href="http://google.pl">tekst2 </a> <!-- link do zewnetrznej strony. -->
+            <a href="link do strony" target="_blank">tekst</a> <!-- link do strony. ale otworzy w innej karcie -->
+            <a href="#">tekst</a> <!-- jelsi nie chcemy zeby link gdzies prowadzil to piszemy # -->
+        </div>
+        pola edycyjne
+        przyciski
+        <div><!-- listy -->
+            <ul> <!-- lista nienumerowana -->
+                <li> 1 element listy</li>
+                <li> 2 element listy</li>
+            </ul>
+            <!-- lista numerowana -->
+            <ol>
+                <li> 1 element listy</li>
+                <li> 2 element listy</li>
+            </ol>
+        </div><!-- tabele -->
+            <table>
+                <caption> Nagłowek </caption> <!-- wyswietli jako nazwa naclej tabli an gorze -->
+                <thead> Gora tabeli  </thead>
+                    <tr> Wiersz <!-- poziomy wiersz tabeli. w nim umiesczamy kolumny -->
+                        <th> </th> <!-- kolumna nagłowka tabeli -->
+                        <td> </td> <!-- zwykla kolumna tabeli -->
+                    </tr>
+                <tbody> </tbody>
+                    <tr>
+                        <td colspan="2"> </td> <!-- laczy ta komorkw w ktorej jest z X koorkami w poziomie -->
+                        <td rowspan="2"> </td> <!-- laczy ta komorkw w ktorej jest z X koorkami w pionie -->
+                        <td align="center">  </td> <!-- ustawi zawartosc w danym miejscu -->
+                    </tr>
+                <tfoot> </tfoot>
+            </table>
+        <div> <!-- rozne -->
+            <input type="text" placeholder="wpisz tu cos" /> <!-- stworzy moiejsce do wpisania czegos -->
+            <button> OK </button> <!-- przycisk z tym tekstem -->
+        </div>
+        checkbxy
+    </body>
 </html>
 
 <!-- serwer strony zawsze wyszukuje pliku index.html (lub index.htm) jako ta ktora odpowiada stronie głównej -->

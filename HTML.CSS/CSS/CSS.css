@@ -1,4 +1,27 @@
-/* pliki CSS odpowiadaja za wyglad danych elementow */
+/* style css mozemy ustawiac na trzy sposoby 
+ 
+1. inline - bezposrednio w htmlu (bardzo niezalecane)
+ < h1 style="color: blue  
+
+2. internal, - w headerze (niezalecane)
+
+<head>
+  <style> (wszystko co jest w tym elemencie musi byc napisane w css) 
+    h1 {
+      color: blue
+    }
+  </style>
+</head>
+
+3. external - w oddzielnych plikach
+
+ <link rel="stylesheet" href="plik.css" type="text/css" />
+
+  h1 {
+      color: blue
+    }
+
+*/
 
 .klasa {
   /* skladaja sie z selektora czyli tego elementu ktory styluzujemy (te same co uzywa sie w testach) */
@@ -6,7 +29,7 @@
   font-size: 36px;
 }
 * {
-  /* * znaczy zastosuj do wszusykiego */
+  /* * znaczy zastosuj do wszystkiego */
   color: aliceblue;
 }
 .klasa1,
@@ -20,36 +43,14 @@ waznosc {
   color: aqua; /* to zastosuje */
 }
 /* hierarchia waznosci stylow */
-1. styl w pliku css z parametrem !important h2 {
+/* 1. styl w pliku css z parametrem !important  */
+h2 {
   color: blue !important;
 }
-2.
-  style
-  zapisane
-  w
-  znaczniku
-  <h1
-  style="color:red"
-  > </h1
-  > 3.
-  style
-  zapisane
-  w
-  headerze
-  strony
-  <style
-  > h1 {
-  color: red;
-}
-</style > 4. style zapisane w pliku css przy uzyciu id #id {
-  color: red;
-}
-5. style zapisane w pliku css przy uzyciu klasy .klasa {
-  color: red;
-}
-6. style zapisane w pliku css przy uzyciu znacznika h1 {
-  color: red;
-}
-7. style zapisane w pliku css przy uzyciu gwiazdki * {
-  color: red;
-}
+/* 2. style zapisane w znaczniku */
+/* <h1 style="color:red"> </h1>  */
+/* 3. style zapisane w headerze strony za pooca <style> h1 { color: red } </l> */
+/* 4. style zapisane w pliku css przy uzyciu id #id  */
+/* 5. style zapisane w pliku css przy uzyciu klasy .klasa  */
+/* 6. style zapisane w pliku css przy uzyciu znacznika h1  */
+/* 7. style zapisane w pliku css przy uzyciu gwiazdki *  */

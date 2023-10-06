@@ -1,4 +1,3 @@
-
 // Selektory CSS wyszukują po stylach
 // $$("SELEKTOR-CSS") - wyszukiwanie w konsoli po CSSach. Zwróci listę wszystkich znalezionych elementów
 // Bierze pod uwagę wielkość liter
@@ -40,7 +39,6 @@
 "[class~='kl'"; // znajdzie wszystkie obiekty których atrubut ma w sobie ten ciąg znaków i jest on rozdzielony spacjami
 "[class|='jakas'"; // znajdzie wszystkie obiekty których atrubut zaczyna się od tego ciagu znaków a po nim jest myślnik
 
-
 // tak na prawde przy pomocy nawiasów kwadratowych mozna szukac po dowolnym elemencie
 // wyszukiwanie z nawiasami kwadratowymi zawsze znajdzie obiekty ktore mają dokładnie taka wartość
 //<button class="jakas-klasa" href="ppoo" costam="xd">tekst</button>
@@ -57,7 +55,9 @@
 "[href='ppoo'].jakas-klasa";
 "button#jakies-id[costam='xd']";
 
+// istnieje tez odpowiednik lub
+".jakas-klasa, #jakies-id";
+
 // przy wyszukaniu po stylu trzeba szukać po całej warsości (przynajmniej w przykladzie ponizej)
 //<button style="jeden; dwa; trzy">tekst</button>
 "style='jeden; dwa; trzy'";
-
