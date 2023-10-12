@@ -13,6 +13,7 @@ obramowanie {
   border-color: aliceblue; /* kolor obramowania */
   border: 5px solid red; /*łaczy 3 powyzsze - wielkosc, styl, kolor */
   border-radius: 15; /* promien zaaograglenia */
+  border-top: 5px dotted #7d0a72; /* gora obramowania. to samo mozna zrobic z kazda strona */
 }
 
 /* Marginesy */
@@ -53,7 +54,7 @@ tlo {
 
 /* Listy */
 listy nienumerowane {
-  list-style-type: armenian; /* znacznik przy elemencie listy */
+  list-style: armenian; /* znacznik przy elemencie listy */
 }
 
 /* Hiperlacze */
@@ -62,11 +63,14 @@ a {
   transition: color 0.5s; /* dodaje animacje przy przejsciach */
 }
 a:link {
-} /* nieodwiedzone hiperlacze */
+} /* nieodwiedzone hiperlacze  (a z href nadamym)*/
 a:visited {
 } /* odwiedzone kiedys hiperlacze */
 a:hover {
 } /* kursor na hiperlaczu */
+a:active {
+  /* gdy sie klinie na link. bedzie aktuwny do czasu pusczenia prztcisku */
+}
 
 /* LINKI */
 /* http://webmaster.helion.pl/index.php/kurs-css/6/151-alfabetyczna-lista-stylow

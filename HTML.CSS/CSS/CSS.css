@@ -22,6 +22,7 @@
     }
 
 */
+/* selektory css znajdziesz w LokalizacjaElementow/CSS */
 
 .klasa {
   /* skladaja sie z selektora czyli tego elementu ktory styluzujemy (te same co uzywa sie w testach) */
@@ -47,8 +48,7 @@ waznosc {
 h2 {
   color: blue !important;
 }
-/* 2. style zapisane w znaczniku */
-/* <h1 style="color:red"> </h1>  */
+/* 2. style zapisane w znaczniku <h1 style="color:red"> </h1>  */
 /* 3. style zapisane w headerze strony za pooca <style> h1 { color: red } </l> */
 /* 4. style zapisane w pliku css przy uzyciu id #id  */
 /* 5. style zapisane w pliku css przy uzyciu klasy .klasa  */
