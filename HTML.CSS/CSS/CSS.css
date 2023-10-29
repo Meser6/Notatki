@@ -24,6 +24,9 @@
 */
 /* selektory css znajdziesz w LokalizacjaElementow/CSS */
 
+/* elementy dziedzicza czesc styli od rodzica (glownie tych zwiazanych z tekstem) */
+/* dzieki czemu np. dopisujac font do body dopiszemhy go tez do wszystkich elementow ktore w nim sa */
+
 .klasa {
   /* skladaja sie z selektora czyli tego elementu ktory styluzujemy (te same co uzywa sie w testach) */
   color: yellow; /* i parametrow skladajacych sie z klucz: wartosc; */

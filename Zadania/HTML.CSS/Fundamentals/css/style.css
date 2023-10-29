@@ -1,0 +1,40 @@
+.post {
+  background-color: rgb(249, 192, 123);
+  border: 5px solid white;
+  border-radius: 15px;
+}
+
+.post-header {
+  background-color: rgb(255, 131, 42);
+}
+.section-header {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.header {
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+.main-header {
+  font-size: 35px;
+  background-color: rgba(247, 112, 16);
+  border-radius: 15px;
+}
+
+.article-footer {
+  background-color: rgb(249, 192, 123);
+  border-radius: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  text-align: center;
+  border: 2px solid white;
+}
+
+.other-animals li {
+  list-style: none;
+}
+.article-img {
+  border-radius: 45px;
+}
