@@ -57,3 +57,31 @@ h2 {
 /* 5. style zapisane w pliku css przy uzyciu klasy .klasa  */
 /* 6. style zapisane w pliku css przy uzyciu znacznika h1  */
 /* 7. style zapisane w pliku css przy uzyciu gwiazdki *  */
+
+/* CSS Box Model */
+
+/* W CSSie kazdy element sklad sie z box modelu. 
+content box - sam obrazek/tekst etc
+padding  - odleglosc od obrazka/tekstu do granicy obszaru. znajduje sie on jeszcze w ramce
+border - granica okreslajaca koniec obszaru elementu. tez ma szerokosc
+margin - margines poza elementem (oddzielajacy od innych elementow)
+
+wartosci te defaultowo sa na 0 ale mozna je nadpisywac 
+border okresla obszar wypelnienia  czyi obszar dla ktorego bedzie dzialal np. kolor tla
+*/
+/* 
+   _____________________________________________________
+  |                 Margin     /\                       |
+  |   _________________________\/_____________________  | Border (Ramka)  
+  |  |              Padding  /\                      |  |
+  |  |      _________________\/________________      |  |
+  |  |     |         Content Box (Zawartość)  |      |  |
+  |  |     |                                  |      |  |
+  |  |     |__________________________________|      |  |
+  |  |_______________________________________________|  |
+  |_____________________________________________________|
+  
+
+W modelu tym wystepuje tzw lacznie marginesow. zalozmy ze sa dwa elementy kolo siebie. jeden ma margin 100, drugi 50. 
+odleglosc miedzy nimi bedzie 100 a nie 150 poniweaz mniejszy margines schowa se w wiekszy
+*/

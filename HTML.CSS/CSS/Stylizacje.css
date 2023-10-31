@@ -20,6 +20,7 @@ obramowanie {
 marginesy {
   margin: 26px; /* margines ale na zewnatrz boxa */
   padding: 20px; /* margines ale do wewnatrz boxa */
+  padding: 20px 30px; /* jestli podamy dwie wartosci to pierwsza bedzie do gora i dol a druga do lewo i prawo */
 }
 
 /* Tekst */
