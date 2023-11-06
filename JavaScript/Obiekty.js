@@ -39,13 +39,14 @@
 
   //opisane w OPP
 }
-//this
 {
-  // this wskasuje na obiekt w ktorym je wywolamy
+  //aby wskazac na wlasciwosc obietu trzeba uzyc gettera albo funkcji
   const thisObjekt = {
     numner: 15,
-    number2: this.numner - 1, // zadziala tak samo jakbysmy napisali thisObjekt.numer
-    objekt: this, // w ten sposob zwroci caly objekt
+    number2: this.numner - 1, // zawroci NaN bo this.number zwroci undefind
+    get number3() {
+      return this.numner - 1;
+    }, //prawidlowe uzycie. zwroci 14
   };
 }
 //Zarzadzanie właściwościami
