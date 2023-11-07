@@ -54,12 +54,18 @@
     } // bedzie mial taki sam typ co objekt1
 
     obcject2.nieIstniejacaWLasciwosc // TS bedzie nam krzyczal jak bedziemy chcieli sie odwolac do nieistniejacej wlasciwosci
+
+    //jesli chcemy aby jakas wlasciwosc obiektu byla opcjonalna to nalezy dodac ?
+    const onject12: {name : string; age? : number} = {
+      name: 'bob' // nie bedzie rzucac bledem bo age jest opcjonalne tj. moze byc ale nie musi
+    }
   
+    //przyklad zlozonego obiektu
     const object2: {
       name: string;
       obiekt: {
         age: number
-        arr?: string[]
+        arr?: string[] 
       };
     } = {
       name: "jeden",
@@ -95,38 +101,39 @@
 
     console.log(DefaultoweWartosci.JEDEN) // wydrujuje 1 
   }
-  //Interfejs -----------------
-  //TODO
-  {
-      interface wzorObiektu {
-        // mozemy stoworzyc interfejs ktoty jest wzornikiem dla obiektow i nadac danemu obiektowi typ tego interfejsu
-        name: "bob" | "hans";
-        age: number;
-        women?: boolean; // wlasciwosc z ? oznacza ze obiekt taka wlasciwosc moze miec, ale nie musi
-      }
-      const object2: wzorObiektu = {
-        name: "bob",
-        age: 12,
-      };
-  }
   //funkcja -----------------
-  //TODO
   {
-      const zwrociSume = (v1: number, v2: number) => {
-        return v1 + v2;
-      }; // tworzymy funkcje z parametrami i typem zwracanum
-      //gdyby nic nie zwracala to bylaby (v1: number, v2: number) => void
+    // tworzac funkcje mozemy okreslic tylko parametry ktore ma przyjac, nie okreslajac tego co ma zwrocic
+    // jest to zalecane dzialanie. typow zwracanych powinnysmy uzywac tylko jak mamy ku temu powody
+    // w innnym wypadku powinnismy dac TS mozliwosc domyslenai sie co ma byc zwracane 
+      const funkcja1 = (v1: number, v2: number) =>  v1 + v2;
+      const fnkcja11 = (v1: number, v2: number) : number => v1 + v2 // w takim zapisie piszemy typ zwracany po : za parametrami
+      const funkcja12 : (v1: string) => string = (v1) =>  `v1: ${v1}` // mozemy tez okreslic wszystko, input i output
+      const funkcja13 : (v1 : string) => void = (v1) => console.log(v1); // jesli funkcja ma nic nie zwracac to okreslamy output jako void
+
+      type Funkcja  = (v1: number, v2: number) => number; // mozemy oczywiscie zrobic wlasny typ funkcji
   
-      interface funkcjaInterfejs {
-        suma: (v1: number, v2: number) => number; // w ten sposob dopisjemy parametrowi suma typ funkcja (ta konktetna)
-        int: number;
+      const funkcja2: Funkcja = (v1, v2) => v1 + v2
+      funkcja2(2, 3)
+      funkcja2(2) // nie pozwoli nam wyslac mniej argumentow
+      funkcja2(2, 3,4) // nie pozwoli tez wiecej
+      funkcja2('2', 3)// blad bo zle typy wysylamy
+
+      const funkcja3 : Funkcja = (v1) => v1 + 2 // ale pozwili zbudowac funkcje z mniejsza iloscia argumentow
+      const funkcja4 : Funkcja = (v1, v2) => `${v1},${v2}` // nie pozwoli za to zmienic typu zwracanego
+      const funkcja5 : Funkcja = (b1, b2) => b1+b2 // nazwy parametrow NIE musza byc dokladnie takie jak w typie 
+
+      //tworzenie funkcji z dowolna liczba argumentow
+      function przykladFunkcji3(...val: number[]) {
+        console.log(val);
       }
-  
-      const funkcja1: funkcjaInterfejs = {
-        suma: zwrociSume, // dzieki temu mozemy dopisac tylko odpowiadajaca typowi funkcje
-        int: 3,
-      };
-      funkcja1.suma(5, 15);
+      przykladFunkcji3(1, 2, 3);
+      przykladFunkcji3(1);
+    
+      // w parametrach funkcji automatycznie przypisanie typow nie zadziala. beda typami any
+      function przykladFunkcji2(val1, val2) {
+        return `${val2} to ${val1 - 5}`;
+      }
   }
   //any -----------------
   {
@@ -139,15 +146,14 @@
 
     const anyArr: any[] = ['s', 4, false, {}]
   }
-  //unkown -----------------
-  //TODO
+  //unknown -----------------
   {
-    let unkown1: unknown = zwroci10(); //zalozmy ze zamiast funkcji jakis serwis wysyla cos co nie wiemy czym bedzie
+    let unknown1: unknown = zwroci10(); //zalozmy ze zamiast funkcji jakis serwis wysyla cos co nie wiemy czym bedzie
     //gdybysmy uzyli any to taka zmienna moglibysmy wrzucic do funkcji i nie byloby bledu
     const unknown1Funkcja = (v1: number) => {
       console.log(v1);
     };
-    unknown1Funkcja(unkown1); // jako ze zmienna jest unknown to nie pozwoli nam wrzucic w miejsce gdzie oczekuje sie czegos
+    unknown1Funkcja(unknown1); // jako ze zmienna jest unknown to nie pozwoli nam wrzucic w miejsce gdzie oczekuje sie czegos
 
     if (typeof zwroci10() === "number") {
       // w ten sposob mozemy sprawdzic co funkcja zwraca i wywolac odpowiednie metody
@@ -155,57 +161,29 @@
     }
   }
   //never -----------------
-  //TODO
   {
     // to mechanizm zabezpieczjacy, glownie dla ifow. gdy chcemy miec pelne pokrycie i nigdy nie wywolac bloku else
     type mozliweLiczby = 1 | 2;
     const liczby: mozliweLiczby[] = [1, 2];
-    const dupa = (liczby: mozliweLiczby) => {
+    const never1 = (liczby: mozliweLiczby) => {
       if (liczby === 1) {
         console.log("zrob cos");
       } else if (liczby === 2) {
         console.log("zrob cos");
       } else {
         // nigdy nie chcemy zeby ten blok sie wykonal. i tak jest bo poprzednie bloki pokrywaja wszystkie
-        // kombinacje tablicy. ale jakby w mozliwychLiczbach i tablicy byla liczba 3 to juz blok else by sie wykonal
+        // kombinacje tablicy. ale jakby w mozliwych iczbach i tablicy byla liczba 3 to juz blok else by sie wykonal
         // a TS zorientowalby sie ze do const bedzie cos dopisane i rzucilby bledem
         const never: never = liczby;
         console.log("nie rob nic");
       }
     };
-  }
-  //Klasy -----------------
-  //TODO
-  {
-    class Klasa {
-      // Klasy w TS sa takie jak w JS ale maja wiecej funkcji
-      pierwszaLiczba: number; // mozemy tworzyc properties bez dopisania od razu wartosci
-      private drugaLiczba: number = 15; // prywatny properties bedzie widoczny tylko w obrebie tej klasy
-      // i nie bedzie mozna go pobrac nigdzie indziej. bedzie ona widoczna jak np. wylogujemy instancje klasy
-      // ale nie bedzie sie jej dalo pobrac ani podmienic poza klasa
-      trzeciaLiczba?: number; // mozna robic opcjonalne propertisy
 
-      readonly czwartaliczba: number; // read only spowoduje ze wartosc bedzie mozna doisac tylko raz i nie bedzie
-      //dalo sie jej juz zmienic
-
-      constructor(v1: number, v2: number, v4: number) {
-        this.pierwszaLiczba = v1;
-        this.drugaLiczba = v2;
-        this.czwartaliczba = v4;
-      }
-
-      doSomething(pierwszaLiczba: number) {
-        console.log(pierwszaLiczba);
-      }
-
-      private doSomethingInClass() {
-        // prywatne moga byc tez funkcje
-        console.log("private");
-      }
+  const never2 = (liczby : mozliweLiczby) => {
+    if (liczby === 1){
+      console.log("zrob cos");
+    } else {
+      const never : never = liczby // rzuci bledem bo jest mozliwe ze const dostnie dopisanie 
     }
-
-    const instancjaKlasy = new Klasa(1, 3);
-    instancjaKlasy.doSomething(15);
   }
 }
-
