@@ -22,13 +22,26 @@
     }
     new Klasa2(1, 2, 3).pierwsza;
   }
+  //Opcjonane właściwości/funkcje
+  {
+    //własciwosci/funkcje moogą byc opcjonalne przez co mozna je ustawić lub nie
+    class Klasa {
+      v1?: string;
+      constructor(v1?: string) {
+        if (v1) this.v1 = v1;
+      }
+    }
+
+    new Klasa(); // brak błędu bo to opcjonalna wartosc. wlasciwosc po prostu nie powstanie
+    new Klasa("2");
+  }
 
   //Dostęp do właściwosci/funkcji
   {
     class Klasa3 {
       private druga: number; // prywatna wlasciwosc bedzie widoczna tylko w obrebie tej klasy i nie bedzie mozna go pobrac ani jej zmienic poza
       public trzecia: number; // wlasiwosci defaltowo sa publiczne jesli nie podamy ze sa prywatne. ale mozemy tez pisac od przedrostek public
-      readonly czwarta: number; // read only spowoduje ze wartosc bedzie mozna dopisac tylko w konstruktorze i nigdzie poza
+      readonly czwarta: number = 15; // read only spowoduje ze wartosc bedzie mozna dopisac tylko w konstruktorze i nigdzie poza
       // wartosc taka bedzie mogla byc pobierana poza klasa (o ile nie jest prywatna) ale zadne metody poza/w klasie nie beda mogly jej nadpisac.
       protected piata: number = 15; // protekted oznacza, że wlaśiwość bedzie dostępna dla klasy w ktorej jest i dla klas ktore z niej dziedzicza
       //ale nie bedzie dostepna poza nimi
