@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es2016" /* Określ wersję języka JS do jakiego ma byc skompilowany kod TS */,
+
+    "module": "commonjs" /* Określ, jaki kod modułowy jest generowany. */,
+
+    // "allowJs": true, /* Pozwól na uwzględnienie plików JavaScript w twoim programie. Użyj opcji 'checkJS', aby uzyskać błędy z tych plików. */,
+    // "checkJs": true, /* Włącz raportowanie błędów w plikach JavaScript sprawdzanych pod kątem typu */,
+
+    // ??  "declaration": true,                              /* Generuj pliki .d.ts z plików TypeScript i JavaScript w twoim projekcie. */
+    // ??  "declarationMap": true,                           /* Tworzenie map źródłowych dla plików .d.ts. */
+    // "sourceMap": true, /* Do debugowania. Stwórz pliki map do JS. Widzimy w tedy pliki .ts w przegladarece w source. */,
+    // "inlineSourceMap": true, /* Do debugowania. Dołącz pliki map wygenerowanego pliku JS. */,
+
+    // ?? "outFile": "./",                                  /* Określ plik, który łączy wszystkie wyjścia w jeden plik JavaScript. Jeśli 'declaration' jest true, wskazuje także plik, który łączy wszystkie wyjścia .d.ts. */
+
+    // "outDir": "./" /* Określ folder w kotrym maja sie pojawiac wygenerowane pliki JS. */,
+    // "rootDir": "./" /* Okresl z jakiego pliku maja byc pobierane pliki TS do konwersji na JS. */,
+
+    // "removeComments": true, /* Usun komentarze przy konwersji. */,
+
+    // "noEmit": true, /* Wyłącz generowanie plików JS w trakcie kompilacji. Sprawdzi tylko bledy, wydrukuje je w konsoli ale nie stworzy plikow S */,
+    // "noEmitOnError": true, /* Wylacz generowanie plików JS gdy sa jakies bledy */,
+
+    // ??   "esModuleInterop": true,                              /* Emituj dodatkowy kod JavaScript, aby ułatwić obsługę modułów CommonJS. To włącza 'allowSyntheticDefaultImports' w celu zapewnienia zgodności typów. */,
+    // ??   "forceConsistentCasingInFileNames": true,             /* Upewnij się, że wielkość liter jest poprawna w importach. */,
+
+    "strict": true /* Włącz wszystkie opcje rygorystycznego sprawdzania przez TS. */,
+    "noUnusedLocals": true /* Sprawdz czy zmienne sa uzywane */,
+    "noUnusedParameters": true /* Sprawdz czy parametry funkcji sa uzywane */,
+    "noImplicitReturns": true /* Sprawdz czy funkcja zawsze cos zwraca. Jesli funkcja bedzie czasem zwracac a czasem inie to rzuci blad. */
+  },
+  "exclude": ["node_modules", "tegoNieChce.ts"], // tu okreslamy pliki ktore chcemu pominac przy kompilacji. jesli tego nie bedzie to node modules jest docelowe
+  "include": ["toChce.ts"] // a tu okreslamy jakie chcemy. bez tego wezmie wszystkie
+}

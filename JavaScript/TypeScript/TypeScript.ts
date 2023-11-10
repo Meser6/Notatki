@@ -1,7 +1,15 @@
 //Typescript jest nadzbiorem JS. Nie jest on czytany przez srodowisko JS wiec musi byc konwertowany na JS
-//przed uruchomieniem. Aby przekonwertowac plikts na js uzyj komendy
-//tsc path_do_pliku.ts
 //bledy generowane w IDE po skonwertowaniu na js nie beda widoczne. ale nie jest zalecane ich olewanie
+
+//komendy
+{
+  // aby skonwertowac pliki TS do JS nalezy uzyć odpowiednich metod
+  //tsc path_do_pliku.ts - skonwertuje plik i stoworzy nowy JS
+  //tsc path_do_pliku.ts -w (lub -- watch) - skonwertuje plik di JS i bedzie to robil za kazdym razem jak beda w nim jakies zmiany
+  //tsc --init - zainicjuje projekt w TS i stworzy tsconfig.json z konfiguracja
+  //tsc -w - gdy mamy zainicjalizowany projekt mozemy wlaczyc tryb watch dla kazdego pliku
+  //tsc - bez flagi zkonwertuje nam  wsyzstkie ustawione w konfigu pliki do js
+}
 
 //dopisywanie typu
 {
