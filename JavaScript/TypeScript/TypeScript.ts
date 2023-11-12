@@ -38,25 +38,22 @@
   siedemLubOsiem = 7;
   siedemLubOsiem = 8;
   siedemLubOsiem = 9; // 9 nie mozemy przypisac bo zawezilismy tylko do 7 i 8
+}
+//wymuszanie zgodnosci
+{
+  //wymuszanie zgodnosci stowujemy wszedzie tam gdzie TS nie moze się domyślić z kodu co dotanie (np z HTMLA lub z API)
+  //ale my mamy pewność, że dostanie dokladnie to co chcemy
 
-  //Własne typy
-  type OgraniczoneTypy = "jeden" | "dwa" | 1 | 2; //mozemy tez tworzyc typy i dopisywac je do zmiennych/parametrow
-  //TypeScript nie domysli sie jednak ze jakas zmienna ma miec ten typ a nie ogolny i nie dopisze go automatycznie
+  const elmentLubNull = document.querySelector("input"); // TS nie wie czy w tym przyopadku dostanie element czy nulla (jesli elementu nie bedzie)
+  //dlatego element bedzie mial typ HTMLInputElement | null
+  elmentLubNull.value; // blad bo TS nie wie czy bedzie element czy null
 
-  const type1: OgraniczoneTypy = 1;
-  const type2: OgraniczoneTypy = "trzy"; //blad bo nie moze takiego przyjac
+  const elemnt = document.querySelector("fd")!; // Stosujac ! na koncu inforumujemy TS, że jestesmy 100% pewni, że w tym miejscu nie dostanie nulla
+  elemnt.value; // blad, nie pozwoli nam jednak pobrac wartosci poniewaz nie wie jaki dokladnie typ elementu zostanie zwrocony
 
-  type OgraniczoneTypy2 = string | { name: string }; //typy moga byc tez ogolne
+  //Mozemy jednak przekazac TS, ze jestesmy 100% pewni, ze to co dostaniemy jest typem który podamy
+  const elment2 = document.querySelector("input") as HTMLInputElement;
+  const elment3 = <HTMLInputElement>document.querySelector("input"); //alternatywny sposob
 
-  const type4: OgraniczoneTypy2 = { name: "bob" };
-  const type5: OgraniczoneTypy2 = "bob";
-  const type6: OgraniczoneTypy2 = true; //blad
-
-  function zwroci10() {
-    return 15 - 5;
-  }
-  const type7: OgraniczoneTypy = zwroci10(); // TS nie wie czy funkcja zwroci dokladnie to co zadeklarowane
-  // przez to bedzie sie wyswiwtlal blad. mozemy to naprawic w ten sposob:
-  const type8: OgraniczoneTypy = zwroci10() as OgraniczoneTypy; // tutaj mowimy ze funckja na pewno zwroci
-  //to co chcemy. jak zwroci cos innego to TS tego nie wylapie. stosowac tylko jak sie ma PEWNOSC
+  elment2.value; // brak bledu bo TS juz wie, że bedzie to Input, a inputy maja taka wlasciwosc
 }

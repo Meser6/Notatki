@@ -49,6 +49,13 @@
     }, //prawidlowe uzycie. zwroci 14
   };
 }
+{
+  //sprawdzanie własciwosci mozna zrobic na dwa sposob
+  // w obu przypadkach wydrkuje cos gdy obj ma wlasciwosc name
+  const obj = { name: "bob" };
+  if ("name" in obj) console.log(obj.name);
+  if (obj.name) console.log(obj.name);
+}
 //Zarzadzanie właściwościami
 {
   //POBIERANIE - aby dostac sie do parametrow danego obiektu nalezy go wywolac i dodac kropke

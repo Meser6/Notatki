@@ -94,6 +94,23 @@
     new Klasa41(1);
   }
 
+  //Sprawdzanie instancji
+  {
+    class Klasa1 {
+      name: "bob";
+    }
+
+    class Klasa2 {
+      surname: "boby";
+    }
+
+    function funkcja2(v1: Klasa1 | Klasa2) {
+      if (v1.name) console.log(v1.name); // błąd bo jak wyslemy cos z Klasy2 to nie bedzie tej wlasciwosci
+      //aby tegmu zapobiec trzeba najpierw sprawdzic, czy klasa ktora dostalismy jest instancja Klasy1
+      if (v1 instanceof Klasa1) console.log(v1.name);
+    }
+  }
+
   //Przeskakiwanie this
   {
     class Klasa5 {
