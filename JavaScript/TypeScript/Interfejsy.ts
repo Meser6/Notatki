@@ -2,7 +2,7 @@
 // Interfejs to swoisty wrzorzec dla obiektów który określa jakie mają mieć właściwości i metody
 // Od type rożni go to, że po pierwsze określa on tylko obiekty, a po drugie można go implementowac do klasy określając jej wlasciwosci
 // Od abstrakcyjnych klas różni się tym, ze zawiera on tylko i wyłacznie wzór na właściwości/fukcje a klasy abstrakcyjne moga mieć też
-// nieabstakcyjna logike którą wysyłaja do klasy dziedzyczącej.
+// nieabstakcyjna logike którą wysyłaja do klasy dziedziczącej.
 // Można rownież implementować wiele interfejsów na raz a nie tylko dziedziczyc z jednej klasy
 {
   // Implementacja do obiektu
@@ -12,7 +12,7 @@
   }
   const objekt1: WzorObiektu = {
     name: "bob",
-    surname: "xd", // blad bo interfejs nie ma tej wlasciwosci
+    surname: "xd", //blad// bo interfejs nie ma tej wlasciwosci
     calckAge: (age: number) => 2022 - age,
   };
 
@@ -61,14 +61,14 @@
   {
     // w interfejsach rowniez wystepuje wlasciwosc readonly. Przez nią dana właściwość będzie można ustawić tylko raz
     interface Wzor {
-      readonly bob: string; // wlasciwosc ta przejdzie tez na klase
+      readonly bob: string; // wlasciwosc ta przejdzie tez na klase/obiekt
     }
 
     const objekt2: Wzor = {
       bob: "a",
     };
 
-    objekt2.bob = "c"; // błąd bo nie mozna zmienić tej właścuiwości
+    objekt2.bob = "c"; //błąd// bo nie mozna zmienić tej właścuiwości
   }
   // Funkcje
   {
