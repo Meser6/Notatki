@@ -9,6 +9,7 @@
 `npx playwright test --ui` // odpali ui mode
 `npx playwright test --trace on` // wlaczy tryb trace. w raporcie beda snapshoty z kazdego stepu
 `npx playwright test --debug`; // wlaczy w trybie debugu
+` npx playwright codegen` // odpali tryb nagrywania testu
 
 // ---------- struktura testow ----------
 //jest ona bardzo podobna do tej z mocha aczkoowiek testy wywolywane sa przez interfejs playwrighta  - test
