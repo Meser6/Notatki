@@ -38,6 +38,7 @@ test("", async ({ page }) => {
   el.type("tekst"); // wpisze tekst do pola ale z lekkim opoznieniem (jak czlowiek)
   el.type("tekst", { delay: 500 }); // wpisze w podanych interwalach
   el.clear(); // wyczysci input
+  el.blur(); // wyjdzie z pola tekstowego
 });
 
 // ---------- checkboxy/radio ----------
@@ -46,6 +47,7 @@ test("", async ({ page }) => {
   el.uncheck(); // odznaczy
   el.check({ force: true }); // zaznaczy na sile
   el.isChecked(); // zwroci booleana czy jest zaznaczony
+  el.selectOption("druga"); // zaznaczy w <selekcie> <option> z value=druga
 });
 
 // ---------- ruchy myszka ----------

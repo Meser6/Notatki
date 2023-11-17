@@ -2,14 +2,14 @@ import { defineConfig, devices } from "@playwright/test";
 require("dotenv").config();
 
 export default defineConfig({
-  testDir: "./tests",
+  testDir: "./tests", // folder z testami
   reporter: "html",
   use: {
     baseURL: "http://wp.pl",
   },
   projects: [
     {
-      // projekt odpowiadajacy za stworzenie sesji z zalogowanym uzytkownikiem
+      // projekt odpowiadajacy za stworzenie sesji z zalog owanym uzytkownikiem
       name: "setup",
       testMatch: "login.setup.ts",
     },

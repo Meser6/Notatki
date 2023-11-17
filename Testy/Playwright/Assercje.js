@@ -3,21 +3,25 @@ import { expect } from "chai";
 // w playwright sa dwa typy assercji
 test("", async ({ page }) => {
   // --------- general ---------
-  //gdy sprawdzamy jakas wartosc
-  expect(5).toEqual(5);
-  //nie ma zadnych timeoutow
-  //w general nie trzeba stosowa awaitow bo nie ma tam zadnej obietnicy
-
+  {
+    //gdy sprawdzamy jakas wartosc
+    expect(5).toEqual(5);
+    //nie ma zadnych timeoutow
+    //w general nie trzeba stosowa awaitow bo nie ma tam zadnej obietnicy
+  }
   // --------- locator ---------
-  //gdy sprawdzamy jakis elemment strony
-  await expect(page.locator("css")).toHaveText("5");
-  //by defoult bedzie czekal 5sek na sukces
+  {
+    //gdy sprawdzamy jakis elemment strony
+    await expect(page.locator("css")).toHaveText("5");
+    //by defoult bedzie czekal 5sek na sukces
 
-  //kazda z nich ma wlasciwosc soft
-  // --------- soft ---------
-  //charakteryzuja sie one tym ze test bedzie kontynlowany nawet jak assercja zfailuje (sam test bedzie faild)
-  await expect.soft(page.locator("css")).toHaveText("5");
-  page.locator("css").click(); // to sie mimo wszystko wykona
+    //kazda z nich ma wlasciwosc soft
+    // --------- soft ---------
+    //charakteryzuja sie one tym ze test bedzie kontynlowany nawet jak assercja zfailuje (sam test bedzie faild)
+    await expect.soft(page.locator("css")).toHaveText("5");
+    page.locator("css").click(); // to sie mimo wszystko wykona
+    //gdy sprawdzamy jakas wartosc
+  }
 });
 
 test("", async ({ page }) => {
