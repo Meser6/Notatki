@@ -92,4 +92,8 @@ test("", async ({ page }) => {
   //screeny
   page.screenshot({ path: "path/image.png" }); // zrobi screena i zapisze do pliku
   //to samo mozna zrobic ale dla elementu a nie dla calej strony
+
+  page.waitForTimeout(1000); // poczeka okreslona liczbe msc
+
+  page.locator("selektor").locator(".."); // posob na pobranie rodzica elementu
 });

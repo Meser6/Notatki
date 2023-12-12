@@ -61,4 +61,9 @@
   const elment3 = <HTMLInputElement>document.querySelector("input"); //alternatywny sposob
 
   elment2.value; // brak bledu bo TS juz wie, że bedzie to Input, a inputy maja taka wlasciwosc
+
+  //wylaczanie bledu
+  //jesli chcemy wylaczyc blad ts mozemy uzyc odpowiedniego tagu. uzywac w ostatecznosci
+  //@ts-ignore
+  elmentLubNull.value; // linijka po tagu nie bedzie sprawdzana przez ts
 }

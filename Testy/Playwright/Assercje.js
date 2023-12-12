@@ -1,4 +1,4 @@
-import { expect } from "chai";
+import { expect } from "@playwright/test";
 
 // w playwright sa dwa typy assercji
 test("", async ({ page }) => {
@@ -21,6 +21,12 @@ test("", async ({ page }) => {
     await expect.soft(page.locator("css")).toHaveText("5");
     page.locator("css").click(); // to sie mimo wszystko wykona
     //gdy sprawdzamy jakas wartosc
+  }
+
+  //wiadomosci
+  {
+    //do kazedej assercji można dodać wiadomość która będzie się wyświetlała gdy assercja się nie powiedzie
+    expect(ture, "wartosc jest falsy").toBeThruly();
   }
 });
 
