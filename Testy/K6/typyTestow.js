@@ -55,7 +55,7 @@ const optionsSpike = {
 function Spike() {
   http.get("https://test.k6.io");
   sleep(1);
-}
+} 
 
 //! --------- Breakpoint testy ---------
 // Sprawdzaja jakie jest maksymalny poziom obciazenia jaki aplikacja jest w stanie wytrzymac
