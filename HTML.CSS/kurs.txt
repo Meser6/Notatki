@@ -1,8 +1,0 @@
-HTML            DONE
-CSS             TODO
-Layouts         TODO
-Web desing      TODO
-Components      TODO
-Project1        WATCH
-Project2        WATCH
-Project3        WATCH
